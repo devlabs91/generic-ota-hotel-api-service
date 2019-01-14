@@ -1,0 +1,24 @@
+{
+    "name": "devlabs91/generic-ota-hotel-api-service",
+    "description": "A Generic Hotel Api Service, based on the OpenTravel (2003B-1.0) specifications.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.1.16",
+        "ext-soap": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Devlabs91\\GenericOtaHotelApiService\\": "./src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Devlabs91\\GenericOtaHotelApiService\\Tests\\": "tests/src/"
+        }
+    },
+    "require-dev": {
+        "devlabs91/generic-hotel-api": "dev-master",
+        "phpunit/phpunit": "^5.6"
+    }
+}

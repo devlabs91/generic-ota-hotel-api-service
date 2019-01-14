@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ProviderGen"
+    targetNamespace="http://tempuri.org/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:ota="http://www.opentravel.org/OTA/2003/05" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+    xmlns:tns="http://tempuri.org/" 
+    xmlns:ws="http://tempuri.org/" 
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" 
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    >
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.opentravel.org/OTA/2003/05">
+      <xs:include schemaLocation="./OTA2003B/OTA_AirCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_AirPreferences.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_CommonPrefs.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_CommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_CruiseCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelContentDescription.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelPreferences.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelReservation.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailRS.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_PkgCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_Profile.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelResNotifRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelResNotifRS.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_SimpleTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_VehicleCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_VehRetResRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailNotifRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailNotifRS.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelRateAmountNotifRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2003B/OTA_HotelRateAmountNotifRS.xsd"/>
+    </xs:schema>
+
+    <xs:schema targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <xs:include schemaLocation="./oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    </xs:schema>
+
+    <xs:schema targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+      <xs:include schemaLocation="./oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    </xs:schema>
+
+  </wsdl:types>
+
+  <wsdl:message name="OTA_HotelResNotifRQMessage">
+    <wsdl:part element="wsse:Security" name="Security"/>
+    <wsdl:part element="ota:OTA_HotelResNotifRQ" name="OTA_HotelResNotifRQ"/>
+  </wsdl:message>
+
+  <wsdl:message name="OTA_HotelResNotifRSMessage">
+    <wsdl:part element="ota:OTA_HotelResNotifRS" name="OTA_HotelResNotifRS"/>
+  </wsdl:message>
+
+  <wsdl:message name="OTA_HotelAvailRQMessage">
+    <wsdl:part element="wsse:Security" name="Security"/>
+    <wsdl:part element="ota:OTA_HotelAvailRQ" name="OTA_HotelAvailRQ"/>
+  </wsdl:message>
+
+  <wsdl:message name="OTA_HotelAvailRSMessage">
+    <wsdl:part element="ota:OTA_HotelAvailRS" name="OTA_HotelAvailRS"/>
+  </wsdl:message>
+
+  <wsdl:message name="OTA_HotelAvailNotifRQMessage">
+    <wsdl:part element="wsse:Security" name="Security"/>
+    <wsdl:part element="ota:OTA_HotelAvailNotifRQ" name="OTA_HotelAvailNotifRQ"/>
+  </wsdl:message>
+
+  <wsdl:message name="OTA_HotelAvailNotifRSMessage">
+    <wsdl:part element="ota:OTA_HotelAvailNotifRS" name="OTA_HotelAvailNotifRS"/>
+  </wsdl:message>
+
+  <wsdl:message name="OTA_HotelRateAmountNotifRQMessage">
+    <wsdl:part element="wsse:Security" name="Security"/>
+    <wsdl:part element="ota:OTA_HotelRateAmountNotifRQ" name="OTA_HotelRateAmountNotifRQ"/>
+  </wsdl:message>
+
+  <wsdl:message name="OTA_HotelRateAmountNotifRSMessage">
+    <wsdl:part element="ota:OTA_HotelRateAmountNotifRS" name="OTA_HotelRateAmountNotifRS"/>
+  </wsdl:message>
+
+  <wsdl:portType name="ProviderGenService">
+
+    <wsdl:operation name="HotelResNotifRQ">
+      <wsdl:input message="tns:OTA_HotelResNotifRQMessage"/>
+      <wsdl:output message="tns:OTA_HotelResNotifRSMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="HotelAvailRQ">
+      <wsdl:input message="tns:OTA_HotelAvailRQMessage"/>
+      <wsdl:output message="tns:OTA_HotelAvailRSMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="HotelAvailNotifRQ">
+      <wsdl:input message="tns:OTA_HotelAvailNotifRQMessage"/>
+      <wsdl:output message="tns:OTA_HotelAvailNotifRSMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="HotelRateAmountNotifRQ">
+      <wsdl:input message="tns:OTA_HotelRateAmountNotifRQMessage"/>
+      <wsdl:output message="tns:OTA_HotelRateAmountNotifRSMessage"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+  <wsdl:binding name="BasicHttpBinding_IProviderGen" type="i0:IProviderGen">
+
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <wsdl:operation name="HotelResNotifRQ">
+      <soap:operation soapAction="HotelResNotifRQ"/>
+      <wsdl:input>
+        <soap:header message="tns:OTA_HotelResNotifRQMessage" part="Security" use="literal"/>
+        <soap:body parts="OTA_HotelResNotifRQ" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="OTA_HotelResNotifRS" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="HotelAvailRQ">
+      <soap:operation soapAction="HotelAvailRQ"/>
+      <wsdl:input>
+        <soap:header message="tns:OTA_HotelAvailRQMessage" part="Security" use="literal"/>
+        <soap:body parts="OTA_HotelAvailRQ" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="OTA_HotelAvailRS" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="HotelAvailNotifRQ">
+      <soap:operation soapAction="HotelAvailNotifRQ"/>
+      <wsdl:input>
+        <soap:header message="tns:OTA_HotelAvailNotifRQMessage" part="Security" use="literal"/>
+        <soap:body parts="OTA_HotelAvailNotifRQ" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="OTA_HotelAvailNotifRS" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="HotelRateAmountNotifRQ">
+      <soap:operation soapAction="HotelRateAmountNotifRQ"/>
+      <wsdl:input>
+        <soap:header message="tns:OTA_HotelRateAmountNotifRQMessage" part="Security" use="literal"/>
+        <soap:body parts="OTA_HotelRateAmountNotifRQ" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="OTA_HotelRateAmountNotifRS" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+  <wsdl:service name="ProviderGen">
+    <wsdl:port name="BasicHttpBinding_IProviderGen"
+        binding="tns:BasicHttpBinding_IProviderGen">
+      <soap:address 
+        location="http://tempuri.org/Service/Hotel/Provider/ProviderGen.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>
