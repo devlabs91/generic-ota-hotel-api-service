@@ -2,9 +2,9 @@
 
 namespace Devlabs91\GenericOtaHotelApiService\Tests\PHPUnit;
 
-use Devlabs91\GenericOtaHotelApiService\ServiceType\Hotel;
+use Devlabs91\GenericOtaHotelApiService\ServiceType\Hello;
 
-class HotelSoapClient extends Hotel
+class HelloSoapClient extends Hello
 {
     
     public function getSoapClientClassName($soapClientClassName = null)
