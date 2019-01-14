@@ -13,6 +13,15 @@ Functiallity focused on :
 Generation
 ==========
 
+Inital generation for base classes :
+
+    wsdltophp generate:package \
+            --urlorpath="./generic-ota-hotel-api-service/src/Schemas/index.wsdl" \
+            --destination="./GenericOtaHotelApiService" \
+            --composer-name="devlabs91/generic-ota-hotel-api-service" \
+            --force \
+            --namespace="Devlabs91\GenericOtaHotelApiService"
+
 Issues
 ------
 

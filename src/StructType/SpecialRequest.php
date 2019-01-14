@@ -1,0 +1,108 @@
+<?php
+
+namespace Devlabs91\GenericOtaHotelApiService\StructType;
+
+use \WsdlToPhp\PackageBase\AbstractStructBase;
+
+/**
+ * This class stands for SpecialRequest StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: The SpecialRequest object indicates special requests for a particular guest, service or reservation. Each of these may be independent of any that are tied to the profile (see Profile Synchronization standard).
+ * @subpackage Structs
+ */
+class SpecialRequest extends ParagraphType
+{
+    /**
+     * The RequestCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This identifies a special request for this reservation and is typically hotel-specific.
+     * - use: optional
+     * @var string
+     */
+    public $RequestCode;
+    /**
+     * The CodeContext
+     * Meta informations extracted from the WSDL
+     * - documentation: Identifies the source authority for the RequestCode.
+     * - use: optional
+     * @var string
+     */
+    public $CodeContext;
+    /**
+     * Constructor method for SpecialRequest
+     * @uses SpecialRequest::setRequestCode()
+     * @uses SpecialRequest::setCodeContext()
+     * @param string $requestCode
+     * @param string $codeContext
+     */
+    public function __construct($requestCode = null, $codeContext = null)
+    {
+        $this
+            ->setRequestCode($requestCode)
+            ->setCodeContext($codeContext);
+    }
+    /**
+     * Get RequestCode value
+     * @return string|null
+     */
+    public function getRequestCode()
+    {
+        return $this->RequestCode;
+    }
+    /**
+     * Set RequestCode value
+     * @param string $requestCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRequest
+     */
+    public function setRequestCode($requestCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($requestCode) && !is_string($requestCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($requestCode)), __LINE__);
+        }
+        $this->RequestCode = $requestCode;
+        return $this;
+    }
+    /**
+     * Get CodeContext value
+     * @return string|null
+     */
+    public function getCodeContext()
+    {
+        return $this->CodeContext;
+    }
+    /**
+     * Set CodeContext value
+     * @param string $codeContext
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRequest
+     */
+    public function setCodeContext($codeContext = null)
+    {
+        // validation for constraint: string
+        if (!is_null($codeContext) && !is_string($codeContext)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($codeContext)), __LINE__);
+        }
+        $this->CodeContext = $codeContext;
+        return $this;
+    }
+    /**
+     * Method called when an object has been exported with var_export() functions
+     * It allows to return an object instantiated with the values
+     * @see AbstractStructBase::__set_state()
+     * @uses AbstractStructBase::__set_state()
+     * @param array $array the exported values
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRequest
+     */
+    public static function __set_state(array $array)
+    {
+        return parent::__set_state($array);
+    }
+    /**
+     * Method returning the class name
+     * @return string __CLASS__
+     */
+    public function __toString()
+    {
+        return __CLASS__;
+    }
+}

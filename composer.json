@@ -5,7 +5,8 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.1.16",
-        "ext-soap": "*"
+        "ext-soap": "*",
+        "wsdltophp/packagebase": "^2.0"
     },
     "autoload": {
         "psr-4": {
