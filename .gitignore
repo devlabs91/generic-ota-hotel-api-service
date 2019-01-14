@@ -1,4 +1,10 @@
 /.buildpath
 /.project
 /.settings/*
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
 /vendor/*
+/.web-server-pid

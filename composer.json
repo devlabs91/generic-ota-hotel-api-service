@@ -20,6 +20,11 @@
     },
     "require-dev": {
         "devlabs91/generic-hotel-api": "dev-master",
-        "phpunit/phpunit": "^5.6"
+        "phpunit/phpunit": "^5.6",
+        "symfony/web-server-bundle": "^4.2",
+        "symfony/console": "^4.2",
+        "symfony/http-kernel": "^4.2",
+        "symfony/framework-bundle": "^4.2",
+        "symfony/dotenv": "^4.2"
     }
 }

@@ -1,0 +1,12 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+service:
+    path: /service
+    controller: Devlabs91\GenericOtaHotelApiService\Controller\ServiceController::service
+
+service_hotel:
+    path: /service/hotel
+    controller: Devlabs91\GenericOtaHotelApiService\Controller\ServiceController::serviceHotel
+    
