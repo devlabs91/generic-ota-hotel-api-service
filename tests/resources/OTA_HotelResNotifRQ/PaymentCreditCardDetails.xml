@@ -1,0 +1,74 @@
+<OTA_HotelResNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" EchoToken="echo-abc123" ResStatus="Commit" TimeStamp="2012-03-09T21:32:52+02:00">
+  <POS>
+    <Source>
+      <RequestorID Type="22" ID="BA1"/>
+    </Source>
+  </POS>
+  <HotelReservations>
+    <HotelReservation CreateDateTime="2012-03-09T21:31:52+02:00">
+      <UniqueID Type="14" ID="3741"/>
+      <RoomStays>
+        <RoomStay>
+          <RoomTypes>
+            <RoomType RoomTypeCode="ROOM1">
+              <RoomDescription Name="Standard Room"/>
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanCode="RATE1">
+              <RatePlanDescription>Breakfast rate</RatePlanDescription>
+            </RatePlan>
+          </RatePlans>
+          <RoomRates>
+            <RoomRate RoomTypeCode="ROOM1" RatePlanCode="RATE1" NumberOfUnits="1">
+              <Rates>
+                <Rate UnitMultiplier="1" RateTimeUnit="Day" EffectiveDate="2012-03-12" ExpireDate="2012-03-15">
+                  <Total AmountAfterTax="900.00" CurrencyCode="AUD"/>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts IsPerRoom="1">
+            <GuestCount AgeQualifyingCode="10" Count="2"/>
+          </GuestCounts>
+          <TimeSpan End="2012-03-15" Start="2012-03-12"/>
+          <Total AmountAfterTax="900.00" CurrencyCode="AUD"/>
+          <BasicPropertyInfo HotelCode="HTL1" HotelName="The Beach Side Hotel" />
+          <ResGuestRPHs>
+            <ResGuestRPH RPH="1"/>
+          </ResGuestRPHs>
+        </RoomStay>
+      </RoomStays>
+      <ResGuests>
+        <ResGuest ResGuestRPH="1" ArrivalTime="14:00:00" PrimaryIndicator="1">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <GivenName>John</GivenName>
+                    <Surname>Smith</Surname>
+                  </PersonName>
+                  <Telephone PhoneNumber="44-69-66564100"/>
+                  <Email>test@siteminder.com.au</Email>
+                </Customer>
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+      </ResGuests>
+      <ResGlobalInfo>
+        <Total CurrencyCode="AUD" AmountAfterTax="900.00"/>
+        <Guarantee>
+          <GuaranteesAccepted>
+            <GuaranteeAccepted>
+              <PaymentCard CardNumber="4321432143214327" CardType="1" ExpireDate="0614" SeriesCode="123" CardCode="VI">
+                <CardHolderName>James Bond</CardHolderName>
+              </PaymentCard>
+            </GuaranteeAccepted>
+          </GuaranteesAccepted>
+        </Guarantee>
+      </ResGlobalInfo>
+    </HotelReservation>
+  </HotelReservations>
+</OTA_HotelResNotifRQ>

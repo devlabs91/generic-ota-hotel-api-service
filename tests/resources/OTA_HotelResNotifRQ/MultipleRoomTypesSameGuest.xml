@@ -1,0 +1,110 @@
+<OTA_HotelResNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" EchoToken="echo-abc123" ResStatus="Commit" TimeStamp="2012-03-09T21:32:52+02:00">
+  <POS>
+    <Source>
+      <RequestorID Type="22" ID="BA1"/>
+      <BookingChannel Primary="true">
+        <CompanyName Code="UA">Galileo GDS</CompanyName>
+      </BookingChannel>
+    </Source>
+  </POS>
+  <HotelReservations>
+    <HotelReservation CreateDateTime="2012-03-09T21:31:52+02:00">
+      <UniqueID Type="14" ID="3742"/>
+      <RoomStays>
+        <RoomStay>
+          <RoomTypes>
+            <RoomType RoomTypeCode="ROOM1">
+              <RoomDescription Name="Standard Double Room"/>
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanCode="RATE1">
+              <RatePlanDescription>Breakfast rate</RatePlanDescription>
+            </RatePlan>
+          </RatePlans>
+          <RoomRates>
+            <RoomRate RoomTypeCode="ROOM1" RatePlanCode="RATE1" NumberOfUnits="1">
+              <Rates>
+                <Rate UnitMultiplier="1" RateTimeUnit="Day" EffectiveDate="2012-03-12" ExpireDate="2012-03-16">
+                  <Total AmountAfterTax="900.00" CurrencyCode="EUR"/>
+                </Rate>
+                <Rate UnitMultiplier="1" RateTimeUnit="Day" EffectiveDate="2012-03-15" ExpireDate="2012-03-18">
+                  <Total AmountAfterTax="500.00" CurrencyCode="EUR"/>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts IsPerRoom="1">
+            <GuestCount AgeQualifyingCode="10" Count="1"/>
+          </GuestCounts>
+          <TimeSpan End="2012-03-17" Start="2012-03-12"/>
+          <Total AmountAfterTax="1400.00" CurrencyCode="EUR"/>
+          <BasicPropertyInfo HotelCode="HOTEL1"/>
+          <ResGuestRPHs>
+            <ResGuestRPH RPH="1"/>
+          </ResGuestRPHs>
+        </RoomStay>
+        <RoomStay>
+          <RoomTypes>
+            <RoomType RoomTypeCode="ROOM2">
+              <RoomDescription Name="Standard Twin Room"/>
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanCode="RATE1">
+              <RatePlanDescription>Breakfast rate</RatePlanDescription>
+            </RatePlan>
+          </RatePlans>
+          <RoomRates>
+            <RoomRate RoomTypeCode="ROOM2" RatePlanCode="RATE1" NumberOfUnits="1">
+              <Rates>
+                <Rate UnitMultiplier="1" RateTimeUnit="Day" EffectiveDate="2012-03-17" ExpireDate="2012-03-18">
+                  <Total AmountAfterTax="300.00" CurrencyCode="EUR"/>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts IsPerRoom="1">
+            <GuestCount AgeQualifyingCode="10" Count="1"/>
+          </GuestCounts>
+          <TimeSpan End="2012-03-18" Start="2012-03-17"/>
+          <Total AmountAfterTax="300.00" CurrencyCode="EUR"/>
+          <BasicPropertyInfo HotelCode="HOTEL1"/>
+          <ResGuestRPHs>
+            <ResGuestRPH RPH="1"/>
+          </ResGuestRPHs>
+        </RoomStay>
+      </RoomStays>
+      <ResGuests>
+        <ResGuest ResGuestRPH="1" ArrivalTime="14:00:00" PrimaryIndicator="1">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <NamePrefix>Mr</NamePrefix>
+                    <GivenName>John</GivenName>
+                    <Surname>Smith</Surname>
+                  </PersonName>
+                  <Telephone PhoneNumber="44-69-66564100"/>
+                  <Email>test@siteminder.com.au</Email>
+                  <Address>
+                    <AddressLine>George St</AddressLine>
+                    <AddressLine>CBD</AddressLine>
+                    <CityName>Sydney</CityName>
+                    <PostalCode>2000</PostalCode>
+                    <StateProv>NSW</StateProv>
+                    <CountryName>Australia</CountryName>
+                  </Address>
+                </Customer>
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+      </ResGuests>
+      <ResGlobalInfo>
+        <Total CurrencyCode="EUR" AmountAfterTax="1700.00"/>
+      </ResGlobalInfo>
+    </HotelReservation>
+  </HotelReservations>
+</OTA_HotelResNotifRQ>

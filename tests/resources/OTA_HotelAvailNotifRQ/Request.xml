@@ -1,0 +1,8 @@
+<OTA_HotelAvailNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" TimeStamp="2005-08-01T09:30:47+08:00" EchoToken="abc123">
+  <AvailStatusMessages HotelCode="HOTEL">
+    <AvailStatusMessage BookingLimit="10">
+      <StatusApplicationControl Start="2012-01-01" End="2012-01-01" InvTypeCode="A1K" RatePlanCode="GLD"/>
+      <RestrictionStatus Status="Close" />
+    </AvailStatusMessage>
+  </AvailStatusMessages>
+</OTA_HotelAvailNotifRQ>

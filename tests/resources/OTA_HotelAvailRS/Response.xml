@@ -1,0 +1,53 @@
+<OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" TimeStamp="2005-08-01T09:30:47+02:00" EchoToken="abc123">
+  <Success/>
+  <RoomStays>
+    <RoomStay>
+      <RoomTypes>
+        <RoomType RoomTypeCode="SGL">
+          <RoomDescription Name="Single Room"/>
+        </RoomType>
+      </RoomTypes>
+      <RatePlans>
+        <RatePlan RatePlanCode="BAR">
+          <RatePlanDescription Name="Best Available Rate"/>
+        </RatePlan>
+      </RatePlans>
+    </RoomStay>
+    <RoomStay>
+      <RoomTypes>
+        <RoomType RoomTypeCode="SGL">
+          <RoomDescription Name="Single Room"/>
+        </RoomType>
+      </RoomTypes>
+      <RatePlans>
+        <RatePlan RatePlanCode="LTS">
+          <RatePlanDescription Name="Long Term Stay"/>
+        </RatePlan>
+      </RatePlans>
+    </RoomStay>
+    <RoomStay>
+      <RoomTypes>
+        <RoomType RoomTypeCode="DBX">
+          <RoomDescription Name="Deluxe Double Room"/>
+        </RoomType>
+      </RoomTypes>
+      <RatePlans>
+        <RatePlan RatePlanCode="BAR">
+          <RatePlanDescription Name="Best Available Rate"/>
+        </RatePlan>
+      </RatePlans>
+    </RoomStay>
+    <RoomStay>
+      <RoomTypes>
+        <RoomType RoomTypeCode="DBL">
+          <RoomDescription Name="Standard Double Room"/>
+        </RoomType>
+      </RoomTypes>
+      <RatePlans>
+        <RatePlan RatePlanCode="BAR">
+          <RatePlanDescription Name="Best Available Rate"/>
+        </RatePlan>
+      </RatePlans>
+    </RoomStay>
+  </RoomStays>
+</OTA_HotelAvailRS>

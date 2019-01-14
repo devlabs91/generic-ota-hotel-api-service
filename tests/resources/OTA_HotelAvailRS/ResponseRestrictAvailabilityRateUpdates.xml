@@ -1,0 +1,25 @@
+<OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" TimeStamp="2005-08-01T09:30:47+02:00" EchoToken="abc123">
+  <Success/>
+  <RoomStays>
+    <RoomStay>
+      <RoomTypes>
+        <RoomType RoomTypeCode="SGL">
+          <RoomDescription Name="Single Room">
+            <Text>Bedding is Queen sized bed. Continental breakfast for each guest.</Text>
+          </RoomDescription>
+        </RoomType>
+      </RoomTypes>
+      <RatePlans>
+        <RatePlan RatePlanCode="LTS">
+          <RatePlanDescription Name="Long Term Stay">
+            <Text>Special offer for 3 nights stay, pay only for 2!  Rates include breakfast.</Text>
+          </RatePlanDescription>
+          <AdditionalDetails>
+               <AdditionalDetail Code="NO_RATES"/>
+               <AdditionalDetail Code="NO_AVAILABILITY"/>
+          </AdditionalDetails>
+        </RatePlan>
+      </RatePlans>
+    </RoomStay>
+  </RoomStays>
+</OTA_HotelAvailRS>

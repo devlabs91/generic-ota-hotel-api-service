@@ -1,0 +1,13 @@
+<OTA_HotelResNotifRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" TimeStamp="2005-08-01T09:30:47+02:00" EchoToken="a879791878">
+  <Success/>
+  <HotelReservations>
+    <HotelReservation>
+      <UniqueID Type="14" ID="3741"/>
+      <ResGlobalInfo>
+        <HotelReservationIDs>
+          <HotelReservationID ResID_Type="14" ResID_Value="YourResConfirmationCode3741"/>
+        </HotelReservationIDs>
+      </ResGlobalInfo>
+    </HotelReservation>
+  </HotelReservations>
+</OTA_HotelResNotifRS>

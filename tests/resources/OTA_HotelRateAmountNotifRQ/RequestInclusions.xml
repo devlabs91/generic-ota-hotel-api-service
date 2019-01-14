@@ -1,0 +1,17 @@
+<OTA_HotelRateAmountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" TimeStamp="2005-08-01T09:30:47+08:00" Version="1.0" EchoToken="abc123">
+  <RateAmountMessages HotelCode="HOTEL">
+    <RateAmountMessage>
+      <StatusApplicationControl InvTypeCode="A1K" RatePlanCode="BAR" Start="2010-01-01" End="2010-01-01"/>
+      <Rates>
+        <Rate>
+          <BaseByGuestAmts>
+            <BaseByGuestAmt AgeQualifyingCode="10" AmountAfterTax="123.00"/>
+          </BaseByGuestAmts>
+          <RateDescription>
+            <Text>Buffet Breakfast and ticket to Museum</Text>
+          </RateDescription>
+        </Rate>
+      </Rates>
+    </RateAmountMessage>
+  </RateAmountMessages>
+</OTA_HotelRateAmountNotifRQ>

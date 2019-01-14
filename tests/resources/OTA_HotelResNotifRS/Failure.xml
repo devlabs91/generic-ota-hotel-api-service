@@ -1,0 +1,5 @@
+<OTA_HotelResNotifRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" TimeStamp="2005-08-01T09:30:47+02:00" EchoToken="a879791878">
+  <Errors>
+    <Error Type="3" Code="402">Cannot find hotelier HOTEL1</Error>
+  </Errors>
+</OTA_HotelResNotifRS>

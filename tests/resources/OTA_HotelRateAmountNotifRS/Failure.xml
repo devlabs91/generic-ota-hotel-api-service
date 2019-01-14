@@ -1,0 +1,5 @@
+<OTA_HotelRateAmountNotifRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0" TimeStamp="2005-08-01T09:30:47+08:00" EchoToken="abc123">
+  <Errors>
+    <Error Type="3" Code="402">Cannot find room with code RC1</Error>
+  </Errors>
+</OTA_HotelRateAmountNotifRS>
