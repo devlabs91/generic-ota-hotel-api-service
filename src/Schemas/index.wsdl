@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ProviderGen"
-    targetNamespace="http://tempuri.org/"
+<wsdl:definitions 
     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
     xmlns:ota="http://www.opentravel.org/OTA/2003/05" 
     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
-    xmlns:tns="http://tempuri.org/" 
-    xmlns:ws="http://tempuri.org/" 
+    xmlns:tns="https://providergen.com:443/providergen" 
+    xmlns:ws="https://providergen.com:443/providergen" 
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" 
     xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    >
+    targetNamespace="https://providergen.com:443/providergen">
+
   <wsdl:types>
+
     <xs:schema targetNamespace="http://www.opentravel.org/OTA/2003/05">
       <xs:include schemaLocation="./OTA2003B/OTA_AirCommonTypes.xsd"/>
       <xs:include schemaLocation="./OTA2003B/OTA_AirPreferences.xsd"/>
@@ -108,7 +109,7 @@
 
   </wsdl:portType>
 
-  <wsdl:binding name="BasicHttpBinding_IProviderGen" type="i0:IProviderGen">
+  <wsdl:binding name="ProviderGenServiceSoap11" type="tns:ProviderGenService">
 
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
@@ -158,11 +159,9 @@
 
   </wsdl:binding>
 
-  <wsdl:service name="ProviderGen">
-    <wsdl:port name="BasicHttpBinding_IProviderGen"
-        binding="tns:BasicHttpBinding_IProviderGen">
-      <soap:address 
-        location="http://tempuri.org/Service/Hotel/Provider/ProviderGen.svc"/>
+  <wsdl:service name="ProviderGenService">
+    <wsdl:port binding="tns:ProviderGenServiceSoap11" name="ProviderGenServicePort">
+      <soap:address location="https://providergen.com:443/providergen/services"/>
     </wsdl:port>
   </wsdl:service>
 
