@@ -10,6 +10,26 @@ Functiallity focused on :
     HotelRateAmountNotif
     HotelResNotif
 
+Hello Service [SOAP Web Service](https://symfony.com/doc/current/controller/soap_web_service.html).
+
+    Schemas/hello.wsdl
+    Service/HelloService.php
+    ServiceType/Hello.php
+    HelloClassMap.php
+    
+    HelloServiceTest.php
+    HelloSoapClient.php
+
+    resources/hello_request.xml
+
+Symfony Framework Installation
+
+    https://symfony.com/doc/current/setup.html
+    
+    composer create-project symfony/skeleton my-project
+    cd my-project
+    composer require symfony/web-server-bundle --dev
+
 Generation
 ==========
 
