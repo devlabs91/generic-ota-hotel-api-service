@@ -34,15 +34,9 @@ Testing
 
 Tests are using mockup responses located in tests/resources/
 
-For additional testing using the real soap client, you will need to update your credentials in ./phpunit.xml
+Start server by command 
 
-    <php>
-        <const name="PHPUNIT_TG_USERNAME" value="" />
-        <const name="PHPUNIT_TG_PASSWORD" value="" />
-        <const name="PHPUNIT_TG_CLIENT_CODE" value="" />
-        <const name="PHPUNIT_TG_REQUESTOR_ID" value="" />
-        <const name="PHPUNIT_TG_HOTEL_CODE" value="" />
-    </php>
+    ./bin/console server:start
 
 then run
     
@@ -50,4 +44,4 @@ then run
     
 or run for individual files
 
-    ./vendor/bin/phpunit tests/src/PHPUnit/HotelRatePlanInventoryRetrieveTest.php
+    ./vendor/bin/phpunit tests/src/PHPUnit/HelloService.php
