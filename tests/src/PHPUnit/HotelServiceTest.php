@@ -11,7 +11,7 @@ class HotelServiceTest extends \PHPUnit_Framework_TestCase
 
     public function testHotelService() {
 
-        $mockRequest = file_get_contents(__DIR__ . '/../../resources/OTA_HotelResNotifRQ/OTA_HotelResNotifRQ.xml');
+        $mockRequest = file_get_contents(__DIR__ . '/../../resources/OTA_HotelResNotifRQ/Reservation.xml');
         
         $class = new HotelSoapClient( $this->getOptions() );
         $class->getSoapClient()->setMockRequest($mockRequest);
