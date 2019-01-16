@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for MealPlans StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of MealPlan elements
+ * - documentation: A collection of MealPlan elements | A collection of MealPlan elements
  * @subpackage Structs
  */
 class MealPlans extends AbstractStructBase
@@ -15,7 +15,8 @@ class MealPlans extends AbstractStructBase
     /**
      * The MealPlan
      * Meta informations extracted from the WSDL
-     * - maxOccurs: unbounded
+     * - documentation: Details of meal arrangements, booked or available according to context, with appropriate supplementary charges. | Details of meal arrangements, booked or available according to context, with appropriate supplementary charges.
+     * - maxOccurs: 9
      * @var mixed[]
      */
     public $MealPlan;

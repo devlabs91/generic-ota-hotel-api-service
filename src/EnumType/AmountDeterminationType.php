@@ -5,7 +5,7 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for AmountDeterminationType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: Used to indicate if an amount is inclusive or exclusive of other charges, such as taxes, or is cumulative (amounts have been added to each other
+ * - documentation: Used to indicate if an amount is inclusive or exclusive of other charges, such as taxes, or is cumulative (amounts have been added to each other).
  * @subpackage Enumerations
  */
 class AmountDeterminationType

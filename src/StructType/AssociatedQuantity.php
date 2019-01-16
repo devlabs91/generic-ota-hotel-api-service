@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AssociatedQuantity StructType
  * Meta informations extracted from the WSDL
- * - documentation: Quantity or Quantities that are associated with the reservation (e.g. number of seats, number of rooms, number of people, etc.).
+ * - documentation: Quantity or quantities that are associated with the reservation (e.g., number of seats, number of rooms, number of people). | Used to specify a quantity of an item as defined by the code.
  * @subpackage Structs
  */
 class AssociatedQuantity extends AbstractStructBase

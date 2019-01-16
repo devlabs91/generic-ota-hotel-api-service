@@ -47,7 +47,7 @@ class Membership extends AbstractStructBase
     /**
      * The TravelSector
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the travel sector. Refer to OTA Code List Travel Sector (TVS).
+     * - documentation: Identifies the travel sector. Refer to OpenTravel Code List Travel Sector (TVS).
      * - use: optional
      * @var string
      */

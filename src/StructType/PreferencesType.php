@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PreferencesType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Needs of the traveler related to travel experiences.
+ * - documentation: Needs of the traveler related to travel experiences. | Allows for control of the sharing of data between parties.
  * @subpackage Structs
  */
 class PreferencesType extends AbstractStructBase

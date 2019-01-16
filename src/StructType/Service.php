@@ -7,13 +7,46 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Service StructType
  * Meta informations extracted from the WSDL
- * - documentation: A hotel service or amenity available to the guest such as a business center, concierge, valet parking, massage, newspapers, etc. | May be used to give further detail on the code or to remove an obsolete item. This may be used to
- * provide further information for either Code or BusinessServiceCode (e.g. if printer is selected, the code detail may be used to describe the type of printer available) as determined by the implementer. | A Service object represents a non-room product
- * provided to guests. Service products may have associated inventory and charges.
+ * - documentation: Identifies services of interest. | Identifies services of interest. | A hotel service or amenity available to the guest such as a business center, concierge, valet parking, massage, newspapers, etc. | May be used to give further
+ * detail on the code or to remove an obsolete item. This may be used to provide further information for either Code or BusinessServiceCode (e.g. if printer is selected, the code detail may be used to describe the type of printer available) as
+ * determined by the implementer. | A unique identifying value assigned by the creating system. The ID attribute may be used to reference a primary-key value within a database or in a particular implementation.
  * @subpackage Structs
  */
 class Service extends AbstractStructBase
 {
+    /**
+     * The BusinessServiceCode
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to identify a specific business service. Refer to OpenTravel Code list Business Srvc Type (BUS). | Used to identify a specific business service. Refer to OpenTravel Code list Business Srvc Type (BUS). | Refer to OpenTravel Code
+     * List Business Srvc Type (BUS).
+     * - use: optional
+     * @var string
+     */
+    public $BusinessServiceCode;
+    /**
+     * The ServiceInventoryCode
+     * Meta informations extracted from the WSDL
+     * - documentation: The representation of the specific service being reserved.
+     * - use: optional
+     * @var string
+     */
+    public $ServiceInventoryCode;
+    /**
+     * The Quantity
+     * Meta informations extracted from the WSDL
+     * - documentation: The number of services (e.g., tickets, rounds of golf). | Denotes the total number of service items identified by the Code attribute.
+     * - use: optional
+     * @var string
+     */
+    public $Quantity;
+    /**
+     * The Contact
+     * Meta informations extracted from the WSDL
+     * - documentation: Contact information pertaining to a service.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $Contact;
     /**
      * The RelativePosition
      * Meta informations extracted from the WSDL
@@ -25,19 +58,19 @@ class Service extends AbstractStructBase
     /**
      * The OperationSchedules
      * Meta informations extracted from the WSDL
+     * - documentation: Collection of days, times, and fees.
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules
+     * @var mixed
      */
     public $OperationSchedules;
     /**
-     * The Description
+     * The MultimediaDescriptions
      * Meta informations extracted from the WSDL
-     * - documentation: A text description to explain additional descriptive information.
-     * - maxOccurs: 5
+     * - documentation: Multimedia information about the service.
      * - minOccurs: 0
-     * @var mixed[]
+     * @var mixed
      */
-    public $Description;
+    public $MultimediaDescriptions;
     /**
      * The Features
      * Meta informations extracted from the WSDL
@@ -46,6 +79,14 @@ class Service extends AbstractStructBase
      * @var mixed
      */
     public $Features;
+    /**
+     * The DescriptiveText
+     * Meta informations extracted from the WSDL
+     * - documentation: Descriptive text that describes the service.
+     * - minOccurs: 0
+     * @var string
+     */
+    public $DescriptiveText;
     /**
      * The Included
      * Meta informations extracted from the WSDL
@@ -57,19 +98,19 @@ class Service extends AbstractStructBase
     /**
      * The Code
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Hotel Amenity Code (HAC).
+     * - documentation: Refer to OpenTravel Code List Hotel Amenity Code (HAC).
      * - use: optional
      * @var string
      */
     public $Code;
     /**
-     * The BusinessServiceCode
+     * The ExistsCode
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Business Srvc Type (BUS).
+     * - documentation: This attribute is used to explicitly define whether an amenity or service is offered. Refer to OpenTravel Code list Option Type Code (OTC). This is used in conjunction with either Code or BusinessServiceCode.
      * - use: optional
      * @var string
      */
-    public $BusinessServiceCode;
+    public $ExistsCode;
     /**
      * The AvailableToAnyGuest
      * Meta informations extracted from the WSDL
@@ -87,169 +128,183 @@ class Service extends AbstractStructBase
      */
     public $InvCode;
     /**
-     * The Price
+     * The ProximityCode
      * Meta informations extracted from the WSDL
-     * - documentation: The selling price of this Service.
-     * - minOccurs: 0
-     * @var mixed
-     */
-    public $Price;
-    /**
-     * The ServiceDetails
-     * Meta informations extracted from the WSDL
-     * - documentation: Details on the Service including Guest Counts, Time Span of this Service, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Service and finally financial information related to the
-     * Service, including Guarantee, Deposit and Payment and Cancellation Penalties.
-     * - minOccurs: 0
-     * @var mixed
-     */
-    public $ServiceDetails;
-    /**
-     * The TPA_Extensions
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
-     * - ref: TPA_Extensions
-     * @var mixed
-     */
-    public $TPA_Extensions;
-    /**
-     * The ServicePricingType
-     * Meta informations extracted from the WSDL
-     * - documentation: An enumerated type that defines how a service is priced. Values: Per stay, Per person, Per night, Per person per night, Per use.
+     * - documentation: Denotes whether a service is onsite, offsite or information is not available. Refer to OpenTravel Code Table Proximity (PRX).
      * - use: optional
      * @var string
      */
-    public $ServicePricingType;
+    public $ProximityCode;
     /**
-     * The ReservationStatusType
+     * The MealPlanCode
      * Meta informations extracted from the WSDL
+     * - documentation: This describes available meal plans for a property. Refer to OpenTravel Code Table Meal Plan Type (MPT).
      * - use: optional
      * @var string
      */
-    public $ReservationStatusType;
+    public $MealPlanCode;
     /**
-     * The ServiceRPH
+     * The Sort
      * Meta informations extracted from the WSDL
+     * - documentation: Used to define the display order.
+     * - use: optional
+     * @var int
+     */
+    public $Sort;
+    /**
+     * The MeetingRoomCode
+     * Meta informations extracted from the WSDL
+     * - documentation: At this level, MeetingRoomCode is intended for meeting/business services when high level data is being sent that requires operation schedule information and/or contact information. Refer to OpenTravel Codelist Meeting Room Code
+     * (MRC). OpenTravel Codelist MRC is also used in FacilityInfo/MeetingRooms/Codes/Code for the instance when an amenity or service applies to all meeting rooms and in FacilityInfo/MeetingRooms/MeetingRoom/Codes/Code for the instance when an amenity or
+     * service applies to a specific meeting room.
      * - use: optional
      * @var string
      */
-    public $ServiceRPH;
-    /**
-     * The ServiceInventoryCode
-     * Meta informations extracted from the WSDL
-     * - documentation: The representation of the specific service being reserved.
-     * - use: optional
-     * @var string
-     */
-    public $ServiceInventoryCode;
-    /**
-     * The RatePlanCode
-     * Meta informations extracted from the WSDL
-     * - documentation: The representation of the rate plan under which this service was booked.
-     * - use: optional
-     * @var string
-     */
-    public $RatePlanCode;
-    /**
-     * The InventoryBlockCode
-     * Meta informations extracted from the WSDL
-     * - documentation: The representation of the block code under which the inventory for this service is categorized.
-     * - use: optional
-     * @var string
-     */
-    public $InventoryBlockCode;
-    /**
-     * The PriceGuaranteed
-     * Meta informations extracted from the WSDL
-     * - documentation: Whether the price for this service is guaranteed or quoted and subject to change.Values: False (Price NOT guaranteed) and True (Price is guaranteed).
-     * - use: optional
-     * @var bool
-     */
-    public $PriceGuaranteed;
-    /**
-     * The Inclusive
-     * Meta informations extracted from the WSDL
-     * - documentation: Whether the price for this service is included in the room rate.Values: False (or No), and True (or Yes).
-     * - use: optional
-     * @var bool
-     */
-    public $Inclusive;
-    /**
-     * The Quantity
-     * Meta informations extracted from the WSDL
-     * - documentation: The number of tickets, rounds of golf, etc. Also serves as the number of persons when pricing class is per person or per person per night.
-     * - use: optional
-     * @var string
-     */
-    public $Quantity;
+    public $MeetingRoomCode;
     /**
      * Constructor method for Service
+     * @uses Service::setBusinessServiceCode()
+     * @uses Service::setServiceInventoryCode()
+     * @uses Service::setQuantity()
+     * @uses Service::setContact()
      * @uses Service::setRelativePosition()
      * @uses Service::setOperationSchedules()
-     * @uses Service::setDescription()
+     * @uses Service::setMultimediaDescriptions()
      * @uses Service::setFeatures()
+     * @uses Service::setDescriptiveText()
      * @uses Service::setIncluded()
      * @uses Service::setCode()
-     * @uses Service::setBusinessServiceCode()
+     * @uses Service::setExistsCode()
      * @uses Service::setAvailableToAnyGuest()
      * @uses Service::setInvCode()
-     * @uses Service::setPrice()
-     * @uses Service::setServiceDetails()
-     * @uses Service::setTPA_Extensions()
-     * @uses Service::setServicePricingType()
-     * @uses Service::setReservationStatusType()
-     * @uses Service::setServiceRPH()
-     * @uses Service::setServiceInventoryCode()
-     * @uses Service::setRatePlanCode()
-     * @uses Service::setInventoryBlockCode()
-     * @uses Service::setPriceGuaranteed()
-     * @uses Service::setInclusive()
-     * @uses Service::setQuantity()
+     * @uses Service::setProximityCode()
+     * @uses Service::setMealPlanCode()
+     * @uses Service::setSort()
+     * @uses Service::setMeetingRoomCode()
+     * @param string $businessServiceCode
+     * @param string $serviceInventoryCode
+     * @param string $quantity
+     * @param mixed $contact
      * @param mixed $relativePosition
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules
-     * @param mixed[] $description
+     * @param mixed $operationSchedules
+     * @param mixed $multimediaDescriptions
      * @param mixed $features
+     * @param string $descriptiveText
      * @param bool $included
      * @param string $code
-     * @param string $businessServiceCode
+     * @param string $existsCode
      * @param bool $availableToAnyGuest
      * @param string $invCode
-     * @param mixed $price
-     * @param mixed $serviceDetails
-     * @param mixed $tPA_Extensions
-     * @param string $servicePricingType
-     * @param string $reservationStatusType
-     * @param string $serviceRPH
-     * @param string $serviceInventoryCode
-     * @param string $ratePlanCode
-     * @param string $inventoryBlockCode
-     * @param bool $priceGuaranteed
-     * @param bool $inclusive
-     * @param string $quantity
+     * @param string $proximityCode
+     * @param string $mealPlanCode
+     * @param int $sort
+     * @param string $meetingRoomCode
      */
-    public function __construct($relativePosition = null, \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules = null, array $description = array(), $features = null, $included = null, $code = null, $businessServiceCode = null, $availableToAnyGuest = null, $invCode = null, $price = null, $serviceDetails = null, $tPA_Extensions = null, $servicePricingType = null, $reservationStatusType = null, $serviceRPH = null, $serviceInventoryCode = null, $ratePlanCode = null, $inventoryBlockCode = null, $priceGuaranteed = null, $inclusive = null, $quantity = null)
+    public function __construct($businessServiceCode = null, $serviceInventoryCode = null, $quantity = null, $contact = null, $relativePosition = null, $operationSchedules = null, $multimediaDescriptions = null, $features = null, $descriptiveText = null, $included = null, $code = null, $existsCode = null, $availableToAnyGuest = null, $invCode = null, $proximityCode = null, $mealPlanCode = null, $sort = null, $meetingRoomCode = null)
     {
         $this
+            ->setBusinessServiceCode($businessServiceCode)
+            ->setServiceInventoryCode($serviceInventoryCode)
+            ->setQuantity($quantity)
+            ->setContact($contact)
             ->setRelativePosition($relativePosition)
             ->setOperationSchedules($operationSchedules)
-            ->setDescription($description)
+            ->setMultimediaDescriptions($multimediaDescriptions)
             ->setFeatures($features)
+            ->setDescriptiveText($descriptiveText)
             ->setIncluded($included)
             ->setCode($code)
-            ->setBusinessServiceCode($businessServiceCode)
+            ->setExistsCode($existsCode)
             ->setAvailableToAnyGuest($availableToAnyGuest)
             ->setInvCode($invCode)
-            ->setPrice($price)
-            ->setServiceDetails($serviceDetails)
-            ->setTPA_Extensions($tPA_Extensions)
-            ->setServicePricingType($servicePricingType)
-            ->setReservationStatusType($reservationStatusType)
-            ->setServiceRPH($serviceRPH)
-            ->setServiceInventoryCode($serviceInventoryCode)
-            ->setRatePlanCode($ratePlanCode)
-            ->setInventoryBlockCode($inventoryBlockCode)
-            ->setPriceGuaranteed($priceGuaranteed)
-            ->setInclusive($inclusive)
-            ->setQuantity($quantity);
+            ->setProximityCode($proximityCode)
+            ->setMealPlanCode($mealPlanCode)
+            ->setSort($sort)
+            ->setMeetingRoomCode($meetingRoomCode);
+    }
+    /**
+     * Get BusinessServiceCode value
+     * @return string|null
+     */
+    public function getBusinessServiceCode()
+    {
+        return $this->BusinessServiceCode;
+    }
+    /**
+     * Set BusinessServiceCode value
+     * @param string $businessServiceCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
+     */
+    public function setBusinessServiceCode($businessServiceCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($businessServiceCode) && !is_string($businessServiceCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($businessServiceCode)), __LINE__);
+        }
+        $this->BusinessServiceCode = $businessServiceCode;
+        return $this;
+    }
+    /**
+     * Get ServiceInventoryCode value
+     * @return string|null
+     */
+    public function getServiceInventoryCode()
+    {
+        return $this->ServiceInventoryCode;
+    }
+    /**
+     * Set ServiceInventoryCode value
+     * @param string $serviceInventoryCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
+     */
+    public function setServiceInventoryCode($serviceInventoryCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($serviceInventoryCode) && !is_string($serviceInventoryCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceInventoryCode)), __LINE__);
+        }
+        $this->ServiceInventoryCode = $serviceInventoryCode;
+        return $this;
+    }
+    /**
+     * Get Quantity value
+     * @return string|null
+     */
+    public function getQuantity()
+    {
+        return $this->Quantity;
+    }
+    /**
+     * Set Quantity value
+     * @param string $quantity
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
+     */
+    public function setQuantity($quantity = null)
+    {
+        // validation for constraint: string
+        if (!is_null($quantity) && !is_string($quantity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($quantity)), __LINE__);
+        }
+        $this->Quantity = $quantity;
+        return $this;
+    }
+    /**
+     * Get Contact value
+     * @return mixed|null
+     */
+    public function getContact()
+    {
+        return $this->Contact;
+    }
+    /**
+     * Set Contact value
+     * @param mixed $contact
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
+     */
+    public function setContact($contact = null)
+    {
+        $this->Contact = $contact;
+        return $this;
     }
     /**
      * Get RelativePosition value
@@ -271,7 +326,7 @@ class Service extends AbstractStructBase
     }
     /**
      * Get OperationSchedules value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules|null
+     * @return mixed|null
      */
     public function getOperationSchedules()
     {
@@ -279,52 +334,30 @@ class Service extends AbstractStructBase
     }
     /**
      * Set OperationSchedules value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules
+     * @param mixed $operationSchedules
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
      */
-    public function setOperationSchedules(\Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules = null)
+    public function setOperationSchedules($operationSchedules = null)
     {
         $this->OperationSchedules = $operationSchedules;
         return $this;
     }
     /**
-     * Get Description value
-     * @return mixed[]|null
+     * Get MultimediaDescriptions value
+     * @return mixed|null
      */
-    public function getDescription()
+    public function getMultimediaDescriptions()
     {
-        return $this->Description;
+        return $this->MultimediaDescriptions;
     }
     /**
-     * Set Description value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $description
+     * Set MultimediaDescriptions value
+     * @param mixed $multimediaDescriptions
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
      */
-    public function setDescription(array $description = array())
+    public function setMultimediaDescriptions($multimediaDescriptions = null)
     {
-        foreach ($description as $serviceDescriptionItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($serviceDescriptionItem) ? get_class($serviceDescriptionItem) : gettype($serviceDescriptionItem)), __LINE__);
-            }
-        }
-        $this->Description = $description;
-        return $this;
-    }
-    /**
-     * Add item to Description value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function addToDescription($item)
-    {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->Description[] = $item;
+        $this->MultimediaDescriptions = $multimediaDescriptions;
         return $this;
     }
     /**
@@ -343,6 +376,28 @@ class Service extends AbstractStructBase
     public function setFeatures($features = null)
     {
         $this->Features = $features;
+        return $this;
+    }
+    /**
+     * Get DescriptiveText value
+     * @return string|null
+     */
+    public function getDescriptiveText()
+    {
+        return $this->DescriptiveText;
+    }
+    /**
+     * Set DescriptiveText value
+     * @param string $descriptiveText
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
+     */
+    public function setDescriptiveText($descriptiveText = null)
+    {
+        // validation for constraint: string
+        if (!is_null($descriptiveText) && !is_string($descriptiveText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptiveText)), __LINE__);
+        }
+        $this->DescriptiveText = $descriptiveText;
         return $this;
     }
     /**
@@ -390,25 +445,25 @@ class Service extends AbstractStructBase
         return $this;
     }
     /**
-     * Get BusinessServiceCode value
+     * Get ExistsCode value
      * @return string|null
      */
-    public function getBusinessServiceCode()
+    public function getExistsCode()
     {
-        return $this->BusinessServiceCode;
+        return $this->ExistsCode;
     }
     /**
-     * Set BusinessServiceCode value
-     * @param string $businessServiceCode
+     * Set ExistsCode value
+     * @param string $existsCode
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
      */
-    public function setBusinessServiceCode($businessServiceCode = null)
+    public function setExistsCode($existsCode = null)
     {
         // validation for constraint: string
-        if (!is_null($businessServiceCode) && !is_string($businessServiceCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($businessServiceCode)), __LINE__);
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
         }
-        $this->BusinessServiceCode = $businessServiceCode;
+        $this->ExistsCode = $existsCode;
         return $this;
     }
     /**
@@ -456,255 +511,91 @@ class Service extends AbstractStructBase
         return $this;
     }
     /**
-     * Get Price value
-     * @return mixed|null
-     */
-    public function getPrice()
-    {
-        return $this->Price;
-    }
-    /**
-     * Set Price value
-     * @param mixed $price
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setPrice($price = null)
-    {
-        $this->Price = $price;
-        return $this;
-    }
-    /**
-     * Get ServiceDetails value
-     * @return mixed|null
-     */
-    public function getServiceDetails()
-    {
-        return $this->ServiceDetails;
-    }
-    /**
-     * Set ServiceDetails value
-     * @param mixed $serviceDetails
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setServiceDetails($serviceDetails = null)
-    {
-        $this->ServiceDetails = $serviceDetails;
-        return $this;
-    }
-    /**
-     * Get TPA_Extensions value
-     * @return mixed|null
-     */
-    public function getTPA_Extensions()
-    {
-        return $this->TPA_Extensions;
-    }
-    /**
-     * Set TPA_Extensions value
-     * @param mixed $tPA_Extensions
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setTPA_Extensions($tPA_Extensions = null)
-    {
-        $this->TPA_Extensions = $tPA_Extensions;
-        return $this;
-    }
-    /**
-     * Get ServicePricingType value
+     * Get ProximityCode value
      * @return string|null
      */
-    public function getServicePricingType()
+    public function getProximityCode()
     {
-        return $this->ServicePricingType;
+        return $this->ProximityCode;
     }
     /**
-     * Set ServicePricingType value
-     * @param string $servicePricingType
+     * Set ProximityCode value
+     * @param string $proximityCode
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
      */
-    public function setServicePricingType($servicePricingType = null)
+    public function setProximityCode($proximityCode = null)
     {
         // validation for constraint: string
-        if (!is_null($servicePricingType) && !is_string($servicePricingType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($servicePricingType)), __LINE__);
+        if (!is_null($proximityCode) && !is_string($proximityCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proximityCode)), __LINE__);
         }
-        $this->ServicePricingType = $servicePricingType;
+        $this->ProximityCode = $proximityCode;
         return $this;
     }
     /**
-     * Get ReservationStatusType value
+     * Get MealPlanCode value
      * @return string|null
      */
-    public function getReservationStatusType()
+    public function getMealPlanCode()
     {
-        return $this->ReservationStatusType;
+        return $this->MealPlanCode;
     }
     /**
-     * Set ReservationStatusType value
-     * @param string $reservationStatusType
+     * Set MealPlanCode value
+     * @param string $mealPlanCode
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
      */
-    public function setReservationStatusType($reservationStatusType = null)
+    public function setMealPlanCode($mealPlanCode = null)
     {
         // validation for constraint: string
-        if (!is_null($reservationStatusType) && !is_string($reservationStatusType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reservationStatusType)), __LINE__);
+        if (!is_null($mealPlanCode) && !is_string($mealPlanCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mealPlanCode)), __LINE__);
         }
-        $this->ReservationStatusType = $reservationStatusType;
+        $this->MealPlanCode = $mealPlanCode;
         return $this;
     }
     /**
-     * Get ServiceRPH value
+     * Get Sort value
+     * @return int|null
+     */
+    public function getSort()
+    {
+        return $this->Sort;
+    }
+    /**
+     * Set Sort value
+     * @param int $sort
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
+     */
+    public function setSort($sort = null)
+    {
+        // validation for constraint: int
+        if (!is_null($sort) && !is_numeric($sort)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sort)), __LINE__);
+        }
+        $this->Sort = $sort;
+        return $this;
+    }
+    /**
+     * Get MeetingRoomCode value
      * @return string|null
      */
-    public function getServiceRPH()
+    public function getMeetingRoomCode()
     {
-        return $this->ServiceRPH;
+        return $this->MeetingRoomCode;
     }
     /**
-     * Set ServiceRPH value
-     * @param string $serviceRPH
+     * Set MeetingRoomCode value
+     * @param string $meetingRoomCode
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
      */
-    public function setServiceRPH($serviceRPH = null)
+    public function setMeetingRoomCode($meetingRoomCode = null)
     {
         // validation for constraint: string
-        if (!is_null($serviceRPH) && !is_string($serviceRPH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceRPH)), __LINE__);
+        if (!is_null($meetingRoomCode) && !is_string($meetingRoomCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingRoomCode)), __LINE__);
         }
-        $this->ServiceRPH = $serviceRPH;
-        return $this;
-    }
-    /**
-     * Get ServiceInventoryCode value
-     * @return string|null
-     */
-    public function getServiceInventoryCode()
-    {
-        return $this->ServiceInventoryCode;
-    }
-    /**
-     * Set ServiceInventoryCode value
-     * @param string $serviceInventoryCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setServiceInventoryCode($serviceInventoryCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($serviceInventoryCode) && !is_string($serviceInventoryCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceInventoryCode)), __LINE__);
-        }
-        $this->ServiceInventoryCode = $serviceInventoryCode;
-        return $this;
-    }
-    /**
-     * Get RatePlanCode value
-     * @return string|null
-     */
-    public function getRatePlanCode()
-    {
-        return $this->RatePlanCode;
-    }
-    /**
-     * Set RatePlanCode value
-     * @param string $ratePlanCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setRatePlanCode($ratePlanCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($ratePlanCode) && !is_string($ratePlanCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ratePlanCode)), __LINE__);
-        }
-        $this->RatePlanCode = $ratePlanCode;
-        return $this;
-    }
-    /**
-     * Get InventoryBlockCode value
-     * @return string|null
-     */
-    public function getInventoryBlockCode()
-    {
-        return $this->InventoryBlockCode;
-    }
-    /**
-     * Set InventoryBlockCode value
-     * @param string $inventoryBlockCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setInventoryBlockCode($inventoryBlockCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($inventoryBlockCode) && !is_string($inventoryBlockCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inventoryBlockCode)), __LINE__);
-        }
-        $this->InventoryBlockCode = $inventoryBlockCode;
-        return $this;
-    }
-    /**
-     * Get PriceGuaranteed value
-     * @return bool|null
-     */
-    public function getPriceGuaranteed()
-    {
-        return $this->PriceGuaranteed;
-    }
-    /**
-     * Set PriceGuaranteed value
-     * @param bool $priceGuaranteed
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setPriceGuaranteed($priceGuaranteed = null)
-    {
-        // validation for constraint: boolean
-        if (!is_null($priceGuaranteed) && !is_bool($priceGuaranteed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($priceGuaranteed)), __LINE__);
-        }
-        $this->PriceGuaranteed = $priceGuaranteed;
-        return $this;
-    }
-    /**
-     * Get Inclusive value
-     * @return bool|null
-     */
-    public function getInclusive()
-    {
-        return $this->Inclusive;
-    }
-    /**
-     * Set Inclusive value
-     * @param bool $inclusive
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setInclusive($inclusive = null)
-    {
-        // validation for constraint: boolean
-        if (!is_null($inclusive) && !is_bool($inclusive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($inclusive)), __LINE__);
-        }
-        $this->Inclusive = $inclusive;
-        return $this;
-    }
-    /**
-     * Get Quantity value
-     * @return string|null
-     */
-    public function getQuantity()
-    {
-        return $this->Quantity;
-    }
-    /**
-     * Set Quantity value
-     * @param string $quantity
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service
-     */
-    public function setQuantity($quantity = null)
-    {
-        // validation for constraint: string
-        if (!is_null($quantity) && !is_string($quantity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($quantity)), __LINE__);
-        }
-        $this->Quantity = $quantity;
+        $this->MeetingRoomCode = $meetingRoomCode;
         return $this;
     }
     /**

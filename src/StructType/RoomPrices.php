@@ -21,6 +21,8 @@ class RoomPrices extends AbstractStructBase
     public $RoomPrice;
     /**
      * The MealPlan
+     * Meta informations extracted from the WSDL
+     * - documentation: The code for a meal plan e.g. AB- as brochure, AI- all inclusive, BB- bed and breakfast, FB- full board, HB- Half Board, RO- room only,SC- self catering
      * @var string
      */
     public $MealPlan;

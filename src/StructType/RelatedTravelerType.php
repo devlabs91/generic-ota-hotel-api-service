@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RelatedTravelerType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Other traveler profiles associated with an specific individual.
+ * - documentation: Other traveler profiles associated with an specific individual. | Allows for control of the sharing of related traveler data between parties. | Birth date of the related traveler.
  * @subpackage Structs
  */
 class RelatedTravelerType extends AbstractStructBase
@@ -15,6 +15,7 @@ class RelatedTravelerType extends AbstractStructBase
     /**
      * The UniqueID
      * Meta informations extracted from the WSDL
+     * - documentation: Identifies the profile of the related traveler.
      * - minOccurs: 0
      * @var mixed
      */
@@ -22,6 +23,7 @@ class RelatedTravelerType extends AbstractStructBase
     /**
      * The PersonName
      * Meta informations extracted from the WSDL
+     * - documentation: Person associated with the traveler.
      * - minOccurs: 0
      * @var mixed
      */
@@ -30,6 +32,7 @@ class RelatedTravelerType extends AbstractStructBase
      * The Relation
      * Meta informations extracted from the WSDL
      * - documentation: Indicates the type of relationship with the person in the profile, such as Spouse, Child, Family, Business Associate, Interest Group, Medical, Security, Other, etc.
+     * - use: optional
      * @var string
      */
     public $Relation;

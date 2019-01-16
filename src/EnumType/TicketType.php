@@ -5,7 +5,7 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for TicketType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: Paper or e-ticket
+ * - documentation: Specifies the type of ticket document (e.g. electronic, paper).
  * @subpackage Enumerations
  */
 class TicketType
@@ -21,6 +21,11 @@ class TicketType
      */
     const VALUE_PAPER = 'Paper';
     /**
+     * Constant for value 'MCO'
+     * @return string 'MCO'
+     */
+    const VALUE_MCO = 'MCO';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -34,6 +39,7 @@ class TicketType
      * Return allowed values
      * @uses self::VALUE_E_TICKET
      * @uses self::VALUE_PAPER
+     * @uses self::VALUE_MCO
      * @return string[]
      */
     public static function getValidValues()
@@ -41,6 +47,7 @@ class TicketType
         return array(
             self::VALUE_E_TICKET,
             self::VALUE_PAPER,
+            self::VALUE_MCO,
         );
     }
     /**

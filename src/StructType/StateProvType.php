@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for StateProvType StructType
  * Meta informations extracted from the WSDL
- * - documentation: State, province, or region name or code needed to identify location. | Used for Character Strings, length 0 to 64
+ * - documentation: State, province, or region name or code needed to identify location. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs
@@ -16,6 +16,8 @@ class StateProvType extends AbstractStructBase
 {
     /**
      * The StateCode
+     * Meta informations extracted from the WSDL
+     * - documentation: The standard code or abbreviation for the state, province, or region.
      * @var string
      */
     public $StateCode;

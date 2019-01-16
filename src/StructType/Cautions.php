@@ -15,6 +15,7 @@ class Cautions extends AbstractStructBase
     /**
      * The Caution
      * Meta informations extracted from the WSDL
+     * - documentation: Provides information regarding a package component which could affect a customer's decision to book.
      * - maxOccurs: 99
      * @var mixed[]
      */

@@ -7,13 +7,16 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PkgPassengerListItem StructType
  * Meta informations extracted from the WSDL
- * - documentation: Details of a passenger.
+ * - documentation: Details of a passenger or of a quantity of generic passengers e.g. 2 children aged 5.
  * @subpackage Structs
  */
 class PkgPassengerListItem extends AbstractStructBase
 {
     /**
      * The Name
+     * Meta informations extracted from the WSDL
+     * - documentation: The name of the passenger or traveler.
+     * - minOccurs: 0
      * @var mixed
      */
     public $Name;
@@ -36,6 +39,7 @@ class PkgPassengerListItem extends AbstractStructBase
     /**
      * The RPH
      * Meta informations extracted from the WSDL
+     * - documentation: (Reference Place Holder) - an index code to identify an instance in a collection of like items. For example, used to assign individual passengers or clients to particular itinerary items.
      * - use: optional
      * @var string
      */
@@ -43,6 +47,7 @@ class PkgPassengerListItem extends AbstractStructBase
     /**
      * The InsuranceRPH
      * Meta informations extracted from the WSDL
+     * - documentation: Used to associate this passenger with their insurance cover provided by the supplier.
      * - use: optional
      * @var string
      */
@@ -50,17 +55,19 @@ class PkgPassengerListItem extends AbstractStructBase
     /**
      * The Nationality
      * Meta informations extracted from the WSDL
+     * - documentation: Used to indicate the nationality of a person, if known. Uses ISO 3166 Country Codes.
      * - use: optional
      * @var string
      */
     public $Nationality;
     /**
-     * The Age
+     * The LeadCustomerInd
      * Meta informations extracted from the WSDL
+     * - documentation: When 'true', indicates that this is the 'lead' passenger (i.e., the primary contact making the booking).
      * - use: optional
-     * @var string
+     * @var bool
      */
-    public $Age;
+    public $LeadCustomerInd;
     /**
      * Constructor method for PkgPassengerListItem
      * @uses PkgPassengerListItem::setName()
@@ -69,16 +76,16 @@ class PkgPassengerListItem extends AbstractStructBase
      * @uses PkgPassengerListItem::setRPH()
      * @uses PkgPassengerListItem::setInsuranceRPH()
      * @uses PkgPassengerListItem::setNationality()
-     * @uses PkgPassengerListItem::setAge()
+     * @uses PkgPassengerListItem::setLeadCustomerInd()
      * @param mixed $name
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialNeed[] $specialNeed
      * @param mixed $passportInformation
      * @param string $rPH
      * @param string $insuranceRPH
      * @param string $nationality
-     * @param string $age
+     * @param bool $leadCustomerInd
      */
-    public function __construct($name = null, array $specialNeed = array(), $passportInformation = null, $rPH = null, $insuranceRPH = null, $nationality = null, $age = null)
+    public function __construct($name = null, array $specialNeed = array(), $passportInformation = null, $rPH = null, $insuranceRPH = null, $nationality = null, $leadCustomerInd = null)
     {
         $this
             ->setName($name)
@@ -87,7 +94,7 @@ class PkgPassengerListItem extends AbstractStructBase
             ->setRPH($rPH)
             ->setInsuranceRPH($insuranceRPH)
             ->setNationality($nationality)
-            ->setAge($age);
+            ->setLeadCustomerInd($leadCustomerInd);
     }
     /**
      * Get Name value
@@ -232,25 +239,25 @@ class PkgPassengerListItem extends AbstractStructBase
         return $this;
     }
     /**
-     * Get Age value
-     * @return string|null
+     * Get LeadCustomerInd value
+     * @return bool|null
      */
-    public function getAge()
+    public function getLeadCustomerInd()
     {
-        return $this->Age;
+        return $this->LeadCustomerInd;
     }
     /**
-     * Set Age value
-     * @param string $age
+     * Set LeadCustomerInd value
+     * @param bool $leadCustomerInd
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgPassengerListItem
      */
-    public function setAge($age = null)
+    public function setLeadCustomerInd($leadCustomerInd = null)
     {
-        // validation for constraint: string
-        if (!is_null($age) && !is_string($age)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($age)), __LINE__);
+        // validation for constraint: boolean
+        if (!is_null($leadCustomerInd) && !is_bool($leadCustomerInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($leadCustomerInd)), __LINE__);
         }
-        $this->Age = $age;
+        $this->LeadCustomerInd = $leadCustomerInd;
         return $this;
     }
     /**

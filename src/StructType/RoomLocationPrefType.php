@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoomLocationPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for hotel room locations. | Identifies the customer's level of preference for the hotel room location identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for hotel room locations. | Identifies the customer's level of preference for the hotel room location identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class RoomLocationPrefType extends AbstractStructBase
     /**
      * The RoomLocationType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the location of the room within the property. Refer to OTA Code List Room Location Type (RLT).
+     * - documentation: Identifies the location of the room within the property. Refer to OpenTravel Code List Room Location Type (RLT).
      * @var string
      */
     public $RoomLocationType;

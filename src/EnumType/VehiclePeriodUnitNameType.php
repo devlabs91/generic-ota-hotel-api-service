@@ -42,6 +42,41 @@ class VehiclePeriodUnitNameType
      */
     const VALUE_HOUR = 'Hour';
     /**
+     * Constant for value 'Weekend'
+     * @return string 'Weekend'
+     */
+    const VALUE_WEEKEND = 'Weekend';
+    /**
+     * Constant for value 'ExtraMonth'
+     * @return string 'ExtraMonth'
+     */
+    const VALUE_EXTRA_MONTH = 'ExtraMonth';
+    /**
+     * Constant for value 'Bundle'
+     * @return string 'Bundle'
+     */
+    const VALUE_BUNDLE = 'Bundle';
+    /**
+     * Constant for value 'Package'
+     * @return string 'Package'
+     */
+    const VALUE_PACKAGE = 'Package';
+    /**
+     * Constant for value 'ExtraDay'
+     * @return string 'ExtraDay'
+     */
+    const VALUE_EXTRA_DAY = 'ExtraDay';
+    /**
+     * Constant for value 'ExtraHour'
+     * @return string 'ExtraHour'
+     */
+    const VALUE_EXTRA_HOUR = 'ExtraHour';
+    /**
+     * Constant for value 'ExtraWeek'
+     * @return string 'ExtraWeek'
+     */
+    const VALUE_EXTRA_WEEK = 'ExtraWeek';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -59,6 +94,13 @@ class VehiclePeriodUnitNameType
      * @uses self::VALUE_WEEK
      * @uses self::VALUE_DAY
      * @uses self::VALUE_HOUR
+     * @uses self::VALUE_WEEKEND
+     * @uses self::VALUE_EXTRA_MONTH
+     * @uses self::VALUE_BUNDLE
+     * @uses self::VALUE_PACKAGE
+     * @uses self::VALUE_EXTRA_DAY
+     * @uses self::VALUE_EXTRA_HOUR
+     * @uses self::VALUE_EXTRA_WEEK
      * @return string[]
      */
     public static function getValidValues()
@@ -70,6 +112,13 @@ class VehiclePeriodUnitNameType
             self::VALUE_WEEK,
             self::VALUE_DAY,
             self::VALUE_HOUR,
+            self::VALUE_WEEKEND,
+            self::VALUE_EXTRA_MONTH,
+            self::VALUE_BUNDLE,
+            self::VALUE_PACKAGE,
+            self::VALUE_EXTRA_DAY,
+            self::VALUE_EXTRA_HOUR,
+            self::VALUE_EXTRA_WEEK,
         );
     }
     /**

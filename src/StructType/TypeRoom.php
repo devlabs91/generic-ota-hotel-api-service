@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TypeRoom StructType
  * Meta informations extracted from the WSDL
- * - documentation: Describes the guest room type; in composite types there can be multiple occurrences.
+ * - documentation: Describes the guest room type; in composite types there can be multiple occurrences. | Used to define a room (eg., its location, configuration, view).
  * @subpackage Structs
  */
 class TypeRoom extends AbstractStructBase
@@ -45,14 +45,6 @@ class TypeRoom extends AbstractStructBase
      */
     public $Size;
     /**
-     * The Configuration
-     * Meta informations extracted from the WSDL
-     * - documentation: Defines the bed type configuration of the room.
-     * - use: optional
-     * @var string
-     */
-    public $Configuration;
-    /**
      * The TypeImplied
      * Meta informations extracted from the WSDL
      * - use: optional
@@ -76,35 +68,43 @@ class TypeRoom extends AbstractStructBase
      */
     public $Name;
     /**
+     * The MaxCribs
+     * Meta informations extracted from the WSDL
+     * - documentation: Maximum number of cribs allowed in a room type.
+     * - use: optional
+     * @var int
+     */
+    public $MaxCribs;
+    /**
      * Constructor method for TypeRoom
      * @uses TypeRoom::setStandardNumBeds()
      * @uses TypeRoom::setStandardOccupancy()
      * @uses TypeRoom::setMaxRollaways()
      * @uses TypeRoom::setSize()
-     * @uses TypeRoom::setConfiguration()
      * @uses TypeRoom::setTypeImplied()
      * @uses TypeRoom::setCount()
      * @uses TypeRoom::setName()
+     * @uses TypeRoom::setMaxCribs()
      * @param int $standardNumBeds
      * @param int $standardOccupancy
      * @param int $maxRollaways
      * @param int $size
-     * @param string $configuration
      * @param string $typeImplied
      * @param int $count
      * @param string $name
+     * @param int $maxCribs
      */
-    public function __construct($standardNumBeds = null, $standardOccupancy = null, $maxRollaways = null, $size = null, $configuration = null, $typeImplied = null, $count = null, $name = null)
+    public function __construct($standardNumBeds = null, $standardOccupancy = null, $maxRollaways = null, $size = null, $typeImplied = null, $count = null, $name = null, $maxCribs = null)
     {
         $this
             ->setStandardNumBeds($standardNumBeds)
             ->setStandardOccupancy($standardOccupancy)
             ->setMaxRollaways($maxRollaways)
             ->setSize($size)
-            ->setConfiguration($configuration)
             ->setTypeImplied($typeImplied)
             ->setCount($count)
-            ->setName($name);
+            ->setName($name)
+            ->setMaxCribs($maxCribs);
     }
     /**
      * Get StandardNumBeds value
@@ -195,28 +195,6 @@ class TypeRoom extends AbstractStructBase
         return $this;
     }
     /**
-     * Get Configuration value
-     * @return string|null
-     */
-    public function getConfiguration()
-    {
-        return $this->Configuration;
-    }
-    /**
-     * Set Configuration value
-     * @param string $configuration
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TypeRoom
-     */
-    public function setConfiguration($configuration = null)
-    {
-        // validation for constraint: string
-        if (!is_null($configuration) && !is_string($configuration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($configuration)), __LINE__);
-        }
-        $this->Configuration = $configuration;
-        return $this;
-    }
-    /**
      * Get TypeImplied value
      * @return string|null
      */
@@ -280,6 +258,28 @@ class TypeRoom extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        return $this;
+    }
+    /**
+     * Get MaxCribs value
+     * @return int|null
+     */
+    public function getMaxCribs()
+    {
+        return $this->MaxCribs;
+    }
+    /**
+     * Set MaxCribs value
+     * @param int $maxCribs
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TypeRoom
+     */
+    public function setMaxCribs($maxCribs = null)
+    {
+        // validation for constraint: int
+        if (!is_null($maxCribs) && !is_numeric($maxCribs)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxCribs)), __LINE__);
+        }
+        $this->MaxCribs = $maxCribs;
         return $this;
     }
     /**

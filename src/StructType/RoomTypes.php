@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoomTypes StructType
  * Meta informations extracted from the WSDL
- * - documentation: Room type for reservation. | A collection of Room Types associated with a particular Room Stay. | The RoomType element is used to contain all the room type information for a single RateType Code (ex A1K) for a given date range.
+ * - documentation: This allows for multiple room types to be defined within an inventory block. | Room type for reservation. | A collection of Room Types associated with a particular Room Stay. | The RoomType element is used to contain all the room
+ * type information for a single RateType Code (ex A1K) for a given date range.
  * @subpackage Structs
  */
 class RoomTypes extends AbstractStructBase
@@ -15,6 +16,7 @@ class RoomTypes extends AbstractStructBase
     /**
      * The RoomType
      * Meta informations extracted from the WSDL
+     * - documentation: This is a specific room type defined within an inventory block.
      * - maxOccurs: unbounded
      * @var mixed[]
      */

@@ -23,6 +23,7 @@ class OffLocationServicePricedType extends AbstractStructBase
      * The Charge
      * Meta informations extracted from the WSDL
      * - documentation: Charge information associated with this specific off-airport service.
+     * - minOccurs: 0
      * @var mixed
      */
     public $Charge;

@@ -13,7 +13,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * - use: optional
  * @subpackage Structs
  */
-class Location extends AbstractStructBase
+class Location extends LocationGeneralType
 {
     /**
      * The Information

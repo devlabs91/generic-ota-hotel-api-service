@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OperationSchedulesType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of operation schedules. | The date range for which the operation schedule information is valid.
  * @subpackage Structs
  */
 class OperationSchedulesType extends AbstractStructBase

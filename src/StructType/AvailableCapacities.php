@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AvailableCapacities StructType
  * Meta informations extracted from the WSDL
- * - documentation: The amount of useable meeting space available at a property.
+ * - documentation: The amount of usable meeting space available at a property.
  * @subpackage Structs
  */
 class AvailableCapacities extends AbstractStructBase

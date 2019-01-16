@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for BankAcctType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Customer bank accounts for payments, either for paper checks or electronic funds transfer.
+ * - documentation: Customer bank accounts for payments, either for paper checks or electronic funds transfer. | Allows for control of the sharing of bank account information between parties.
  * @subpackage Structs
  */
 class BankAcctType extends AbstractStructBase
@@ -15,6 +15,7 @@ class BankAcctType extends AbstractStructBase
     /**
      * The BankAcctName
      * Meta informations extracted from the WSDL
+     * - documentation: The name the account is held under.
      * - minOccurs: 0
      * @var mixed
      */
@@ -23,13 +24,15 @@ class BankAcctType extends AbstractStructBase
      * The BankID
      * Meta informations extracted from the WSDL
      * - documentation: Code assigned by authorities to financial institutions; sometimes called bank routing number.
+     * - use: optional
      * @var string
      */
     public $BankID;
     /**
      * The AcctType
      * Meta informations extracted from the WSDL
-     * - documentation: Describes the bank account used for financing travel, such as: Checking, Savings, Investment, etc.
+     * - documentation: Describes the bank account used for financing travel (e.g., checking, savings, investment).
+     * - use: optional
      * @var string
      */
     public $AcctType;
@@ -37,27 +40,39 @@ class BankAcctType extends AbstractStructBase
      * The BankAcctNumber
      * Meta informations extracted from the WSDL
      * - documentation: Identifier for the account assigned by the bank.
+     * - use: optional
      * @var string
      */
     public $BankAcctNumber;
+    /**
+     * The ChecksAcceptedInd
+     * Meta informations extracted from the WSDL
+     * - documentation: If true, checks are accepted. If false, checks are not accepted.
+     * - use: optional
+     * @var bool
+     */
+    public $ChecksAcceptedInd;
     /**
      * Constructor method for BankAcctType
      * @uses BankAcctType::setBankAcctName()
      * @uses BankAcctType::setBankID()
      * @uses BankAcctType::setAcctType()
      * @uses BankAcctType::setBankAcctNumber()
+     * @uses BankAcctType::setChecksAcceptedInd()
      * @param mixed $bankAcctName
      * @param string $bankID
      * @param string $acctType
      * @param string $bankAcctNumber
+     * @param bool $checksAcceptedInd
      */
-    public function __construct($bankAcctName = null, $bankID = null, $acctType = null, $bankAcctNumber = null)
+    public function __construct($bankAcctName = null, $bankID = null, $acctType = null, $bankAcctNumber = null, $checksAcceptedInd = null)
     {
         $this
             ->setBankAcctName($bankAcctName)
             ->setBankID($bankID)
             ->setAcctType($acctType)
-            ->setBankAcctNumber($bankAcctNumber);
+            ->setBankAcctNumber($bankAcctNumber)
+            ->setChecksAcceptedInd($checksAcceptedInd);
     }
     /**
      * Get BankAcctName value
@@ -141,6 +156,28 @@ class BankAcctType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($bankAcctNumber)), __LINE__);
         }
         $this->BankAcctNumber = $bankAcctNumber;
+        return $this;
+    }
+    /**
+     * Get ChecksAcceptedInd value
+     * @return bool|null
+     */
+    public function getChecksAcceptedInd()
+    {
+        return $this->ChecksAcceptedInd;
+    }
+    /**
+     * Set ChecksAcceptedInd value
+     * @param bool $checksAcceptedInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BankAcctType
+     */
+    public function setChecksAcceptedInd($checksAcceptedInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($checksAcceptedInd) && !is_bool($checksAcceptedInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($checksAcceptedInd)), __LINE__);
+        }
+        $this->ChecksAcceptedInd = $checksAcceptedInd;
         return $this;
     }
     /**

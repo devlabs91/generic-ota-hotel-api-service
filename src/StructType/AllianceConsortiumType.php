@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for AllianceConsortiumType StructType
  * Meta informations extracted from the WSDL
  * - documentation: Provides information about alliance partnerships and consortiums of members grouped together to obtain trading partner agreements for travel service and privileges. | Identification of the alliance or partnership in which the
- * business entity is a member.
+ * business entity is a member. | Provides the effective and expiry dates for the alliance partnership.
  * @subpackage Structs
  */
 class AllianceConsortiumType extends AbstractStructBase

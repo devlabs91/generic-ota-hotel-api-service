@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PropertyLocationPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for hotel property locations. | Indicates the level of preference for the property location identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for hotel property locations. | Indicates the level of preference for the property location identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class PropertyLocationPrefType extends AbstractStructBase
     /**
      * The PropertyLocationType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the propery location type. Refer to OTA Code List Location Category Codes (LOC).
+     * - documentation: Identifies the propery location type. Refer to OpenTravel Code List Location Category Codes (LOC).
      * @var string
      */
     public $PropertyLocationType;

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PoliciesType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The PolicyInfo class that describes the policies of the hotel, such as the type of payments, or whether children or pets are accepted.
+ * - documentation: Describes the policies of the hotel, such as the type of payments, or whether children or pets are accepted.
  * @subpackage Structs
  */
 class PoliciesType extends AbstractStructBase

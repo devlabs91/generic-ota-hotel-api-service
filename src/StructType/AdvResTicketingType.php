@@ -37,27 +37,39 @@ class AdvResTicketingType extends AbstractStructBase
      * The AdvTicketingInd
      * Meta informations extracted from the WSDL
      * - documentation: Indicator for identifying whether or not advance ticketing restrictions are involved in the request or response.
+     * - use: optional
      * @var bool
      */
     public $AdvTicketingInd;
+    /**
+     * The RequestedTicketingDate
+     * Meta informations extracted from the WSDL
+     * - documentation: The date a traveller wishes to ticket their reservation.
+     * - use: optional
+     * @var string
+     */
+    public $RequestedTicketingDate;
     /**
      * Constructor method for AdvResTicketingType
      * @uses AdvResTicketingType::setAdvReservation()
      * @uses AdvResTicketingType::setAdvTicketing()
      * @uses AdvResTicketingType::setAdvResInd()
      * @uses AdvResTicketingType::setAdvTicketingInd()
+     * @uses AdvResTicketingType::setRequestedTicketingDate()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdvReservation $advReservation
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdvTicketing $advTicketing
      * @param bool $advResInd
      * @param bool $advTicketingInd
+     * @param string $requestedTicketingDate
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\AdvReservation $advReservation = null, \Devlabs91\GenericOtaHotelApiService\StructType\AdvTicketing $advTicketing = null, $advResInd = null, $advTicketingInd = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\AdvReservation $advReservation = null, \Devlabs91\GenericOtaHotelApiService\StructType\AdvTicketing $advTicketing = null, $advResInd = null, $advTicketingInd = null, $requestedTicketingDate = null)
     {
         $this
             ->setAdvReservation($advReservation)
             ->setAdvTicketing($advTicketing)
             ->setAdvResInd($advResInd)
-            ->setAdvTicketingInd($advTicketingInd);
+            ->setAdvTicketingInd($advTicketingInd)
+            ->setRequestedTicketingDate($requestedTicketingDate);
     }
     /**
      * Get AdvReservation value
@@ -137,6 +149,28 @@ class AdvResTicketingType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($advTicketingInd)), __LINE__);
         }
         $this->AdvTicketingInd = $advTicketingInd;
+        return $this;
+    }
+    /**
+     * Get RequestedTicketingDate value
+     * @return string|null
+     */
+    public function getRequestedTicketingDate()
+    {
+        return $this->RequestedTicketingDate;
+    }
+    /**
+     * Set RequestedTicketingDate value
+     * @param string $requestedTicketingDate
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdvResTicketingType
+     */
+    public function setRequestedTicketingDate($requestedTicketingDate = null)
+    {
+        // validation for constraint: string
+        if (!is_null($requestedTicketingDate) && !is_string($requestedTicketingDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($requestedTicketingDate)), __LINE__);
+        }
+        $this->RequestedTicketingDate = $requestedTicketingDate;
         return $this;
     }
     /**

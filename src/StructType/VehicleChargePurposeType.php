@@ -15,20 +15,31 @@ class VehicleChargePurposeType extends VehicleChargeType
     /**
      * The Purpose
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Vehicle Charge Purpose Type (VCP).
+     * - documentation: Refer to OpenTravel Code List Vehicle Charge Purpose Type (VCP).
      * - use: required
      * @var string
      */
     public $Purpose;
     /**
+     * The RequiredInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, this surcharge or tax is required in the vehicle reservation. When false, it is at the renters discretion.
+     * - use: optional
+     * @var bool
+     */
+    public $RequiredInd;
+    /**
      * Constructor method for VehicleChargePurposeType
      * @uses VehicleChargePurposeType::setPurpose()
+     * @uses VehicleChargePurposeType::setRequiredInd()
      * @param string $purpose
+     * @param bool $requiredInd
      */
-    public function __construct($purpose = null)
+    public function __construct($purpose = null, $requiredInd = null)
     {
         $this
-            ->setPurpose($purpose);
+            ->setPurpose($purpose)
+            ->setRequiredInd($requiredInd);
     }
     /**
      * Get Purpose value
@@ -50,6 +61,28 @@ class VehicleChargePurposeType extends VehicleChargeType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($purpose)), __LINE__);
         }
         $this->Purpose = $purpose;
+        return $this;
+    }
+    /**
+     * Get RequiredInd value
+     * @return bool|null
+     */
+    public function getRequiredInd()
+    {
+        return $this->RequiredInd;
+    }
+    /**
+     * Set RequiredInd value
+     * @param bool $requiredInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleChargePurposeType
+     */
+    public function setRequiredInd($requiredInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($requiredInd) && !is_bool($requiredInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($requiredInd)), __LINE__);
+        }
+        $this->RequiredInd = $requiredInd;
         return $this;
     }
     /**

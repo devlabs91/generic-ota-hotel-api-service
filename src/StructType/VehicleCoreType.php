@@ -15,17 +15,15 @@ class VehicleCoreType extends AbstractStructBase
     /**
      * The VehType
      * Meta informations extracted from the WSDL
-     * - documentation: Type of vehicle, for example, truck, car
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehType
      */
     public $VehType;
     /**
      * The VehClass
      * Meta informations extracted from the WSDL
-     * - documentation: Class of vehicle, for example, intermediate, compact
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehClass
      */
     public $VehClass;
     /**
@@ -43,27 +41,47 @@ class VehicleCoreType extends AbstractStructBase
      */
     public $TransmissionType;
     /**
+     * The FuelType
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $FuelType;
+    /**
+     * The DriveType
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $DriveType;
+    /**
      * Constructor method for VehicleCoreType
      * @uses VehicleCoreType::setVehType()
      * @uses VehicleCoreType::setVehClass()
      * @uses VehicleCoreType::setAirConditionInd()
      * @uses VehicleCoreType::setTransmissionType()
-     * @param mixed $vehType
-     * @param mixed $vehClass
+     * @uses VehicleCoreType::setFuelType()
+     * @uses VehicleCoreType::setDriveType()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehType $vehType
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehClass $vehClass
      * @param bool $airConditionInd
      * @param string $transmissionType
+     * @param string $fuelType
+     * @param string $driveType
      */
-    public function __construct($vehType = null, $vehClass = null, $airConditionInd = null, $transmissionType = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\VehType $vehType = null, \Devlabs91\GenericOtaHotelApiService\StructType\VehClass $vehClass = null, $airConditionInd = null, $transmissionType = null, $fuelType = null, $driveType = null)
     {
         $this
             ->setVehType($vehType)
             ->setVehClass($vehClass)
             ->setAirConditionInd($airConditionInd)
-            ->setTransmissionType($transmissionType);
+            ->setTransmissionType($transmissionType)
+            ->setFuelType($fuelType)
+            ->setDriveType($driveType);
     }
     /**
      * Get VehType value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehType|null
      */
     public function getVehType()
     {
@@ -71,17 +89,17 @@ class VehicleCoreType extends AbstractStructBase
     }
     /**
      * Set VehType value
-     * @param mixed $vehType
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehType $vehType
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleCoreType
      */
-    public function setVehType($vehType = null)
+    public function setVehType(\Devlabs91\GenericOtaHotelApiService\StructType\VehType $vehType = null)
     {
         $this->VehType = $vehType;
         return $this;
     }
     /**
      * Get VehClass value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehClass|null
      */
     public function getVehClass()
     {
@@ -89,10 +107,10 @@ class VehicleCoreType extends AbstractStructBase
     }
     /**
      * Set VehClass value
-     * @param mixed $vehClass
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehClass $vehClass
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleCoreType
      */
-    public function setVehClass($vehClass = null)
+    public function setVehClass(\Devlabs91\GenericOtaHotelApiService\StructType\VehClass $vehClass = null)
     {
         $this->VehClass = $vehClass;
         return $this;
@@ -139,6 +157,50 @@ class VehicleCoreType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transmissionType)), __LINE__);
         }
         $this->TransmissionType = $transmissionType;
+        return $this;
+    }
+    /**
+     * Get FuelType value
+     * @return string|null
+     */
+    public function getFuelType()
+    {
+        return $this->FuelType;
+    }
+    /**
+     * Set FuelType value
+     * @param string $fuelType
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleCoreType
+     */
+    public function setFuelType($fuelType = null)
+    {
+        // validation for constraint: string
+        if (!is_null($fuelType) && !is_string($fuelType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fuelType)), __LINE__);
+        }
+        $this->FuelType = $fuelType;
+        return $this;
+    }
+    /**
+     * Get DriveType value
+     * @return string|null
+     */
+    public function getDriveType()
+    {
+        return $this->DriveType;
+    }
+    /**
+     * Set DriveType value
+     * @param string $driveType
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleCoreType
+     */
+    public function setDriveType($driveType = null)
+    {
+        // validation for constraint: string
+        if (!is_null($driveType) && !is_string($driveType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($driveType)), __LINE__);
+        }
+        $this->DriveType = $driveType;
         return $this;
     }
     /**

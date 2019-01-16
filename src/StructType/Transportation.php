@@ -7,19 +7,37 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Transportation StructType
  * Meta informations extracted from the WSDL
- * - documentation: Contains the directions to/from a specific location for a mode of travel. | May be used to give further detail on the code (e.g. if a trolley is chosen, the trolley name could be added here) or to remove an obsolete item.
+ * - documentation: Detailed transportation information. | May be used to give further detail on the code (e.g. if a trolley is chosen, the trolley name could be added here) or to remove an obsolete item. | The currency amount of the tranportation
+ * charge. | A unique identifying value assigned by the creating system. The ID attribute may be used to reference a primary-key value within a database or in a particular implementation. | Identifies transportation facilities.
  * @subpackage Structs
  */
 class Transportation extends AbstractStructBase
 {
     /**
-     * The Descriptions
+     * The MultimediaDescriptions
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 2
+     * - documentation: Multimedia information about the transportation.
      * - minOccurs: 0
-     * @var mixed[]
+     * @var mixed
      */
-    public $Descriptions;
+    public $MultimediaDescriptions;
+    /**
+     * The OperationSchedules
+     * Meta informations extracted from the WSDL
+     * - documentation: Collection of operation schedules for the transportation.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $OperationSchedules;
+    /**
+     * The DescriptiveText
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * - documentation: Descriptive text that describes the restaurant. | Descriptive text that describes the transportation. | Descriptive text that describes the feature.
+     * - pattern: [A-Za-z0-9]{1,500}
+     * @var string
+     */
+    public $DescriptiveText;
     /**
      * The NotificationRequired
      * Meta informations extracted from the WSDL
@@ -31,11 +49,27 @@ class Transportation extends AbstractStructBase
     /**
      * The TransportationCode
      * Meta informations extracted from the WSDL
-     * - documentation: The mode of transportation. Refer to OTA Code List Transportation Code (TRP).
+     * - documentation: The mode of transportation. Refer to OpenTravel Code List Transportation Code (TRP).
      * - use: optional
      * @var string
      */
     public $TransportationCode;
+    /**
+     * The ChargeUnit
+     * Meta informations extracted from the WSDL
+     * - documentation: Refer to OpenTravel Codelist Charge Type (CHG).
+     * - use: optional
+     * @var string
+     */
+    public $ChargeUnit;
+    /**
+     * The Included
+     * Meta informations extracted from the WSDL
+     * - documentation: When true there is no additional charge for transportation.
+     * - use: optional
+     * @var bool
+     */
+    public $Included;
     /**
      * The Description
      * Meta informations extracted from the WSDL
@@ -53,65 +87,121 @@ class Transportation extends AbstractStructBase
      */
     public $TypicalTravelTime;
     /**
+     * The ExistsCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This attribute is used to explicitly define whether the type of transportation applies. Refer to OpenTravel Code list Option Type Code (OTC). This is used in conjunction with TransportationCode.
+     * - use: optional
+     * @var string
+     */
+    public $ExistsCode;
+    /**
+     * The Code
+     * Meta informations extracted from the WSDL
+     * - documentation: Any code used to specify an item, for example, type of traveler, service code, room amenity, etc. | Used to define the mode of available transportation. Refer to OpenTravel Code List Transportation Code (TRP).
+     * - use: optional
+     * @var string
+     */
+    public $Code;
+    /**
      * Constructor method for Transportation
-     * @uses Transportation::setDescriptions()
+     * @uses Transportation::setMultimediaDescriptions()
+     * @uses Transportation::setOperationSchedules()
+     * @uses Transportation::setDescriptiveText()
      * @uses Transportation::setNotificationRequired()
      * @uses Transportation::setTransportationCode()
+     * @uses Transportation::setChargeUnit()
+     * @uses Transportation::setIncluded()
      * @uses Transportation::setDescription()
      * @uses Transportation::setTypicalTravelTime()
-     * @param mixed[] $descriptions
+     * @uses Transportation::setExistsCode()
+     * @uses Transportation::setCode()
+     * @param mixed $multimediaDescriptions
+     * @param mixed $operationSchedules
+     * @param string $descriptiveText
      * @param string $notificationRequired
      * @param string $transportationCode
+     * @param string $chargeUnit
+     * @param bool $included
      * @param string $description
      * @param string $typicalTravelTime
+     * @param string $existsCode
+     * @param string $code
      */
-    public function __construct(array $descriptions = array(), $notificationRequired = null, $transportationCode = null, $description = null, $typicalTravelTime = null)
+    public function __construct($multimediaDescriptions = null, $operationSchedules = null, $descriptiveText = null, $notificationRequired = null, $transportationCode = null, $chargeUnit = null, $included = null, $description = null, $typicalTravelTime = null, $existsCode = null, $code = null)
     {
         $this
-            ->setDescriptions($descriptions)
+            ->setMultimediaDescriptions($multimediaDescriptions)
+            ->setOperationSchedules($operationSchedules)
+            ->setDescriptiveText($descriptiveText)
             ->setNotificationRequired($notificationRequired)
             ->setTransportationCode($transportationCode)
+            ->setChargeUnit($chargeUnit)
+            ->setIncluded($included)
             ->setDescription($description)
-            ->setTypicalTravelTime($typicalTravelTime);
+            ->setTypicalTravelTime($typicalTravelTime)
+            ->setExistsCode($existsCode)
+            ->setCode($code);
     }
     /**
-     * Get Descriptions value
-     * @return mixed[]|null
+     * Get MultimediaDescriptions value
+     * @return mixed|null
      */
-    public function getDescriptions()
+    public function getMultimediaDescriptions()
     {
-        return $this->Descriptions;
+        return $this->MultimediaDescriptions;
     }
     /**
-     * Set Descriptions value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $descriptions
+     * Set MultimediaDescriptions value
+     * @param mixed $multimediaDescriptions
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportation
      */
-    public function setDescriptions(array $descriptions = array())
+    public function setMultimediaDescriptions($multimediaDescriptions = null)
     {
-        foreach ($descriptions as $transportationDescriptionsItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Descriptions property can only contain items of anyType, "%s" given', is_object($transportationDescriptionsItem) ? get_class($transportationDescriptionsItem) : gettype($transportationDescriptionsItem)), __LINE__);
-            }
-        }
-        $this->Descriptions = $descriptions;
+        $this->MultimediaDescriptions = $multimediaDescriptions;
         return $this;
     }
     /**
-     * Add item to Descriptions value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
+     * Get OperationSchedules value
+     * @return mixed|null
+     */
+    public function getOperationSchedules()
+    {
+        return $this->OperationSchedules;
+    }
+    /**
+     * Set OperationSchedules value
+     * @param mixed $operationSchedules
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportation
      */
-    public function addToDescriptions($item)
+    public function setOperationSchedules($operationSchedules = null)
     {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Descriptions property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        $this->OperationSchedules = $operationSchedules;
+        return $this;
+    }
+    /**
+     * Get DescriptiveText value
+     * @return string|null
+     */
+    public function getDescriptiveText()
+    {
+        return $this->DescriptiveText;
+    }
+    /**
+     * Set DescriptiveText value
+     * @param string $descriptiveText
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportation
+     */
+    public function setDescriptiveText($descriptiveText = null)
+    {
+        // validation for constraint: pattern
+        if (is_scalar($descriptiveText) && !preg_match('/[A-Za-z0-9]{1,500}/', $descriptiveText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[A-Za-z0-9]{1,500}", "%s" given', var_export($descriptiveText, true)), __LINE__);
         }
-        $this->Descriptions[] = $item;
+        // validation for constraint: string
+        if (!is_null($descriptiveText) && !is_string($descriptiveText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptiveText)), __LINE__);
+        }
+        $this->DescriptiveText = $descriptiveText;
         return $this;
     }
     /**
@@ -159,6 +249,50 @@ class Transportation extends AbstractStructBase
         return $this;
     }
     /**
+     * Get ChargeUnit value
+     * @return string|null
+     */
+    public function getChargeUnit()
+    {
+        return $this->ChargeUnit;
+    }
+    /**
+     * Set ChargeUnit value
+     * @param string $chargeUnit
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportation
+     */
+    public function setChargeUnit($chargeUnit = null)
+    {
+        // validation for constraint: string
+        if (!is_null($chargeUnit) && !is_string($chargeUnit)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($chargeUnit)), __LINE__);
+        }
+        $this->ChargeUnit = $chargeUnit;
+        return $this;
+    }
+    /**
+     * Get Included value
+     * @return bool|null
+     */
+    public function getIncluded()
+    {
+        return $this->Included;
+    }
+    /**
+     * Set Included value
+     * @param bool $included
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportation
+     */
+    public function setIncluded($included = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($included) && !is_bool($included)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($included)), __LINE__);
+        }
+        $this->Included = $included;
+        return $this;
+    }
+    /**
      * Get Description value
      * @return string|null
      */
@@ -200,6 +334,50 @@ class Transportation extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($typicalTravelTime)), __LINE__);
         }
         $this->TypicalTravelTime = $typicalTravelTime;
+        return $this;
+    }
+    /**
+     * Get ExistsCode value
+     * @return string|null
+     */
+    public function getExistsCode()
+    {
+        return $this->ExistsCode;
+    }
+    /**
+     * Set ExistsCode value
+     * @param string $existsCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportation
+     */
+    public function setExistsCode($existsCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
+        }
+        $this->ExistsCode = $existsCode;
+        return $this;
+    }
+    /**
+     * Get Code value
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->Code;
+    }
+    /**
+     * Set Code value
+     * @param string $code
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportation
+     */
+    public function setCode($code = null)
+    {
+        // validation for constraint: string
+        if (!is_null($code) && !is_string($code)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($code)), __LINE__);
+        }
+        $this->Code = $code;
         return $this;
     }
     /**

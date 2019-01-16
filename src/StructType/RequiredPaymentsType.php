@@ -7,66 +7,66 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RequiredPaymentsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of RequiredPayment.
+ * - documentation: A collection of required payments.
  * @subpackage Structs
  */
 class RequiredPaymentsType extends AbstractStructBase
 {
     /**
-     * The RequiredPayment
+     * The GuaranteePayment
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment[]
      */
-    public $RequiredPayment;
+    public $GuaranteePayment;
     /**
      * Constructor method for RequiredPaymentsType
-     * @uses RequiredPaymentsType::setRequiredPayment()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment[] $requiredPayment
+     * @uses RequiredPaymentsType::setGuaranteePayment()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment[] $guaranteePayment
      */
-    public function __construct(array $requiredPayment = array())
+    public function __construct(array $guaranteePayment = array())
     {
         $this
-            ->setRequiredPayment($requiredPayment);
+            ->setGuaranteePayment($guaranteePayment);
     }
     /**
-     * Get RequiredPayment value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment[]|null
+     * Get GuaranteePayment value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment[]|null
      */
-    public function getRequiredPayment()
+    public function getGuaranteePayment()
     {
-        return $this->RequiredPayment;
+        return $this->GuaranteePayment;
     }
     /**
-     * Set RequiredPayment value
+     * Set GuaranteePayment value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment[] $requiredPayment
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment[] $guaranteePayment
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPaymentsType
      */
-    public function setRequiredPayment(array $requiredPayment = array())
+    public function setGuaranteePayment(array $guaranteePayment = array())
     {
-        foreach ($requiredPayment as $requiredPaymentsTypeRequiredPaymentItem) {
+        foreach ($guaranteePayment as $requiredPaymentsTypeGuaranteePaymentItem) {
             // validation for constraint: itemType
-            if (!$requiredPaymentsTypeRequiredPaymentItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment) {
-                throw new \InvalidArgumentException(sprintf('The RequiredPayment property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment, "%s" given', is_object($requiredPaymentsTypeRequiredPaymentItem) ? get_class($requiredPaymentsTypeRequiredPaymentItem) : gettype($requiredPaymentsTypeRequiredPaymentItem)), __LINE__);
+            if (!$requiredPaymentsTypeGuaranteePaymentItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment) {
+                throw new \InvalidArgumentException(sprintf('The GuaranteePayment property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment, "%s" given', is_object($requiredPaymentsTypeGuaranteePaymentItem) ? get_class($requiredPaymentsTypeGuaranteePaymentItem) : gettype($requiredPaymentsTypeGuaranteePaymentItem)), __LINE__);
             }
         }
-        $this->RequiredPayment = $requiredPayment;
+        $this->GuaranteePayment = $guaranteePayment;
         return $this;
     }
     /**
-     * Add item to RequiredPayment value
+     * Add item to GuaranteePayment value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPaymentsType
      */
-    public function addToRequiredPayment(\Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment $item)
+    public function addToGuaranteePayment(\Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment $item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment) {
-            throw new \InvalidArgumentException(sprintf('The RequiredPayment property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RequiredPayment, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment) {
+            throw new \InvalidArgumentException(sprintf('The GuaranteePayment property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePayment, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
-        $this->RequiredPayment[] = $item;
+        $this->GuaranteePayment[] = $item;
         return $this;
     }
     /**

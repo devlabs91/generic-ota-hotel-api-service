@@ -14,19 +14,22 @@ class VehicleEquipmentPricedType extends AbstractStructBase
 {
     /**
      * The Equipment
+     * Meta informations extracted from the WSDL
+     * - documentation: Details about a equipment, such as text or description.
      * @var mixed
      */
     public $Equipment;
     /**
      * The Charge
+     * Meta informations extracted from the WSDL
+     * - documentation: The charges as they relate to a single piece of equipment, such as minimum or maximum amounts, taxes, or information on how the charge was calculated.
      * @var mixed
      */
     public $Charge;
     /**
      * The Required
      * Meta informations extracted from the WSDL
-     * - default: false
-     * - documentation: An indication if this particular equipment is required in the vehicle reservation, or is optional, based upon renter preference.
+     * - documentation: An indication if this particular equipment is required in the vehicle reservation, or is optional, based upon renter preference. | false
      * - use: optional
      * @var bool
      */
@@ -40,7 +43,7 @@ class VehicleEquipmentPricedType extends AbstractStructBase
      * @param mixed $charge
      * @param bool $required
      */
-    public function __construct($equipment = null, $charge = null, $required = false)
+    public function __construct($equipment = null, $charge = null, $required = null)
     {
         $this
             ->setEquipment($equipment)
@@ -96,7 +99,7 @@ class VehicleEquipmentPricedType extends AbstractStructBase
      * @param bool $required
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleEquipmentPricedType
      */
-    public function setRequired($required = false)
+    public function setRequired($required = null)
     {
         // validation for constraint: boolean
         if (!is_null($required) && !is_bool($required)) {

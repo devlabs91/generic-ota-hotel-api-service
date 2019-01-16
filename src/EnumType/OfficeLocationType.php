@@ -5,7 +5,7 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for OfficeLocationType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates main office, field office, or division of the organization.
+ * - documentation: Specifes the location type of an office (e.g. main, field, division).
  * @subpackage Enumerations
  */
 class OfficeLocationType

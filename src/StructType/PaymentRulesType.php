@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PaymentRulesType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of payment rules.
  * @subpackage Structs
  */
 class PaymentRulesType extends AbstractStructBase

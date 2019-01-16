@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AccessesType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Element to capture creation and last update data.
+ * - documentation: Element to capture creation and last update data. | Allows for control of the sharing of access data between parties.
  * @subpackage Structs
  */
 class AccessesType extends AbstractStructBase

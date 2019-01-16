@@ -40,12 +40,26 @@ class OTA_HotelAvailRS extends AbstractStructBase
      */
     public $Profiles;
     /**
+     * The HotelStays
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\HotelStays
+     */
+    public $HotelStays;
+    /**
      * The RoomStays
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays
      */
     public $RoomStays;
+    /**
+     * The Services
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ServicesType
+     */
+    public $Services;
     /**
      * The Areas
      * Meta informations extracted from the WSDL
@@ -61,10 +75,32 @@ class OTA_HotelAvailRS extends AbstractStructBase
      */
     public $Criteria;
     /**
+     * The CurrencyConversions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CurrencyConversions
+     */
+    public $CurrencyConversions;
+    /**
+     * The TPA_Extensions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * - ref: TPA_Extensions
+     * @var mixed
+     */
+    public $TPA_Extensions;
+    /**
      * The Errors
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType
      */
     public $Errors;
+    /**
+     * The SearchCacheLevel
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $SearchCacheLevel;
     /**
      * The EchoToken
      * @var string
@@ -101,15 +137,30 @@ class OTA_HotelAvailRS extends AbstractStructBase
      */
     public $TransactionStatusCode;
     /**
+     * The RetransmissionIndicator
+     * @var bool
+     */
+    public $RetransmissionIndicator;
+    /**
+     * The CorrelationID
+     * @var string
+     */
+    public $CorrelationID;
+    /**
      * Constructor method for OTA_HotelAvailRS
      * @uses OTA_HotelAvailRS::setPOS()
      * @uses OTA_HotelAvailRS::setSuccess()
      * @uses OTA_HotelAvailRS::setWarnings()
      * @uses OTA_HotelAvailRS::setProfiles()
+     * @uses OTA_HotelAvailRS::setHotelStays()
      * @uses OTA_HotelAvailRS::setRoomStays()
+     * @uses OTA_HotelAvailRS::setServices()
      * @uses OTA_HotelAvailRS::setAreas()
      * @uses OTA_HotelAvailRS::setCriteria()
+     * @uses OTA_HotelAvailRS::setCurrencyConversions()
+     * @uses OTA_HotelAvailRS::setTPA_Extensions()
      * @uses OTA_HotelAvailRS::setErrors()
+     * @uses OTA_HotelAvailRS::setSearchCacheLevel()
      * @uses OTA_HotelAvailRS::setEchoToken()
      * @uses OTA_HotelAvailRS::setTimeStamp()
      * @uses OTA_HotelAvailRS::setTarget()
@@ -117,14 +168,21 @@ class OTA_HotelAvailRS extends AbstractStructBase
      * @uses OTA_HotelAvailRS::setTransactionIdentifier()
      * @uses OTA_HotelAvailRS::setSequenceNmbr()
      * @uses OTA_HotelAvailRS::setTransactionStatusCode()
+     * @uses OTA_HotelAvailRS::setRetransmissionIndicator()
+     * @uses OTA_HotelAvailRS::setCorrelationID()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\SuccessType $success
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\WarningsType $warnings
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProfilesType $profiles
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelStays $hotelStays
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays $roomStays
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ServicesType $services
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AreasType $areas
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Criteria $criteria
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CurrencyConversions $currencyConversions
+     * @param mixed $tPA_Extensions
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType $errors
+     * @param string $searchCacheLevel
      * @param string $echoToken
      * @param string $timeStamp
      * @param string $target
@@ -132,25 +190,34 @@ class OTA_HotelAvailRS extends AbstractStructBase
      * @param string $transactionIdentifier
      * @param int $sequenceNmbr
      * @param string $transactionStatusCode
+     * @param bool $retransmissionIndicator
+     * @param string $correlationID
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\SuccessType $success = null, \Devlabs91\GenericOtaHotelApiService\StructType\WarningsType $warnings = null, \Devlabs91\GenericOtaHotelApiService\StructType\ProfilesType $profiles = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays $roomStays = null, \Devlabs91\GenericOtaHotelApiService\StructType\AreasType $areas = null, \Devlabs91\GenericOtaHotelApiService\StructType\Criteria $criteria = null, \Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType $errors = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\SuccessType $success = null, \Devlabs91\GenericOtaHotelApiService\StructType\WarningsType $warnings = null, \Devlabs91\GenericOtaHotelApiService\StructType\ProfilesType $profiles = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelStays $hotelStays = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays $roomStays = null, \Devlabs91\GenericOtaHotelApiService\StructType\ServicesType $services = null, \Devlabs91\GenericOtaHotelApiService\StructType\AreasType $areas = null, \Devlabs91\GenericOtaHotelApiService\StructType\Criteria $criteria = null, \Devlabs91\GenericOtaHotelApiService\StructType\CurrencyConversions $currencyConversions = null, $tPA_Extensions = null, \Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType $errors = null, $searchCacheLevel = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $retransmissionIndicator = null, $correlationID = null)
     {
         $this
             ->setPOS($pOS)
             ->setSuccess($success)
             ->setWarnings($warnings)
             ->setProfiles($profiles)
+            ->setHotelStays($hotelStays)
             ->setRoomStays($roomStays)
+            ->setServices($services)
             ->setAreas($areas)
             ->setCriteria($criteria)
+            ->setCurrencyConversions($currencyConversions)
+            ->setTPA_Extensions($tPA_Extensions)
             ->setErrors($errors)
+            ->setSearchCacheLevel($searchCacheLevel)
             ->setEchoToken($echoToken)
             ->setTimeStamp($timeStamp)
             ->setTarget($target)
             ->setVersion($version)
             ->setTransactionIdentifier($transactionIdentifier)
             ->setSequenceNmbr($sequenceNmbr)
-            ->setTransactionStatusCode($transactionStatusCode);
+            ->setTransactionStatusCode($transactionStatusCode)
+            ->setRetransmissionIndicator($retransmissionIndicator)
+            ->setCorrelationID($correlationID);
     }
     /**
      * Get POS value
@@ -225,6 +292,24 @@ class OTA_HotelAvailRS extends AbstractStructBase
         return $this;
     }
     /**
+     * Get HotelStays value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelStays|null
+     */
+    public function getHotelStays()
+    {
+        return $this->HotelStays;
+    }
+    /**
+     * Set HotelStays value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelStays $hotelStays
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailRS
+     */
+    public function setHotelStays(\Devlabs91\GenericOtaHotelApiService\StructType\HotelStays $hotelStays = null)
+    {
+        $this->HotelStays = $hotelStays;
+        return $this;
+    }
+    /**
      * Get RoomStays value
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays|null
      */
@@ -240,6 +325,24 @@ class OTA_HotelAvailRS extends AbstractStructBase
     public function setRoomStays(\Devlabs91\GenericOtaHotelApiService\StructType\RoomStays $roomStays = null)
     {
         $this->RoomStays = $roomStays;
+        return $this;
+    }
+    /**
+     * Get Services value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ServicesType|null
+     */
+    public function getServices()
+    {
+        return $this->Services;
+    }
+    /**
+     * Set Services value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ServicesType $services
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailRS
+     */
+    public function setServices(\Devlabs91\GenericOtaHotelApiService\StructType\ServicesType $services = null)
+    {
+        $this->Services = $services;
         return $this;
     }
     /**
@@ -279,6 +382,42 @@ class OTA_HotelAvailRS extends AbstractStructBase
         return $this;
     }
     /**
+     * Get CurrencyConversions value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CurrencyConversions|null
+     */
+    public function getCurrencyConversions()
+    {
+        return $this->CurrencyConversions;
+    }
+    /**
+     * Set CurrencyConversions value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CurrencyConversions $currencyConversions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailRS
+     */
+    public function setCurrencyConversions(\Devlabs91\GenericOtaHotelApiService\StructType\CurrencyConversions $currencyConversions = null)
+    {
+        $this->CurrencyConversions = $currencyConversions;
+        return $this;
+    }
+    /**
+     * Get TPA_Extensions value
+     * @return mixed|null
+     */
+    public function getTPA_Extensions()
+    {
+        return $this->TPA_Extensions;
+    }
+    /**
+     * Set TPA_Extensions value
+     * @param mixed $tPA_Extensions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailRS
+     */
+    public function setTPA_Extensions($tPA_Extensions = null)
+    {
+        $this->TPA_Extensions = $tPA_Extensions;
+        return $this;
+    }
+    /**
      * Get Errors value
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType|null
      */
@@ -294,6 +433,28 @@ class OTA_HotelAvailRS extends AbstractStructBase
     public function setErrors(\Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType $errors = null)
     {
         $this->Errors = $errors;
+        return $this;
+    }
+    /**
+     * Get SearchCacheLevel value
+     * @return string|null
+     */
+    public function getSearchCacheLevel()
+    {
+        return $this->SearchCacheLevel;
+    }
+    /**
+     * Set SearchCacheLevel value
+     * @param string $searchCacheLevel
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailRS
+     */
+    public function setSearchCacheLevel($searchCacheLevel = null)
+    {
+        // validation for constraint: string
+        if (!is_null($searchCacheLevel) && !is_string($searchCacheLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchCacheLevel)), __LINE__);
+        }
+        $this->SearchCacheLevel = $searchCacheLevel;
         return $this;
     }
     /**
@@ -444,6 +605,50 @@ class OTA_HotelAvailRS extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionStatusCode)), __LINE__);
         }
         $this->TransactionStatusCode = $transactionStatusCode;
+        return $this;
+    }
+    /**
+     * Get RetransmissionIndicator value
+     * @return bool|null
+     */
+    public function getRetransmissionIndicator()
+    {
+        return $this->RetransmissionIndicator;
+    }
+    /**
+     * Set RetransmissionIndicator value
+     * @param bool $retransmissionIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailRS
+     */
+    public function setRetransmissionIndicator($retransmissionIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($retransmissionIndicator) && !is_bool($retransmissionIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retransmissionIndicator)), __LINE__);
+        }
+        $this->RetransmissionIndicator = $retransmissionIndicator;
+        return $this;
+    }
+    /**
+     * Get CorrelationID value
+     * @return string|null
+     */
+    public function getCorrelationID()
+    {
+        return $this->CorrelationID;
+    }
+    /**
+     * Set CorrelationID value
+     * @param string $correlationID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailRS
+     */
+    public function setCorrelationID($correlationID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($correlationID) && !is_string($correlationID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($correlationID)), __LINE__);
+        }
+        $this->CorrelationID = $correlationID;
         return $this;
     }
     /**

@@ -41,13 +41,15 @@ class RatePlanLiteType extends AbstractStructBase
      * The RateIndicator
      * Meta informations extracted from the WSDL
      * - documentation: Information pertaining to the availability of the rate plan.
+     * - use: optional
      * @var string
      */
     public $RateIndicator;
     /**
      * The RatePlanType
      * Meta informations extracted from the WSDL
-     * - documentation: An enumerated type that allows the query to specify a rate category type, and provides major categories for comparison across brands. Refer to OTA Code List Rate Plan Type (RPT).
+     * - documentation: An enumerated type that allows the query to specify a rate category type, and provides major categories for comparison across brands. Refer to OpenTravel Code List Rate Plan Type (RPT).
+     * - use: optional
      * @var string
      */
     public $RatePlanType;
@@ -55,6 +57,7 @@ class RatePlanLiteType extends AbstractStructBase
      * The RatePlanID
      * Meta informations extracted from the WSDL
      * - documentation: A text field used to indicate a special ID code that is associated with the rate and is required in the reservation request in order to obtain the rate. Examples are Corporate ID and Promotion Code.
+     * - use: optional
      * @var string
      */
     public $RatePlanID;

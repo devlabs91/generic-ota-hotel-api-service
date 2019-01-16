@@ -20,14 +20,25 @@ class Recreations extends AbstractStructBase
      */
     public $Recreation;
     /**
+     * The LastUpdated
+     * Meta informations extracted from the WSDL
+     * - documentation: The date and time when Recreations was last updated.
+     * - use: optional
+     * @var string
+     */
+    public $LastUpdated;
+    /**
      * Constructor method for Recreations
      * @uses Recreations::setRecreation()
+     * @uses Recreations::setLastUpdated()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Recreation[] $recreation
+     * @param string $lastUpdated
      */
-    public function __construct(array $recreation = array())
+    public function __construct(array $recreation = array(), $lastUpdated = null)
     {
         $this
-            ->setRecreation($recreation);
+            ->setRecreation($recreation)
+            ->setLastUpdated($lastUpdated);
     }
     /**
      * Get Recreation value
@@ -67,6 +78,28 @@ class Recreations extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The Recreation property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Recreation, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Recreation[] = $item;
+        return $this;
+    }
+    /**
+     * Get LastUpdated value
+     * @return string|null
+     */
+    public function getLastUpdated()
+    {
+        return $this->LastUpdated;
+    }
+    /**
+     * Set LastUpdated value
+     * @param string $lastUpdated
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Recreations
+     */
+    public function setLastUpdated($lastUpdated = null)
+    {
+        // validation for constraint: string
+        if (!is_null($lastUpdated) && !is_string($lastUpdated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastUpdated)), __LINE__);
+        }
+        $this->LastUpdated = $lastUpdated;
         return $this;
     }
     /**

@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for FeeType StructType
  * Meta informations extracted from the WSDL
- * - documentation: May be used for non tax amounts (e.g service charges).
+ * - documentation: Used for non-tax fees and charges (e.g. service charges) . | Provides details of the fee. | Provides the effective and expiry dates for the fee. | Specifies charge information by unit (e.g., room, person, item) and frequency (e.g.,
+ * daily, weekly, stay).
  * @subpackage Structs
  */
 class FeeType extends AbstractStructBase
@@ -15,6 +16,7 @@ class FeeType extends AbstractStructBase
     /**
      * The Taxes
      * Meta informations extracted from the WSDL
+     * - documentation: Used for taxes on the associated fee.
      * - minOccurs: 0
      * @var mixed
      */
@@ -36,20 +38,53 @@ class FeeType extends AbstractStructBase
      */
     public $TaxInclusive;
     /**
+     * The MandatoryIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates the fee is mandatory. When false, the fee is not mandatory.
+     * - use: optional
+     * @var bool
+     */
+    public $MandatoryIndicator;
+    /**
+     * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: An index code to identify an instance in a collection of like items.
+     * - use: optional
+     * @var string
+     */
+    public $RPH;
+    /**
+     * The TaxableIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates that the fee is subject to tax.
+     * - use: optional
+     * @var bool
+     */
+    public $TaxableIndicator;
+    /**
      * Constructor method for FeeType
      * @uses FeeType::setTaxes()
      * @uses FeeType::setDescription()
      * @uses FeeType::setTaxInclusive()
+     * @uses FeeType::setMandatoryIndicator()
+     * @uses FeeType::setRPH()
+     * @uses FeeType::setTaxableIndicator()
      * @param mixed $taxes
      * @param mixed[] $description
      * @param bool $taxInclusive
+     * @param bool $mandatoryIndicator
+     * @param string $rPH
+     * @param bool $taxableIndicator
      */
-    public function __construct($taxes = null, array $description = array(), $taxInclusive = null)
+    public function __construct($taxes = null, array $description = array(), $taxInclusive = null, $mandatoryIndicator = null, $rPH = null, $taxableIndicator = null)
     {
         $this
             ->setTaxes($taxes)
             ->setDescription($description)
-            ->setTaxInclusive($taxInclusive);
+            ->setTaxInclusive($taxInclusive)
+            ->setMandatoryIndicator($mandatoryIndicator)
+            ->setRPH($rPH)
+            ->setTaxableIndicator($taxableIndicator);
     }
     /**
      * Get Taxes value
@@ -129,6 +164,72 @@ class FeeType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($taxInclusive)), __LINE__);
         }
         $this->TaxInclusive = $taxInclusive;
+        return $this;
+    }
+    /**
+     * Get MandatoryIndicator value
+     * @return bool|null
+     */
+    public function getMandatoryIndicator()
+    {
+        return $this->MandatoryIndicator;
+    }
+    /**
+     * Set MandatoryIndicator value
+     * @param bool $mandatoryIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FeeType
+     */
+    public function setMandatoryIndicator($mandatoryIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($mandatoryIndicator) && !is_bool($mandatoryIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mandatoryIndicator)), __LINE__);
+        }
+        $this->MandatoryIndicator = $mandatoryIndicator;
+        return $this;
+    }
+    /**
+     * Get RPH value
+     * @return string|null
+     */
+    public function getRPH()
+    {
+        return $this->RPH;
+    }
+    /**
+     * Set RPH value
+     * @param string $rPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FeeType
+     */
+    public function setRPH($rPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($rPH) && !is_string($rPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
+        }
+        $this->RPH = $rPH;
+        return $this;
+    }
+    /**
+     * Get TaxableIndicator value
+     * @return bool|null
+     */
+    public function getTaxableIndicator()
+    {
+        return $this->TaxableIndicator;
+    }
+    /**
+     * Set TaxableIndicator value
+     * @param bool $taxableIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FeeType
+     */
+    public function setTaxableIndicator($taxableIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($taxableIndicator) && !is_bool($taxableIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($taxableIndicator)), __LINE__);
+        }
+        $this->TaxableIndicator = $taxableIndicator;
         return $this;
     }
     /**

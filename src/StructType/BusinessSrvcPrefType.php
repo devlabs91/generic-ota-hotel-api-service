@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for BusinessSrvcPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for type of business services in a hotel. | Identifies the customer's level of preference for the hotel business service identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for type of business services in a hotel. | Identifies the customer's level of preference for the hotel business service identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class BusinessSrvcPrefType extends AbstractStructBase
     /**
      * The BusinessSrvcType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the types of business services offered by the hotel. Refer to OTA Code ListBusiness Srvc Type (BUS).
+     * - documentation: Identifies the types of business services offered by the hotel. Refer to OpenTravel Code ListBusiness Srvc Type (BUS).
      * @var string
      */
     public $BusinessSrvcType;

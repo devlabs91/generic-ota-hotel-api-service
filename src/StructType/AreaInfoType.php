@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AreaInfoType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Defines well-known locations and attractions of local interest in the geographical area of the hotel facility.
+ * - documentation: Defines well-known locations and attractions of local interest in the geographical area of the hotel facility as well as other area hotels.
  * @subpackage Structs
  */
 class AreaInfoType extends AbstractStructBase
@@ -16,7 +16,7 @@ class AreaInfoType extends AbstractStructBase
      * The RefPoints
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RefPoints
      */
     public $RefPoints;
     /**
@@ -34,24 +34,34 @@ class AreaInfoType extends AbstractStructBase
      */
     public $Recreations;
     /**
+     * The OtherHotels
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OtherHotels
+     */
+    public $OtherHotels;
+    /**
      * Constructor method for AreaInfoType
      * @uses AreaInfoType::setRefPoints()
      * @uses AreaInfoType::setAttractions()
      * @uses AreaInfoType::setRecreations()
-     * @param mixed $refPoints
+     * @uses AreaInfoType::setOtherHotels()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RefPoints $refPoints
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Attractions $attractions
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Recreations $recreations
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OtherHotels $otherHotels
      */
-    public function __construct($refPoints = null, \Devlabs91\GenericOtaHotelApiService\StructType\Attractions $attractions = null, \Devlabs91\GenericOtaHotelApiService\StructType\Recreations $recreations = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\RefPoints $refPoints = null, \Devlabs91\GenericOtaHotelApiService\StructType\Attractions $attractions = null, \Devlabs91\GenericOtaHotelApiService\StructType\Recreations $recreations = null, \Devlabs91\GenericOtaHotelApiService\StructType\OtherHotels $otherHotels = null)
     {
         $this
             ->setRefPoints($refPoints)
             ->setAttractions($attractions)
-            ->setRecreations($recreations);
+            ->setRecreations($recreations)
+            ->setOtherHotels($otherHotels);
     }
     /**
      * Get RefPoints value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RefPoints|null
      */
     public function getRefPoints()
     {
@@ -59,10 +69,10 @@ class AreaInfoType extends AbstractStructBase
     }
     /**
      * Set RefPoints value
-     * @param mixed $refPoints
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RefPoints $refPoints
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AreaInfoType
      */
-    public function setRefPoints($refPoints = null)
+    public function setRefPoints(\Devlabs91\GenericOtaHotelApiService\StructType\RefPoints $refPoints = null)
     {
         $this->RefPoints = $refPoints;
         return $this;
@@ -101,6 +111,24 @@ class AreaInfoType extends AbstractStructBase
     public function setRecreations(\Devlabs91\GenericOtaHotelApiService\StructType\Recreations $recreations = null)
     {
         $this->Recreations = $recreations;
+        return $this;
+    }
+    /**
+     * Get OtherHotels value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OtherHotels|null
+     */
+    public function getOtherHotels()
+    {
+        return $this->OtherHotels;
+    }
+    /**
+     * Set OtherHotels value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OtherHotels $otherHotels
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AreaInfoType
+     */
+    public function setOtherHotels(\Devlabs91\GenericOtaHotelApiService\StructType\OtherHotels $otherHotels = null)
+    {
+        $this->OtherHotels = $otherHotels;
         return $this;
     }
     /**

@@ -15,24 +15,23 @@ class ResTicketingRules extends AbstractStructBase
     /**
      * The AdvResTicketing
      * Meta informations extracted from the WSDL
-     * - documentation: Container for holding rules regarding advance reservation or ticketing restrictions.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AdvResTicketing
      */
     public $AdvResTicketing;
     /**
      * Constructor method for ResTicketingRules
      * @uses ResTicketingRules::setAdvResTicketing()
-     * @param mixed $advResTicketing
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdvResTicketing $advResTicketing
      */
-    public function __construct($advResTicketing = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\AdvResTicketing $advResTicketing = null)
     {
         $this
             ->setAdvResTicketing($advResTicketing);
     }
     /**
      * Get AdvResTicketing value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdvResTicketing|null
      */
     public function getAdvResTicketing()
     {
@@ -40,10 +39,10 @@ class ResTicketingRules extends AbstractStructBase
     }
     /**
      * Set AdvResTicketing value
-     * @param mixed $advResTicketing
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdvResTicketing $advResTicketing
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResTicketingRules
      */
-    public function setAdvResTicketing($advResTicketing = null)
+    public function setAdvResTicketing(\Devlabs91\GenericOtaHotelApiService\StructType\AdvResTicketing $advResTicketing = null)
     {
         $this->AdvResTicketing = $advResTicketing;
         return $this;

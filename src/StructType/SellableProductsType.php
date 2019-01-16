@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SellableProductsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The SellableProduct class defines the inventoriable item for this rate plan.
+ * - documentation: The SellableProduct class defines the inventoried item for this rate plan.
  * @subpackage Structs
  */
 class SellableProductsType extends AbstractStructBase

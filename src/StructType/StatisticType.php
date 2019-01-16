@@ -7,166 +7,42 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for StatisticType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The Statistic class contains the guest revenue stay data to be included in the report.
+ * - documentation: Defines all details needed to create a statistical report.
  * @subpackage Structs
  */
 class StatisticType extends AbstractStructBase
 {
     /**
-     * The RevenueCategorySummaries
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
-     * @var mixed
+     * The StatisticApplicationSets
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\StatisticApplicationSets
      */
-    public $RevenueCategorySummaries;
-    /**
-     * The CountCategorySummaries
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
-     * @var mixed
-     */
-    public $CountCategorySummaries;
-    /**
-     * The ReportSummaries
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ReportSummaries
-     */
-    public $ReportSummaries;
-    /**
-     * The FiscalDate
-     * Meta informations extracted from the WSDL
-     * - documentation: Hotel fiscal date for statistics.
-     * - use: optional
-     * @var string
-     */
-    public $FiscalDate;
-    /**
-     * The ReportCode
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifies the type of statistics collected. Each ReportCode corresponds to a set of category summaries based upon a predetermined agreement
-     * - use: optional
-     * @var string
-     */
-    public $ReportCode;
+    public $StatisticApplicationSets;
     /**
      * Constructor method for StatisticType
-     * @uses StatisticType::setRevenueCategorySummaries()
-     * @uses StatisticType::setCountCategorySummaries()
-     * @uses StatisticType::setReportSummaries()
-     * @uses StatisticType::setFiscalDate()
-     * @uses StatisticType::setReportCode()
-     * @param mixed $revenueCategorySummaries
-     * @param mixed $countCategorySummaries
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ReportSummaries $reportSummaries
-     * @param string $fiscalDate
-     * @param string $reportCode
+     * @uses StatisticType::setStatisticApplicationSets()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StatisticApplicationSets $statisticApplicationSets
      */
-    public function __construct($revenueCategorySummaries = null, $countCategorySummaries = null, \Devlabs91\GenericOtaHotelApiService\StructType\ReportSummaries $reportSummaries = null, $fiscalDate = null, $reportCode = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\StatisticApplicationSets $statisticApplicationSets = null)
     {
         $this
-            ->setRevenueCategorySummaries($revenueCategorySummaries)
-            ->setCountCategorySummaries($countCategorySummaries)
-            ->setReportSummaries($reportSummaries)
-            ->setFiscalDate($fiscalDate)
-            ->setReportCode($reportCode);
+            ->setStatisticApplicationSets($statisticApplicationSets);
     }
     /**
-     * Get RevenueCategorySummaries value
-     * @return mixed|null
+     * Get StatisticApplicationSets value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatisticApplicationSets|null
      */
-    public function getRevenueCategorySummaries()
+    public function getStatisticApplicationSets()
     {
-        return $this->RevenueCategorySummaries;
+        return $this->StatisticApplicationSets;
     }
     /**
-     * Set RevenueCategorySummaries value
-     * @param mixed $revenueCategorySummaries
+     * Set StatisticApplicationSets value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StatisticApplicationSets $statisticApplicationSets
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatisticType
      */
-    public function setRevenueCategorySummaries($revenueCategorySummaries = null)
+    public function setStatisticApplicationSets(\Devlabs91\GenericOtaHotelApiService\StructType\StatisticApplicationSets $statisticApplicationSets = null)
     {
-        $this->RevenueCategorySummaries = $revenueCategorySummaries;
-        return $this;
-    }
-    /**
-     * Get CountCategorySummaries value
-     * @return mixed|null
-     */
-    public function getCountCategorySummaries()
-    {
-        return $this->CountCategorySummaries;
-    }
-    /**
-     * Set CountCategorySummaries value
-     * @param mixed $countCategorySummaries
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatisticType
-     */
-    public function setCountCategorySummaries($countCategorySummaries = null)
-    {
-        $this->CountCategorySummaries = $countCategorySummaries;
-        return $this;
-    }
-    /**
-     * Get ReportSummaries value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ReportSummaries|null
-     */
-    public function getReportSummaries()
-    {
-        return $this->ReportSummaries;
-    }
-    /**
-     * Set ReportSummaries value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ReportSummaries $reportSummaries
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatisticType
-     */
-    public function setReportSummaries(\Devlabs91\GenericOtaHotelApiService\StructType\ReportSummaries $reportSummaries = null)
-    {
-        $this->ReportSummaries = $reportSummaries;
-        return $this;
-    }
-    /**
-     * Get FiscalDate value
-     * @return string|null
-     */
-    public function getFiscalDate()
-    {
-        return $this->FiscalDate;
-    }
-    /**
-     * Set FiscalDate value
-     * @param string $fiscalDate
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatisticType
-     */
-    public function setFiscalDate($fiscalDate = null)
-    {
-        // validation for constraint: string
-        if (!is_null($fiscalDate) && !is_string($fiscalDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fiscalDate)), __LINE__);
-        }
-        $this->FiscalDate = $fiscalDate;
-        return $this;
-    }
-    /**
-     * Get ReportCode value
-     * @return string|null
-     */
-    public function getReportCode()
-    {
-        return $this->ReportCode;
-    }
-    /**
-     * Set ReportCode value
-     * @param string $reportCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatisticType
-     */
-    public function setReportCode($reportCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($reportCode) && !is_string($reportCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reportCode)), __LINE__);
-        }
-        $this->ReportCode = $reportCode;
+        $this->StatisticApplicationSets = $statisticApplicationSets;
         return $this;
     }
     /**

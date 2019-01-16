@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ListItem StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Formatted text content and an associated item or sequence number.
  * @subpackage Structs
  */
 class ListItem extends FormattedTextTextType
@@ -13,6 +15,7 @@ class ListItem extends FormattedTextTextType
     /**
      * The ListItem
      * Meta informations extracted from the WSDL
+     * - documentation: The item or sequence number.
      * - use: optional
      * @var int
      */

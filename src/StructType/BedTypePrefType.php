@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for BedTypePrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for the size and features of hotel bed types. | Indicates the level of preference for the bed type requested. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for the size and features of hotel bed types. | Indicates the level of preference for the bed type requested. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class BedTypePrefType extends AbstractStructBase
     /**
      * The BedType
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates the hotel bed type requested. Refer to OTA Code List Bed Type (BED).
+     * - documentation: Indicates the hotel bed type requested. Refer to OpenTravel Code List Bed Type (BED).
      * @var string
      */
     public $BedType;

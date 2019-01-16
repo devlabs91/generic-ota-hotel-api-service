@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SourceIdentificationType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Where details of the package can be found. | Used for Character Strings, length 0 to 64
+ * - documentation: Where details of the package can be found. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs

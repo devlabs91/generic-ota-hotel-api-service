@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for GuestRoomType StructType
  * Meta informations extracted from the WSDL
- * - documentation: GuestRoomType is used to contain all the information on a guest room
+ * - documentation: GuestRoomType is used to contain all the information on a guest room.
  * @subpackage Structs
  */
 class GuestRoomType extends AbstractStructBase
@@ -19,6 +19,14 @@ class GuestRoomType extends AbstractStructBase
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\Quantities
      */
     public $Quantities;
+    /**
+     * The Occupancy
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 5
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[]
+     */
+    public $Occupancy;
     /**
      * The Room
      * Meta informations extracted from the WSDL
@@ -60,22 +68,25 @@ class GuestRoomType extends AbstractStructBase
     /**
      * Constructor method for GuestRoomType
      * @uses GuestRoomType::setQuantities()
+     * @uses GuestRoomType::setOccupancy()
      * @uses GuestRoomType::setRoom()
      * @uses GuestRoomType::setAmenities()
      * @uses GuestRoomType::setRoomLevelFees()
      * @uses GuestRoomType::setAdditionalGuestAmount()
      * @uses GuestRoomType::setDescription()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Quantities $quantities
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[] $occupancy
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Room $room
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomLevelFees $roomLevelFees
      * @param mixed[] $additionalGuestAmount
      * @param mixed $description
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Quantities $quantities = null, \Devlabs91\GenericOtaHotelApiService\StructType\Room $room = null, \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomLevelFees $roomLevelFees = null, array $additionalGuestAmount = array(), $description = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Quantities $quantities = null, array $occupancy = array(), \Devlabs91\GenericOtaHotelApiService\StructType\Room $room = null, \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomLevelFees $roomLevelFees = null, array $additionalGuestAmount = array(), $description = null)
     {
         $this
             ->setQuantities($quantities)
+            ->setOccupancy($occupancy)
             ->setRoom($room)
             ->setAmenities($amenities)
             ->setRoomLevelFees($roomLevelFees)
@@ -98,6 +109,46 @@ class GuestRoomType extends AbstractStructBase
     public function setQuantities(\Devlabs91\GenericOtaHotelApiService\StructType\Quantities $quantities = null)
     {
         $this->Quantities = $quantities;
+        return $this;
+    }
+    /**
+     * Get Occupancy value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[]|null
+     */
+    public function getOccupancy()
+    {
+        return $this->Occupancy;
+    }
+    /**
+     * Set Occupancy value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[] $occupancy
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoomType
+     */
+    public function setOccupancy(array $occupancy = array())
+    {
+        foreach ($occupancy as $guestRoomTypeOccupancyItem) {
+            // validation for constraint: itemType
+            if (!$guestRoomTypeOccupancyItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy) {
+                throw new \InvalidArgumentException(sprintf('The Occupancy property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy, "%s" given', is_object($guestRoomTypeOccupancyItem) ? get_class($guestRoomTypeOccupancyItem) : gettype($guestRoomTypeOccupancyItem)), __LINE__);
+            }
+        }
+        $this->Occupancy = $occupancy;
+        return $this;
+    }
+    /**
+     * Add item to Occupancy value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoomType
+     */
+    public function addToOccupancy(\Devlabs91\GenericOtaHotelApiService\StructType\Occupancy $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy) {
+            throw new \InvalidArgumentException(sprintf('The Occupancy property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Occupancy[] = $item;
         return $this;
     }
     /**

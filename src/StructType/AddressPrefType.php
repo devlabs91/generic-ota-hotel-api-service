@@ -7,13 +7,15 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AddressPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Address(es) to be used with this collection of preferences.
+ * - documentation: Identifies an address preference. | Allows for control of the sharing of address preferences between parties.
  * @subpackage Structs
  */
 class AddressPrefType extends AbstractStructBase
 {
     /**
      * The Address
+     * Meta informations extracted from the WSDL
+     * - documentation: Defines a physical address.
      * @var mixed
      */
     public $Address;

@@ -15,7 +15,7 @@ class VehicleLocationInformationType extends FormattedTextType
     /**
      * The Type
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the type of Vehicle Location information that is provided. Refer to OTA Code List Vehicle Location Information Type (VLI).
+     * - documentation: Identifies the type of Vehicle Location information that is provided. Refer to OpenTravel Code List Vehicle Location Information Type (VLI).
      * - use: required
      * @var string
      */

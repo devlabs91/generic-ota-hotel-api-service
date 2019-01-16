@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SpecialNeed StructType
  * Meta informations extracted from the WSDL
- * - documentation: A special requirement e.g. wheelchair or vegetarian meal. | Used for Character Strings, length 0 to 64
+ * - documentation: A special requirement e.g. wheelchair or vegetarian meal. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs

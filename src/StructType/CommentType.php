@@ -7,8 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CommentType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of Comment objects. Comments which apply to any part of the reservation (the reservation in its entirety, one or more guests,one or more services, or one or more roomstays). Which comments apply to which part is
- * determined by each object's ResCommentsRPHs collection.
+ * - documentation: A collection of comments.
  * @subpackage Structs
  */
 class CommentType extends AbstractStructBase

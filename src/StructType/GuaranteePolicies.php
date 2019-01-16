@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for GuaranteePolicies StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of Guarantee Policies
+ * - documentation: A collection of Guarantee Policies.
  * @subpackage Structs
  */
 class GuaranteePolicies extends AbstractStructBase
@@ -15,7 +15,7 @@ class GuaranteePolicies extends AbstractStructBase
     /**
      * The GuaranteePolicy
      * Meta informations extracted from the WSDL
-     * - documentation: GuaranteePolicy
+     * - documentation: GuaranteePolicy.
      * - maxOccurs: unbounded
      * @var mixed[]
      */

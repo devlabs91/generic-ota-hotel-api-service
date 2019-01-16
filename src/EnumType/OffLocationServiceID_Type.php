@@ -31,6 +31,16 @@ class OffLocationServiceID_Type
      */
     const VALUE_VEH_COLLECTION = 'VehCollection';
     /**
+     * Constant for value 'Exchange'
+     * @return string 'Exchange'
+     */
+    const VALUE_EXCHANGE = 'Exchange';
+    /**
+     * Constant for value 'RepairLocation'
+     * @return string 'RepairLocation'
+     */
+    const VALUE_REPAIR_LOCATION = 'RepairLocation';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -46,6 +56,8 @@ class OffLocationServiceID_Type
      * @uses self::VALUE_VEH_DELIVERY
      * @uses self::VALUE_CUST_DROP_OFF
      * @uses self::VALUE_VEH_COLLECTION
+     * @uses self::VALUE_EXCHANGE
+     * @uses self::VALUE_REPAIR_LOCATION
      * @return string[]
      */
     public static function getValidValues()
@@ -55,6 +67,8 @@ class OffLocationServiceID_Type
             self::VALUE_VEH_DELIVERY,
             self::VALUE_CUST_DROP_OFF,
             self::VALUE_VEH_COLLECTION,
+            self::VALUE_EXCHANGE,
+            self::VALUE_REPAIR_LOCATION,
         );
     }
     /**

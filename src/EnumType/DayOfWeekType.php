@@ -5,7 +5,7 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for DayOfWeekType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: A three letter abbreviation for the days of the week (e.g. may be the starting date for the availability requested, days of operation, rate effective day, etc.).
+ * - documentation: A three letter abbreviation for the days of the week (e.g. may be the starting day for the availability requested, days of operation, rate effective day, etc.).
  * @subpackage Enumerations
  */
 class DayOfWeekType

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SrvcInfoCodes StructType
  * Meta informations extracted from the WSDL
- * - documentation: Collection of type of restaurant offered by the hotel.
+ * - documentation: Collection of type of restaurant offered. | Collection of type of restaurant offered.
  * @subpackage Structs
  */
 class SrvcInfoCodes extends AbstractStructBase

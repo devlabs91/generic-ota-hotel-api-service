@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for VehicleReservationSummaryType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The VehicleReservationSummaryType complextype identifies the summary data that identifies a reservation. Use of one or more of the elements will help in identifying a specific reservation.
+ * - documentation: The VehicleReservationSummaryType complextype identifies the summary data that identifies a reservation. Use of one or more of the elements will help in identifying a specific reservation. | Information about the creation and last
+ * modification of the reservation.
  * @subpackage Structs
  */
 class VehicleReservationSummaryType extends AbstractStructBase
@@ -15,8 +16,8 @@ class VehicleReservationSummaryType extends AbstractStructBase
     /**
      * The ConfID
      * Meta informations extracted from the WSDL
-     * - documentation: A confirmation number by which this reservation can be uniquely identified
-     * @var mixed
+     * - maxOccurs: 4
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[]
      */
     public $ConfID;
     /**
@@ -46,10 +47,19 @@ class VehicleReservationSummaryType extends AbstractStructBase
     /**
      * The Vehicle
      * Meta informations extracted from the WSDL
+     * - documentation: Information about a vehicle that has been reserved, such as the class and type.
      * - minOccurs: 0
      * @var mixed
      */
     public $Vehicle;
+    /**
+     * The Vendor
+     * Meta informations extracted from the WSDL
+     * - documentation: Identifies the vendor associated with this information.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $Vendor;
     /**
      * The TPA_Extensions
      * Meta informations extracted from the WSDL
@@ -75,25 +85,36 @@ class VehicleReservationSummaryType extends AbstractStructBase
      */
     public $ReturnDateTime;
     /**
+     * The ReservationStatus
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $ReservationStatus;
+    /**
      * Constructor method for VehicleReservationSummaryType
      * @uses VehicleReservationSummaryType::setConfID()
      * @uses VehicleReservationSummaryType::setPickUpLocation()
      * @uses VehicleReservationSummaryType::setReturnLocation()
      * @uses VehicleReservationSummaryType::setPersonName()
      * @uses VehicleReservationSummaryType::setVehicle()
+     * @uses VehicleReservationSummaryType::setVendor()
      * @uses VehicleReservationSummaryType::setTPA_Extensions()
      * @uses VehicleReservationSummaryType::setPickUpDateTime()
      * @uses VehicleReservationSummaryType::setReturnDateTime()
-     * @param mixed $confID
+     * @uses VehicleReservationSummaryType::setReservationStatus()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[] $confID
      * @param mixed $pickUpLocation
      * @param mixed $returnLocation
      * @param mixed $personName
      * @param mixed $vehicle
+     * @param mixed $vendor
      * @param mixed $tPA_Extensions
      * @param string $pickUpDateTime
      * @param string $returnDateTime
+     * @param string $reservationStatus
      */
-    public function __construct($confID = null, $pickUpLocation = null, $returnLocation = null, $personName = null, $vehicle = null, $tPA_Extensions = null, $pickUpDateTime = null, $returnDateTime = null)
+    public function __construct(array $confID = array(), $pickUpLocation = null, $returnLocation = null, $personName = null, $vehicle = null, $vendor = null, $tPA_Extensions = null, $pickUpDateTime = null, $returnDateTime = null, $reservationStatus = null)
     {
         $this
             ->setConfID($confID)
@@ -101,13 +122,15 @@ class VehicleReservationSummaryType extends AbstractStructBase
             ->setReturnLocation($returnLocation)
             ->setPersonName($personName)
             ->setVehicle($vehicle)
+            ->setVendor($vendor)
             ->setTPA_Extensions($tPA_Extensions)
             ->setPickUpDateTime($pickUpDateTime)
-            ->setReturnDateTime($returnDateTime);
+            ->setReturnDateTime($returnDateTime)
+            ->setReservationStatus($reservationStatus);
     }
     /**
      * Get ConfID value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[]|null
      */
     public function getConfID()
     {
@@ -115,12 +138,34 @@ class VehicleReservationSummaryType extends AbstractStructBase
     }
     /**
      * Set ConfID value
-     * @param mixed $confID
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[] $confID
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleReservationSummaryType
      */
-    public function setConfID($confID = null)
+    public function setConfID(array $confID = array())
     {
+        foreach ($confID as $vehicleReservationSummaryTypeConfIDItem) {
+            // validation for constraint: itemType
+            if (!$vehicleReservationSummaryTypeConfIDItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ConfID) {
+                throw new \InvalidArgumentException(sprintf('The ConfID property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ConfID, "%s" given', is_object($vehicleReservationSummaryTypeConfIDItem) ? get_class($vehicleReservationSummaryTypeConfIDItem) : gettype($vehicleReservationSummaryTypeConfIDItem)), __LINE__);
+            }
+        }
         $this->ConfID = $confID;
+        return $this;
+    }
+    /**
+     * Add item to ConfID value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ConfID $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleReservationSummaryType
+     */
+    public function addToConfID(\Devlabs91\GenericOtaHotelApiService\StructType\ConfID $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ConfID) {
+            throw new \InvalidArgumentException(sprintf('The ConfID property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ConfID, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ConfID[] = $item;
         return $this;
     }
     /**
@@ -196,6 +241,24 @@ class VehicleReservationSummaryType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get Vendor value
+     * @return mixed|null
+     */
+    public function getVendor()
+    {
+        return $this->Vendor;
+    }
+    /**
+     * Set Vendor value
+     * @param mixed $vendor
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleReservationSummaryType
+     */
+    public function setVendor($vendor = null)
+    {
+        $this->Vendor = $vendor;
+        return $this;
+    }
+    /**
      * Get TPA_Extensions value
      * @return mixed|null
      */
@@ -255,6 +318,28 @@ class VehicleReservationSummaryType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($returnDateTime)), __LINE__);
         }
         $this->ReturnDateTime = $returnDateTime;
+        return $this;
+    }
+    /**
+     * Get ReservationStatus value
+     * @return string|null
+     */
+    public function getReservationStatus()
+    {
+        return $this->ReservationStatus;
+    }
+    /**
+     * Set ReservationStatus value
+     * @param string $reservationStatus
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleReservationSummaryType
+     */
+    public function setReservationStatus($reservationStatus = null)
+    {
+        // validation for constraint: string
+        if (!is_null($reservationStatus) && !is_string($reservationStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reservationStatus)), __LINE__);
+        }
+        $this->ReservationStatus = $reservationStatus;
         return $this;
     }
     /**

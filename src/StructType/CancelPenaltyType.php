@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CancelPenaltyType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The CancelPenalty class defines the cancellation policy of the hotel facility.
+ * - documentation: The CancelPenalty class defines the cancellation policy of the hotel facility. | If a day(s) of the week is set to true then the associated policy applies to that day of week. | The date time span for which the policy applies.
  * @subpackage Structs
  */
 class CancelPenaltyType extends AbstractStructBase
@@ -15,9 +15,8 @@ class CancelPenaltyType extends AbstractStructBase
     /**
      * The Deadline
      * Meta informations extracted from the WSDL
-     * - documentation: Cancellation deadline, absolute or relative.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Deadline
      */
     public $Deadline;
     /**
@@ -56,11 +55,19 @@ class CancelPenaltyType extends AbstractStructBase
     /**
      * The NonRefundable
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates that reservation is non refundable, therefore a 100% penalty is applied, irrespective of deadline.
+     * - documentation: Indicates that any prepayment for the reservation is non refundable, therefore a 100% penalty on the prepayment is applied, irrespective of deadline.
      * - use: optional
      * @var bool
      */
     public $NonRefundable;
+    /**
+     * The RoomTypeCode
+     * Meta informations extracted from the WSDL
+     * - documentation: A system specific room type to which this cancellation penalty applies.
+     * - use: optional
+     * @var string
+     */
+    public $RoomTypeCode;
     /**
      * Constructor method for CancelPenaltyType
      * @uses CancelPenaltyType::setDeadline()
@@ -69,14 +76,16 @@ class CancelPenaltyType extends AbstractStructBase
      * @uses CancelPenaltyType::setConfirmClassCode()
      * @uses CancelPenaltyType::setPolicyCode()
      * @uses CancelPenaltyType::setNonRefundable()
-     * @param mixed $deadline
+     * @uses CancelPenaltyType::setRoomTypeCode()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Deadline $deadline
      * @param mixed $amountPercent
      * @param mixed[] $penaltyDescription
      * @param string $confirmClassCode
      * @param string $policyCode
      * @param bool $nonRefundable
+     * @param string $roomTypeCode
      */
-    public function __construct($deadline = null, $amountPercent = null, array $penaltyDescription = array(), $confirmClassCode = null, $policyCode = null, $nonRefundable = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Deadline $deadline = null, $amountPercent = null, array $penaltyDescription = array(), $confirmClassCode = null, $policyCode = null, $nonRefundable = null, $roomTypeCode = null)
     {
         $this
             ->setDeadline($deadline)
@@ -84,11 +93,12 @@ class CancelPenaltyType extends AbstractStructBase
             ->setPenaltyDescription($penaltyDescription)
             ->setConfirmClassCode($confirmClassCode)
             ->setPolicyCode($policyCode)
-            ->setNonRefundable($nonRefundable);
+            ->setNonRefundable($nonRefundable)
+            ->setRoomTypeCode($roomTypeCode);
     }
     /**
      * Get Deadline value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Deadline|null
      */
     public function getDeadline()
     {
@@ -96,10 +106,10 @@ class CancelPenaltyType extends AbstractStructBase
     }
     /**
      * Set Deadline value
-     * @param mixed $deadline
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Deadline $deadline
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CancelPenaltyType
      */
-    public function setDeadline($deadline = null)
+    public function setDeadline(\Devlabs91\GenericOtaHotelApiService\StructType\Deadline $deadline = null)
     {
         $this->Deadline = $deadline;
         return $this;
@@ -226,6 +236,28 @@ class CancelPenaltyType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($nonRefundable)), __LINE__);
         }
         $this->NonRefundable = $nonRefundable;
+        return $this;
+    }
+    /**
+     * Get RoomTypeCode value
+     * @return string|null
+     */
+    public function getRoomTypeCode()
+    {
+        return $this->RoomTypeCode;
+    }
+    /**
+     * Set RoomTypeCode value
+     * @param string $roomTypeCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CancelPenaltyType
+     */
+    public function setRoomTypeCode($roomTypeCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($roomTypeCode) && !is_string($roomTypeCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($roomTypeCode)), __LINE__);
+        }
+        $this->RoomTypeCode = $roomTypeCode;
         return $this;
     }
     /**

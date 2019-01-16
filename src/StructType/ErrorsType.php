@@ -15,6 +15,7 @@ class ErrorsType extends AbstractStructBase
     /**
      * The Error
      * Meta informations extracted from the WSDL
+     * - documentation: An error that occurred during the processing of a message.
      * - maxOccurs: 99
      * @var mixed[]
      */

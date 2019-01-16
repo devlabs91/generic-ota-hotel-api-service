@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for BookingPriceInfoType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Container for all the fare information.
+ * - documentation: Container for all the fare information. | Pricing information for an itinerary.
  * @subpackage Structs
  */
 class BookingPriceInfoType extends AirItineraryPricingInfoType
@@ -15,7 +15,7 @@ class BookingPriceInfoType extends AirItineraryPricingInfoType
     /**
      * The RepriceRequired
      * Meta informations extracted from the WSDL
-     * - default: false
+     * - documentation: If true re-pricing of the itinerary is required. | false
      * @var bool
      */
     public $RepriceRequired;
@@ -24,7 +24,7 @@ class BookingPriceInfoType extends AirItineraryPricingInfoType
      * @uses BookingPriceInfoType::setRepriceRequired()
      * @param bool $repriceRequired
      */
-    public function __construct($repriceRequired = false)
+    public function __construct($repriceRequired = null)
     {
         $this
             ->setRepriceRequired($repriceRequired);
@@ -42,7 +42,7 @@ class BookingPriceInfoType extends AirItineraryPricingInfoType
      * @param bool $repriceRequired
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingPriceInfoType
      */
-    public function setRepriceRequired($repriceRequired = false)
+    public function setRepriceRequired($repriceRequired = null)
     {
         // validation for constraint: boolean
         if (!is_null($repriceRequired) && !is_bool($repriceRequired)) {

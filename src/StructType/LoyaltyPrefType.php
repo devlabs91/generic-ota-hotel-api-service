@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for LoyaltyPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Loyalty programs to be used with this collection. | Used for Character Strings, length 1 to 64
+ * - documentation: Identifies a preference for a loyalty program. | Used to specify the preference level for this loyalty program. | Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs
@@ -18,6 +18,7 @@ class LoyaltyPrefType extends AbstractStructBase
      * The RPH
      * Meta informations extracted from the WSDL
      * - documentation: Identification of loyalty program by reference number or index.
+     * - use: optional
      * @var string
      */
     public $RPH;

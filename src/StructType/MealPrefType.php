@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for MealPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Food and beverage preferences to be used with this collection. | Used for Character Strings, length 0 to 64
+ * - documentation: Identifies a food and beverage preference. | Used to specify the preference level for a meal type. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs
@@ -18,6 +18,7 @@ class MealPrefType extends AbstractStructBase
      * The MealType
      * Meta informations extracted from the WSDL
      * - documentation: Type of meal required (e.g.,vegetarian, Kosher, low fat, etc.)
+     * - use: optional
      * @var string
      */
     public $MealType;
@@ -25,6 +26,7 @@ class MealPrefType extends AbstractStructBase
      * The FavoriteFood
      * Meta informations extracted from the WSDL
      * - documentation: Dining preferences used with this collection.
+     * - use: optional
      * @var string
      */
     public $FavoriteFood;
@@ -32,6 +34,7 @@ class MealPrefType extends AbstractStructBase
      * The Beverage
      * Meta informations extracted from the WSDL
      * - documentation: Type of drink(s) preferred.
+     * - use: optional
      * @var string
      */
     public $Beverage;

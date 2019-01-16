@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OTA_VehRetResRQ StructType
  * Meta informations extracted from the WSDL
- * - documentation: The root tag of OTA_VehRetResRQ contains standard payload attributes found in all OTA payload documents. The attribute ReqRespVersion is a positive integer value that indicates the version number requested for the response message.
+ * - documentation: The root tag of OTA_VehRetResRQ contains standard payload attributes found in all OpenTravel payload documents. The attribute ReqRespVersion is a positive integer value that indicates the version number requested for the response
+ * message.
  * @subpackage Structs
  */
 class OTA_VehRetResRQ extends AbstractStructBase
@@ -21,17 +22,14 @@ class OTA_VehRetResRQ extends AbstractStructBase
     public $POS;
     /**
      * The VehRetResRQCore
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifies the common, or core, information associated with the request for retrieval of a rental vehicle reservation.
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQCore
      */
     public $VehRetResRQCore;
     /**
      * The VehRetResRQInfo
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the supplemental information associated with the request for the retrieval of a rental vehicle reservation.
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQAdditionalInfoType
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQInfo
      */
     public $VehRetResRQInfo;
     /**
@@ -70,6 +68,16 @@ class OTA_VehRetResRQ extends AbstractStructBase
      */
     public $TransactionStatusCode;
     /**
+     * The RetransmissionIndicator
+     * @var bool
+     */
+    public $RetransmissionIndicator;
+    /**
+     * The CorrelationID
+     * @var string
+     */
+    public $CorrelationID;
+    /**
      * The ReqRespVersion
      * @var string
      */
@@ -86,10 +94,12 @@ class OTA_VehRetResRQ extends AbstractStructBase
      * @uses OTA_VehRetResRQ::setTransactionIdentifier()
      * @uses OTA_VehRetResRQ::setSequenceNmbr()
      * @uses OTA_VehRetResRQ::setTransactionStatusCode()
+     * @uses OTA_VehRetResRQ::setRetransmissionIndicator()
+     * @uses OTA_VehRetResRQ::setCorrelationID()
      * @uses OTA_VehRetResRQ::setReqRespVersion()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType $vehRetResRQCore
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQAdditionalInfoType $vehRetResRQInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQCore $vehRetResRQCore
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQInfo $vehRetResRQInfo
      * @param string $echoToken
      * @param string $timeStamp
      * @param string $target
@@ -97,9 +107,11 @@ class OTA_VehRetResRQ extends AbstractStructBase
      * @param string $transactionIdentifier
      * @param int $sequenceNmbr
      * @param string $transactionStatusCode
+     * @param bool $retransmissionIndicator
+     * @param string $correlationID
      * @param string $reqRespVersion
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType $vehRetResRQCore = null, \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQAdditionalInfoType $vehRetResRQInfo = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $reqRespVersion = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQCore $vehRetResRQCore = null, \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQInfo $vehRetResRQInfo = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $retransmissionIndicator = null, $correlationID = null, $reqRespVersion = null)
     {
         $this
             ->setPOS($pOS)
@@ -112,6 +124,8 @@ class OTA_VehRetResRQ extends AbstractStructBase
             ->setTransactionIdentifier($transactionIdentifier)
             ->setSequenceNmbr($sequenceNmbr)
             ->setTransactionStatusCode($transactionStatusCode)
+            ->setRetransmissionIndicator($retransmissionIndicator)
+            ->setCorrelationID($correlationID)
             ->setReqRespVersion($reqRespVersion);
     }
     /**
@@ -134,7 +148,7 @@ class OTA_VehRetResRQ extends AbstractStructBase
     }
     /**
      * Get VehRetResRQCore value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQCore|null
      */
     public function getVehRetResRQCore()
     {
@@ -142,17 +156,17 @@ class OTA_VehRetResRQ extends AbstractStructBase
     }
     /**
      * Set VehRetResRQCore value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType $vehRetResRQCore
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQCore $vehRetResRQCore
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_VehRetResRQ
      */
-    public function setVehRetResRQCore(\Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType $vehRetResRQCore = null)
+    public function setVehRetResRQCore(\Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQCore $vehRetResRQCore = null)
     {
         $this->VehRetResRQCore = $vehRetResRQCore;
         return $this;
     }
     /**
      * Get VehRetResRQInfo value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQAdditionalInfoType|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQInfo|null
      */
     public function getVehRetResRQInfo()
     {
@@ -160,10 +174,10 @@ class OTA_VehRetResRQ extends AbstractStructBase
     }
     /**
      * Set VehRetResRQInfo value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQAdditionalInfoType $vehRetResRQInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQInfo $vehRetResRQInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_VehRetResRQ
      */
-    public function setVehRetResRQInfo(\Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQAdditionalInfoType $vehRetResRQInfo = null)
+    public function setVehRetResRQInfo(\Devlabs91\GenericOtaHotelApiService\StructType\VehRetResRQInfo $vehRetResRQInfo = null)
     {
         $this->VehRetResRQInfo = $vehRetResRQInfo;
         return $this;
@@ -316,6 +330,50 @@ class OTA_VehRetResRQ extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionStatusCode)), __LINE__);
         }
         $this->TransactionStatusCode = $transactionStatusCode;
+        return $this;
+    }
+    /**
+     * Get RetransmissionIndicator value
+     * @return bool|null
+     */
+    public function getRetransmissionIndicator()
+    {
+        return $this->RetransmissionIndicator;
+    }
+    /**
+     * Set RetransmissionIndicator value
+     * @param bool $retransmissionIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_VehRetResRQ
+     */
+    public function setRetransmissionIndicator($retransmissionIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($retransmissionIndicator) && !is_bool($retransmissionIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retransmissionIndicator)), __LINE__);
+        }
+        $this->RetransmissionIndicator = $retransmissionIndicator;
+        return $this;
+    }
+    /**
+     * Get CorrelationID value
+     * @return string|null
+     */
+    public function getCorrelationID()
+    {
+        return $this->CorrelationID;
+    }
+    /**
+     * Set CorrelationID value
+     * @param string $correlationID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_VehRetResRQ
+     */
+    public function setCorrelationID($correlationID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($correlationID) && !is_string($correlationID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($correlationID)), __LINE__);
+        }
+        $this->CorrelationID = $correlationID;
         return $this;
     }
     /**

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for MonetaryRuleType StructType
  * Meta informations extracted from the WSDL
- * - documentation: This defines the information pertaining to rules and amounts associated with these rules. | Used for Character Strings, length 0 to 255
+ * - documentation: This defines the information pertaining to rules and amounts associated with these rules. | Provides the currency amount pertaining to the rule. | Used for Character Strings, length 0 to 255.
  * - maxLength: 255
  * - minLength: 0
  * @subpackage Structs
@@ -17,7 +17,7 @@ class MonetaryRuleType extends AbstractStructBase
     /**
      * The RuleType
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Rule Type (RUL).
+     * - documentation: Refer to OpenTravel Code List Rule Type (RUL).
      * - use: required
      * @var string
      */
@@ -25,6 +25,7 @@ class MonetaryRuleType extends AbstractStructBase
     /**
      * The Percent
      * Meta informations extracted from the WSDL
+     * - documentation: The percent applicable to the monetary rule.
      * - use: optional
      * @var string
      */
@@ -32,6 +33,7 @@ class MonetaryRuleType extends AbstractStructBase
     /**
      * The DateTime
      * Meta informations extracted from the WSDL
+     * - documentation: The date and time applicable to this monetary rule.
      * - use: optional
      * @var string
      */
@@ -39,7 +41,7 @@ class MonetaryRuleType extends AbstractStructBase
     /**
      * The PaymentType
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Payment Type (PMT).
+     * - documentation: Refer to OpenTravel Code List Payment Type (PMT).
      * - use: optional
      * @var string
      */

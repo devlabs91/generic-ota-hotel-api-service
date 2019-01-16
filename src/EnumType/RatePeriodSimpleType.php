@@ -41,6 +41,21 @@ class RatePeriodSimpleType
      */
     const VALUE_OTHER = 'Other';
     /**
+     * Constant for value 'Package'
+     * @return string 'Package'
+     */
+    const VALUE_PACKAGE = 'Package';
+    /**
+     * Constant for value 'Bundle'
+     * @return string 'Bundle'
+     */
+    const VALUE_BUNDLE = 'Bundle';
+    /**
+     * Constant for value 'Total'
+     * @return string 'Total'
+     */
+    const VALUE_TOTAL = 'Total';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -58,6 +73,9 @@ class RatePeriodSimpleType
      * @uses self::VALUE_MONTHLY
      * @uses self::VALUE_WEEKEND_DAY
      * @uses self::VALUE_OTHER
+     * @uses self::VALUE_PACKAGE
+     * @uses self::VALUE_BUNDLE
+     * @uses self::VALUE_TOTAL
      * @return string[]
      */
     public static function getValidValues()
@@ -69,6 +87,9 @@ class RatePeriodSimpleType
             self::VALUE_MONTHLY,
             self::VALUE_WEEKEND_DAY,
             self::VALUE_OTHER,
+            self::VALUE_PACKAGE,
+            self::VALUE_BUNDLE,
+            self::VALUE_TOTAL,
         );
     }
     /**

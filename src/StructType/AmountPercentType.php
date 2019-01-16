@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AmountPercentType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Defines the percentage basis for calculating the fee amount or the amount .
+ * - documentation: Defines the percentage basis for calculating the fee amount or the amount. | Provides a monetary amount and the currency code to reflect the currency in which this amount is expressed.
  * @subpackage Structs
  */
 class AmountPercentType extends AbstractStructBase
@@ -15,6 +15,7 @@ class AmountPercentType extends AbstractStructBase
     /**
      * The Taxes
      * Meta informations extracted from the WSDL
+     * - documentation: A collection of taxes.
      * - minOccurs: 0
      * @var mixed
      */
@@ -59,6 +60,13 @@ class AmountPercentType extends AbstractStructBase
      */
     public $Percent;
     /**
+     * The ApplyAs
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $ApplyAs;
+    /**
      * Constructor method for AmountPercentType
      * @uses AmountPercentType::setTaxes()
      * @uses AmountPercentType::setTaxInclusive()
@@ -66,14 +74,16 @@ class AmountPercentType extends AbstractStructBase
      * @uses AmountPercentType::setNmbrOfNights()
      * @uses AmountPercentType::setBasisType()
      * @uses AmountPercentType::setPercent()
+     * @uses AmountPercentType::setApplyAs()
      * @param mixed $taxes
      * @param bool $taxInclusive
      * @param bool $feesInclusive
      * @param int $nmbrOfNights
      * @param string $basisType
      * @param string $percent
+     * @param string $applyAs
      */
-    public function __construct($taxes = null, $taxInclusive = null, $feesInclusive = null, $nmbrOfNights = null, $basisType = null, $percent = null)
+    public function __construct($taxes = null, $taxInclusive = null, $feesInclusive = null, $nmbrOfNights = null, $basisType = null, $percent = null, $applyAs = null)
     {
         $this
             ->setTaxes($taxes)
@@ -81,7 +91,8 @@ class AmountPercentType extends AbstractStructBase
             ->setFeesInclusive($feesInclusive)
             ->setNmbrOfNights($nmbrOfNights)
             ->setBasisType($basisType)
-            ->setPercent($percent);
+            ->setPercent($percent)
+            ->setApplyAs($applyAs);
     }
     /**
      * Get Taxes value
@@ -209,6 +220,28 @@ class AmountPercentType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($percent)), __LINE__);
         }
         $this->Percent = $percent;
+        return $this;
+    }
+    /**
+     * Get ApplyAs value
+     * @return string|null
+     */
+    public function getApplyAs()
+    {
+        return $this->ApplyAs;
+    }
+    /**
+     * Set ApplyAs value
+     * @param string $applyAs
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountPercentType
+     */
+    public function setApplyAs($applyAs = null)
+    {
+        // validation for constraint: string
+        if (!is_null($applyAs) && !is_string($applyAs)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($applyAs)), __LINE__);
+        }
+        $this->ApplyAs = $applyAs;
         return $this;
     }
     /**

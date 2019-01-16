@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CertificationType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Information about certifications or accreditation held by the company. | The Certification Identification number assigned to a business entity by the certifying body. This number would presumably be the ID in the Unique ID.
+ * - documentation: Information about certifications or accreditation held by the company. | The Certification Identification number assigned to a business entity by the certifying body. This number would presumably be the ID in the Unique ID. |
+ * Indicates the alliance status of the company. | Provides the effective and expiry date of the certification.
  * @subpackage Structs
  */
 class CertificationType extends FreeTextType

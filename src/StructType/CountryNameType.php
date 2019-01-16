@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CountryNameType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The name or code of a country (e.g. as used in an address or to specify citizenship of a traveller). | Used for Character Strings, length 0 to 64
+ * - documentation: The name or code of a country (e.g. as used in an address or to specify citizenship of a traveller). | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs

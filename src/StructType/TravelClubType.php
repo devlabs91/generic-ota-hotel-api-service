@@ -7,13 +7,15 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TravelClubType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Identifies a travel club that offers special privileges and related services.
+ * - documentation: Identifies a travel club that offers special privileges and related services. | Allows for control of the sharing of travel club data. | The effective and expiry dates for this travel club membership.
  * @subpackage Structs
  */
 class TravelClubType extends AbstractStructBase
 {
     /**
      * The TravelClubName
+     * Meta informations extracted from the WSDL
+     * - documentation: Name of the travel club.
      * @var mixed
      */
     public $TravelClubName;

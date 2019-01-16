@@ -15,28 +15,28 @@
   <wsdl:types>
 
     <xs:schema targetNamespace="http://www.opentravel.org/OTA/2003/05">
-      <xs:include schemaLocation="./OTA2003B/OTA_AirCommonTypes.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_AirPreferences.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_CommonPrefs.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_CommonTypes.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_CruiseCommonTypes.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelCommonTypes.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelContentDescription.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelPreferences.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelReservation.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailRQ.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailRS.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_PkgCommonTypes.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_Profile.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelResNotifRQ.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelResNotifRS.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_SimpleTypes.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_VehicleCommonTypes.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_VehRetResRQ.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailNotifRQ.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelAvailNotifRS.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelRateAmountNotifRQ.xsd"/>
-      <xs:include schemaLocation="./OTA2003B/OTA_HotelRateAmountNotifRS.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_AirCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_AirPreferences.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_CommonPrefs.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_CommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_CruiseCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelContentDescription.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelPreferences.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelReservation.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelAvailRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelAvailRS.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_PkgCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_Profile.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelResNotifRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelResNotifRS.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_SimpleTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_VehicleCommonTypes.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_VehRetResRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelAvailNotifRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelAvailNotifRS.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelRateAmountNotifRQ.xsd"/>
+      <xs:include schemaLocation="./OTA2010A/OTA_HotelRateAmountNotifRS.xsd"/>
     </xs:schema>
 
     <xs:schema targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">

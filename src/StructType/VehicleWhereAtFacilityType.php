@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for VehicleWhereAtFacilityType StructType
  * Meta informations extracted from the WSDL
  * - documentation: The VehicleWhereAtFacilityType complex type defines the information needed to describe the location of the associated item at a rental facility. Example of the items that may make use of this type include Rental Counter, Vehicle
- * Parking Locations, etc. | Used for Character Strings, length 0 to 255
+ * Parking Locations, etc. | Used for Character Strings, length 0 to 255.
  * - maxLength: 255
  * - minLength: 0
  * @subpackage Structs
@@ -18,7 +18,7 @@ class VehicleWhereAtFacilityType extends AbstractStructBase
     /**
      * The Location
      * Meta informations extracted from the WSDL
-     * - documentation: The Location attribute identifies the location of an item at an airport. Refer to OTA Code List Vehicle Where At Facility (VWF).
+     * - documentation: The Location attribute identifies the location of an item at an airport. Refer to OpenTravel Code List Vehicle Where At Facility (VWF) (e.g., shuttle on airport).
      * - use: required
      * @var string
      */

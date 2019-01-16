@@ -7,18 +7,22 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for StayRestrictionsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Type defining Min and Max Stay Restrictions
+ * - documentation: Type defining Min and Max Stay Restrictions.
  * @subpackage Structs
  */
 class StayRestrictionsType extends AbstractStructBase
 {
     /**
      * The MinimumStay
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\MinimumStay
      */
     public $MinimumStay;
     /**
      * The MaximumStay
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\MaximumStay
      */
     public $MaximumStay;

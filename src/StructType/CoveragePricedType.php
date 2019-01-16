@@ -14,19 +14,30 @@ class CoveragePricedType extends AbstractStructBase
 {
     /**
      * The Coverage
+     * Meta informations extracted from the WSDL
+     * - documentation: Details about a coverage, such as text or description.
      * @var mixed
      */
     public $Coverage;
     /**
      * The Charge
+     * Meta informations extracted from the WSDL
+     * - documentation: The charges as they relate to a single coverage, such as minimum or maximum amounts, taxes, or information on how the charge was calculated.
      * @var mixed
      */
     public $Charge;
     /**
+     * The Deductible
+     * Meta informations extracted from the WSDL
+     * - documentation: The deductible, excess or liability amount for this coverage of a vehicle(s).
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $Deductible;
+    /**
      * The Required
      * Meta informations extracted from the WSDL
-     * - default: false
-     * - documentation: An indication if this particular coverage is required in the vehicle reservation, or is optional, based upon renter preference.
+     * - documentation: An indication if this particular coverage is required in the vehicle reservation, or is optional, based upon renter preference. | false
      * - use: optional
      * @var bool
      */
@@ -35,16 +46,19 @@ class CoveragePricedType extends AbstractStructBase
      * Constructor method for CoveragePricedType
      * @uses CoveragePricedType::setCoverage()
      * @uses CoveragePricedType::setCharge()
+     * @uses CoveragePricedType::setDeductible()
      * @uses CoveragePricedType::setRequired()
      * @param mixed $coverage
      * @param mixed $charge
+     * @param mixed $deductible
      * @param bool $required
      */
-    public function __construct($coverage = null, $charge = null, $required = false)
+    public function __construct($coverage = null, $charge = null, $deductible = null, $required = null)
     {
         $this
             ->setCoverage($coverage)
             ->setCharge($charge)
+            ->setDeductible($deductible)
             ->setRequired($required);
     }
     /**
@@ -84,6 +98,24 @@ class CoveragePricedType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get Deductible value
+     * @return mixed|null
+     */
+    public function getDeductible()
+    {
+        return $this->Deductible;
+    }
+    /**
+     * Set Deductible value
+     * @param mixed $deductible
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePricedType
+     */
+    public function setDeductible($deductible = null)
+    {
+        $this->Deductible = $deductible;
+        return $this;
+    }
+    /**
      * Get Required value
      * @return bool|null
      */
@@ -96,7 +128,7 @@ class CoveragePricedType extends AbstractStructBase
      * @param bool $required
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePricedType
      */
-    public function setRequired($required = false)
+    public function setRequired($required = null)
     {
         // validation for constraint: boolean
         if (!is_null($required) && !is_bool($required)) {

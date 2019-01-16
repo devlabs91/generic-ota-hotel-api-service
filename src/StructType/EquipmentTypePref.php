@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EquipmentTypePref StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Indicates preferences for type of airplane.
  * @subpackage Structs
  */
 class EquipmentTypePref extends EquipmentType
@@ -13,6 +15,7 @@ class EquipmentTypePref extends EquipmentType
     /**
      * The WideBody
      * Meta informations extracted from the WSDL
+     * - documentation: Indicates if an airplane with multiple aisles is preferred.
      * - use: optional
      * @var bool
      */

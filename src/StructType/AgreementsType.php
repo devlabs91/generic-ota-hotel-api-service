@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AgreementsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Section of a business profile that contains information about trading partner agreements.
+ * - documentation: Section of a business profile that contains information about trading partner agreements. | Allows for control of the sharing of agreements data between parties.
  * @subpackage Structs
  */
 class AgreementsType extends AbstractStructBase
@@ -15,6 +15,7 @@ class AgreementsType extends AbstractStructBase
     /**
      * The Certification
      * Meta informations extracted from the WSDL
+     * - documentation: Information about certifications or accreditations.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -23,6 +24,7 @@ class AgreementsType extends AbstractStructBase
     /**
      * The AllianceConsortium
      * Meta informations extracted from the WSDL
+     * - documentation: Information about alliance partnerships and consortiums.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -31,11 +33,28 @@ class AgreementsType extends AbstractStructBase
     /**
      * The CommissionInfo
      * Meta informations extracted from the WSDL
+     * - documentation: Information about an agreement for a commission arrangement.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
      */
     public $CommissionInfo;
+    /**
+     * The ProfileSecurity
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 99
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity[]
+     */
+    public $ProfileSecurity;
+    /**
+     * The ContractInformation
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to reflect contract details linked to a profile.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $ContractInformation;
     /**
      * The TPA_Extensions
      * Meta informations extracted from the WSDL
@@ -49,18 +68,24 @@ class AgreementsType extends AbstractStructBase
      * @uses AgreementsType::setCertification()
      * @uses AgreementsType::setAllianceConsortium()
      * @uses AgreementsType::setCommissionInfo()
+     * @uses AgreementsType::setProfileSecurity()
+     * @uses AgreementsType::setContractInformation()
      * @uses AgreementsType::setTPA_Extensions()
      * @param mixed[] $certification
      * @param mixed[] $allianceConsortium
      * @param mixed[] $commissionInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity[] $profileSecurity
+     * @param mixed $contractInformation
      * @param mixed $tPA_Extensions
      */
-    public function __construct(array $certification = array(), array $allianceConsortium = array(), array $commissionInfo = array(), $tPA_Extensions = null)
+    public function __construct(array $certification = array(), array $allianceConsortium = array(), array $commissionInfo = array(), array $profileSecurity = array(), $contractInformation = null, $tPA_Extensions = null)
     {
         $this
             ->setCertification($certification)
             ->setAllianceConsortium($allianceConsortium)
             ->setCommissionInfo($commissionInfo)
+            ->setProfileSecurity($profileSecurity)
+            ->setContractInformation($contractInformation)
             ->setTPA_Extensions($tPA_Extensions);
     }
     /**
@@ -181,6 +206,64 @@ class AgreementsType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The CommissionInfo property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CommissionInfo[] = $item;
+        return $this;
+    }
+    /**
+     * Get ProfileSecurity value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity[]|null
+     */
+    public function getProfileSecurity()
+    {
+        return $this->ProfileSecurity;
+    }
+    /**
+     * Set ProfileSecurity value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity[] $profileSecurity
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AgreementsType
+     */
+    public function setProfileSecurity(array $profileSecurity = array())
+    {
+        foreach ($profileSecurity as $agreementsTypeProfileSecurityItem) {
+            // validation for constraint: itemType
+            if (!$agreementsTypeProfileSecurityItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity) {
+                throw new \InvalidArgumentException(sprintf('The ProfileSecurity property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity, "%s" given', is_object($agreementsTypeProfileSecurityItem) ? get_class($agreementsTypeProfileSecurityItem) : gettype($agreementsTypeProfileSecurityItem)), __LINE__);
+            }
+        }
+        $this->ProfileSecurity = $profileSecurity;
+        return $this;
+    }
+    /**
+     * Add item to ProfileSecurity value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AgreementsType
+     */
+    public function addToProfileSecurity(\Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity) {
+            throw new \InvalidArgumentException(sprintf('The ProfileSecurity property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ProfileSecurity, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ProfileSecurity[] = $item;
+        return $this;
+    }
+    /**
+     * Get ContractInformation value
+     * @return mixed|null
+     */
+    public function getContractInformation()
+    {
+        return $this->ContractInformation;
+    }
+    /**
+     * Set ContractInformation value
+     * @param mixed $contractInformation
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AgreementsType
+     */
+    public function setContractInformation($contractInformation = null)
+    {
+        $this->ContractInformation = $contractInformation;
         return $this;
     }
     /**

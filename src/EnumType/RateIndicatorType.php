@@ -51,6 +51,41 @@ class RateIndicatorType
      */
     const VALUE_OTHER_AVAILABLE = 'OtherAvailable';
     /**
+     * Constant for value 'UnableToProcess'
+     * @return string 'UnableToProcess'
+     */
+    const VALUE_UNABLE_TO_PROCESS = 'UnableToProcess';
+    /**
+     * Constant for value 'NoAvailability'
+     * @return string 'NoAvailability'
+     */
+    const VALUE_NO_AVAILABILITY = 'NoAvailability';
+    /**
+     * Constant for value 'RoomTypeClosed'
+     * @return string 'RoomTypeClosed'
+     */
+    const VALUE_ROOM_TYPE_CLOSED = 'RoomTypeClosed';
+    /**
+     * Constant for value 'RatePlanClosed'
+     * @return string 'RatePlanClosed'
+     */
+    const VALUE_RATE_PLAN_CLOSED = 'RatePlanClosed';
+    /**
+     * Constant for value 'LOS_Restricted'
+     * @return string 'LOS_Restricted'
+     */
+    const VALUE_LOS_RESTRICTED = 'LOS_Restricted';
+    /**
+     * Constant for value 'Restricted'
+     * @return string 'Restricted'
+     */
+    const VALUE_RESTRICTED = 'Restricted';
+    /**
+     * Constant for value 'DoesNotExist'
+     * @return string 'DoesNotExist'
+     */
+    const VALUE_DOES_NOT_EXIST = 'DoesNotExist';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -70,6 +105,13 @@ class RateIndicatorType
      * @uses self::VALUE_AVAILABLE_FOR_SALE
      * @uses self::VALUE_CLOSED_OUT
      * @uses self::VALUE_OTHER_AVAILABLE
+     * @uses self::VALUE_UNABLE_TO_PROCESS
+     * @uses self::VALUE_NO_AVAILABILITY
+     * @uses self::VALUE_ROOM_TYPE_CLOSED
+     * @uses self::VALUE_RATE_PLAN_CLOSED
+     * @uses self::VALUE_LOS_RESTRICTED
+     * @uses self::VALUE_RESTRICTED
+     * @uses self::VALUE_DOES_NOT_EXIST
      * @return string[]
      */
     public static function getValidValues()
@@ -83,6 +125,13 @@ class RateIndicatorType
             self::VALUE_AVAILABLE_FOR_SALE,
             self::VALUE_CLOSED_OUT,
             self::VALUE_OTHER_AVAILABLE,
+            self::VALUE_UNABLE_TO_PROCESS,
+            self::VALUE_NO_AVAILABILITY,
+            self::VALUE_ROOM_TYPE_CLOSED,
+            self::VALUE_RATE_PLAN_CLOSED,
+            self::VALUE_LOS_RESTRICTED,
+            self::VALUE_RESTRICTED,
+            self::VALUE_DOES_NOT_EXIST,
         );
     }
     /**

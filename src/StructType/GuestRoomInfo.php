@@ -14,18 +14,32 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class GuestRoomInfo extends AbstractStructBase
 {
     /**
-     * The Description
+     * The RateRanges
      * Meta informations extracted from the WSDL
-     * - documentation: This will allow for multiple text descriptions to be sent with items such as concierge and allow for each description to be labeled as to the type of data being sent.
-     * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateRanges
      */
-    public $Description;
+    public $RateRanges;
+    /**
+     * The MultimediaDescriptions
+     * Meta informations extracted from the WSDL
+     * - documentation: Multimedia information about the guest room.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $MultimediaDescriptions;
+    /**
+     * The DescriptiveText
+     * Meta informations extracted from the WSDL
+     * - documentation: Descriptive text that describes the guest room.
+     * - minOccurs: 0
+     * @var string
+     */
+    public $DescriptiveText;
     /**
      * The Code
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Guest Room Info (GRI).
+     * - documentation: Refer to OpenTravel Code List Guest Room Info (GRI).
      * - use: optional
      * @var string
      */
@@ -38,59 +52,94 @@ class GuestRoomInfo extends AbstractStructBase
      */
     public $Quantity;
     /**
+     * The ExistsCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This attribute is used to explicitly define whether the Code applies. Refer to OpenTravel Code list Option Type Code (OTC). This is used in conjunction with Code.
+     * - use: optional
+     * @var string
+     */
+    public $ExistsCode;
+    /**
      * Constructor method for GuestRoomInfo
-     * @uses GuestRoomInfo::setDescription()
+     * @uses GuestRoomInfo::setRateRanges()
+     * @uses GuestRoomInfo::setMultimediaDescriptions()
+     * @uses GuestRoomInfo::setDescriptiveText()
      * @uses GuestRoomInfo::setCode()
      * @uses GuestRoomInfo::setQuantity()
-     * @param mixed[] $description
+     * @uses GuestRoomInfo::setExistsCode()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRanges $rateRanges
+     * @param mixed $multimediaDescriptions
+     * @param string $descriptiveText
      * @param string $code
      * @param int $quantity
+     * @param string $existsCode
      */
-    public function __construct(array $description = array(), $code = null, $quantity = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\RateRanges $rateRanges = null, $multimediaDescriptions = null, $descriptiveText = null, $code = null, $quantity = null, $existsCode = null)
     {
         $this
-            ->setDescription($description)
+            ->setRateRanges($rateRanges)
+            ->setMultimediaDescriptions($multimediaDescriptions)
+            ->setDescriptiveText($descriptiveText)
             ->setCode($code)
-            ->setQuantity($quantity);
+            ->setQuantity($quantity)
+            ->setExistsCode($existsCode);
     }
     /**
-     * Get Description value
-     * @return mixed[]|null
+     * Get RateRanges value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateRanges|null
      */
-    public function getDescription()
+    public function getRateRanges()
     {
-        return $this->Description;
+        return $this->RateRanges;
     }
     /**
-     * Set Description value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $description
+     * Set RateRanges value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRanges $rateRanges
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoomInfo
      */
-    public function setDescription(array $description = array())
+    public function setRateRanges(\Devlabs91\GenericOtaHotelApiService\StructType\RateRanges $rateRanges = null)
     {
-        foreach ($description as $guestRoomInfoDescriptionItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($guestRoomInfoDescriptionItem) ? get_class($guestRoomInfoDescriptionItem) : gettype($guestRoomInfoDescriptionItem)), __LINE__);
-            }
-        }
-        $this->Description = $description;
+        $this->RateRanges = $rateRanges;
         return $this;
     }
     /**
-     * Add item to Description value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
+     * Get MultimediaDescriptions value
+     * @return mixed|null
+     */
+    public function getMultimediaDescriptions()
+    {
+        return $this->MultimediaDescriptions;
+    }
+    /**
+     * Set MultimediaDescriptions value
+     * @param mixed $multimediaDescriptions
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoomInfo
      */
-    public function addToDescription($item)
+    public function setMultimediaDescriptions($multimediaDescriptions = null)
     {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        $this->MultimediaDescriptions = $multimediaDescriptions;
+        return $this;
+    }
+    /**
+     * Get DescriptiveText value
+     * @return string|null
+     */
+    public function getDescriptiveText()
+    {
+        return $this->DescriptiveText;
+    }
+    /**
+     * Set DescriptiveText value
+     * @param string $descriptiveText
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoomInfo
+     */
+    public function setDescriptiveText($descriptiveText = null)
+    {
+        // validation for constraint: string
+        if (!is_null($descriptiveText) && !is_string($descriptiveText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptiveText)), __LINE__);
         }
-        $this->Description[] = $item;
+        $this->DescriptiveText = $descriptiveText;
         return $this;
     }
     /**
@@ -135,6 +184,28 @@ class GuestRoomInfo extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($quantity)), __LINE__);
         }
         $this->Quantity = $quantity;
+        return $this;
+    }
+    /**
+     * Get ExistsCode value
+     * @return string|null
+     */
+    public function getExistsCode()
+    {
+        return $this->ExistsCode;
+    }
+    /**
+     * Set ExistsCode value
+     * @param string $existsCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoomInfo
+     */
+    public function setExistsCode($existsCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
+        }
+        $this->ExistsCode = $existsCode;
         return $this;
     }
     /**

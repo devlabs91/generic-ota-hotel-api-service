@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoomRates StructType
  * Meta informations extracted from the WSDL
- * - documentation: Reservation rate(s). | A collection of Room Rates associated with a particular Room Stay. Each Room Rate combination can have multiple rates. Example King room, Rack rate plan, Monday through Thrusday, weekday amount, Friday and
+ * - documentation: Reservation rate(s). | A collection of Room Rates associated with a particular Room Stay. Each Room Rate combination can have multiple rates. Example King room, Rack rate plan, Monday through Thursday, weekday amount, Friday and
  * Saturday, weekend amount. | The combination of a given Rate Plan and Room Type. This allows for support for systems where Rate Plans are child of Room Type as well as systems which Room Types are child of Rate Plans.
  * @subpackage Structs
  */
@@ -21,14 +21,36 @@ class RoomRates extends AbstractStructBase
      */
     public $RoomRate;
     /**
+     * The TPA_Extensions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * - ref: TPA_Extensions
+     * @var mixed
+     */
+    public $TPA_Extensions;
+    /**
+     * The MoreRatesExistInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates more rates exist. When false, all rate information is provided.
+     * - use: optional
+     * @var bool
+     */
+    public $MoreRatesExistInd;
+    /**
      * Constructor method for RoomRates
      * @uses RoomRates::setRoomRate()
+     * @uses RoomRates::setTPA_Extensions()
+     * @uses RoomRates::setMoreRatesExistInd()
      * @param mixed[] $roomRate
+     * @param mixed $tPA_Extensions
+     * @param bool $moreRatesExistInd
      */
-    public function __construct(array $roomRate = array())
+    public function __construct(array $roomRate = array(), $tPA_Extensions = null, $moreRatesExistInd = null)
     {
         $this
-            ->setRoomRate($roomRate);
+            ->setRoomRate($roomRate)
+            ->setTPA_Extensions($tPA_Extensions)
+            ->setMoreRatesExistInd($moreRatesExistInd);
     }
     /**
      * Get RoomRate value
@@ -68,6 +90,46 @@ class RoomRates extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The RoomRate property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->RoomRate[] = $item;
+        return $this;
+    }
+    /**
+     * Get TPA_Extensions value
+     * @return mixed|null
+     */
+    public function getTPA_Extensions()
+    {
+        return $this->TPA_Extensions;
+    }
+    /**
+     * Set TPA_Extensions value
+     * @param mixed $tPA_Extensions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomRates
+     */
+    public function setTPA_Extensions($tPA_Extensions = null)
+    {
+        $this->TPA_Extensions = $tPA_Extensions;
+        return $this;
+    }
+    /**
+     * Get MoreRatesExistInd value
+     * @return bool|null
+     */
+    public function getMoreRatesExistInd()
+    {
+        return $this->MoreRatesExistInd;
+    }
+    /**
+     * Set MoreRatesExistInd value
+     * @param bool $moreRatesExistInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomRates
+     */
+    public function setMoreRatesExistInd($moreRatesExistInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($moreRatesExistInd) && !is_bool($moreRatesExistInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($moreRatesExistInd)), __LINE__);
+        }
+        $this->MoreRatesExistInd = $moreRatesExistInd;
         return $this;
     }
     /**

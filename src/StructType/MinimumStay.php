@@ -15,6 +15,7 @@ class MinimumStay extends AbstractStructBase
     /**
      * The ReturnTimeOfDay
      * Meta informations extracted from the WSDL
+     * - documentation: The time of day when return travel may commence.
      * - use: optional
      * @var string
      */
@@ -44,23 +45,34 @@ class MinimumStay extends AbstractStructBase
      */
     public $MinStayDate;
     /**
+     * The ComplicatedRulesInd
+     * Meta informations extracted from the WSDL
+     * - documentation: If true, there are complicated rules for the minimum stay requirement.
+     * - use: optional
+     * @var bool
+     */
+    public $ComplicatedRulesInd;
+    /**
      * Constructor method for MinimumStay
      * @uses MinimumStay::setReturnTimeOfDay()
      * @uses MinimumStay::setMinStay()
      * @uses MinimumStay::setStayUnit()
      * @uses MinimumStay::setMinStayDate()
+     * @uses MinimumStay::setComplicatedRulesInd()
      * @param string $returnTimeOfDay
      * @param string $minStay
      * @param string $stayUnit
      * @param string $minStayDate
+     * @param bool $complicatedRulesInd
      */
-    public function __construct($returnTimeOfDay = null, $minStay = null, $stayUnit = null, $minStayDate = null)
+    public function __construct($returnTimeOfDay = null, $minStay = null, $stayUnit = null, $minStayDate = null, $complicatedRulesInd = null)
     {
         $this
             ->setReturnTimeOfDay($returnTimeOfDay)
             ->setMinStay($minStay)
             ->setStayUnit($stayUnit)
-            ->setMinStayDate($minStayDate);
+            ->setMinStayDate($minStayDate)
+            ->setComplicatedRulesInd($complicatedRulesInd);
     }
     /**
      * Get ReturnTimeOfDay value
@@ -148,6 +160,28 @@ class MinimumStay extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($minStayDate)), __LINE__);
         }
         $this->MinStayDate = $minStayDate;
+        return $this;
+    }
+    /**
+     * Get ComplicatedRulesInd value
+     * @return bool|null
+     */
+    public function getComplicatedRulesInd()
+    {
+        return $this->ComplicatedRulesInd;
+    }
+    /**
+     * Set ComplicatedRulesInd value
+     * @param bool $complicatedRulesInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MinimumStay
+     */
+    public function setComplicatedRulesInd($complicatedRulesInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($complicatedRulesInd) && !is_bool($complicatedRulesInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($complicatedRulesInd)), __LINE__);
+        }
+        $this->ComplicatedRulesInd = $complicatedRulesInd;
         return $this;
     }
     /**

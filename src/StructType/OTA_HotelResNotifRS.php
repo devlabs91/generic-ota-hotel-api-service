@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OTA_HotelResNotifRS StructType
  * Meta informations extracted from the WSDL
- * - documentation: Returns acknowledgement that the reservation has been successfully received, or includes warnings from business processing rules or errors if the request did not succeed. It may optionally include the updated reservation data.
+ * - documentation: This message returns acknowledgement that the reservation has been successfully received, or includes warnings from business processing rules or errors if the request did not succeed. It may optionally include the updated reservation
+ * data.
  * @subpackage Structs
  */
 class OTA_HotelResNotifRS extends AbstractStructBase
@@ -45,6 +46,8 @@ class OTA_HotelResNotifRS extends AbstractStructBase
     public $POS;
     /**
      * The ResResponseType
+     * Meta informations extracted from the WSDL
+     * - use: optional
      * @var string
      */
     public $ResResponseType;
@@ -84,6 +87,16 @@ class OTA_HotelResNotifRS extends AbstractStructBase
      */
     public $TransactionStatusCode;
     /**
+     * The RetransmissionIndicator
+     * @var bool
+     */
+    public $RetransmissionIndicator;
+    /**
+     * The CorrelationID
+     * @var string
+     */
+    public $CorrelationID;
+    /**
      * Constructor method for OTA_HotelResNotifRS
      * @uses OTA_HotelResNotifRS::setSuccess()
      * @uses OTA_HotelResNotifRS::setWarnings()
@@ -98,6 +111,8 @@ class OTA_HotelResNotifRS extends AbstractStructBase
      * @uses OTA_HotelResNotifRS::setTransactionIdentifier()
      * @uses OTA_HotelResNotifRS::setSequenceNmbr()
      * @uses OTA_HotelResNotifRS::setTransactionStatusCode()
+     * @uses OTA_HotelResNotifRS::setRetransmissionIndicator()
+     * @uses OTA_HotelResNotifRS::setCorrelationID()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\SuccessType $success
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\WarningsType $warnings
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelReservationsType $hotelReservations
@@ -111,8 +126,10 @@ class OTA_HotelResNotifRS extends AbstractStructBase
      * @param string $transactionIdentifier
      * @param int $sequenceNmbr
      * @param string $transactionStatusCode
+     * @param bool $retransmissionIndicator
+     * @param string $correlationID
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\SuccessType $success = null, \Devlabs91\GenericOtaHotelApiService\StructType\WarningsType $warnings = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelReservationsType $hotelReservations = null, \Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType $errors = null, \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, $resResponseType = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\SuccessType $success = null, \Devlabs91\GenericOtaHotelApiService\StructType\WarningsType $warnings = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelReservationsType $hotelReservations = null, \Devlabs91\GenericOtaHotelApiService\StructType\ErrorsType $errors = null, \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, $resResponseType = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $retransmissionIndicator = null, $correlationID = null)
     {
         $this
             ->setSuccess($success)
@@ -127,7 +144,9 @@ class OTA_HotelResNotifRS extends AbstractStructBase
             ->setVersion($version)
             ->setTransactionIdentifier($transactionIdentifier)
             ->setSequenceNmbr($sequenceNmbr)
-            ->setTransactionStatusCode($transactionStatusCode);
+            ->setTransactionStatusCode($transactionStatusCode)
+            ->setRetransmissionIndicator($retransmissionIndicator)
+            ->setCorrelationID($correlationID);
     }
     /**
      * Get Success value
@@ -392,6 +411,50 @@ class OTA_HotelResNotifRS extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionStatusCode)), __LINE__);
         }
         $this->TransactionStatusCode = $transactionStatusCode;
+        return $this;
+    }
+    /**
+     * Get RetransmissionIndicator value
+     * @return bool|null
+     */
+    public function getRetransmissionIndicator()
+    {
+        return $this->RetransmissionIndicator;
+    }
+    /**
+     * Set RetransmissionIndicator value
+     * @param bool $retransmissionIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelResNotifRS
+     */
+    public function setRetransmissionIndicator($retransmissionIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($retransmissionIndicator) && !is_bool($retransmissionIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retransmissionIndicator)), __LINE__);
+        }
+        $this->RetransmissionIndicator = $retransmissionIndicator;
+        return $this;
+    }
+    /**
+     * Get CorrelationID value
+     * @return string|null
+     */
+    public function getCorrelationID()
+    {
+        return $this->CorrelationID;
+    }
+    /**
+     * Set CorrelationID value
+     * @param string $correlationID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelResNotifRS
+     */
+    public function setCorrelationID($correlationID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($correlationID) && !is_string($correlationID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($correlationID)), __LINE__);
+        }
+        $this->CorrelationID = $correlationID;
         return $this;
     }
     /**

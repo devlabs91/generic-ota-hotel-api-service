@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TravelerInformationType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Specify passenger numbers and types
+ * - documentation: Specify passenger numbers and types.
  * @subpackage Structs
  */
 class TravelerInformationType extends AbstractStructBase
@@ -15,7 +15,7 @@ class TravelerInformationType extends AbstractStructBase
     /**
      * The PassengerTypeQuantity
      * Meta informations extracted from the WSDL
-     * - documentation: Specify number of passengers using Passenger Type Codes
+     * - documentation: Specify number of passengers using Passenger Type Codes.
      * - maxOccurs: 10
      * @var mixed[]
      */
@@ -23,7 +23,7 @@ class TravelerInformationType extends AbstractStructBase
     /**
      * The AirTraveler
      * Meta informations extracted from the WSDL
-     * - documentation: Information profiling the person traveling Gender - the gender of the customer, if needed BirthDate - Date of Birth Currency - the preferred currency in which monetary amounts should be returned.
+     * - documentation: Information profiling the person traveling: Gender - the gender of the customer, if needed; BirthDate - Date of Birth; Currency - the preferred currency in which monetary amounts should be returned.
      * - minOccurs: 0
      * @var mixed
      */

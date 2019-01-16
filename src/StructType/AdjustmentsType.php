@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AdjustmentsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: AdjustmentsType
+ * - documentation: AdjustmentsType.
  * @subpackage Structs
  */
 class AdjustmentsType extends AbstractStructBase

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Viewership StructType
  * Meta informations extracted from the WSDL
- * - documentation: Viewership defines a system that is allowed to view the rateplan identified in a Hotel Rate Plan Notification message.
+ * - documentation: Viewership defines a system that is allowed to view the rateplan identified in a Hotel Rate Plan Notification message. This may also be used to define a system that is able to view the hotel content.
  * @subpackage Structs
  */
 class Viewership extends AbstractStructBase
@@ -71,7 +71,7 @@ class Viewership extends AbstractStructBase
     /**
      * The ViewershipRPH
      * Meta informations extracted from the WSDL
-     * - documentation: This integer is a reference placeholder, used as an index for multiple Viewership classes.
+     * - documentation: This is a reference placeholder, used as an index for multiple Viewership classes.
      * - use: optional
      * @var string
      */

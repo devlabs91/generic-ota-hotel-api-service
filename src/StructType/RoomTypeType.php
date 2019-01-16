@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoomTypeType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of AdditionalDetail elements.
+ * - documentation: Provides details regarding rooms, usually guest rooms. | Provides details of the room type.
  * @subpackage Structs
  */
 class RoomTypeType extends AbstractStructBase
@@ -15,6 +15,7 @@ class RoomTypeType extends AbstractStructBase
     /**
      * The RoomDescription
      * Meta informations extracted from the WSDL
+     * - documentation: Textual information regarding the room.
      * - minOccurs: 0
      * @var mixed
      */
@@ -22,6 +23,7 @@ class RoomTypeType extends AbstractStructBase
     /**
      * The AdditionalDetails
      * Meta informations extracted from the WSDL
+     * - documentation: A collection of additional details.
      * - minOccurs: 0
      * @var mixed
      */
@@ -34,6 +36,14 @@ class RoomTypeType extends AbstractStructBase
      */
     public $Amenities;
     /**
+     * The Occupancy
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 5
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[]
+     */
+    public $Occupancy;
+    /**
      * The TPA_Extensions
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -42,18 +52,10 @@ class RoomTypeType extends AbstractStructBase
      */
     public $TPA_Extensions;
     /**
-     * The RoomTypeCode
-     * Meta informations extracted from the WSDL
-     * - documentation: Specfic system room type code, ex: A1K, A1Q etc.
-     * - use: optional
-     * @var string
-     */
-    public $RoomTypeCode;
-    /**
      * The NumberOfUnits
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var int
      */
     public $NumberOfUnits;
     /**
@@ -81,14 +83,6 @@ class RoomTypeType extends AbstractStructBase
      */
     public $IsAlternate;
     /**
-     * The InvBlockCode
-     * Meta informations extracted from the WSDL
-     * - documentation: Code that identifies an inventory block.
-     * - use: optional
-     * @var string
-     */
-    public $InvBlockCode;
-    /**
      * The ReqdGuaranteeType
      * Meta informations extracted from the WSDL
      * - documentation: Denotes the form of guarantee for this room.
@@ -101,39 +95,36 @@ class RoomTypeType extends AbstractStructBase
      * @uses RoomTypeType::setRoomDescription()
      * @uses RoomTypeType::setAdditionalDetails()
      * @uses RoomTypeType::setAmenities()
+     * @uses RoomTypeType::setOccupancy()
      * @uses RoomTypeType::setTPA_Extensions()
-     * @uses RoomTypeType::setRoomTypeCode()
      * @uses RoomTypeType::setNumberOfUnits()
      * @uses RoomTypeType::setIsRoom()
      * @uses RoomTypeType::setIsConverted()
      * @uses RoomTypeType::setIsAlternate()
-     * @uses RoomTypeType::setInvBlockCode()
      * @uses RoomTypeType::setReqdGuaranteeType()
      * @param mixed $roomDescription
      * @param mixed $additionalDetails
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[] $occupancy
      * @param mixed $tPA_Extensions
-     * @param string $roomTypeCode
-     * @param string $numberOfUnits
+     * @param int $numberOfUnits
      * @param bool $isRoom
      * @param bool $isConverted
      * @param bool $isAlternate
-     * @param string $invBlockCode
      * @param string $reqdGuaranteeType
      */
-    public function __construct($roomDescription = null, $additionalDetails = null, \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null, $tPA_Extensions = null, $roomTypeCode = null, $numberOfUnits = null, $isRoom = null, $isConverted = null, $isAlternate = null, $invBlockCode = null, $reqdGuaranteeType = null)
+    public function __construct($roomDescription = null, $additionalDetails = null, \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null, array $occupancy = array(), $tPA_Extensions = null, $numberOfUnits = null, $isRoom = null, $isConverted = null, $isAlternate = null, $reqdGuaranteeType = null)
     {
         $this
             ->setRoomDescription($roomDescription)
             ->setAdditionalDetails($additionalDetails)
             ->setAmenities($amenities)
+            ->setOccupancy($occupancy)
             ->setTPA_Extensions($tPA_Extensions)
-            ->setRoomTypeCode($roomTypeCode)
             ->setNumberOfUnits($numberOfUnits)
             ->setIsRoom($isRoom)
             ->setIsConverted($isConverted)
             ->setIsAlternate($isAlternate)
-            ->setInvBlockCode($invBlockCode)
             ->setReqdGuaranteeType($reqdGuaranteeType);
     }
     /**
@@ -191,6 +182,46 @@ class RoomTypeType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get Occupancy value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[]|null
+     */
+    public function getOccupancy()
+    {
+        return $this->Occupancy;
+    }
+    /**
+     * Set Occupancy value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy[] $occupancy
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomTypeType
+     */
+    public function setOccupancy(array $occupancy = array())
+    {
+        foreach ($occupancy as $roomTypeTypeOccupancyItem) {
+            // validation for constraint: itemType
+            if (!$roomTypeTypeOccupancyItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy) {
+                throw new \InvalidArgumentException(sprintf('The Occupancy property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy, "%s" given', is_object($roomTypeTypeOccupancyItem) ? get_class($roomTypeTypeOccupancyItem) : gettype($roomTypeTypeOccupancyItem)), __LINE__);
+            }
+        }
+        $this->Occupancy = $occupancy;
+        return $this;
+    }
+    /**
+     * Add item to Occupancy value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomTypeType
+     */
+    public function addToOccupancy(\Devlabs91\GenericOtaHotelApiService\StructType\Occupancy $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy) {
+            throw new \InvalidArgumentException(sprintf('The Occupancy property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Occupancy, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Occupancy[] = $item;
+        return $this;
+    }
+    /**
      * Get TPA_Extensions value
      * @return mixed|null
      */
@@ -209,30 +240,8 @@ class RoomTypeType extends AbstractStructBase
         return $this;
     }
     /**
-     * Get RoomTypeCode value
-     * @return string|null
-     */
-    public function getRoomTypeCode()
-    {
-        return $this->RoomTypeCode;
-    }
-    /**
-     * Set RoomTypeCode value
-     * @param string $roomTypeCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomTypeType
-     */
-    public function setRoomTypeCode($roomTypeCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($roomTypeCode) && !is_string($roomTypeCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($roomTypeCode)), __LINE__);
-        }
-        $this->RoomTypeCode = $roomTypeCode;
-        return $this;
-    }
-    /**
      * Get NumberOfUnits value
-     * @return string|null
+     * @return int|null
      */
     public function getNumberOfUnits()
     {
@@ -240,14 +249,14 @@ class RoomTypeType extends AbstractStructBase
     }
     /**
      * Set NumberOfUnits value
-     * @param string $numberOfUnits
+     * @param int $numberOfUnits
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomTypeType
      */
     public function setNumberOfUnits($numberOfUnits = null)
     {
-        // validation for constraint: string
-        if (!is_null($numberOfUnits) && !is_string($numberOfUnits)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($numberOfUnits)), __LINE__);
+        // validation for constraint: int
+        if (!is_null($numberOfUnits) && !is_numeric($numberOfUnits)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfUnits)), __LINE__);
         }
         $this->NumberOfUnits = $numberOfUnits;
         return $this;
@@ -316,28 +325,6 @@ class RoomTypeType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAlternate)), __LINE__);
         }
         $this->IsAlternate = $isAlternate;
-        return $this;
-    }
-    /**
-     * Get InvBlockCode value
-     * @return string|null
-     */
-    public function getInvBlockCode()
-    {
-        return $this->InvBlockCode;
-    }
-    /**
-     * Set InvBlockCode value
-     * @param string $invBlockCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomTypeType
-     */
-    public function setInvBlockCode($invBlockCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($invBlockCode) && !is_string($invBlockCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($invBlockCode)), __LINE__);
-        }
-        $this->InvBlockCode = $invBlockCode;
         return $this;
     }
     /**

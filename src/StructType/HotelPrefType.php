@@ -198,7 +198,7 @@ class HotelPrefType extends AbstractStructBase
     /**
      * The HotelGuestType
      * Meta informations extracted from the WSDL
-     * - documentation: Category of hotel guest. Refer to OTA Code List Hotel Guest Type (GUE).
+     * - documentation: Category of hotel guest. Refer to OpenTravel Code List Hotel Guest Type (GUE).
      * @var string
      */
     public $HotelGuestType;

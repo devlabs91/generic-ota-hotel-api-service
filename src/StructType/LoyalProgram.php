@@ -68,6 +68,22 @@ class LoyalProgram extends AbstractStructBase
      */
     public $HotelLevel;
     /**
+     * The ProgramCode
+     * Meta informations extracted from the WSDL
+     * - documentation: A company-specific code used to identify a loyalty program.
+     * - use: optional
+     * @var string
+     */
+    public $ProgramCode;
+    /**
+     * The TravelSector
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to identify the specific travel sector to which the loyalty program applies. Refer to OpenTravel Codelist Travel Sector (TVS).
+     * - use: optional
+     * @var string
+     */
+    public $TravelSector;
+    /**
      * Constructor method for LoyalProgram
      * @uses LoyalProgram::setProgramDescription()
      * @uses LoyalProgram::setProgramRestriction()
@@ -76,6 +92,8 @@ class LoyalProgram extends AbstractStructBase
      * @uses LoyalProgram::setSecondaryProgramName()
      * @uses LoyalProgram::setAffiliateProgramName()
      * @uses LoyalProgram::setHotelLevel()
+     * @uses LoyalProgram::setProgramCode()
+     * @uses LoyalProgram::setTravelSector()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProgramDescription[] $programDescription
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProgramRestriction $programRestriction
      * @param mixed $blackoutDates
@@ -83,8 +101,10 @@ class LoyalProgram extends AbstractStructBase
      * @param string $secondaryProgramName
      * @param string $affiliateProgramName
      * @param string $hotelLevel
+     * @param string $programCode
+     * @param string $travelSector
      */
-    public function __construct(array $programDescription = array(), \Devlabs91\GenericOtaHotelApiService\StructType\ProgramRestriction $programRestriction = null, $blackoutDates = null, $programName = null, $secondaryProgramName = null, $affiliateProgramName = null, $hotelLevel = null)
+    public function __construct(array $programDescription = array(), \Devlabs91\GenericOtaHotelApiService\StructType\ProgramRestriction $programRestriction = null, $blackoutDates = null, $programName = null, $secondaryProgramName = null, $affiliateProgramName = null, $hotelLevel = null, $programCode = null, $travelSector = null)
     {
         $this
             ->setProgramDescription($programDescription)
@@ -93,7 +113,9 @@ class LoyalProgram extends AbstractStructBase
             ->setProgramName($programName)
             ->setSecondaryProgramName($secondaryProgramName)
             ->setAffiliateProgramName($affiliateProgramName)
-            ->setHotelLevel($hotelLevel);
+            ->setHotelLevel($hotelLevel)
+            ->setProgramCode($programCode)
+            ->setTravelSector($travelSector);
     }
     /**
      * Get ProgramDescription value
@@ -257,6 +279,50 @@ class LoyalProgram extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hotelLevel)), __LINE__);
         }
         $this->HotelLevel = $hotelLevel;
+        return $this;
+    }
+    /**
+     * Get ProgramCode value
+     * @return string|null
+     */
+    public function getProgramCode()
+    {
+        return $this->ProgramCode;
+    }
+    /**
+     * Set ProgramCode value
+     * @param string $programCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\LoyalProgram
+     */
+    public function setProgramCode($programCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($programCode) && !is_string($programCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($programCode)), __LINE__);
+        }
+        $this->ProgramCode = $programCode;
+        return $this;
+    }
+    /**
+     * Get TravelSector value
+     * @return string|null
+     */
+    public function getTravelSector()
+    {
+        return $this->TravelSector;
+    }
+    /**
+     * Set TravelSector value
+     * @param string $travelSector
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\LoyalProgram
+     */
+    public function setTravelSector($travelSector = null)
+    {
+        // validation for constraint: string
+        if (!is_null($travelSector) && !is_string($travelSector)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($travelSector)), __LINE__);
+        }
+        $this->TravelSector = $travelSector;
         return $this;
     }
     /**

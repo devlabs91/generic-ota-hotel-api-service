@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Codes StructType
  * Meta informations extracted from the WSDL
- * - documentation: Codes or abbreviations for meeting rooms.
+ * - documentation: Codes or abbreviations for meeting rooms. | Collection of coded information that is applicable to all meeting rooms.
  * @subpackage Structs
  */
 class Codes extends AbstractStructBase
@@ -15,14 +15,15 @@ class Codes extends AbstractStructBase
     /**
      * The Code
      * Meta informations extracted from the WSDL
+     * - documentation: Coded information that is applicable to all meeting rooms.
      * - maxOccurs: unbounded
-     * @var string[]
+     * @var mixed[]
      */
     public $Code;
     /**
      * Constructor method for Codes
      * @uses Codes::setCode()
-     * @param string[] $code
+     * @param mixed[] $code
      */
     public function __construct(array $code = array())
     {
@@ -31,7 +32,7 @@ class Codes extends AbstractStructBase
     }
     /**
      * Get Code value
-     * @return string[]|null
+     * @return mixed[]|null
      */
     public function getCode()
     {
@@ -39,39 +40,32 @@ class Codes extends AbstractStructBase
     }
     /**
      * Set Code value
-     * @uses \Devlabs91\GenericOtaHotelApiService\EnumType\Code::valueIsValid()
-     * @uses \Devlabs91\GenericOtaHotelApiService\EnumType\Code::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string[] $code
+     * @param mixed[] $code
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Codes
      */
     public function setCode(array $code = array())
     {
-        $invalidValues = array();
         foreach ($code as $codesCodeItem) {
-            if (!\Devlabs91\GenericOtaHotelApiService\EnumType\Code::valueIsValid($codesCodeItem)) {
-                $invalidValues[] = var_export($codesCodeItem, true);
+            // validation for constraint: itemType
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The Code property can only contain items of anyType, "%s" given', is_object($codesCodeItem) ? get_class($codesCodeItem) : gettype($codesCodeItem)), __LINE__);
             }
-        }
-        if (!empty($invalidValues)) {
-            throw new \InvalidArgumentException(sprintf('Value(s) "%s" is/are invalid, please use one of: %s', implode(', ', $invalidValues), implode(', ', \Devlabs91\GenericOtaHotelApiService\EnumType\Code::getValidValues())), __LINE__);
         }
         $this->Code = $code;
         return $this;
     }
     /**
      * Add item to Code value
-     * @uses \Devlabs91\GenericOtaHotelApiService\EnumType\Code::valueIsValid()
-     * @uses \Devlabs91\GenericOtaHotelApiService\EnumType\Code::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $item
+     * @param mixed $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Codes
      */
     public function addToCode($item)
     {
-        // validation for constraint: enumeration
-        if (!\Devlabs91\GenericOtaHotelApiService\EnumType\Code::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Devlabs91\GenericOtaHotelApiService\EnumType\Code::getValidValues())), __LINE__);
+        // validation for constraint: itemType
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The Code property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Code[] = $item;
         return $this;

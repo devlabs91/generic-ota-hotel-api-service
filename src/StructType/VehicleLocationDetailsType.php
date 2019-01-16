@@ -14,21 +14,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class VehicleLocationDetailsType extends AbstractStructBase
 {
     /**
-     * The AtAirport
-     * Meta informations extracted from the WSDL
-     * - documentation: The AtAirport attribute identifies if the associated rental location serves an airport.
-     * - use: required
-     * @var bool
-     */
-    public $AtAirport;
-    /**
-     * The Code
-     * Meta informations extracted from the WSDL
-     * - use: required
-     * @var string
-     */
-    public $Code;
-    /**
      * The Address
      * Meta informations extracted from the WSDL
      * - documentation: Information about the physical address of the location
@@ -40,10 +25,9 @@ class VehicleLocationDetailsType extends AbstractStructBase
     /**
      * The Telephone
      * Meta informations extracted from the WSDL
-     * - documentation: Information about the telephone numbers for thislocation.
      * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[]
      */
     public $Telephone;
     /**
@@ -55,8 +39,25 @@ class VehicleLocationDetailsType extends AbstractStructBase
      */
     public $AdditionalInfo;
     /**
+     * The AtAirport
+     * Meta informations extracted from the WSDL
+     * - documentation: The AtAirport attribute identifies if the associated rental location serves an airport.
+     * - use: optional
+     * @var bool
+     */
+    public $AtAirport;
+    /**
+     * The Code
+     * Meta informations extracted from the WSDL
+     * - documentation: Code used to identify the car rental location.
+     * - use: optional
+     * @var string
+     */
+    public $Code;
+    /**
      * The Name
      * Meta informations extracted from the WSDL
+     * - documentation: Name used to refer to the car rental location.
      * - use: optional
      * @var string
      */
@@ -64,81 +65,60 @@ class VehicleLocationDetailsType extends AbstractStructBase
     /**
      * The CodeContext
      * Meta informations extracted from the WSDL
+     * - documentation: Used to define which list the location code comes from (e.g. IATA, OAG, internal company code).
      * - use: optional
      * @var string
      */
     public $CodeContext;
     /**
+     * The ExtendedLocationCode
+     * Meta informations extracted from the WSDL
+     * - documentation: Used for extended OAG code in conjunction with the OAG code which is sent in Code.
+     * - use: optional
+     * @var string
+     */
+    public $ExtendedLocationCode;
+    /**
+     * The AssocAirportLocList
+     * Meta informations extracted from the WSDL
+     * - documentation: Additional airport location codes associated with the primary airport.
+     * - use: optional
+     * @var string
+     */
+    public $AssocAirportLocList;
+    /**
      * Constructor method for VehicleLocationDetailsType
-     * @uses VehicleLocationDetailsType::setAtAirport()
-     * @uses VehicleLocationDetailsType::setCode()
      * @uses VehicleLocationDetailsType::setAddress()
      * @uses VehicleLocationDetailsType::setTelephone()
      * @uses VehicleLocationDetailsType::setAdditionalInfo()
+     * @uses VehicleLocationDetailsType::setAtAirport()
+     * @uses VehicleLocationDetailsType::setCode()
      * @uses VehicleLocationDetailsType::setName()
      * @uses VehicleLocationDetailsType::setCodeContext()
+     * @uses VehicleLocationDetailsType::setExtendedLocationCode()
+     * @uses VehicleLocationDetailsType::setAssocAirportLocList()
+     * @param mixed[] $address
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[] $telephone
+     * @param mixed $additionalInfo
      * @param bool $atAirport
      * @param string $code
-     * @param mixed[] $address
-     * @param mixed[] $telephone
-     * @param mixed $additionalInfo
      * @param string $name
      * @param string $codeContext
+     * @param string $extendedLocationCode
+     * @param string $assocAirportLocList
      */
-    public function __construct($atAirport = null, $code = null, array $address = array(), array $telephone = array(), $additionalInfo = null, $name = null, $codeContext = null)
+    public function __construct(array $address = array(), array $telephone = array(), $additionalInfo = null, $atAirport = null, $code = null, $name = null, $codeContext = null, $extendedLocationCode = null, $assocAirportLocList = null)
     {
         $this
-            ->setAtAirport($atAirport)
-            ->setCode($code)
             ->setAddress($address)
             ->setTelephone($telephone)
             ->setAdditionalInfo($additionalInfo)
+            ->setAtAirport($atAirport)
+            ->setCode($code)
             ->setName($name)
-            ->setCodeContext($codeContext);
-    }
-    /**
-     * Get AtAirport value
-     * @return bool
-     */
-    public function getAtAirport()
-    {
-        return $this->AtAirport;
-    }
-    /**
-     * Set AtAirport value
-     * @param bool $atAirport
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
-     */
-    public function setAtAirport($atAirport = null)
-    {
-        // validation for constraint: boolean
-        if (!is_null($atAirport) && !is_bool($atAirport)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($atAirport)), __LINE__);
-        }
-        $this->AtAirport = $atAirport;
-        return $this;
-    }
-    /**
-     * Get Code value
-     * @return string
-     */
-    public function getCode()
-    {
-        return $this->Code;
-    }
-    /**
-     * Set Code value
-     * @param string $code
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
-     */
-    public function setCode($code = null)
-    {
-        // validation for constraint: string
-        if (!is_null($code) && !is_string($code)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($code)), __LINE__);
-        }
-        $this->Code = $code;
-        return $this;
+            ->setCodeContext($codeContext)
+            ->setExtendedLocationCode($extendedLocationCode)
+            ->setAssocAirportLocList($assocAirportLocList);
     }
     /**
      * Get Address value
@@ -182,7 +162,7 @@ class VehicleLocationDetailsType extends AbstractStructBase
     }
     /**
      * Get Telephone value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[]|null
      */
     public function getTelephone()
     {
@@ -191,15 +171,15 @@ class VehicleLocationDetailsType extends AbstractStructBase
     /**
      * Set Telephone value
      * @throws \InvalidArgumentException
-     * @param mixed[] $telephone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[] $telephone
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
      */
     public function setTelephone(array $telephone = array())
     {
         foreach ($telephone as $vehicleLocationDetailsTypeTelephoneItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of anyType, "%s" given', is_object($vehicleLocationDetailsTypeTelephoneItem) ? get_class($vehicleLocationDetailsTypeTelephoneItem) : gettype($vehicleLocationDetailsTypeTelephoneItem)), __LINE__);
+            if (!$vehicleLocationDetailsTypeTelephoneItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Telephone) {
+                throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Telephone, "%s" given', is_object($vehicleLocationDetailsTypeTelephoneItem) ? get_class($vehicleLocationDetailsTypeTelephoneItem) : gettype($vehicleLocationDetailsTypeTelephoneItem)), __LINE__);
             }
         }
         $this->Telephone = $telephone;
@@ -208,14 +188,14 @@ class VehicleLocationDetailsType extends AbstractStructBase
     /**
      * Add item to Telephone value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
      */
-    public function addToTelephone($item)
+    public function addToTelephone(\Devlabs91\GenericOtaHotelApiService\StructType\Telephone $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Telephone) {
+            throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Telephone, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Telephone[] = $item;
         return $this;
@@ -236,6 +216,50 @@ class VehicleLocationDetailsType extends AbstractStructBase
     public function setAdditionalInfo($additionalInfo = null)
     {
         $this->AdditionalInfo = $additionalInfo;
+        return $this;
+    }
+    /**
+     * Get AtAirport value
+     * @return bool|null
+     */
+    public function getAtAirport()
+    {
+        return $this->AtAirport;
+    }
+    /**
+     * Set AtAirport value
+     * @param bool $atAirport
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
+     */
+    public function setAtAirport($atAirport = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($atAirport) && !is_bool($atAirport)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($atAirport)), __LINE__);
+        }
+        $this->AtAirport = $atAirport;
+        return $this;
+    }
+    /**
+     * Get Code value
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->Code;
+    }
+    /**
+     * Set Code value
+     * @param string $code
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
+     */
+    public function setCode($code = null)
+    {
+        // validation for constraint: string
+        if (!is_null($code) && !is_string($code)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($code)), __LINE__);
+        }
+        $this->Code = $code;
         return $this;
     }
     /**
@@ -280,6 +304,50 @@ class VehicleLocationDetailsType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($codeContext)), __LINE__);
         }
         $this->CodeContext = $codeContext;
+        return $this;
+    }
+    /**
+     * Get ExtendedLocationCode value
+     * @return string|null
+     */
+    public function getExtendedLocationCode()
+    {
+        return $this->ExtendedLocationCode;
+    }
+    /**
+     * Set ExtendedLocationCode value
+     * @param string $extendedLocationCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
+     */
+    public function setExtendedLocationCode($extendedLocationCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($extendedLocationCode) && !is_string($extendedLocationCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($extendedLocationCode)), __LINE__);
+        }
+        $this->ExtendedLocationCode = $extendedLocationCode;
+        return $this;
+    }
+    /**
+     * Get AssocAirportLocList value
+     * @return string|null
+     */
+    public function getAssocAirportLocList()
+    {
+        return $this->AssocAirportLocList;
+    }
+    /**
+     * Set AssocAirportLocList value
+     * @param string $assocAirportLocList
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationDetailsType
+     */
+    public function setAssocAirportLocList($assocAirportLocList = null)
+    {
+        // validation for constraint: string
+        if (!is_null($assocAirportLocList) && !is_string($assocAirportLocList)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($assocAirportLocList)), __LINE__);
+        }
+        $this->AssocAirportLocList = $assocAirportLocList;
         return $this;
     }
     /**

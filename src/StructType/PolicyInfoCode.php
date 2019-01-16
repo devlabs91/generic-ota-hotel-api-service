@@ -28,17 +28,28 @@ class PolicyInfoCode extends AbstractStructBase
      */
     public $Name;
     /**
+     * The ExistsCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This attribute is used to explicitly define whether the policy applies. Refer to OpenTravel Code list Option Type Code (OTC). This is used in conjunction with Name.
+     * - use: optional
+     * @var string
+     */
+    public $ExistsCode;
+    /**
      * Constructor method for PolicyInfoCode
      * @uses PolicyInfoCode::setDescription()
      * @uses PolicyInfoCode::setName()
+     * @uses PolicyInfoCode::setExistsCode()
      * @param mixed[] $description
      * @param string $name
+     * @param string $existsCode
      */
-    public function __construct(array $description = array(), $name = null)
+    public function __construct(array $description = array(), $name = null, $existsCode = null)
     {
         $this
             ->setDescription($description)
-            ->setName($name);
+            ->setName($name)
+            ->setExistsCode($existsCode);
     }
     /**
      * Get Description value
@@ -100,6 +111,28 @@ class PolicyInfoCode extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        return $this;
+    }
+    /**
+     * Get ExistsCode value
+     * @return string|null
+     */
+    public function getExistsCode()
+    {
+        return $this->ExistsCode;
+    }
+    /**
+     * Set ExistsCode value
+     * @param string $existsCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfoCode
+     */
+    public function setExistsCode($existsCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
+        }
+        $this->ExistsCode = $existsCode;
         return $this;
     }
     /**

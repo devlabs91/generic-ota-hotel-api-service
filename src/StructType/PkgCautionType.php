@@ -13,14 +13,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class PkgCautionType extends FormattedTextTextType
 {
     /**
-     * The ItinerarySequence
-     * Meta informations extracted from the WSDL
-     * - documentation: Used to relate this item of information to the inventory item.
-     * - use: optional
-     * @var string
-     */
-    public $ItinerarySequence;
-    /**
      * The Type
      * Meta informations extracted from the WSDL
      * - documentation: Identifies the type of information e.g. Resort, Flight, Accommodation etc..
@@ -29,39 +21,47 @@ class PkgCautionType extends FormattedTextTextType
      */
     public $Type;
     /**
-     * Constructor method for PkgCautionType
-     * @uses PkgCautionType::setItinerarySequence()
-     * @uses PkgCautionType::setType()
-     * @param string $itinerarySequence
-     * @param string $type
+     * The ID
+     * Meta informations extracted from the WSDL
+     * - documentation: The supplier's unique identification code for a caution.
+     * - use: optional
+     * @var string
      */
-    public function __construct($itinerarySequence = null, $type = null)
+    public $ID;
+    /**
+     * The ListOfItineraryItemRPH
+     * Meta informations extracted from the WSDL
+     * - documentation: Pointers to individual InventoryItem elements to which this Caution applies.
+     * - use: optional
+     * @var string
+     */
+    public $ListOfItineraryItemRPH;
+    /**
+     * The ListOfExtraRPH
+     * Meta informations extracted from the WSDL
+     * - documentation: Pointers to individual Extra elements to which this Caution applies.
+     * - use: optional
+     * @var string
+     */
+    public $ListOfExtraRPH;
+    /**
+     * Constructor method for PkgCautionType
+     * @uses PkgCautionType::setType()
+     * @uses PkgCautionType::setID()
+     * @uses PkgCautionType::setListOfItineraryItemRPH()
+     * @uses PkgCautionType::setListOfExtraRPH()
+     * @param string $type
+     * @param string $iD
+     * @param string $listOfItineraryItemRPH
+     * @param string $listOfExtraRPH
+     */
+    public function __construct($type = null, $iD = null, $listOfItineraryItemRPH = null, $listOfExtraRPH = null)
     {
         $this
-            ->setItinerarySequence($itinerarySequence)
-            ->setType($type);
-    }
-    /**
-     * Get ItinerarySequence value
-     * @return string|null
-     */
-    public function getItinerarySequence()
-    {
-        return $this->ItinerarySequence;
-    }
-    /**
-     * Set ItinerarySequence value
-     * @param string $itinerarySequence
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgCautionType
-     */
-    public function setItinerarySequence($itinerarySequence = null)
-    {
-        // validation for constraint: string
-        if (!is_null($itinerarySequence) && !is_string($itinerarySequence)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itinerarySequence)), __LINE__);
-        }
-        $this->ItinerarySequence = $itinerarySequence;
-        return $this;
+            ->setType($type)
+            ->setID($iD)
+            ->setListOfItineraryItemRPH($listOfItineraryItemRPH)
+            ->setListOfExtraRPH($listOfExtraRPH);
     }
     /**
      * Get Type value
@@ -83,6 +83,72 @@ class PkgCautionType extends FormattedTextTextType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($type)), __LINE__);
         }
         $this->Type = $type;
+        return $this;
+    }
+    /**
+     * Get ID value
+     * @return string|null
+     */
+    public function getID()
+    {
+        return $this->ID;
+    }
+    /**
+     * Set ID value
+     * @param string $iD
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgCautionType
+     */
+    public function setID($iD = null)
+    {
+        // validation for constraint: string
+        if (!is_null($iD) && !is_string($iD)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iD)), __LINE__);
+        }
+        $this->ID = $iD;
+        return $this;
+    }
+    /**
+     * Get ListOfItineraryItemRPH value
+     * @return string|null
+     */
+    public function getListOfItineraryItemRPH()
+    {
+        return $this->ListOfItineraryItemRPH;
+    }
+    /**
+     * Set ListOfItineraryItemRPH value
+     * @param string $listOfItineraryItemRPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgCautionType
+     */
+    public function setListOfItineraryItemRPH($listOfItineraryItemRPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($listOfItineraryItemRPH) && !is_string($listOfItineraryItemRPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($listOfItineraryItemRPH)), __LINE__);
+        }
+        $this->ListOfItineraryItemRPH = $listOfItineraryItemRPH;
+        return $this;
+    }
+    /**
+     * Get ListOfExtraRPH value
+     * @return string|null
+     */
+    public function getListOfExtraRPH()
+    {
+        return $this->ListOfExtraRPH;
+    }
+    /**
+     * Set ListOfExtraRPH value
+     * @param string $listOfExtraRPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgCautionType
+     */
+    public function setListOfExtraRPH($listOfExtraRPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($listOfExtraRPH) && !is_string($listOfExtraRPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($listOfExtraRPH)), __LINE__);
+        }
+        $this->ListOfExtraRPH = $listOfExtraRPH;
         return $this;
     }
     /**

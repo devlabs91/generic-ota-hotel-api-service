@@ -15,6 +15,7 @@ class SpecialRemarkType extends AbstractStructBase
     /**
      * The RemarkType
      * Meta informations extracted from the WSDL
+     * - documentation: Type of special remark used (e.g., itinerary remark, invoice remark). Refer to OpenTravel Code List Special Remark Option Type (SRO).
      * - use: required
      * @var string
      */
@@ -22,46 +23,78 @@ class SpecialRemarkType extends AbstractStructBase
     /**
      * The TravelerRefNumber
      * Meta informations extracted from the WSDL
-     * - documentation: One or more travelers to whom this request applies
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[]
      */
     public $TravelerRefNumber;
     /**
      * The FlightRefNumber
      * Meta informations extracted from the WSDL
-     * - documentation: One or more flights to whom this request applies
      * - maxOccurs: 10
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber[]
      */
     public $FlightRefNumber;
     /**
      * The Text
      * Meta informations extracted from the WSDL
      * - documentation: Text associated with remark
-     * @var mixed
+     * - minOccurs: 0
+     * @var string
      */
     public $Text;
+    /**
+     * The Airline
+     * Meta informations extracted from the WSDL
+     * - documentation: Denotes the receiver (or target) airline(s) for the remark.
+     * - maxOccurs: 5
+     * - minOccurs: 0
+     * @var mixed[]
+     */
+    public $Airline;
+    /**
+     * The AuthorizedViewers
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AuthorizedViewers
+     */
+    public $AuthorizedViewers;
+    /**
+     * The ID
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to further define the remark type.
+     * - use: optional
+     * @var string
+     */
+    public $ID;
     /**
      * Constructor method for SpecialRemarkType
      * @uses SpecialRemarkType::setRemarkType()
      * @uses SpecialRemarkType::setTravelerRefNumber()
      * @uses SpecialRemarkType::setFlightRefNumber()
      * @uses SpecialRemarkType::setText()
+     * @uses SpecialRemarkType::setAirline()
+     * @uses SpecialRemarkType::setAuthorizedViewers()
+     * @uses SpecialRemarkType::setID()
      * @param string $remarkType
-     * @param mixed[] $travelerRefNumber
-     * @param mixed[] $flightRefNumber
-     * @param mixed $text
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[] $travelerRefNumber
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber[] $flightRefNumber
+     * @param string $text
+     * @param mixed[] $airline
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AuthorizedViewers $authorizedViewers
+     * @param string $iD
      */
-    public function __construct($remarkType = null, array $travelerRefNumber = array(), array $flightRefNumber = array(), $text = null)
+    public function __construct($remarkType = null, array $travelerRefNumber = array(), array $flightRefNumber = array(), $text = null, array $airline = array(), \Devlabs91\GenericOtaHotelApiService\StructType\AuthorizedViewers $authorizedViewers = null, $iD = null)
     {
         $this
             ->setRemarkType($remarkType)
             ->setTravelerRefNumber($travelerRefNumber)
             ->setFlightRefNumber($flightRefNumber)
-            ->setText($text);
+            ->setText($text)
+            ->setAirline($airline)
+            ->setAuthorizedViewers($authorizedViewers)
+            ->setID($iD);
     }
     /**
      * Get RemarkType value
@@ -87,7 +120,7 @@ class SpecialRemarkType extends AbstractStructBase
     }
     /**
      * Get TravelerRefNumber value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[]|null
      */
     public function getTravelerRefNumber()
     {
@@ -96,15 +129,15 @@ class SpecialRemarkType extends AbstractStructBase
     /**
      * Set TravelerRefNumber value
      * @throws \InvalidArgumentException
-     * @param mixed[] $travelerRefNumber
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[] $travelerRefNumber
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
      */
     public function setTravelerRefNumber(array $travelerRefNumber = array())
     {
         foreach ($travelerRefNumber as $specialRemarkTypeTravelerRefNumberItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of anyType, "%s" given', is_object($specialRemarkTypeTravelerRefNumberItem) ? get_class($specialRemarkTypeTravelerRefNumberItem) : gettype($specialRemarkTypeTravelerRefNumberItem)), __LINE__);
+            if (!$specialRemarkTypeTravelerRefNumberItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber) {
+                throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber, "%s" given', is_object($specialRemarkTypeTravelerRefNumberItem) ? get_class($specialRemarkTypeTravelerRefNumberItem) : gettype($specialRemarkTypeTravelerRefNumberItem)), __LINE__);
             }
         }
         $this->TravelerRefNumber = $travelerRefNumber;
@@ -113,21 +146,21 @@ class SpecialRemarkType extends AbstractStructBase
     /**
      * Add item to TravelerRefNumber value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
      */
-    public function addToTravelerRefNumber($item)
+    public function addToTravelerRefNumber(\Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber) {
+            throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->TravelerRefNumber[] = $item;
         return $this;
     }
     /**
      * Get FlightRefNumber value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber[]|null
      */
     public function getFlightRefNumber()
     {
@@ -136,15 +169,15 @@ class SpecialRemarkType extends AbstractStructBase
     /**
      * Set FlightRefNumber value
      * @throws \InvalidArgumentException
-     * @param mixed[] $flightRefNumber
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber[] $flightRefNumber
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
      */
     public function setFlightRefNumber(array $flightRefNumber = array())
     {
         foreach ($flightRefNumber as $specialRemarkTypeFlightRefNumberItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The FlightRefNumber property can only contain items of anyType, "%s" given', is_object($specialRemarkTypeFlightRefNumberItem) ? get_class($specialRemarkTypeFlightRefNumberItem) : gettype($specialRemarkTypeFlightRefNumberItem)), __LINE__);
+            if (!$specialRemarkTypeFlightRefNumberItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber) {
+                throw new \InvalidArgumentException(sprintf('The FlightRefNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber, "%s" given', is_object($specialRemarkTypeFlightRefNumberItem) ? get_class($specialRemarkTypeFlightRefNumberItem) : gettype($specialRemarkTypeFlightRefNumberItem)), __LINE__);
             }
         }
         $this->FlightRefNumber = $flightRefNumber;
@@ -153,21 +186,21 @@ class SpecialRemarkType extends AbstractStructBase
     /**
      * Add item to FlightRefNumber value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
      */
-    public function addToFlightRefNumber($item)
+    public function addToFlightRefNumber(\Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The FlightRefNumber property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber) {
+            throw new \InvalidArgumentException(sprintf('The FlightRefNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\FlightRefNumber, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->FlightRefNumber[] = $item;
         return $this;
     }
     /**
      * Get Text value
-     * @return mixed|null
+     * @return string|null
      */
     public function getText()
     {
@@ -175,12 +208,96 @@ class SpecialRemarkType extends AbstractStructBase
     }
     /**
      * Set Text value
-     * @param mixed $text
+     * @param string $text
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
      */
     public function setText($text = null)
     {
+        // validation for constraint: string
+        if (!is_null($text) && !is_string($text)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($text)), __LINE__);
+        }
         $this->Text = $text;
+        return $this;
+    }
+    /**
+     * Get Airline value
+     * @return mixed[]|null
+     */
+    public function getAirline()
+    {
+        return $this->Airline;
+    }
+    /**
+     * Set Airline value
+     * @throws \InvalidArgumentException
+     * @param mixed[] $airline
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
+     */
+    public function setAirline(array $airline = array())
+    {
+        foreach ($airline as $specialRemarkTypeAirlineItem) {
+            // validation for constraint: itemType
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The Airline property can only contain items of anyType, "%s" given', is_object($specialRemarkTypeAirlineItem) ? get_class($specialRemarkTypeAirlineItem) : gettype($specialRemarkTypeAirlineItem)), __LINE__);
+            }
+        }
+        $this->Airline = $airline;
+        return $this;
+    }
+    /**
+     * Add item to Airline value
+     * @throws \InvalidArgumentException
+     * @param mixed $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
+     */
+    public function addToAirline($item)
+    {
+        // validation for constraint: itemType
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The Airline property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Airline[] = $item;
+        return $this;
+    }
+    /**
+     * Get AuthorizedViewers value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AuthorizedViewers|null
+     */
+    public function getAuthorizedViewers()
+    {
+        return $this->AuthorizedViewers;
+    }
+    /**
+     * Set AuthorizedViewers value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AuthorizedViewers $authorizedViewers
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
+     */
+    public function setAuthorizedViewers(\Devlabs91\GenericOtaHotelApiService\StructType\AuthorizedViewers $authorizedViewers = null)
+    {
+        $this->AuthorizedViewers = $authorizedViewers;
+        return $this;
+    }
+    /**
+     * Get ID value
+     * @return string|null
+     */
+    public function getID()
+    {
+        return $this->ID;
+    }
+    /**
+     * Set ID value
+     * @param string $iD
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarkType
+     */
+    public function setID($iD = null)
+    {
+        // validation for constraint: string
+        if (!is_null($iD) && !is_string($iD)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iD)), __LINE__);
+        }
+        $this->ID = $iD;
         return $this;
     }
     /**

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PropertyValueMatchType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A propety that matches some or all of the search criteria.
+ * - documentation: A property that matches some or all of the search criteria.
  * @subpackage Structs
  */
 class PropertyValueMatchType extends BasicPropertyInfoType
@@ -28,17 +28,61 @@ class PropertyValueMatchType extends BasicPropertyInfoType
      */
     public $Amenities;
     /**
+     * The RateRange
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateRange
+     */
+    public $RateRange;
+    /**
+     * The MoreDataEchoToken
+     * Meta informations extracted from the WSDL
+     * - documentation: The search response returns this attribute if there were additional items that could not fit within the response. The text value returned should be echoed in the subsequent request in "Criteria/Criterion@MoreDataEchoToken" to
+     * indicate where to begin the next block of data.
+     * - use: optional
+     * @var string
+     */
+    public $MoreDataEchoToken;
+    /**
+     * The SameCountryInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, this property is in the same country as the requested city's country. When false, indicates this country is not the same as the requested city's country.
+     * - use: optional
+     * @var bool
+     */
+    public $SameCountryInd;
+    /**
+     * The AvailabilityStatus
+     * Meta informations extracted from the WSDL
+     * - documentation: The availability status of the property.
+     * - use: optional
+     * @var string
+     */
+    public $AvailabilityStatus;
+    /**
      * Constructor method for PropertyValueMatchType
      * @uses PropertyValueMatchType::setSearchValueMatch()
      * @uses PropertyValueMatchType::setAmenities()
+     * @uses PropertyValueMatchType::setRateRange()
+     * @uses PropertyValueMatchType::setMoreDataEchoToken()
+     * @uses PropertyValueMatchType::setSameCountryInd()
+     * @uses PropertyValueMatchType::setAvailabilityStatus()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\SearchValueMatch[] $searchValueMatch
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRange $rateRange
+     * @param string $moreDataEchoToken
+     * @param bool $sameCountryInd
+     * @param string $availabilityStatus
      */
-    public function __construct(array $searchValueMatch = array(), \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null)
+    public function __construct(array $searchValueMatch = array(), \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null, \Devlabs91\GenericOtaHotelApiService\StructType\RateRange $rateRange = null, $moreDataEchoToken = null, $sameCountryInd = null, $availabilityStatus = null)
     {
         $this
             ->setSearchValueMatch($searchValueMatch)
-            ->setAmenities($amenities);
+            ->setAmenities($amenities)
+            ->setRateRange($rateRange)
+            ->setMoreDataEchoToken($moreDataEchoToken)
+            ->setSameCountryInd($sameCountryInd)
+            ->setAvailabilityStatus($availabilityStatus);
     }
     /**
      * Get SearchValueMatch value
@@ -96,6 +140,90 @@ class PropertyValueMatchType extends BasicPropertyInfoType
     public function setAmenities(\Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null)
     {
         $this->Amenities = $amenities;
+        return $this;
+    }
+    /**
+     * Get RateRange value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateRange|null
+     */
+    public function getRateRange()
+    {
+        return $this->RateRange;
+    }
+    /**
+     * Set RateRange value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRange $rateRange
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PropertyValueMatchType
+     */
+    public function setRateRange(\Devlabs91\GenericOtaHotelApiService\StructType\RateRange $rateRange = null)
+    {
+        $this->RateRange = $rateRange;
+        return $this;
+    }
+    /**
+     * Get MoreDataEchoToken value
+     * @return string|null
+     */
+    public function getMoreDataEchoToken()
+    {
+        return $this->MoreDataEchoToken;
+    }
+    /**
+     * Set MoreDataEchoToken value
+     * @param string $moreDataEchoToken
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PropertyValueMatchType
+     */
+    public function setMoreDataEchoToken($moreDataEchoToken = null)
+    {
+        // validation for constraint: string
+        if (!is_null($moreDataEchoToken) && !is_string($moreDataEchoToken)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($moreDataEchoToken)), __LINE__);
+        }
+        $this->MoreDataEchoToken = $moreDataEchoToken;
+        return $this;
+    }
+    /**
+     * Get SameCountryInd value
+     * @return bool|null
+     */
+    public function getSameCountryInd()
+    {
+        return $this->SameCountryInd;
+    }
+    /**
+     * Set SameCountryInd value
+     * @param bool $sameCountryInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PropertyValueMatchType
+     */
+    public function setSameCountryInd($sameCountryInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($sameCountryInd) && !is_bool($sameCountryInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sameCountryInd)), __LINE__);
+        }
+        $this->SameCountryInd = $sameCountryInd;
+        return $this;
+    }
+    /**
+     * Get AvailabilityStatus value
+     * @return string|null
+     */
+    public function getAvailabilityStatus()
+    {
+        return $this->AvailabilityStatus;
+    }
+    /**
+     * Set AvailabilityStatus value
+     * @param string $availabilityStatus
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PropertyValueMatchType
+     */
+    public function setAvailabilityStatus($availabilityStatus = null)
+    {
+        // validation for constraint: string
+        if (!is_null($availabilityStatus) && !is_string($availabilityStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($availabilityStatus)), __LINE__);
+        }
+        $this->AvailabilityStatus = $availabilityStatus;
         return $this;
     }
     /**

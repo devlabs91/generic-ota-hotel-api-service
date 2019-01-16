@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OTA_HotelAvailNotifRQ StructType
  * Meta informations extracted from the WSDL
- * - documentation: The OTA_AvailNotifRQ is the message that sends the notification of the availability status of a hotel. | This element defines standard attributes that appear on the root element for all OTA payloads.
+ * - documentation: The OTA_AvailNotifRQ is the message that sends the notification of the availability status of a hotel. | This element defines standard attributes that appear on the root element for all OpenTravel Messages.
  * @subpackage Structs
  */
 class OTA_HotelAvailNotifRQ extends AbstractStructBase
@@ -35,6 +35,15 @@ class OTA_HotelAvailNotifRQ extends AbstractStructBase
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessages
      */
     public $AvailStatusMessages;
+    /**
+     * The MessageContentCode
+     * Meta informations extracted from the WSDL
+     * - documentation: Defines specific content of the message being sent. | Used for codes in the OpenTravel Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
+     * - use: optional
+     * - pattern: [0-9A-Z]{1,3}(\.[A-Z]{3}(\.X){0,1}){0,1}
+     * @var string
+     */
+    public $MessageContentCode;
     /**
      * The EchoToken
      * @var string
@@ -71,10 +80,21 @@ class OTA_HotelAvailNotifRQ extends AbstractStructBase
      */
     public $TransactionStatusCode;
     /**
+     * The RetransmissionIndicator
+     * @var bool
+     */
+    public $RetransmissionIndicator;
+    /**
+     * The CorrelationID
+     * @var string
+     */
+    public $CorrelationID;
+    /**
      * Constructor method for OTA_HotelAvailNotifRQ
      * @uses OTA_HotelAvailNotifRQ::setPOS()
      * @uses OTA_HotelAvailNotifRQ::setUniqueID()
      * @uses OTA_HotelAvailNotifRQ::setAvailStatusMessages()
+     * @uses OTA_HotelAvailNotifRQ::setMessageContentCode()
      * @uses OTA_HotelAvailNotifRQ::setEchoToken()
      * @uses OTA_HotelAvailNotifRQ::setTimeStamp()
      * @uses OTA_HotelAvailNotifRQ::setTarget()
@@ -82,9 +102,12 @@ class OTA_HotelAvailNotifRQ extends AbstractStructBase
      * @uses OTA_HotelAvailNotifRQ::setTransactionIdentifier()
      * @uses OTA_HotelAvailNotifRQ::setSequenceNmbr()
      * @uses OTA_HotelAvailNotifRQ::setTransactionStatusCode()
+     * @uses OTA_HotelAvailNotifRQ::setRetransmissionIndicator()
+     * @uses OTA_HotelAvailNotifRQ::setCorrelationID()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessages $availStatusMessages
+     * @param string $messageContentCode
      * @param string $echoToken
      * @param string $timeStamp
      * @param string $target
@@ -92,20 +115,25 @@ class OTA_HotelAvailNotifRQ extends AbstractStructBase
      * @param string $transactionIdentifier
      * @param int $sequenceNmbr
      * @param string $transactionStatusCode
+     * @param bool $retransmissionIndicator
+     * @param string $correlationID
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessages $availStatusMessages = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessages $availStatusMessages = null, $messageContentCode = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $retransmissionIndicator = null, $correlationID = null)
     {
         $this
             ->setPOS($pOS)
             ->setUniqueID($uniqueID)
             ->setAvailStatusMessages($availStatusMessages)
+            ->setMessageContentCode($messageContentCode)
             ->setEchoToken($echoToken)
             ->setTimeStamp($timeStamp)
             ->setTarget($target)
             ->setVersion($version)
             ->setTransactionIdentifier($transactionIdentifier)
             ->setSequenceNmbr($sequenceNmbr)
-            ->setTransactionStatusCode($transactionStatusCode);
+            ->setTransactionStatusCode($transactionStatusCode)
+            ->setRetransmissionIndicator($retransmissionIndicator)
+            ->setCorrelationID($correlationID);
     }
     /**
      * Get POS value
@@ -159,6 +187,32 @@ class OTA_HotelAvailNotifRQ extends AbstractStructBase
     public function setAvailStatusMessages(\Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessages $availStatusMessages = null)
     {
         $this->AvailStatusMessages = $availStatusMessages;
+        return $this;
+    }
+    /**
+     * Get MessageContentCode value
+     * @return string|null
+     */
+    public function getMessageContentCode()
+    {
+        return $this->MessageContentCode;
+    }
+    /**
+     * Set MessageContentCode value
+     * @param string $messageContentCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailNotifRQ
+     */
+    public function setMessageContentCode($messageContentCode = null)
+    {
+        // validation for constraint: pattern
+        if (is_scalar($messageContentCode) && !preg_match('/[0-9A-Z]{1,3}(\\.[A-Z]{3}(\\.X){0,1}){0,1}/', $messageContentCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Z]{1,3}(\.[A-Z]{3}(\.X){0,1}){0,1}", "%s" given', var_export($messageContentCode, true)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($messageContentCode) && !is_string($messageContentCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageContentCode)), __LINE__);
+        }
+        $this->MessageContentCode = $messageContentCode;
         return $this;
     }
     /**
@@ -309,6 +363,50 @@ class OTA_HotelAvailNotifRQ extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionStatusCode)), __LINE__);
         }
         $this->TransactionStatusCode = $transactionStatusCode;
+        return $this;
+    }
+    /**
+     * Get RetransmissionIndicator value
+     * @return bool|null
+     */
+    public function getRetransmissionIndicator()
+    {
+        return $this->RetransmissionIndicator;
+    }
+    /**
+     * Set RetransmissionIndicator value
+     * @param bool $retransmissionIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailNotifRQ
+     */
+    public function setRetransmissionIndicator($retransmissionIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($retransmissionIndicator) && !is_bool($retransmissionIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retransmissionIndicator)), __LINE__);
+        }
+        $this->RetransmissionIndicator = $retransmissionIndicator;
+        return $this;
+    }
+    /**
+     * Get CorrelationID value
+     * @return string|null
+     */
+    public function getCorrelationID()
+    {
+        return $this->CorrelationID;
+    }
+    /**
+     * Set CorrelationID value
+     * @param string $correlationID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelAvailNotifRQ
+     */
+    public function setCorrelationID($correlationID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($correlationID) && !is_string($correlationID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($correlationID)), __LINE__);
+        }
+        $this->CorrelationID = $correlationID;
         return $this;
     }
     /**

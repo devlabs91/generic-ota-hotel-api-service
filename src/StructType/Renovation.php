@@ -13,12 +13,21 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class Renovation extends AbstractStructBase
 {
     /**
-     * The Description
+     * The MultimediaDescriptions
      * Meta informations extracted from the WSDL
+     * - documentation: Multimedia information about the renovation.
      * - minOccurs: 0
      * @var mixed
      */
-    public $Description;
+    public $MultimediaDescriptions;
+    /**
+     * The DescriptiveText
+     * Meta informations extracted from the WSDL
+     * - documentation: Descriptive text that describes the renovation.
+     * - minOccurs: 0
+     * @var string
+     */
+    public $DescriptiveText;
     /**
      * The ImmediatePlans
      * Meta informations extracted from the WSDL
@@ -44,40 +53,76 @@ class Renovation extends AbstractStructBase
      */
     public $AreaText;
     /**
+     * The RenovationCompletionDate
+     * Meta informations extracted from the WSDL
+     * - documentation: The year or month and year the renovation was completed or is due to be completed.
+     * - use: optional
+     * @var string
+     */
+    public $RenovationCompletionDate;
+    /**
      * Constructor method for Renovation
-     * @uses Renovation::setDescription()
+     * @uses Renovation::setMultimediaDescriptions()
+     * @uses Renovation::setDescriptiveText()
      * @uses Renovation::setImmediatePlans()
      * @uses Renovation::setPercentOfRenovationCompleted()
      * @uses Renovation::setAreaText()
-     * @param mixed $description
+     * @uses Renovation::setRenovationCompletionDate()
+     * @param mixed $multimediaDescriptions
+     * @param string $descriptiveText
      * @param bool $immediatePlans
      * @param string $percentOfRenovationCompleted
      * @param string $areaText
+     * @param string $renovationCompletionDate
      */
-    public function __construct($description = null, $immediatePlans = null, $percentOfRenovationCompleted = null, $areaText = null)
+    public function __construct($multimediaDescriptions = null, $descriptiveText = null, $immediatePlans = null, $percentOfRenovationCompleted = null, $areaText = null, $renovationCompletionDate = null)
     {
         $this
-            ->setDescription($description)
+            ->setMultimediaDescriptions($multimediaDescriptions)
+            ->setDescriptiveText($descriptiveText)
             ->setImmediatePlans($immediatePlans)
             ->setPercentOfRenovationCompleted($percentOfRenovationCompleted)
-            ->setAreaText($areaText);
+            ->setAreaText($areaText)
+            ->setRenovationCompletionDate($renovationCompletionDate);
     }
     /**
-     * Get Description value
+     * Get MultimediaDescriptions value
      * @return mixed|null
      */
-    public function getDescription()
+    public function getMultimediaDescriptions()
     {
-        return $this->Description;
+        return $this->MultimediaDescriptions;
     }
     /**
-     * Set Description value
-     * @param mixed $description
+     * Set MultimediaDescriptions value
+     * @param mixed $multimediaDescriptions
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Renovation
      */
-    public function setDescription($description = null)
+    public function setMultimediaDescriptions($multimediaDescriptions = null)
     {
-        $this->Description = $description;
+        $this->MultimediaDescriptions = $multimediaDescriptions;
+        return $this;
+    }
+    /**
+     * Get DescriptiveText value
+     * @return string|null
+     */
+    public function getDescriptiveText()
+    {
+        return $this->DescriptiveText;
+    }
+    /**
+     * Set DescriptiveText value
+     * @param string $descriptiveText
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Renovation
+     */
+    public function setDescriptiveText($descriptiveText = null)
+    {
+        // validation for constraint: string
+        if (!is_null($descriptiveText) && !is_string($descriptiveText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptiveText)), __LINE__);
+        }
+        $this->DescriptiveText = $descriptiveText;
         return $this;
     }
     /**
@@ -144,6 +189,28 @@ class Renovation extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($areaText)), __LINE__);
         }
         $this->AreaText = $areaText;
+        return $this;
+    }
+    /**
+     * Get RenovationCompletionDate value
+     * @return string|null
+     */
+    public function getRenovationCompletionDate()
+    {
+        return $this->RenovationCompletionDate;
+    }
+    /**
+     * Set RenovationCompletionDate value
+     * @param string $renovationCompletionDate
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Renovation
+     */
+    public function setRenovationCompletionDate($renovationCompletionDate = null)
+    {
+        // validation for constraint: string
+        if (!is_null($renovationCompletionDate) && !is_string($renovationCompletionDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($renovationCompletionDate)), __LINE__);
+        }
+        $this->RenovationCompletionDate = $renovationCompletionDate;
         return $this;
     }
     /**

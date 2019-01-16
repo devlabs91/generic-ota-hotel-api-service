@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for VendorMessagesType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of vendor messages.
  * @subpackage Structs
  */
 class VendorMessagesType extends AbstractStructBase
@@ -13,7 +15,7 @@ class VendorMessagesType extends AbstractStructBase
     /**
      * The VendorMessage
      * Meta informations extracted from the WSDL
-     * - documentation: A specific message associated with this vendor
+     * - documentation: A specific message associated with this vendor.
      * - maxOccurs: 99
      * @var mixed[]
      */

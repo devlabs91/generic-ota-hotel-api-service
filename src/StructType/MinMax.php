@@ -15,6 +15,7 @@ class MinMax extends AbstractStructBase
     /**
      * The MaxCharge
      * Meta informations extracted from the WSDL
+     * - documentation: The maximum amount that will be charged.
      * - use: optional
      * @var string
      */
@@ -22,22 +23,34 @@ class MinMax extends AbstractStructBase
     /**
      * The MinCharge
      * Meta informations extracted from the WSDL
+     * - documentation: The minimum amount that will be charged.
      * - use: optional
      * @var string
      */
     public $MinCharge;
     /**
+     * The MaxChargeDays
+     * Meta informations extracted from the WSDL
+     * - documentation: Maximum number of days for which a charge will be applied.
+     * - use: optional
+     * @var int
+     */
+    public $MaxChargeDays;
+    /**
      * Constructor method for MinMax
      * @uses MinMax::setMaxCharge()
      * @uses MinMax::setMinCharge()
+     * @uses MinMax::setMaxChargeDays()
      * @param string $maxCharge
      * @param string $minCharge
+     * @param int $maxChargeDays
      */
-    public function __construct($maxCharge = null, $minCharge = null)
+    public function __construct($maxCharge = null, $minCharge = null, $maxChargeDays = null)
     {
         $this
             ->setMaxCharge($maxCharge)
-            ->setMinCharge($minCharge);
+            ->setMinCharge($minCharge)
+            ->setMaxChargeDays($maxChargeDays);
     }
     /**
      * Get MaxCharge value
@@ -81,6 +94,28 @@ class MinMax extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($minCharge)), __LINE__);
         }
         $this->MinCharge = $minCharge;
+        return $this;
+    }
+    /**
+     * Get MaxChargeDays value
+     * @return int|null
+     */
+    public function getMaxChargeDays()
+    {
+        return $this->MaxChargeDays;
+    }
+    /**
+     * Set MaxChargeDays value
+     * @param int $maxChargeDays
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MinMax
+     */
+    public function setMaxChargeDays($maxChargeDays = null)
+    {
+        // validation for constraint: int
+        if (!is_null($maxChargeDays) && !is_numeric($maxChargeDays)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxChargeDays)), __LINE__);
+        }
+        $this->MaxChargeDays = $maxChargeDays;
         return $this;
     }
     /**

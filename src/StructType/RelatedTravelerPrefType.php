@@ -7,13 +7,15 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RelatedTravelerPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Name(s) of related travelers to be used with this collection of preferences.
+ * - documentation: Identifies a preference for a name of a related traveler. | Used to indicate a level of preference for a related traveler.
  * @subpackage Structs
  */
 class RelatedTravelerPrefType extends AbstractStructBase
 {
     /**
      * The UniqueID
+     * Meta informations extracted from the WSDL
+     * - documentation: Unique identifier for a related traveler.
      * @var mixed
      */
     public $UniqueID;

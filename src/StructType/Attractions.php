@@ -13,13 +13,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class Attractions extends AbstractStructBase
 {
     /**
-     * The LastUpdated
-     * Meta informations extracted from the WSDL
-     * - use: required
-     * @var string
-     */
-    public $LastUpdated;
-    /**
      * The Attraction
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
@@ -27,39 +20,25 @@ class Attractions extends AbstractStructBase
      */
     public $Attraction;
     /**
-     * Constructor method for Attractions
-     * @uses Attractions::setLastUpdated()
-     * @uses Attractions::setAttraction()
-     * @param string $lastUpdated
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Attraction[] $attraction
+     * The LastUpdated
+     * Meta informations extracted from the WSDL
+     * - documentation: The date and time when Attractions was last updated.
+     * - use: optional
+     * @var string
      */
-    public function __construct($lastUpdated = null, array $attraction = array())
+    public $LastUpdated;
+    /**
+     * Constructor method for Attractions
+     * @uses Attractions::setAttraction()
+     * @uses Attractions::setLastUpdated()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Attraction[] $attraction
+     * @param string $lastUpdated
+     */
+    public function __construct(array $attraction = array(), $lastUpdated = null)
     {
         $this
-            ->setLastUpdated($lastUpdated)
-            ->setAttraction($attraction);
-    }
-    /**
-     * Get LastUpdated value
-     * @return string
-     */
-    public function getLastUpdated()
-    {
-        return $this->LastUpdated;
-    }
-    /**
-     * Set LastUpdated value
-     * @param string $lastUpdated
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Attractions
-     */
-    public function setLastUpdated($lastUpdated = null)
-    {
-        // validation for constraint: string
-        if (!is_null($lastUpdated) && !is_string($lastUpdated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastUpdated)), __LINE__);
-        }
-        $this->LastUpdated = $lastUpdated;
-        return $this;
+            ->setAttraction($attraction)
+            ->setLastUpdated($lastUpdated);
     }
     /**
      * Get Attraction value
@@ -99,6 +78,28 @@ class Attractions extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The Attraction property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Attraction, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Attraction[] = $item;
+        return $this;
+    }
+    /**
+     * Get LastUpdated value
+     * @return string|null
+     */
+    public function getLastUpdated()
+    {
+        return $this->LastUpdated;
+    }
+    /**
+     * Set LastUpdated value
+     * @param string $lastUpdated
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Attractions
+     */
+    public function setLastUpdated($lastUpdated = null)
+    {
+        // validation for constraint: string
+        if (!is_null($lastUpdated) && !is_string($lastUpdated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastUpdated)), __LINE__);
+        }
+        $this->LastUpdated = $lastUpdated;
         return $this;
     }
     /**

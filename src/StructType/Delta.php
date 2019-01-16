@@ -10,7 +10,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: Incremental amount added to the hurdle rate (e.g. Amount= 20 USD and Ceiling=5, the maximum Delta would be 100 USD).
  * @subpackage Structs
  */
-class Delta extends CurrencyAmountType
+class Delta extends AbstractStructBase
 {
     /**
      * The Ceiling

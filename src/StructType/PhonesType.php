@@ -15,15 +15,14 @@ class PhonesType extends AbstractStructBase
     /**
      * The Phone
      * Meta informations extracted from the WSDL
-     * - documentation: Used to pass detailed phone information.
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Phone[]
      */
     public $Phone;
     /**
      * Constructor method for PhonesType
      * @uses PhonesType::setPhone()
-     * @param mixed[] $phone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Phone[] $phone
      */
     public function __construct(array $phone = array())
     {
@@ -32,7 +31,7 @@ class PhonesType extends AbstractStructBase
     }
     /**
      * Get Phone value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Phone[]|null
      */
     public function getPhone()
     {
@@ -41,15 +40,15 @@ class PhonesType extends AbstractStructBase
     /**
      * Set Phone value
      * @throws \InvalidArgumentException
-     * @param mixed[] $phone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Phone[] $phone
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PhonesType
      */
     public function setPhone(array $phone = array())
     {
         foreach ($phone as $phonesTypePhoneItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of anyType, "%s" given', is_object($phonesTypePhoneItem) ? get_class($phonesTypePhoneItem) : gettype($phonesTypePhoneItem)), __LINE__);
+            if (!$phonesTypePhoneItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Phone) {
+                throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Phone, "%s" given', is_object($phonesTypePhoneItem) ? get_class($phonesTypePhoneItem) : gettype($phonesTypePhoneItem)), __LINE__);
             }
         }
         $this->Phone = $phone;
@@ -58,14 +57,14 @@ class PhonesType extends AbstractStructBase
     /**
      * Add item to Phone value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Phone $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PhonesType
      */
-    public function addToPhone($item)
+    public function addToPhone(\Devlabs91\GenericOtaHotelApiService\StructType\Phone $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Phone) {
+            throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Phone, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Phone[] = $item;
         return $this;

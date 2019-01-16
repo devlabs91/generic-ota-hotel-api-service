@@ -30,7 +30,7 @@ class RoutingHop extends AbstractStructBase
     /**
      * The TimeStamp
      * Meta informations extracted from the WSDL
-     * - documentation: TimeStamp : TimeInstant The date and time that the reservation passed through a routing hop.
+     * - documentation: TimeStamp: TimeInstant - The date and time that the reservation passed through a routing hop.
      * - use: optional
      * @var string
      */
@@ -45,7 +45,7 @@ class RoutingHop extends AbstractStructBase
     /**
      * The SequenceNmbr
      * Meta informations extracted from the WSDL
-     * - documentation: Sequential number assigned to hops, Base 0
+     * - documentation: Sequential number assigned to hops, Base 0.
      * - use: optional
      * @var int
      */
@@ -53,7 +53,7 @@ class RoutingHop extends AbstractStructBase
     /**
      * The Data
      * Meta informations extracted from the WSDL
-     * - documentation: Data : String This attribute is provided so that each system can put in whatever data it would like (e.g., auditing information).
+     * - documentation: Data: String - This attribute is provided so that each system can put in whatever data it would like (e.g., auditing information).
      * - use: optional
      * @var string
      */

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SpecRequestPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Special request to be used with this collection of preferences. | Used for Character Strings, length 1 to 64
+ * - documentation: Identifies special request preference. | Used to indicate a level of preference for a special request. | Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PropertyClassPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for class of hotel property. | Identifies the customer's level of preference for the hotel property class identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for class of hotel property. | Identifies the customer's level of preference for the hotel property class identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class PropertyClassPrefType extends AbstractStructBase
     /**
      * The PropertyClassType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifes the classification of the property. Refer to OTA Code List Brand Category Code (BCC).
+     * - documentation: Identifes the classification of the property. Refer to OpenTravel Code List Brand Category Code (BCC).
      * - use: optional
      * @var string
      */

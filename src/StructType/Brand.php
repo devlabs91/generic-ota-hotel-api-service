@@ -23,7 +23,7 @@ class Brand extends AbstractStructBase
     /**
      * The CategoryCode
      * Meta informations extracted from the WSDL
-     * - documentation: The code for the type of brand affiliated with the hotel facility. Refer to OTA Code List Brand Category Code (BCC).
+     * - documentation: The code for the type of brand affiliated with the hotel facility. Refer to OpenTravel Code List Brand Category Code (BCC).
      * - use: optional
      * @var string
      */

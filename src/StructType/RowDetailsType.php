@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RowDetailsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Describes the Row details in a seat map
+ * - documentation: Describes the row details in a seat map
  * @subpackage Structs
  */
 class RowDetailsType extends AbstractStructBase

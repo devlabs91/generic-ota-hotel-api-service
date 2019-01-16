@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for URL_Type StructType
  * Meta informations extracted from the WSDL
- * - documentation: Web site address, in IETF specified format.
+ * - documentation: Web site address, in IETF specified format. | Allows for control of the sharing of URL data between parties. | Indicates whether or not this is the default URL.
  * @subpackage Structs
  */
 class URL_Type extends AbstractStructBase

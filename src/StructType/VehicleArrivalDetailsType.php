@@ -14,14 +14,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class VehicleArrivalDetailsType extends AbstractStructBase
 {
     /**
-     * The TransportationCode
-     * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Transportation Code (TRP).
-     * - use: required
-     * @var string
-     */
-    public $TransportationCode;
-    /**
      * The ArrivalLocation
      * Meta informations extracted from the WSDL
      * - documentation: Arrival point of the associated transportation.
@@ -46,9 +38,17 @@ class VehicleArrivalDetailsType extends AbstractStructBase
      */
     public $OperatingCompany;
     /**
+     * The TransportationCode
+     * Meta informations extracted from the WSDL
+     * - documentation: Refer to OpenTravel Code List Transportation Code (TRP).
+     * - use: optional
+     * @var string
+     */
+    public $TransportationCode;
+    /**
      * The Number
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the type of transportation method by which the renter will be arriving. This is needed since Company names may not be unique. Refer to OTA Code List TravelSector.
+     * - documentation: Often used in conjunction with TransportationCode to provide greater detail regarding the customer's arrival (e.g., an airline flight number).
      * - use: optional
      * @var string
      */
@@ -62,50 +62,28 @@ class VehicleArrivalDetailsType extends AbstractStructBase
     public $ArrivalDateTime;
     /**
      * Constructor method for VehicleArrivalDetailsType
-     * @uses VehicleArrivalDetailsType::setTransportationCode()
      * @uses VehicleArrivalDetailsType::setArrivalLocation()
      * @uses VehicleArrivalDetailsType::setMarketingCompany()
      * @uses VehicleArrivalDetailsType::setOperatingCompany()
+     * @uses VehicleArrivalDetailsType::setTransportationCode()
      * @uses VehicleArrivalDetailsType::setNumber()
      * @uses VehicleArrivalDetailsType::setArrivalDateTime()
-     * @param string $transportationCode
      * @param mixed $arrivalLocation
      * @param mixed $marketingCompany
      * @param mixed $operatingCompany
+     * @param string $transportationCode
      * @param string $number
      * @param string $arrivalDateTime
      */
-    public function __construct($transportationCode = null, $arrivalLocation = null, $marketingCompany = null, $operatingCompany = null, $number = null, $arrivalDateTime = null)
+    public function __construct($arrivalLocation = null, $marketingCompany = null, $operatingCompany = null, $transportationCode = null, $number = null, $arrivalDateTime = null)
     {
         $this
-            ->setTransportationCode($transportationCode)
             ->setArrivalLocation($arrivalLocation)
             ->setMarketingCompany($marketingCompany)
             ->setOperatingCompany($operatingCompany)
+            ->setTransportationCode($transportationCode)
             ->setNumber($number)
             ->setArrivalDateTime($arrivalDateTime);
-    }
-    /**
-     * Get TransportationCode value
-     * @return string
-     */
-    public function getTransportationCode()
-    {
-        return $this->TransportationCode;
-    }
-    /**
-     * Set TransportationCode value
-     * @param string $transportationCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleArrivalDetailsType
-     */
-    public function setTransportationCode($transportationCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($transportationCode) && !is_string($transportationCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transportationCode)), __LINE__);
-        }
-        $this->TransportationCode = $transportationCode;
-        return $this;
     }
     /**
      * Get ArrivalLocation value
@@ -159,6 +137,28 @@ class VehicleArrivalDetailsType extends AbstractStructBase
     public function setOperatingCompany($operatingCompany = null)
     {
         $this->OperatingCompany = $operatingCompany;
+        return $this;
+    }
+    /**
+     * Get TransportationCode value
+     * @return string|null
+     */
+    public function getTransportationCode()
+    {
+        return $this->TransportationCode;
+    }
+    /**
+     * Set TransportationCode value
+     * @param string $transportationCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleArrivalDetailsType
+     */
+    public function setTransportationCode($transportationCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($transportationCode) && !is_string($transportationCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transportationCode)), __LINE__);
+        }
+        $this->TransportationCode = $transportationCode;
         return $this;
     }
     /**

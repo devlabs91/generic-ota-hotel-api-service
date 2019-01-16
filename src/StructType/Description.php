@@ -7,49 +7,84 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Description StructType
  * Meta informations extracted from the WSDL
- * - documentation: Contains information about the hotel.
+ * - documentation: The description associated with the image in a specific language. | The text in a specific language.
+ * - type: StringLength1to64
+ * - use: optional
  * @subpackage Structs
  */
-class Description extends ParagraphType
+class Description extends FormattedTextTextType
 {
     /**
-     * The InfoCode
+     * The Caption
      * Meta informations extracted from the WSDL
-     * - documentation: Used to designate a particular type of description such as marketing. Refer to OTA Code List InfoType.
+     * - documentation: The caption associated to a specific image category which can be provided in different languages.
      * - use: optional
      * @var string
      */
-    public $InfoCode;
+    public $Caption;
+    /**
+     * The ListItem
+     * Meta informations extracted from the WSDL
+     * - documentation: Sequence number associated with this description.
+     * - use: optional
+     * @var int
+     */
+    public $ListItem;
     /**
      * Constructor method for Description
-     * @uses Description::setInfoCode()
-     * @param string $infoCode
+     * @uses Description::setCaption()
+     * @uses Description::setListItem()
+     * @param string $caption
+     * @param int $listItem
      */
-    public function __construct($infoCode = null)
+    public function __construct($caption = null, $listItem = null)
     {
         $this
-            ->setInfoCode($infoCode);
+            ->setCaption($caption)
+            ->setListItem($listItem);
     }
     /**
-     * Get InfoCode value
+     * Get Caption value
      * @return string|null
      */
-    public function getInfoCode()
+    public function getCaption()
     {
-        return $this->InfoCode;
+        return $this->Caption;
     }
     /**
-     * Set InfoCode value
-     * @param string $infoCode
+     * Set Caption value
+     * @param string $caption
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Description
      */
-    public function setInfoCode($infoCode = null)
+    public function setCaption($caption = null)
     {
         // validation for constraint: string
-        if (!is_null($infoCode) && !is_string($infoCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($infoCode)), __LINE__);
+        if (!is_null($caption) && !is_string($caption)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($caption)), __LINE__);
         }
-        $this->InfoCode = $infoCode;
+        $this->Caption = $caption;
+        return $this;
+    }
+    /**
+     * Get ListItem value
+     * @return int|null
+     */
+    public function getListItem()
+    {
+        return $this->ListItem;
+    }
+    /**
+     * Set ListItem value
+     * @param int $listItem
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Description
+     */
+    public function setListItem($listItem = null)
+    {
+        // validation for constraint: int
+        if (!is_null($listItem) && !is_numeric($listItem)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($listItem)), __LINE__);
+        }
+        $this->ListItem = $listItem;
         return $this;
     }
     /**

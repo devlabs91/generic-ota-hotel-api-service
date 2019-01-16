@@ -7,18 +7,22 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for NamePrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: PersonName to be used with this collection of preferences.
+ * - documentation: Enables a preference to be indicated for name information. | Used to indicate a level of preference for name information.
  * @subpackage Structs
  */
 class NamePrefType extends AbstractStructBase
 {
     /**
      * The UniqueID
+     * Meta informations extracted from the WSDL
+     * - documentation: Unique identifier for a person or profile.
      * @var mixed
      */
     public $UniqueID;
     /**
      * The PersonName
+     * Meta informations extracted from the WSDL
+     * - documentation: Name information.
      * @var mixed
      */
     public $PersonName;

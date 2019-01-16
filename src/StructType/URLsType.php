@@ -15,15 +15,14 @@ class URLsType extends AbstractStructBase
     /**
      * The URL
      * Meta informations extracted from the WSDL
-     * - documentation: The universal resource locator (URL) for the attraction as found on the Internet.
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\URL[]
      */
     public $URL;
     /**
      * Constructor method for URLsType
      * @uses URLsType::setURL()
-     * @param mixed[] $uRL
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\URL[] $uRL
      */
     public function __construct(array $uRL = array())
     {
@@ -32,7 +31,7 @@ class URLsType extends AbstractStructBase
     }
     /**
      * Get URL value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\URL[]|null
      */
     public function getURL()
     {
@@ -41,15 +40,15 @@ class URLsType extends AbstractStructBase
     /**
      * Set URL value
      * @throws \InvalidArgumentException
-     * @param mixed[] $uRL
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\URL[] $uRL
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\URLsType
      */
     public function setURL(array $uRL = array())
     {
         foreach ($uRL as $uRLsTypeURLItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The URL property can only contain items of anyType, "%s" given', is_object($uRLsTypeURLItem) ? get_class($uRLsTypeURLItem) : gettype($uRLsTypeURLItem)), __LINE__);
+            if (!$uRLsTypeURLItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\URL) {
+                throw new \InvalidArgumentException(sprintf('The URL property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\URL, "%s" given', is_object($uRLsTypeURLItem) ? get_class($uRLsTypeURLItem) : gettype($uRLsTypeURLItem)), __LINE__);
             }
         }
         $this->URL = $uRL;
@@ -58,14 +57,14 @@ class URLsType extends AbstractStructBase
     /**
      * Add item to URL value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\URL $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\URLsType
      */
-    public function addToURL($item)
+    public function addToURL(\Devlabs91\GenericOtaHotelApiService\StructType\URL $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The URL property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\URL) {
+            throw new \InvalidArgumentException(sprintf('The URL property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\URL, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->URL[] = $item;
         return $this;

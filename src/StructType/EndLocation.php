@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for EndLocation StructType
  * Meta informations extracted from the WSDL
- * - documentation: Location or Locations associated with the reservation.
+ * - documentation: End location associated with the reservation.
  * @subpackage Structs
  */
 class EndLocation extends LocationType
@@ -15,6 +15,7 @@ class EndLocation extends LocationType
     /**
      * The AssociatedDateTime
      * Meta informations extracted from the WSDL
+     * - documentation: A date and time associated with this end location.
      * - use: optional
      * @var string
      */

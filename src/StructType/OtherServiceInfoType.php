@@ -15,45 +15,55 @@ class OtherServiceInfoType extends AbstractStructBase
     /**
      * The TravelerRefNumber
      * Meta informations extracted from the WSDL
-     * - documentation: One or more travelers to whom this request applies
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[]
      */
     public $TravelerRefNumber;
     /**
      * The Airline
      * Meta informations extracted from the WSDL
-     * - documentation: Specify airline to request availability for.
+     * - documentation: The airline to which the OSI applies. When applicable to all airlines or an unknown airline use Code="YY".
      * @var mixed
      */
     public $Airline;
     /**
      * The Text
      * Meta informations extracted from the WSDL
-     * - documentation: Text associated with remark
+     * - documentation: The OSI text.
      * @var mixed
      */
     public $Text;
+    /**
+     * The Code
+     * Meta informations extracted from the WSDL
+     * - documentation: A proprietary code used between systems to identify an Other Service Information (OSI) item.
+     * - use: optional
+     * @var string
+     */
+    public $Code;
     /**
      * Constructor method for OtherServiceInfoType
      * @uses OtherServiceInfoType::setTravelerRefNumber()
      * @uses OtherServiceInfoType::setAirline()
      * @uses OtherServiceInfoType::setText()
-     * @param mixed[] $travelerRefNumber
+     * @uses OtherServiceInfoType::setCode()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[] $travelerRefNumber
      * @param mixed $airline
      * @param mixed $text
+     * @param string $code
      */
-    public function __construct(array $travelerRefNumber = array(), $airline = null, $text = null)
+    public function __construct(array $travelerRefNumber = array(), $airline = null, $text = null, $code = null)
     {
         $this
             ->setTravelerRefNumber($travelerRefNumber)
             ->setAirline($airline)
-            ->setText($text);
+            ->setText($text)
+            ->setCode($code);
     }
     /**
      * Get TravelerRefNumber value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[]|null
      */
     public function getTravelerRefNumber()
     {
@@ -62,15 +72,15 @@ class OtherServiceInfoType extends AbstractStructBase
     /**
      * Set TravelerRefNumber value
      * @throws \InvalidArgumentException
-     * @param mixed[] $travelerRefNumber
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber[] $travelerRefNumber
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInfoType
      */
     public function setTravelerRefNumber(array $travelerRefNumber = array())
     {
         foreach ($travelerRefNumber as $otherServiceInfoTypeTravelerRefNumberItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of anyType, "%s" given', is_object($otherServiceInfoTypeTravelerRefNumberItem) ? get_class($otherServiceInfoTypeTravelerRefNumberItem) : gettype($otherServiceInfoTypeTravelerRefNumberItem)), __LINE__);
+            if (!$otherServiceInfoTypeTravelerRefNumberItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber) {
+                throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber, "%s" given', is_object($otherServiceInfoTypeTravelerRefNumberItem) ? get_class($otherServiceInfoTypeTravelerRefNumberItem) : gettype($otherServiceInfoTypeTravelerRefNumberItem)), __LINE__);
             }
         }
         $this->TravelerRefNumber = $travelerRefNumber;
@@ -79,14 +89,14 @@ class OtherServiceInfoType extends AbstractStructBase
     /**
      * Add item to TravelerRefNumber value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInfoType
      */
-    public function addToTravelerRefNumber($item)
+    public function addToTravelerRefNumber(\Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber) {
+            throw new \InvalidArgumentException(sprintf('The TravelerRefNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TravelerRefNumber, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->TravelerRefNumber[] = $item;
         return $this;
@@ -125,6 +135,28 @@ class OtherServiceInfoType extends AbstractStructBase
     public function setText($text = null)
     {
         $this->Text = $text;
+        return $this;
+    }
+    /**
+     * Get Code value
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->Code;
+    }
+    /**
+     * Set Code value
+     * @param string $code
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInfoType
+     */
+    public function setCode($code = null)
+    {
+        // validation for constraint: string
+        if (!is_null($code) && !is_string($code)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($code)), __LINE__);
+        }
+        $this->Code = $code;
         return $this;
     }
     /**

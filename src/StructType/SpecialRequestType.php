@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SpecialRequestType StructType
  * Meta informations extracted from the WSDL
- * - documentation: SpecialRequests : SpecialRequestA collection of SpecialRequest objects. The collection of all special requests associated with any part of the reservation (the reservation in its entirety, one or more guests, or one or more room
- * stays). Which special requests belong to which part is determined by each object's SpecialRequestRPHs collection.
+ * - documentation: A collection of SpecialRequest objects. The collection of all special requests associated with any part of the reservation (the reservation in its entirety, one or more guests, or one or more room stays). Which special requests
+ * belong to which part is determined by each object's SpecialRequestRPHs collection.
  * @subpackage Structs
  */
 class SpecialRequestType extends AbstractStructBase

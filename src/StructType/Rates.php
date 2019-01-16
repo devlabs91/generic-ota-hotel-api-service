@@ -15,16 +15,14 @@ class Rates extends AbstractStructBase
     /**
      * The Rate
      * Meta informations extracted from the WSDL
-     * - documentation: An individual rate, which is a collection of amounts by guest, additional guests, fees, collection of related guarantee, cancel and payment policies, a description and the unique id to identify the rate. Rate restrictions can be sent
-     * along with the rate as attributes of this rate.
      * - maxOccurs: unbounded
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Rate[]
      */
     public $Rate;
     /**
      * Constructor method for Rates
      * @uses Rates::setRate()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType[] $rate
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Rate[] $rate
      */
     public function __construct(array $rate = array())
     {
@@ -33,7 +31,7 @@ class Rates extends AbstractStructBase
     }
     /**
      * Get Rate value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Rate[]|null
      */
     public function getRate()
     {
@@ -42,15 +40,15 @@ class Rates extends AbstractStructBase
     /**
      * Set Rate value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType[] $rate
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Rate[] $rate
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Rates
      */
     public function setRate(array $rate = array())
     {
         foreach ($rate as $ratesRateItem) {
             // validation for constraint: itemType
-            if (!$ratesRateItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType) {
-                throw new \InvalidArgumentException(sprintf('The Rate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType, "%s" given', is_object($ratesRateItem) ? get_class($ratesRateItem) : gettype($ratesRateItem)), __LINE__);
+            if (!$ratesRateItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Rate) {
+                throw new \InvalidArgumentException(sprintf('The Rate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Rate, "%s" given', is_object($ratesRateItem) ? get_class($ratesRateItem) : gettype($ratesRateItem)), __LINE__);
             }
         }
         $this->Rate = $rate;
@@ -59,14 +57,14 @@ class Rates extends AbstractStructBase
     /**
      * Add item to Rate value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Rate $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Rates
      */
-    public function addToRate(\Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType $item)
+    public function addToRate(\Devlabs91\GenericOtaHotelApiService\StructType\Rate $item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType) {
-            throw new \InvalidArgumentException(sprintf('The Rate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Rate) {
+            throw new \InvalidArgumentException(sprintf('The Rate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Rate, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Rate[] = $item;
         return $this;

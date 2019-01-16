@@ -21,7 +21,9 @@ class OffLocationServiceCoreType extends AbstractStructBase
     public $Type;
     /**
      * The Address
-     * @var mixed
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Address
      */
     public $Address;
     /**
@@ -29,9 +31,9 @@ class OffLocationServiceCoreType extends AbstractStructBase
      * @uses OffLocationServiceCoreType::setType()
      * @uses OffLocationServiceCoreType::setAddress()
      * @param string $type
-     * @param mixed $address
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Address $address
      */
-    public function __construct($type = null, $address = null)
+    public function __construct($type = null, \Devlabs91\GenericOtaHotelApiService\StructType\Address $address = null)
     {
         $this
             ->setType($type)
@@ -61,7 +63,7 @@ class OffLocationServiceCoreType extends AbstractStructBase
     }
     /**
      * Get Address value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Address|null
      */
     public function getAddress()
     {
@@ -69,10 +71,10 @@ class OffLocationServiceCoreType extends AbstractStructBase
     }
     /**
      * Set Address value
-     * @param mixed $address
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Address $address
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OffLocationServiceCoreType
      */
-    public function setAddress($address = null)
+    public function setAddress(\Devlabs91\GenericOtaHotelApiService\StructType\Address $address = null)
     {
         $this->Address = $address;
         return $this;

@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ReportSummaries StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of ReportSummary elements. | Container for ReportSummary elements of type ParagraphType.
  * @subpackage Structs
  */
 class ReportSummaries extends AbstractStructBase
@@ -13,6 +15,7 @@ class ReportSummaries extends AbstractStructBase
     /**
      * The ReportSummary
      * Meta informations extracted from the WSDL
+     * - documentation: This element has text information, included with the data in the report as needed.
      * - maxOccurs: unbounded
      * @var mixed[]
      */

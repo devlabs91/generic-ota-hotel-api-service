@@ -7,18 +7,19 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for BookingRule StructType
  * Meta informations extracted from the WSDL
- * - documentation: The BookingRule element defines restrictions to rates and stays at the hotel for a given rate plan, room type or rate plan - room type combination.
+ * - documentation: The BookingRule element defines restrictions to rates and stays at the hotel for a given rate plan, room type or rate plan/room type combination. | Used to specify a rate plan code, room type code or rate plan/room type combination
+ * code and its associated attributes. | Defines when block inventory is released back to general inventory.
  * @subpackage Structs
  */
 class BookingRule extends AbstractStructBase
 {
     /**
-     * The GuaranteesAccepted
+     * The AcceptableGuarantees
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteesAccepted
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AcceptableGuarantees
      */
-    public $GuaranteesAccepted;
+    public $AcceptableGuarantees;
     /**
      * The CancelPenalties
      * Meta informations extracted from the WSDL
@@ -46,16 +47,16 @@ class BookingRule extends AbstractStructBase
     /**
      * The DOW_Restrictions
      * Meta informations extracted from the WSDL
+     * - documentation: A collection of Day Of Week restrictions.
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\DOW_Restrictions
+     * @var mixed
      */
     public $DOW_Restrictions;
     /**
      * The RestrictionStatus
      * Meta informations extracted from the WSDL
-     * - documentation: Availability status assigned to the room rate combination for this booking rule.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RestrictionStatus
      */
     public $RestrictionStatus;
     /**
@@ -77,8 +78,9 @@ class BookingRule extends AbstractStructBase
      * The Description
      * Meta informations extracted from the WSDL
      * - documentation: General description of booking rule.
+     * - maxOccurs: 20
      * - minOccurs: 0
-     * @var mixed
+     * @var mixed[]
      */
     public $Description;
     /**
@@ -90,8 +92,17 @@ class BookingRule extends AbstractStructBase
      */
     public $UniqueID;
     /**
+     * The CheckoutCharge
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 2
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge[]
+     */
+    public $CheckoutCharge;
+    /**
      * The MaxAdvancedBookingOffset
      * Meta informations extracted from the WSDL
+     * - documentation: Maximum days before the arrival date for which this rate plan may be booked.
      * - use: optional
      * @var string
      */
@@ -99,6 +110,7 @@ class BookingRule extends AbstractStructBase
     /**
      * The MinAdvancedBookingOffset
      * Meta informations extracted from the WSDL
+     * - documentation: Minimum days before the arrival date for which this rate plan may be booked.
      * - use: optional
      * @var string
      */
@@ -177,8 +189,16 @@ class BookingRule extends AbstractStructBase
      */
     public $AddressRequired;
     /**
+     * The MaxContiguousBookings
+     * Meta informations extracted from the WSDL
+     * - documentation: The maximum number of times a rate may be booked contiguously within a reservation (often used with packages).
+     * - use: optional
+     * @var int
+     */
+    public $MaxContiguousBookings;
+    /**
      * Constructor method for BookingRule
-     * @uses BookingRule::setGuaranteesAccepted()
+     * @uses BookingRule::setAcceptableGuarantees()
      * @uses BookingRule::setCancelPenalties()
      * @uses BookingRule::setRequiredPaymts()
      * @uses BookingRule::setLengthsOfStay()
@@ -188,6 +208,7 @@ class BookingRule extends AbstractStructBase
      * @uses BookingRule::setAddtionalRules()
      * @uses BookingRule::setDescription()
      * @uses BookingRule::setUniqueID()
+     * @uses BookingRule::setCheckoutCharge()
      * @uses BookingRule::setMaxAdvancedBookingOffset()
      * @uses BookingRule::setMinAdvancedBookingOffset()
      * @uses BookingRule::setForceGuaranteeOffset()
@@ -199,16 +220,18 @@ class BookingRule extends AbstractStructBase
      * @uses BookingRule::setPriceViewable()
      * @uses BookingRule::setQualifiedRateYN()
      * @uses BookingRule::setAddressRequired()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteesAccepted $guaranteesAccepted
+     * @uses BookingRule::setMaxContiguousBookings()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptableGuarantees $acceptableGuarantees
      * @param mixed $cancelPenalties
      * @param mixed $requiredPaymts
      * @param mixed $lengthsOfStay
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DOW_Restrictions $dOW_Restrictions
-     * @param mixed $restrictionStatus
+     * @param mixed $dOW_Restrictions
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RestrictionStatus $restrictionStatus
      * @param mixed $viewerships
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AddtionalRules $addtionalRules
-     * @param mixed $description
+     * @param mixed[] $description
      * @param mixed $uniqueID
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge[] $checkoutCharge
      * @param string $maxAdvancedBookingOffset
      * @param string $minAdvancedBookingOffset
      * @param string $forceGuaranteeOffset
@@ -220,11 +243,12 @@ class BookingRule extends AbstractStructBase
      * @param bool $priceViewable
      * @param bool $qualifiedRateYN
      * @param bool $addressRequired
+     * @param int $maxContiguousBookings
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\GuaranteesAccepted $guaranteesAccepted = null, $cancelPenalties = null, $requiredPaymts = null, $lengthsOfStay = null, \Devlabs91\GenericOtaHotelApiService\StructType\DOW_Restrictions $dOW_Restrictions = null, $restrictionStatus = null, $viewerships = null, \Devlabs91\GenericOtaHotelApiService\StructType\AddtionalRules $addtionalRules = null, $description = null, $uniqueID = null, $maxAdvancedBookingOffset = null, $minAdvancedBookingOffset = null, $forceGuaranteeOffset = null, $depositWaiverOffset = null, $minTotalOccupancy = null, $maxTotalOccupancy = null, $absoluteDropTime = null, $generallyBookable = null, $priceViewable = null, $qualifiedRateYN = null, $addressRequired = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\AcceptableGuarantees $acceptableGuarantees = null, $cancelPenalties = null, $requiredPaymts = null, $lengthsOfStay = null, $dOW_Restrictions = null, \Devlabs91\GenericOtaHotelApiService\StructType\RestrictionStatus $restrictionStatus = null, $viewerships = null, \Devlabs91\GenericOtaHotelApiService\StructType\AddtionalRules $addtionalRules = null, array $description = array(), $uniqueID = null, array $checkoutCharge = array(), $maxAdvancedBookingOffset = null, $minAdvancedBookingOffset = null, $forceGuaranteeOffset = null, $depositWaiverOffset = null, $minTotalOccupancy = null, $maxTotalOccupancy = null, $absoluteDropTime = null, $generallyBookable = null, $priceViewable = null, $qualifiedRateYN = null, $addressRequired = null, $maxContiguousBookings = null)
     {
         $this
-            ->setGuaranteesAccepted($guaranteesAccepted)
+            ->setAcceptableGuarantees($acceptableGuarantees)
             ->setCancelPenalties($cancelPenalties)
             ->setRequiredPaymts($requiredPaymts)
             ->setLengthsOfStay($lengthsOfStay)
@@ -234,6 +258,7 @@ class BookingRule extends AbstractStructBase
             ->setAddtionalRules($addtionalRules)
             ->setDescription($description)
             ->setUniqueID($uniqueID)
+            ->setCheckoutCharge($checkoutCharge)
             ->setMaxAdvancedBookingOffset($maxAdvancedBookingOffset)
             ->setMinAdvancedBookingOffset($minAdvancedBookingOffset)
             ->setForceGuaranteeOffset($forceGuaranteeOffset)
@@ -244,24 +269,25 @@ class BookingRule extends AbstractStructBase
             ->setGenerallyBookable($generallyBookable)
             ->setPriceViewable($priceViewable)
             ->setQualifiedRateYN($qualifiedRateYN)
-            ->setAddressRequired($addressRequired);
+            ->setAddressRequired($addressRequired)
+            ->setMaxContiguousBookings($maxContiguousBookings);
     }
     /**
-     * Get GuaranteesAccepted value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteesAccepted|null
+     * Get AcceptableGuarantees value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AcceptableGuarantees|null
      */
-    public function getGuaranteesAccepted()
+    public function getAcceptableGuarantees()
     {
-        return $this->GuaranteesAccepted;
+        return $this->AcceptableGuarantees;
     }
     /**
-     * Set GuaranteesAccepted value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteesAccepted $guaranteesAccepted
+     * Set AcceptableGuarantees value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptableGuarantees $acceptableGuarantees
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
      */
-    public function setGuaranteesAccepted(\Devlabs91\GenericOtaHotelApiService\StructType\GuaranteesAccepted $guaranteesAccepted = null)
+    public function setAcceptableGuarantees(\Devlabs91\GenericOtaHotelApiService\StructType\AcceptableGuarantees $acceptableGuarantees = null)
     {
-        $this->GuaranteesAccepted = $guaranteesAccepted;
+        $this->AcceptableGuarantees = $acceptableGuarantees;
         return $this;
     }
     /**
@@ -320,7 +346,7 @@ class BookingRule extends AbstractStructBase
     }
     /**
      * Get DOW_Restrictions value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\DOW_Restrictions|null
+     * @return mixed|null
      */
     public function getDOW_Restrictions()
     {
@@ -328,17 +354,17 @@ class BookingRule extends AbstractStructBase
     }
     /**
      * Set DOW_Restrictions value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DOW_Restrictions $dOW_Restrictions
+     * @param mixed $dOW_Restrictions
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
      */
-    public function setDOW_Restrictions(\Devlabs91\GenericOtaHotelApiService\StructType\DOW_Restrictions $dOW_Restrictions = null)
+    public function setDOW_Restrictions($dOW_Restrictions = null)
     {
         $this->DOW_Restrictions = $dOW_Restrictions;
         return $this;
     }
     /**
      * Get RestrictionStatus value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RestrictionStatus|null
      */
     public function getRestrictionStatus()
     {
@@ -346,10 +372,10 @@ class BookingRule extends AbstractStructBase
     }
     /**
      * Set RestrictionStatus value
-     * @param mixed $restrictionStatus
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RestrictionStatus $restrictionStatus
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
      */
-    public function setRestrictionStatus($restrictionStatus = null)
+    public function setRestrictionStatus(\Devlabs91\GenericOtaHotelApiService\StructType\RestrictionStatus $restrictionStatus = null)
     {
         $this->RestrictionStatus = $restrictionStatus;
         return $this;
@@ -392,7 +418,7 @@ class BookingRule extends AbstractStructBase
     }
     /**
      * Get Description value
-     * @return mixed|null
+     * @return mixed[]|null
      */
     public function getDescription()
     {
@@ -400,12 +426,34 @@ class BookingRule extends AbstractStructBase
     }
     /**
      * Set Description value
-     * @param mixed $description
+     * @throws \InvalidArgumentException
+     * @param mixed[] $description
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
      */
-    public function setDescription($description = null)
+    public function setDescription(array $description = array())
     {
+        foreach ($description as $bookingRuleDescriptionItem) {
+            // validation for constraint: itemType
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($bookingRuleDescriptionItem) ? get_class($bookingRuleDescriptionItem) : gettype($bookingRuleDescriptionItem)), __LINE__);
+            }
+        }
         $this->Description = $description;
+        return $this;
+    }
+    /**
+     * Add item to Description value
+     * @throws \InvalidArgumentException
+     * @param mixed $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
+     */
+    public function addToDescription($item)
+    {
+        // validation for constraint: itemType
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Description[] = $item;
         return $this;
     }
     /**
@@ -424,6 +472,46 @@ class BookingRule extends AbstractStructBase
     public function setUniqueID($uniqueID = null)
     {
         $this->UniqueID = $uniqueID;
+        return $this;
+    }
+    /**
+     * Get CheckoutCharge value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge[]|null
+     */
+    public function getCheckoutCharge()
+    {
+        return $this->CheckoutCharge;
+    }
+    /**
+     * Set CheckoutCharge value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge[] $checkoutCharge
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
+     */
+    public function setCheckoutCharge(array $checkoutCharge = array())
+    {
+        foreach ($checkoutCharge as $bookingRuleCheckoutChargeItem) {
+            // validation for constraint: itemType
+            if (!$bookingRuleCheckoutChargeItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge) {
+                throw new \InvalidArgumentException(sprintf('The CheckoutCharge property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge, "%s" given', is_object($bookingRuleCheckoutChargeItem) ? get_class($bookingRuleCheckoutChargeItem) : gettype($bookingRuleCheckoutChargeItem)), __LINE__);
+            }
+        }
+        $this->CheckoutCharge = $checkoutCharge;
+        return $this;
+    }
+    /**
+     * Add item to CheckoutCharge value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
+     */
+    public function addToCheckoutCharge(\Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge) {
+            throw new \InvalidArgumentException(sprintf('The CheckoutCharge property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharge, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->CheckoutCharge[] = $item;
         return $this;
     }
     /**
@@ -666,6 +754,28 @@ class BookingRule extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($addressRequired)), __LINE__);
         }
         $this->AddressRequired = $addressRequired;
+        return $this;
+    }
+    /**
+     * Get MaxContiguousBookings value
+     * @return int|null
+     */
+    public function getMaxContiguousBookings()
+    {
+        return $this->MaxContiguousBookings;
+    }
+    /**
+     * Set MaxContiguousBookings value
+     * @param int $maxContiguousBookings
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingRule
+     */
+    public function setMaxContiguousBookings($maxContiguousBookings = null)
+    {
+        // validation for constraint: int
+        if (!is_null($maxContiguousBookings) && !is_numeric($maxContiguousBookings)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxContiguousBookings)), __LINE__);
+        }
+        $this->MaxContiguousBookings = $maxContiguousBookings;
         return $this;
     }
     /**

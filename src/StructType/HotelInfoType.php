@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for HotelInfoType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The HotelInfo class that describes general information about the hotel.
+ * - documentation: The HotelInfo class that describes general information about the hotel. | Used to provide the opening and closing dates for the hotel. The date that the hotel opened or is going to open is provided in the start attribute. The end
+ * attribute may be used to provide a closing date in the event that the hotel has closed or is going to close.
  * @subpackage Structs
  */
 class HotelInfoType extends AbstractStructBase
@@ -58,9 +59,8 @@ class HotelInfoType extends AbstractStructBase
     /**
      * The Position
      * Meta informations extracted from the WSDL
-     * - documentation: Describes the geocoded location of the hotel.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Position
      */
     public $Position;
     /**
@@ -77,6 +77,20 @@ class HotelInfoType extends AbstractStructBase
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\WeatherInfos
      */
     public $WeatherInfos;
+    /**
+     * The OwnershipManagementInfos
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OwnershipManagementInfos
+     */
+    public $OwnershipManagementInfos;
+    /**
+     * The Languages
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Languages
+     */
+    public $Languages;
     /**
      * The WhenBuilt
      * Meta informations extracted from the WSDL
@@ -128,11 +142,35 @@ class HotelInfoType extends AbstractStructBase
     /**
      * The HotelStatusCode
      * Meta informations extracted from the WSDL
-     * - documentation: This indicates the operating status (e.g. Open, Closed, Deflagged, Pre-opening) of the hotels to be returned in the response. Refer to OTA Code List HotelStatusCode.
+     * - documentation: This indicates the operating status (e.g. Open, Closed, Deflagged, Pre-opening) of the hotels to be returned in the response. Refer to OpenTravel Code List HotelStatusCode.
      * - use: optional
      * @var string
      */
     public $HotelStatusCode;
+    /**
+     * The TaxID
+     * Meta informations extracted from the WSDL
+     * - documentation: The tax ID code for the property.
+     * - use: optional
+     * @var string
+     */
+    public $TaxID;
+    /**
+     * The DaylightSavingIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When false, indicates the location does not observe Daylight Saving Time.
+     * - use: optional
+     * @var bool
+     */
+    public $DaylightSavingIndicator;
+    /**
+     * The ISO9000CertifiedInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, the hotel indicates they are ISO 9000 certified.
+     * - use: optional
+     * @var bool
+     */
+    public $ISO9000CertifiedInd;
     /**
      * Constructor method for HotelInfoType
      * @uses HotelInfoType::setHotelName()
@@ -144,6 +182,8 @@ class HotelInfoType extends AbstractStructBase
      * @uses HotelInfoType::setPosition()
      * @uses HotelInfoType::setServices()
      * @uses HotelInfoType::setWeatherInfos()
+     * @uses HotelInfoType::setOwnershipManagementInfos()
+     * @uses HotelInfoType::setLanguages()
      * @uses HotelInfoType::setWhenBuilt()
      * @uses HotelInfoType::setLastUpdated()
      * @uses HotelInfoType::setAreaWeather()
@@ -151,15 +191,20 @@ class HotelInfoType extends AbstractStructBase
      * @uses HotelInfoType::setPMSSystem()
      * @uses HotelInfoType::setHotelStatus()
      * @uses HotelInfoType::setHotelStatusCode()
+     * @uses HotelInfoType::setTaxID()
+     * @uses HotelInfoType::setDaylightSavingIndicator()
+     * @uses HotelInfoType::setISO9000CertifiedInd()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelName $hotelName
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ClosedSeasons $closedSeasons
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RelativePositions $relativePositions
      * @param mixed $categoryCodes
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions $descriptions
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoCodes $hotelInfoCodes
-     * @param mixed $position
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Position $position
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Services $services
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\WeatherInfos $weatherInfos
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OwnershipManagementInfos $ownershipManagementInfos
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Languages $languages
      * @param string $whenBuilt
      * @param string $lastUpdated
      * @param string $areaWeather
@@ -167,8 +212,11 @@ class HotelInfoType extends AbstractStructBase
      * @param string $pMSSystem
      * @param string $hotelStatus
      * @param string $hotelStatusCode
+     * @param string $taxID
+     * @param bool $daylightSavingIndicator
+     * @param bool $iSO9000CertifiedInd
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\HotelName $hotelName = null, \Devlabs91\GenericOtaHotelApiService\StructType\ClosedSeasons $closedSeasons = null, \Devlabs91\GenericOtaHotelApiService\StructType\RelativePositions $relativePositions = null, $categoryCodes = null, \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions $descriptions = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoCodes $hotelInfoCodes = null, $position = null, \Devlabs91\GenericOtaHotelApiService\StructType\Services $services = null, \Devlabs91\GenericOtaHotelApiService\StructType\WeatherInfos $weatherInfos = null, $whenBuilt = null, $lastUpdated = null, $areaWeather = null, $interfaceCompliance = null, $pMSSystem = null, $hotelStatus = null, $hotelStatusCode = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\HotelName $hotelName = null, \Devlabs91\GenericOtaHotelApiService\StructType\ClosedSeasons $closedSeasons = null, \Devlabs91\GenericOtaHotelApiService\StructType\RelativePositions $relativePositions = null, $categoryCodes = null, \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions $descriptions = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoCodes $hotelInfoCodes = null, \Devlabs91\GenericOtaHotelApiService\StructType\Position $position = null, \Devlabs91\GenericOtaHotelApiService\StructType\Services $services = null, \Devlabs91\GenericOtaHotelApiService\StructType\WeatherInfos $weatherInfos = null, \Devlabs91\GenericOtaHotelApiService\StructType\OwnershipManagementInfos $ownershipManagementInfos = null, \Devlabs91\GenericOtaHotelApiService\StructType\Languages $languages = null, $whenBuilt = null, $lastUpdated = null, $areaWeather = null, $interfaceCompliance = null, $pMSSystem = null, $hotelStatus = null, $hotelStatusCode = null, $taxID = null, $daylightSavingIndicator = null, $iSO9000CertifiedInd = null)
     {
         $this
             ->setHotelName($hotelName)
@@ -180,13 +228,18 @@ class HotelInfoType extends AbstractStructBase
             ->setPosition($position)
             ->setServices($services)
             ->setWeatherInfos($weatherInfos)
+            ->setOwnershipManagementInfos($ownershipManagementInfos)
+            ->setLanguages($languages)
             ->setWhenBuilt($whenBuilt)
             ->setLastUpdated($lastUpdated)
             ->setAreaWeather($areaWeather)
             ->setInterfaceCompliance($interfaceCompliance)
             ->setPMSSystem($pMSSystem)
             ->setHotelStatus($hotelStatus)
-            ->setHotelStatusCode($hotelStatusCode);
+            ->setHotelStatusCode($hotelStatusCode)
+            ->setTaxID($taxID)
+            ->setDaylightSavingIndicator($daylightSavingIndicator)
+            ->setISO9000CertifiedInd($iSO9000CertifiedInd);
     }
     /**
      * Get HotelName value
@@ -298,7 +351,7 @@ class HotelInfoType extends AbstractStructBase
     }
     /**
      * Get Position value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Position|null
      */
     public function getPosition()
     {
@@ -306,10 +359,10 @@ class HotelInfoType extends AbstractStructBase
     }
     /**
      * Set Position value
-     * @param mixed $position
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Position $position
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoType
      */
-    public function setPosition($position = null)
+    public function setPosition(\Devlabs91\GenericOtaHotelApiService\StructType\Position $position = null)
     {
         $this->Position = $position;
         return $this;
@@ -348,6 +401,42 @@ class HotelInfoType extends AbstractStructBase
     public function setWeatherInfos(\Devlabs91\GenericOtaHotelApiService\StructType\WeatherInfos $weatherInfos = null)
     {
         $this->WeatherInfos = $weatherInfos;
+        return $this;
+    }
+    /**
+     * Get OwnershipManagementInfos value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OwnershipManagementInfos|null
+     */
+    public function getOwnershipManagementInfos()
+    {
+        return $this->OwnershipManagementInfos;
+    }
+    /**
+     * Set OwnershipManagementInfos value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OwnershipManagementInfos $ownershipManagementInfos
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoType
+     */
+    public function setOwnershipManagementInfos(\Devlabs91\GenericOtaHotelApiService\StructType\OwnershipManagementInfos $ownershipManagementInfos = null)
+    {
+        $this->OwnershipManagementInfos = $ownershipManagementInfos;
+        return $this;
+    }
+    /**
+     * Get Languages value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Languages|null
+     */
+    public function getLanguages()
+    {
+        return $this->Languages;
+    }
+    /**
+     * Set Languages value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Languages $languages
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoType
+     */
+    public function setLanguages(\Devlabs91\GenericOtaHotelApiService\StructType\Languages $languages = null)
+    {
+        $this->Languages = $languages;
         return $this;
     }
     /**
@@ -502,6 +591,72 @@ class HotelInfoType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hotelStatusCode)), __LINE__);
         }
         $this->HotelStatusCode = $hotelStatusCode;
+        return $this;
+    }
+    /**
+     * Get TaxID value
+     * @return string|null
+     */
+    public function getTaxID()
+    {
+        return $this->TaxID;
+    }
+    /**
+     * Set TaxID value
+     * @param string $taxID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoType
+     */
+    public function setTaxID($taxID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($taxID) && !is_string($taxID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($taxID)), __LINE__);
+        }
+        $this->TaxID = $taxID;
+        return $this;
+    }
+    /**
+     * Get DaylightSavingIndicator value
+     * @return bool|null
+     */
+    public function getDaylightSavingIndicator()
+    {
+        return $this->DaylightSavingIndicator;
+    }
+    /**
+     * Set DaylightSavingIndicator value
+     * @param bool $daylightSavingIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoType
+     */
+    public function setDaylightSavingIndicator($daylightSavingIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($daylightSavingIndicator) && !is_bool($daylightSavingIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($daylightSavingIndicator)), __LINE__);
+        }
+        $this->DaylightSavingIndicator = $daylightSavingIndicator;
+        return $this;
+    }
+    /**
+     * Get ISO9000CertifiedInd value
+     * @return bool|null
+     */
+    public function getISO9000CertifiedInd()
+    {
+        return $this->ISO9000CertifiedInd;
+    }
+    /**
+     * Set ISO9000CertifiedInd value
+     * @param bool $iSO9000CertifiedInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelInfoType
+     */
+    public function setISO9000CertifiedInd($iSO9000CertifiedInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($iSO9000CertifiedInd) && !is_bool($iSO9000CertifiedInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($iSO9000CertifiedInd)), __LINE__);
+        }
+        $this->ISO9000CertifiedInd = $iSO9000CertifiedInd;
         return $this;
     }
     /**

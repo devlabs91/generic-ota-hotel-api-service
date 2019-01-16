@@ -19,10 +19,9 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * The LoyaltyPref
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates a preference for the loyalty program to be used for vehicle rental. The RPH (Reference Place Holder) attribute designates a specific loyalty program from a collection stored in the profile.
      * - maxOccurs: 20
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref[]
      */
     public $LoyaltyPref;
     /**
@@ -37,20 +36,17 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * The PaymentFormPref
      * Meta informations extracted from the WSDL
-     * - documentation: A preference for a payment indicates a specific type of payment, such as a credit card or direct bill, to be assigned to the car rental preference collection. The RPH (Reference Place Holder) attribute designates a specific payment
-     * form in a collection stored in the profile.
      * - maxOccurs: 10
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref[]
      */
     public $PaymentFormPref;
     /**
      * The CoveragePref
      * Meta informations extracted from the WSDL
-     * - documentation: A preference for a specific type of vehicle coverage to be used when renting a car in a given travel situation.
      * - maxOccurs: 30
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref[]
      */
     public $CoveragePref;
     /**
@@ -74,18 +70,16 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * The SpecialEquipPref
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates a preference for special equipment in a rented car.
      * - maxOccurs: 15
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref[]
      */
     public $SpecialEquipPref;
     /**
      * The GasPrePay
      * Meta informations extracted from the WSDL
-     * - default: false
      * - documentation: The GasPrePay attribute defines a set of valid values for the choice of prepaying for gas at the time of the pick up of the rental vehicle. This information is useful in that it allows a customer's preference to be made known to the
-     * vendor. It also allows the vendor to provide more detailed and accurate pricing up front.
+     * vendor. It also allows the vendor to provide more detailed and accurate pricing up front. | false
      * - use: optional
      * @var bool
      */
@@ -100,16 +94,16 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
      * @uses VehicleProfileRentalPrefType::setVehTypePref()
      * @uses VehicleProfileRentalPrefType::setSpecialEquipPref()
      * @uses VehicleProfileRentalPrefType::setGasPrePay()
-     * @param mixed[] $loyaltyPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref[] $loyaltyPref
      * @param mixed[] $vendorPref
-     * @param mixed[] $paymentFormPref
-     * @param mixed[] $coveragePref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref[] $paymentFormPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref[] $coveragePref
      * @param mixed[] $specialReqPref
      * @param mixed[] $vehTypePref
-     * @param mixed[] $specialEquipPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref[] $specialEquipPref
      * @param bool $gasPrePay
      */
-    public function __construct(array $loyaltyPref = array(), array $vendorPref = array(), array $paymentFormPref = array(), array $coveragePref = array(), array $specialReqPref = array(), array $vehTypePref = array(), array $specialEquipPref = array(), $gasPrePay = false)
+    public function __construct(array $loyaltyPref = array(), array $vendorPref = array(), array $paymentFormPref = array(), array $coveragePref = array(), array $specialReqPref = array(), array $vehTypePref = array(), array $specialEquipPref = array(), $gasPrePay = null)
     {
         $this
             ->setLoyaltyPref($loyaltyPref)
@@ -123,7 +117,7 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     }
     /**
      * Get LoyaltyPref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref[]|null
      */
     public function getLoyaltyPref()
     {
@@ -132,15 +126,15 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Set LoyaltyPref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $loyaltyPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref[] $loyaltyPref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
     public function setLoyaltyPref(array $loyaltyPref = array())
     {
         foreach ($loyaltyPref as $vehicleProfileRentalPrefTypeLoyaltyPrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The LoyaltyPref property can only contain items of anyType, "%s" given', is_object($vehicleProfileRentalPrefTypeLoyaltyPrefItem) ? get_class($vehicleProfileRentalPrefTypeLoyaltyPrefItem) : gettype($vehicleProfileRentalPrefTypeLoyaltyPrefItem)), __LINE__);
+            if (!$vehicleProfileRentalPrefTypeLoyaltyPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref) {
+                throw new \InvalidArgumentException(sprintf('The LoyaltyPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref, "%s" given', is_object($vehicleProfileRentalPrefTypeLoyaltyPrefItem) ? get_class($vehicleProfileRentalPrefTypeLoyaltyPrefItem) : gettype($vehicleProfileRentalPrefTypeLoyaltyPrefItem)), __LINE__);
             }
         }
         $this->LoyaltyPref = $loyaltyPref;
@@ -149,14 +143,14 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Add item to LoyaltyPref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
-    public function addToLoyaltyPref($item)
+    public function addToLoyaltyPref(\Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The LoyaltyPref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref) {
+            throw new \InvalidArgumentException(sprintf('The LoyaltyPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->LoyaltyPref[] = $item;
         return $this;
@@ -203,7 +197,7 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     }
     /**
      * Get PaymentFormPref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref[]|null
      */
     public function getPaymentFormPref()
     {
@@ -212,15 +206,15 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Set PaymentFormPref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $paymentFormPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref[] $paymentFormPref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
     public function setPaymentFormPref(array $paymentFormPref = array())
     {
         foreach ($paymentFormPref as $vehicleProfileRentalPrefTypePaymentFormPrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The PaymentFormPref property can only contain items of anyType, "%s" given', is_object($vehicleProfileRentalPrefTypePaymentFormPrefItem) ? get_class($vehicleProfileRentalPrefTypePaymentFormPrefItem) : gettype($vehicleProfileRentalPrefTypePaymentFormPrefItem)), __LINE__);
+            if (!$vehicleProfileRentalPrefTypePaymentFormPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref) {
+                throw new \InvalidArgumentException(sprintf('The PaymentFormPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref, "%s" given', is_object($vehicleProfileRentalPrefTypePaymentFormPrefItem) ? get_class($vehicleProfileRentalPrefTypePaymentFormPrefItem) : gettype($vehicleProfileRentalPrefTypePaymentFormPrefItem)), __LINE__);
             }
         }
         $this->PaymentFormPref = $paymentFormPref;
@@ -229,21 +223,21 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Add item to PaymentFormPref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
-    public function addToPaymentFormPref($item)
+    public function addToPaymentFormPref(\Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The PaymentFormPref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref) {
+            throw new \InvalidArgumentException(sprintf('The PaymentFormPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PaymentFormPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->PaymentFormPref[] = $item;
         return $this;
     }
     /**
      * Get CoveragePref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref[]|null
      */
     public function getCoveragePref()
     {
@@ -252,15 +246,15 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Set CoveragePref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $coveragePref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref[] $coveragePref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
     public function setCoveragePref(array $coveragePref = array())
     {
         foreach ($coveragePref as $vehicleProfileRentalPrefTypeCoveragePrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The CoveragePref property can only contain items of anyType, "%s" given', is_object($vehicleProfileRentalPrefTypeCoveragePrefItem) ? get_class($vehicleProfileRentalPrefTypeCoveragePrefItem) : gettype($vehicleProfileRentalPrefTypeCoveragePrefItem)), __LINE__);
+            if (!$vehicleProfileRentalPrefTypeCoveragePrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref) {
+                throw new \InvalidArgumentException(sprintf('The CoveragePref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref, "%s" given', is_object($vehicleProfileRentalPrefTypeCoveragePrefItem) ? get_class($vehicleProfileRentalPrefTypeCoveragePrefItem) : gettype($vehicleProfileRentalPrefTypeCoveragePrefItem)), __LINE__);
             }
         }
         $this->CoveragePref = $coveragePref;
@@ -269,14 +263,14 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Add item to CoveragePref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
-    public function addToCoveragePref($item)
+    public function addToCoveragePref(\Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The CoveragePref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref) {
+            throw new \InvalidArgumentException(sprintf('The CoveragePref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CoveragePref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CoveragePref[] = $item;
         return $this;
@@ -363,7 +357,7 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     }
     /**
      * Get SpecialEquipPref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref[]|null
      */
     public function getSpecialEquipPref()
     {
@@ -372,15 +366,15 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Set SpecialEquipPref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $specialEquipPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref[] $specialEquipPref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
     public function setSpecialEquipPref(array $specialEquipPref = array())
     {
         foreach ($specialEquipPref as $vehicleProfileRentalPrefTypeSpecialEquipPrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The SpecialEquipPref property can only contain items of anyType, "%s" given', is_object($vehicleProfileRentalPrefTypeSpecialEquipPrefItem) ? get_class($vehicleProfileRentalPrefTypeSpecialEquipPrefItem) : gettype($vehicleProfileRentalPrefTypeSpecialEquipPrefItem)), __LINE__);
+            if (!$vehicleProfileRentalPrefTypeSpecialEquipPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref) {
+                throw new \InvalidArgumentException(sprintf('The SpecialEquipPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref, "%s" given', is_object($vehicleProfileRentalPrefTypeSpecialEquipPrefItem) ? get_class($vehicleProfileRentalPrefTypeSpecialEquipPrefItem) : gettype($vehicleProfileRentalPrefTypeSpecialEquipPrefItem)), __LINE__);
             }
         }
         $this->SpecialEquipPref = $specialEquipPref;
@@ -389,14 +383,14 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
     /**
      * Add item to SpecialEquipPref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
-    public function addToSpecialEquipPref($item)
+    public function addToSpecialEquipPref(\Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The SpecialEquipPref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref) {
+            throw new \InvalidArgumentException(sprintf('The SpecialEquipPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\SpecialEquipPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->SpecialEquipPref[] = $item;
         return $this;
@@ -414,7 +408,7 @@ class VehicleProfileRentalPrefType extends AbstractStructBase
      * @param bool $gasPrePay
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleProfileRentalPrefType
      */
-    public function setGasPrePay($gasPrePay = false)
+    public function setGasPrePay($gasPrePay = null)
     {
         // validation for constraint: boolean
         if (!is_null($gasPrePay) && !is_bool($gasPrePay)) {

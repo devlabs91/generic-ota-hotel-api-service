@@ -100,9 +100,24 @@ class RoomStayType extends AbstractStructBase
      */
     public $BasicPropertyInfo;
     /**
+     * The MapURL
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\MapURL
+     */
+    public $MapURL;
+    /**
+     * The TPA_Extensions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * - ref: TPA_Extensions
+     * @var mixed
+     */
+    public $TPA_Extensions;
+    /**
      * The MarketCode
      * Meta informations extracted from the WSDL
-     * - documentation: The code that relates to the market being sold to e.g. the corporate market, packages.
+     * - documentation: The code that relates to the market being sold to (e.g., the corporate market, packages).
      * - use: optional
      * @var string
      */
@@ -123,6 +138,30 @@ class RoomStayType extends AbstractStructBase
      */
     public $DiscountCode;
     /**
+     * The RoomStayStatus
+     * Meta informations extracted from the WSDL
+     * - documentation: Identifies the status of the room stay.
+     * - use: optional
+     * @var string
+     */
+    public $RoomStayStatus;
+    /**
+     * The WarningRPH
+     * Meta informations extracted from the WSDL
+     * - documentation: This references the RPH found in the Warning element. Used to identify the warnings associated with this RoomStay.
+     * - use: optional
+     * @var string
+     */
+    public $WarningRPH;
+    /**
+     * The RoomStayLanguage
+     * Meta informations extracted from the WSDL
+     * - documentation: Language of the response for the RoomStay (property). Note that the requested language may not be available for all properties and so the language of the response for each property may vary.
+     * - use: optional
+     * @var string
+     */
+    public $RoomStayLanguage;
+    /**
      * Constructor method for RoomStayType
      * @uses RoomStayType::setRoomTypes()
      * @uses RoomStayType::setRatePlans()
@@ -135,9 +174,14 @@ class RoomStayType extends AbstractStructBase
      * @uses RoomStayType::setDiscount()
      * @uses RoomStayType::setTotal()
      * @uses RoomStayType::setBasicPropertyInfo()
+     * @uses RoomStayType::setMapURL()
+     * @uses RoomStayType::setTPA_Extensions()
      * @uses RoomStayType::setMarketCode()
      * @uses RoomStayType::setSourceOfBusiness()
      * @uses RoomStayType::setDiscountCode()
+     * @uses RoomStayType::setRoomStayStatus()
+     * @uses RoomStayType::setWarningRPH()
+     * @uses RoomStayType::setRoomStayLanguage()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomTypes $roomTypes
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RatePlans $ratePlans
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomRates $roomRates
@@ -149,11 +193,16 @@ class RoomStayType extends AbstractStructBase
      * @param mixed $discount
      * @param mixed $total
      * @param mixed $basicPropertyInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MapURL $mapURL
+     * @param mixed $tPA_Extensions
      * @param string $marketCode
      * @param string $sourceOfBusiness
      * @param string $discountCode
+     * @param string $roomStayStatus
+     * @param string $warningRPH
+     * @param string $roomStayLanguage
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\RoomTypes $roomTypes = null, \Devlabs91\GenericOtaHotelApiService\StructType\RatePlans $ratePlans = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomRates $roomRates = null, $guestCounts = null, $timeSpan = null, array $guarantee = array(), $depositPayments = null, $cancelPenalties = null, $discount = null, $total = null, $basicPropertyInfo = null, $marketCode = null, $sourceOfBusiness = null, $discountCode = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\RoomTypes $roomTypes = null, \Devlabs91\GenericOtaHotelApiService\StructType\RatePlans $ratePlans = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomRates $roomRates = null, $guestCounts = null, $timeSpan = null, array $guarantee = array(), $depositPayments = null, $cancelPenalties = null, $discount = null, $total = null, $basicPropertyInfo = null, \Devlabs91\GenericOtaHotelApiService\StructType\MapURL $mapURL = null, $tPA_Extensions = null, $marketCode = null, $sourceOfBusiness = null, $discountCode = null, $roomStayStatus = null, $warningRPH = null, $roomStayLanguage = null)
     {
         $this
             ->setRoomTypes($roomTypes)
@@ -167,9 +216,14 @@ class RoomStayType extends AbstractStructBase
             ->setDiscount($discount)
             ->setTotal($total)
             ->setBasicPropertyInfo($basicPropertyInfo)
+            ->setMapURL($mapURL)
+            ->setTPA_Extensions($tPA_Extensions)
             ->setMarketCode($marketCode)
             ->setSourceOfBusiness($sourceOfBusiness)
-            ->setDiscountCode($discountCode);
+            ->setDiscountCode($discountCode)
+            ->setRoomStayStatus($roomStayStatus)
+            ->setWarningRPH($warningRPH)
+            ->setRoomStayLanguage($roomStayLanguage);
     }
     /**
      * Get RoomTypes value
@@ -392,6 +446,42 @@ class RoomStayType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get MapURL value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MapURL|null
+     */
+    public function getMapURL()
+    {
+        return $this->MapURL;
+    }
+    /**
+     * Set MapURL value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MapURL $mapURL
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayType
+     */
+    public function setMapURL(\Devlabs91\GenericOtaHotelApiService\StructType\MapURL $mapURL = null)
+    {
+        $this->MapURL = $mapURL;
+        return $this;
+    }
+    /**
+     * Get TPA_Extensions value
+     * @return mixed|null
+     */
+    public function getTPA_Extensions()
+    {
+        return $this->TPA_Extensions;
+    }
+    /**
+     * Set TPA_Extensions value
+     * @param mixed $tPA_Extensions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayType
+     */
+    public function setTPA_Extensions($tPA_Extensions = null)
+    {
+        $this->TPA_Extensions = $tPA_Extensions;
+        return $this;
+    }
+    /**
      * Get MarketCode value
      * @return string|null
      */
@@ -455,6 +545,72 @@ class RoomStayType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($discountCode)), __LINE__);
         }
         $this->DiscountCode = $discountCode;
+        return $this;
+    }
+    /**
+     * Get RoomStayStatus value
+     * @return string|null
+     */
+    public function getRoomStayStatus()
+    {
+        return $this->RoomStayStatus;
+    }
+    /**
+     * Set RoomStayStatus value
+     * @param string $roomStayStatus
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayType
+     */
+    public function setRoomStayStatus($roomStayStatus = null)
+    {
+        // validation for constraint: string
+        if (!is_null($roomStayStatus) && !is_string($roomStayStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($roomStayStatus)), __LINE__);
+        }
+        $this->RoomStayStatus = $roomStayStatus;
+        return $this;
+    }
+    /**
+     * Get WarningRPH value
+     * @return string|null
+     */
+    public function getWarningRPH()
+    {
+        return $this->WarningRPH;
+    }
+    /**
+     * Set WarningRPH value
+     * @param string $warningRPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayType
+     */
+    public function setWarningRPH($warningRPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($warningRPH) && !is_string($warningRPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($warningRPH)), __LINE__);
+        }
+        $this->WarningRPH = $warningRPH;
+        return $this;
+    }
+    /**
+     * Get RoomStayLanguage value
+     * @return string|null
+     */
+    public function getRoomStayLanguage()
+    {
+        return $this->RoomStayLanguage;
+    }
+    /**
+     * Set RoomStayLanguage value
+     * @param string $roomStayLanguage
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayType
+     */
+    public function setRoomStayLanguage($roomStayLanguage = null)
+    {
+        // validation for constraint: string
+        if (!is_null($roomStayLanguage) && !is_string($roomStayLanguage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($roomStayLanguage)), __LINE__);
+        }
+        $this->RoomStayLanguage = $roomStayLanguage;
         return $this;
     }
     /**

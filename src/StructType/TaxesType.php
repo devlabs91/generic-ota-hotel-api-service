@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TaxesType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of taxes.
+ * - documentation: A collection of taxes. | Used to provide a total of all the taxes.
  * @subpackage Structs
  */
 class TaxesType extends AbstractStructBase
@@ -15,6 +15,7 @@ class TaxesType extends AbstractStructBase
     /**
      * The Tax
      * Meta informations extracted from the WSDL
+     * - documentation: An individual tax.
      * - maxOccurs: 99
      * - minOccurs: 0
      * @var mixed[]

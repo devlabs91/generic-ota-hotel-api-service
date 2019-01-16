@@ -44,7 +44,7 @@ class RateUploadType extends AbstractStructBase
     /**
      * The CancelPolicies
      * Meta informations extracted from the WSDL
-     * - documentation: A collection of Canellation Policies
+     * - documentation: A collection of Cancellation Policies.
      * - minOccurs: 0
      * @var mixed
      */
@@ -68,22 +68,38 @@ class RateUploadType extends AbstractStructBase
     /**
      * The UniqueID
      * Meta informations extracted from the WSDL
-     * - documentation: The unique identifier element allows the trading partners to uniquely identify each Rate being uploaded, for transaction tracability.
+     * - documentation: The unique identifier element allows the trading partners to uniquely identify each Rate being uploaded, for traceable transactions.
      * - minOccurs: 0
      * @var mixed
      */
     public $UniqueID;
     /**
+     * The MealsIncluded
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded
+     */
+    public $MealsIncluded;
+    /**
+     * The AdditionalCharges
+     * Meta informations extracted from the WSDL
+     * - documentation: Breakout of additional charges as part of the rate plan.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $AdditionalCharges;
+    /**
      * The NumberOfUnits
      * Meta informations extracted from the WSDL
+     * - documentation: Indicates the number of rooms blocked or capped for this rate plan.
      * - use: optional
-     * @var string
+     * @var int
      */
     public $NumberOfUnits;
     /**
      * The RateTimeUnit
      * Meta informations extracted from the WSDL
-     * - documentation: Enumeration of time units upon which the RateAmount is based. e.g.: daily, weekly, single rate for full stay, etc.
+     * - documentation: Enumeration of time units upon which the RateAmount is based (e.g., daily, weekly, single rate for full stay).
      * - use: optional
      * @var string
      */
@@ -91,7 +107,7 @@ class RateUploadType extends AbstractStructBase
     /**
      * The UnitMultiplier
      * Meta informations extracted from the WSDL
-     * - documentation: The number of RateTimeUnits that the rate Amount is based upon. e.g.: flat rate for 3 days, etc.
+     * - documentation: The number of RateTimeUnits that the rate Amount is based upon (e.g., flat rate for 3 days).
      * - use: optional
      * @var string
      */
@@ -154,6 +170,8 @@ class RateUploadType extends AbstractStructBase
      * @uses RateUploadType::setPaymentPolicies()
      * @uses RateUploadType::setRateDescription()
      * @uses RateUploadType::setUniqueID()
+     * @uses RateUploadType::setMealsIncluded()
+     * @uses RateUploadType::setAdditionalCharges()
      * @uses RateUploadType::setNumberOfUnits()
      * @uses RateUploadType::setRateTimeUnit()
      * @uses RateUploadType::setUnitMultiplier()
@@ -171,7 +189,9 @@ class RateUploadType extends AbstractStructBase
      * @param mixed $paymentPolicies
      * @param mixed $rateDescription
      * @param mixed $uniqueID
-     * @param string $numberOfUnits
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded
+     * @param mixed $additionalCharges
+     * @param int $numberOfUnits
      * @param string $rateTimeUnit
      * @param string $unitMultiplier
      * @param string $minGuestApplicable
@@ -181,7 +201,7 @@ class RateUploadType extends AbstractStructBase
      * @param string $stayOverDate
      * @param string $rateTier
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\BaseByGuestAmts $baseByGuestAmts = null, \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmounts $additionalGuestAmounts = null, $fees = null, \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePolicies $guaranteePolicies = null, $cancelPolicies = null, $paymentPolicies = null, $rateDescription = null, $uniqueID = null, $numberOfUnits = null, $rateTimeUnit = null, $unitMultiplier = null, $minGuestApplicable = null, $maxGuestApplicable = null, $minLOS = null, $maxLOS = null, $stayOverDate = null, $rateTier = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\BaseByGuestAmts $baseByGuestAmts = null, \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmounts $additionalGuestAmounts = null, $fees = null, \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePolicies $guaranteePolicies = null, $cancelPolicies = null, $paymentPolicies = null, $rateDescription = null, $uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded = null, $additionalCharges = null, $numberOfUnits = null, $rateTimeUnit = null, $unitMultiplier = null, $minGuestApplicable = null, $maxGuestApplicable = null, $minLOS = null, $maxLOS = null, $stayOverDate = null, $rateTier = null)
     {
         $this
             ->setBaseByGuestAmts($baseByGuestAmts)
@@ -192,6 +212,8 @@ class RateUploadType extends AbstractStructBase
             ->setPaymentPolicies($paymentPolicies)
             ->setRateDescription($rateDescription)
             ->setUniqueID($uniqueID)
+            ->setMealsIncluded($mealsIncluded)
+            ->setAdditionalCharges($additionalCharges)
             ->setNumberOfUnits($numberOfUnits)
             ->setRateTimeUnit($rateTimeUnit)
             ->setUnitMultiplier($unitMultiplier)
@@ -347,8 +369,44 @@ class RateUploadType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get MealsIncluded value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded|null
+     */
+    public function getMealsIncluded()
+    {
+        return $this->MealsIncluded;
+    }
+    /**
+     * Set MealsIncluded value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType
+     */
+    public function setMealsIncluded(\Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded = null)
+    {
+        $this->MealsIncluded = $mealsIncluded;
+        return $this;
+    }
+    /**
+     * Get AdditionalCharges value
+     * @return mixed|null
+     */
+    public function getAdditionalCharges()
+    {
+        return $this->AdditionalCharges;
+    }
+    /**
+     * Set AdditionalCharges value
+     * @param mixed $additionalCharges
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType
+     */
+    public function setAdditionalCharges($additionalCharges = null)
+    {
+        $this->AdditionalCharges = $additionalCharges;
+        return $this;
+    }
+    /**
      * Get NumberOfUnits value
-     * @return string|null
+     * @return int|null
      */
     public function getNumberOfUnits()
     {
@@ -356,14 +414,14 @@ class RateUploadType extends AbstractStructBase
     }
     /**
      * Set NumberOfUnits value
-     * @param string $numberOfUnits
+     * @param int $numberOfUnits
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateUploadType
      */
     public function setNumberOfUnits($numberOfUnits = null)
     {
-        // validation for constraint: string
-        if (!is_null($numberOfUnits) && !is_string($numberOfUnits)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($numberOfUnits)), __LINE__);
+        // validation for constraint: int
+        if (!is_null($numberOfUnits) && !is_numeric($numberOfUnits)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfUnits)), __LINE__);
         }
         $this->NumberOfUnits = $numberOfUnits;
         return $this;

@@ -21,6 +21,7 @@ class RoomRateLiteType extends AbstractStructBase
      * The RoomTypeCode
      * Meta informations extracted from the WSDL
      * - documentation: Specfic system room type code, ex: A1K, A1Q etc.
+     * - use: optional
      * @var string
      */
     public $RoomTypeCode;
@@ -28,6 +29,7 @@ class RoomRateLiteType extends AbstractStructBase
      * The InvBlockCode
      * Meta informations extracted from the WSDL
      * - documentation: Code that identifies an inventory block.
+     * - use: optional
      * @var string
      */
     public $InvBlockCode;
@@ -35,7 +37,7 @@ class RoomRateLiteType extends AbstractStructBase
      * The NumberOfUnits
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var int
      */
     public $NumberOfUnits;
     /**
@@ -47,7 +49,7 @@ class RoomRateLiteType extends AbstractStructBase
      * @param mixed $rates
      * @param string $roomTypeCode
      * @param string $invBlockCode
-     * @param string $numberOfUnits
+     * @param int $numberOfUnits
      */
     public function __construct($rates = null, $roomTypeCode = null, $invBlockCode = null, $numberOfUnits = null)
     {
@@ -121,7 +123,7 @@ class RoomRateLiteType extends AbstractStructBase
     }
     /**
      * Get NumberOfUnits value
-     * @return string|null
+     * @return int|null
      */
     public function getNumberOfUnits()
     {
@@ -129,14 +131,14 @@ class RoomRateLiteType extends AbstractStructBase
     }
     /**
      * Set NumberOfUnits value
-     * @param string $numberOfUnits
+     * @param int $numberOfUnits
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomRateLiteType
      */
     public function setNumberOfUnits($numberOfUnits = null)
     {
-        // validation for constraint: string
-        if (!is_null($numberOfUnits) && !is_string($numberOfUnits)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($numberOfUnits)), __LINE__);
+        // validation for constraint: int
+        if (!is_null($numberOfUnits) && !is_numeric($numberOfUnits)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfUnits)), __LINE__);
         }
         $this->NumberOfUnits = $numberOfUnits;
         return $this;

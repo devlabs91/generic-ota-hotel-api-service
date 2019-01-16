@@ -8,13 +8,16 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CoverageType StructType
  * Meta informations extracted from the WSDL
  * - documentation: The CoverageType complex type describes the data that is needed to fully describe a vehicle coverage, including the core details along with optional descriptions.
+ * - type: OTA_CodeType
+ * - use: required
  * @subpackage Structs
  */
-class CoverageType extends CoverageCoreType
+class CoverageType extends AbstractStructBase
 {
     /**
      * The Details
      * Meta informations extracted from the WSDL
+     * - documentation: Textual information about coverage, such as coverage limit or descriptions.
      * - maxOccurs: 3
      * - minOccurs: 0
      * @var mixed[]

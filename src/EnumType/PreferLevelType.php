@@ -26,6 +26,16 @@ class PreferLevelType
      */
     const VALUE_PREFERRED = 'Preferred';
     /**
+     * Constant for value 'Required'
+     * @return string 'Required'
+     */
+    const VALUE_REQUIRED = 'Required';
+    /**
+     * Constant for value 'NoPreference'
+     * @return string 'NoPreference'
+     */
+    const VALUE_NO_PREFERENCE = 'NoPreference';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -40,6 +50,8 @@ class PreferLevelType
      * @uses self::VALUE_ONLY
      * @uses self::VALUE_UNACCEPTABLE
      * @uses self::VALUE_PREFERRED
+     * @uses self::VALUE_REQUIRED
+     * @uses self::VALUE_NO_PREFERENCE
      * @return string[]
      */
     public static function getValidValues()
@@ -48,6 +60,8 @@ class PreferLevelType
             self::VALUE_ONLY,
             self::VALUE_UNACCEPTABLE,
             self::VALUE_PREFERRED,
+            self::VALUE_REQUIRED,
+            self::VALUE_NO_PREFERENCE,
         );
     }
     /**

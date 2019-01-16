@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for StatisticsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The report that sends the guest revenue statistical data and other predetermined information to a central server or management system.
+ * - documentation: Collection of Statistic Elements.
  * @subpackage Structs
  */
 class StatisticsType extends AbstractStructBase
@@ -15,6 +15,7 @@ class StatisticsType extends AbstractStructBase
     /**
      * The Statistic
      * Meta informations extracted from the WSDL
+     * - documentation: Used to define the report fiscal date, report code, and the hotel(s) for which data is being reported.
      * - maxOccurs: unbounded
      * @var mixed[]
      */

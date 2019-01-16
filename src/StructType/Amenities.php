@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Amenities StructType
  * Meta informations extracted from the WSDL
- * - documentation: Collection of room level amenities. | A collection of available amenities. | Collection of room amenity items available to the guest.
+ * - documentation: Collection of room level amenities. | A collection of available amenities. | A collection of amenity information. | Collection of room amenity items available to the guest.
  * @subpackage Structs
  */
 class Amenities extends AbstractStructBase
@@ -15,6 +15,7 @@ class Amenities extends AbstractStructBase
     /**
      * The Amenity
      * Meta informations extracted from the WSDL
+     * - documentation: Used to provide room amenity information.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\Amenity[]

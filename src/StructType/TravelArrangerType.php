@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TravelArrangerType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Companies or individuals responsible for making travel plans or transactions either for the customer or company.
+ * - documentation: Companies or individuals responsible for making travel plans or transactions either for the customer or company. | Indicates that the receiving system should assume the default value if the user specifies no overriding value or
+ * action. | Allows for control of the sharing of travel arranger data between parties.
  * @subpackage Structs
  */
 class TravelArrangerType extends CompanyNameType
@@ -16,26 +17,41 @@ class TravelArrangerType extends CompanyNameType
      * The TravelArrangerType
      * Meta informations extracted from the WSDL
      * - documentation: Type of service making travel plans or transactions (e.g., travel agency, etc.).
+     * - use: optional
      * @var string
      */
     public $TravelArrangerType;
     /**
      * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: A unique reference for a travel arranger within this message.
+     * - use: optional
      * @var string
      */
     public $RPH;
     /**
+     * The Remark
+     * Meta informations extracted from the WSDL
+     * - documentation: A remark associated with the travel arranger.
+     * - use: optional
+     * @var string
+     */
+    public $Remark;
+    /**
      * Constructor method for TravelArrangerType
      * @uses TravelArrangerType::setTravelArrangerType()
      * @uses TravelArrangerType::setRPH()
+     * @uses TravelArrangerType::setRemark()
      * @param string $travelArrangerType
      * @param string $rPH
+     * @param string $remark
      */
-    public function __construct($travelArrangerType = null, $rPH = null)
+    public function __construct($travelArrangerType = null, $rPH = null, $remark = null)
     {
         $this
             ->setTravelArrangerType($travelArrangerType)
-            ->setRPH($rPH);
+            ->setRPH($rPH)
+            ->setRemark($remark);
     }
     /**
      * Get TravelArrangerType value
@@ -79,6 +95,28 @@ class TravelArrangerType extends CompanyNameType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
         }
         $this->RPH = $rPH;
+        return $this;
+    }
+    /**
+     * Get Remark value
+     * @return string|null
+     */
+    public function getRemark()
+    {
+        return $this->Remark;
+    }
+    /**
+     * Set Remark value
+     * @param string $remark
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TravelArrangerType
+     */
+    public function setRemark($remark = null)
+    {
+        // validation for constraint: string
+        if (!is_null($remark) && !is_string($remark)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($remark)), __LINE__);
+        }
+        $this->Remark = $remark;
         return $this;
     }
     /**

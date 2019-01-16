@@ -13,20 +13,24 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class CostingItemType extends AbstractStructBase
 {
     /**
-     * The UnitPrice
-     * Meta informations extracted from the WSDL
-     * - documentation: Unit cost in a given monetary unit.
-     * @var mixed
+     * The UnitCost
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\UnitCost
      */
-    public $UnitPrice;
+    public $UnitCost;
     /**
-     * The ExtendedPrice
+     * The ExtendedCost
      * Meta informations extracted from the WSDL
-     * - documentation: Unit cost multiplied by Unit Quantity
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ExtendedCost
      */
-    public $ExtendedPrice;
+    public $ExtendedCost;
+    /**
+     * The Commission
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Commission
+     */
+    public $Commission;
     /**
      * The Description
      * Meta informations extracted from the WSDL
@@ -36,55 +40,109 @@ class CostingItemType extends AbstractStructBase
      */
     public $Description;
     /**
-     * Constructor method for CostingItemType
-     * @uses CostingItemType::setUnitPrice()
-     * @uses CostingItemType::setExtendedPrice()
-     * @uses CostingItemType::setDescription()
-     * @param mixed $unitPrice
-     * @param mixed $extendedPrice
-     * @param string $description
+     * The InventoryItemRPH
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to associate a cost with a specific inventory item, e.g. a supplement for a flight leg.
+     * - use: optional
+     * @var string
      */
-    public function __construct($unitPrice = null, $extendedPrice = null, $description = null)
+    public $InventoryItemRPH;
+    /**
+     * The PassengerRPH
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to associate a cost with a specific passenger, e.g. a vegetarian meal supplement.
+     * - use: optional
+     * @var string
+     */
+    public $PassengerRPH;
+    /**
+     * The CostBasis
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to indicate what the cost is based on e.g., per Passenger, per Room, per Booking. Refer to OpenTravel Code List Charge Type (CHG).
+     * - use: optional
+     * @var string
+     */
+    public $CostBasis;
+    /**
+     * Constructor method for CostingItemType
+     * @uses CostingItemType::setUnitCost()
+     * @uses CostingItemType::setExtendedCost()
+     * @uses CostingItemType::setCommission()
+     * @uses CostingItemType::setDescription()
+     * @uses CostingItemType::setInventoryItemRPH()
+     * @uses CostingItemType::setPassengerRPH()
+     * @uses CostingItemType::setCostBasis()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UnitCost $unitCost
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ExtendedCost $extendedCost
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Commission $commission
+     * @param string $description
+     * @param string $inventoryItemRPH
+     * @param string $passengerRPH
+     * @param string $costBasis
+     */
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\UnitCost $unitCost = null, \Devlabs91\GenericOtaHotelApiService\StructType\ExtendedCost $extendedCost = null, \Devlabs91\GenericOtaHotelApiService\StructType\Commission $commission = null, $description = null, $inventoryItemRPH = null, $passengerRPH = null, $costBasis = null)
     {
         $this
-            ->setUnitPrice($unitPrice)
-            ->setExtendedPrice($extendedPrice)
-            ->setDescription($description);
+            ->setUnitCost($unitCost)
+            ->setExtendedCost($extendedCost)
+            ->setCommission($commission)
+            ->setDescription($description)
+            ->setInventoryItemRPH($inventoryItemRPH)
+            ->setPassengerRPH($passengerRPH)
+            ->setCostBasis($costBasis);
     }
     /**
-     * Get UnitPrice value
-     * @return mixed|null
+     * Get UnitCost value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\UnitCost|null
      */
-    public function getUnitPrice()
+    public function getUnitCost()
     {
-        return $this->UnitPrice;
+        return $this->UnitCost;
     }
     /**
-     * Set UnitPrice value
-     * @param mixed $unitPrice
+     * Set UnitCost value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UnitCost $unitCost
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CostingItemType
      */
-    public function setUnitPrice($unitPrice = null)
+    public function setUnitCost(\Devlabs91\GenericOtaHotelApiService\StructType\UnitCost $unitCost = null)
     {
-        $this->UnitPrice = $unitPrice;
+        $this->UnitCost = $unitCost;
         return $this;
     }
     /**
-     * Get ExtendedPrice value
-     * @return mixed|null
+     * Get ExtendedCost value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ExtendedCost|null
      */
-    public function getExtendedPrice()
+    public function getExtendedCost()
     {
-        return $this->ExtendedPrice;
+        return $this->ExtendedCost;
     }
     /**
-     * Set ExtendedPrice value
-     * @param mixed $extendedPrice
+     * Set ExtendedCost value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ExtendedCost $extendedCost
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CostingItemType
      */
-    public function setExtendedPrice($extendedPrice = null)
+    public function setExtendedCost(\Devlabs91\GenericOtaHotelApiService\StructType\ExtendedCost $extendedCost = null)
     {
-        $this->ExtendedPrice = $extendedPrice;
+        $this->ExtendedCost = $extendedCost;
+        return $this;
+    }
+    /**
+     * Get Commission value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Commission|null
+     */
+    public function getCommission()
+    {
+        return $this->Commission;
+    }
+    /**
+     * Set Commission value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Commission $commission
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CostingItemType
+     */
+    public function setCommission(\Devlabs91\GenericOtaHotelApiService\StructType\Commission $commission = null)
+    {
+        $this->Commission = $commission;
         return $this;
     }
     /**
@@ -107,6 +165,72 @@ class CostingItemType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
         }
         $this->Description = $description;
+        return $this;
+    }
+    /**
+     * Get InventoryItemRPH value
+     * @return string|null
+     */
+    public function getInventoryItemRPH()
+    {
+        return $this->InventoryItemRPH;
+    }
+    /**
+     * Set InventoryItemRPH value
+     * @param string $inventoryItemRPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CostingItemType
+     */
+    public function setInventoryItemRPH($inventoryItemRPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($inventoryItemRPH) && !is_string($inventoryItemRPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inventoryItemRPH)), __LINE__);
+        }
+        $this->InventoryItemRPH = $inventoryItemRPH;
+        return $this;
+    }
+    /**
+     * Get PassengerRPH value
+     * @return string|null
+     */
+    public function getPassengerRPH()
+    {
+        return $this->PassengerRPH;
+    }
+    /**
+     * Set PassengerRPH value
+     * @param string $passengerRPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CostingItemType
+     */
+    public function setPassengerRPH($passengerRPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($passengerRPH) && !is_string($passengerRPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($passengerRPH)), __LINE__);
+        }
+        $this->PassengerRPH = $passengerRPH;
+        return $this;
+    }
+    /**
+     * Get CostBasis value
+     * @return string|null
+     */
+    public function getCostBasis()
+    {
+        return $this->CostBasis;
+    }
+    /**
+     * Set CostBasis value
+     * @param string $costBasis
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CostingItemType
+     */
+    public function setCostBasis($costBasis = null)
+    {
+        // validation for constraint: string
+        if (!is_null($costBasis) && !is_string($costBasis)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($costBasis)), __LINE__);
+        }
+        $this->CostBasis = $costBasis;
         return $this;
     }
     /**

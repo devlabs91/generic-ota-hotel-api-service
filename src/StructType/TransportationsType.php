@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TransportationsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Used to define the types of transportaion offered.
+ * - documentation: Used to define the types of transportation offered.
  * @subpackage Structs
  */
 class TransportationsType extends AbstractStructBase
@@ -15,23 +15,24 @@ class TransportationsType extends AbstractStructBase
     /**
      * The Transportations
      * Meta informations extracted from the WSDL
+     * - documentation: Collection of directions to/from a specific location via various modes of transportation.
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Transportations
+     * @var mixed
      */
     public $Transportations;
     /**
      * Constructor method for TransportationsType
      * @uses TransportationsType::setTransportations()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Transportations $transportations
+     * @param mixed $transportations
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Transportations $transportations = null)
+    public function __construct($transportations = null)
     {
         $this
             ->setTransportations($transportations);
     }
     /**
      * Get Transportations value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Transportations|null
+     * @return mixed|null
      */
     public function getTransportations()
     {
@@ -39,10 +40,10 @@ class TransportationsType extends AbstractStructBase
     }
     /**
      * Set Transportations value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Transportations $transportations
+     * @param mixed $transportations
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\TransportationsType
      */
-    public function setTransportations(\Devlabs91\GenericOtaHotelApiService\StructType\Transportations $transportations = null)
+    public function setTransportations($transportations = null)
     {
         $this->Transportations = $transportations;
         return $this;

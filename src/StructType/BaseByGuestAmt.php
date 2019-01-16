@@ -15,7 +15,7 @@ class BaseByGuestAmt extends TotalType
     /**
      * The NumberOfGuestsDescription
      * Meta informations extracted from the WSDL
-     * - documentation: Description of number of guests and the associated age group (ex 2 Adults)
+     * - documentation: Description of number of guests and the associated age group (ex 2 Adults).
      * - maxOccurs: 9
      * - minOccurs: 0
      * @var mixed[]
@@ -31,7 +31,7 @@ class BaseByGuestAmt extends TotalType
     /**
      * The NumberOfGuests
      * Meta informations extracted from the WSDL
-     * - documentation: The number of guests associated with this base charge
+     * - documentation: The number of guests associated with this base charge.
      * - use: optional
      * @var string
      */

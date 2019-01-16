@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ViewershipsType StructType
  * Meta informations extracted from the WSDL
  * - documentation: Viewerships determine the distribution channel(s) for a rate plan. As an optional element, the absence of Viewerships implies a generally available rate, while the presence of a Viewerships collection implies qualifications on the
- * rate.
+ * rate. This may also be used to define a system that is able to view the hotel content.
  * @subpackage Structs
  */
 class ViewershipsType extends AbstractStructBase

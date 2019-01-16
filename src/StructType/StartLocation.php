@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for StartLocation StructType
  * Meta informations extracted from the WSDL
- * - documentation: Location or Locations associated with the reservation.
+ * - documentation: Start location associated with the reservation.
  * @subpackage Structs
  */
 class StartLocation extends LocationType
@@ -15,6 +15,7 @@ class StartLocation extends LocationType
     /**
      * The AssociatedDateTime
      * Meta informations extracted from the WSDL
+     * - documentation: A date and time associated with this start location.
      * - use: optional
      * @var string
      */

@@ -15,8 +15,7 @@ class DescriptionType extends ParagraphType
     /**
      * The Location
      * Meta informations extracted from the WSDL
-     * - default: false
-     * - documentation: An indicator for whether this is a location description.
+     * - documentation: An indicator for whether this is a location description. | false
      * - use: optional
      * @var bool
      */
@@ -24,8 +23,7 @@ class DescriptionType extends ParagraphType
     /**
      * The RefDirectionTo
      * Meta informations extracted from the WSDL
-     * - default: true
-     * - documentation: An indicator for whether this is a description TO the location (default value of TRUE is TO the location, else FROM).
+     * - documentation: An indicator for whether this is a description TO the location (TRUE is TO the location, else FROM). | true
      * - use: optional
      * @var bool
      */
@@ -37,7 +35,7 @@ class DescriptionType extends ParagraphType
      * @param bool $location
      * @param bool $refDirectionTo
      */
-    public function __construct($location = false, $refDirectionTo = true)
+    public function __construct($location = null, $refDirectionTo = null)
     {
         $this
             ->setLocation($location)
@@ -56,7 +54,7 @@ class DescriptionType extends ParagraphType
      * @param bool $location
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\DescriptionType
      */
-    public function setLocation($location = false)
+    public function setLocation($location = null)
     {
         // validation for constraint: boolean
         if (!is_null($location) && !is_bool($location)) {
@@ -78,7 +76,7 @@ class DescriptionType extends ParagraphType
      * @param bool $refDirectionTo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\DescriptionType
      */
-    public function setRefDirectionTo($refDirectionTo = true)
+    public function setRefDirectionTo($refDirectionTo = null)
     {
         // validation for constraint: boolean
         if (!is_null($refDirectionTo) && !is_bool($refDirectionTo)) {

@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BlackoutDateType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Provides blackout date information.
  * @subpackage Structs
  */
 class BlackoutDateType extends AbstractStructBase

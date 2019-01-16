@@ -15,8 +15,9 @@ class AirItineraryPricingInfoType extends AbstractStructBase
     /**
      * The ItinTotalFare
      * Meta informations extracted from the WSDL
-     * - documentation: Total price of the itinerary
-     * @var mixed
+     * - maxOccurs: 2
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare[]
      */
     public $ItinTotalFare;
     /**
@@ -34,6 +35,14 @@ class AirItineraryPricingInfoType extends AbstractStructBase
      */
     public $FareInfos;
     /**
+     * The PriceRequestInformation
+     * Meta informations extracted from the WSDL
+     * - documentation: Identifies pricing source, if negotiated fares are requested and if it is a reprice request.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $PriceRequestInformation;
+    /**
      * The PricingSource
      * Meta informations extracted from the WSDL
      * - documentation: Used to indicate whether the pricing is public or private
@@ -42,27 +51,52 @@ class AirItineraryPricingInfoType extends AbstractStructBase
      */
     public $PricingSource;
     /**
+     * The ValidatingAirlineCode
+     * Meta informations extracted from the WSDL
+     * - documentation: The code of the validating airline.
+     * - use: optional
+     * @var string
+     */
+    public $ValidatingAirlineCode;
+    /**
+     * The QuoteID
+     * Meta informations extracted from the WSDL
+     * - documentation: A text field used to provide a special ID code that is associated with the priced itinerary that may be used in the reservation request in order to obtain the quoted rate.
+     * - use: optional
+     * @var string
+     */
+    public $QuoteID;
+    /**
      * Constructor method for AirItineraryPricingInfoType
      * @uses AirItineraryPricingInfoType::setItinTotalFare()
      * @uses AirItineraryPricingInfoType::setPTC_FareBreakdowns()
      * @uses AirItineraryPricingInfoType::setFareInfos()
+     * @uses AirItineraryPricingInfoType::setPriceRequestInformation()
      * @uses AirItineraryPricingInfoType::setPricingSource()
-     * @param mixed $itinTotalFare
+     * @uses AirItineraryPricingInfoType::setValidatingAirlineCode()
+     * @uses AirItineraryPricingInfoType::setQuoteID()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare[] $itinTotalFare
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\PTC_FareBreakdowns $pTC_FareBreakdowns
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\FareInfos $fareInfos
+     * @param mixed $priceRequestInformation
      * @param string $pricingSource
+     * @param string $validatingAirlineCode
+     * @param string $quoteID
      */
-    public function __construct($itinTotalFare = null, \Devlabs91\GenericOtaHotelApiService\StructType\PTC_FareBreakdowns $pTC_FareBreakdowns = null, \Devlabs91\GenericOtaHotelApiService\StructType\FareInfos $fareInfos = null, $pricingSource = null)
+    public function __construct(array $itinTotalFare = array(), \Devlabs91\GenericOtaHotelApiService\StructType\PTC_FareBreakdowns $pTC_FareBreakdowns = null, \Devlabs91\GenericOtaHotelApiService\StructType\FareInfos $fareInfos = null, $priceRequestInformation = null, $pricingSource = null, $validatingAirlineCode = null, $quoteID = null)
     {
         $this
             ->setItinTotalFare($itinTotalFare)
             ->setPTC_FareBreakdowns($pTC_FareBreakdowns)
             ->setFareInfos($fareInfos)
-            ->setPricingSource($pricingSource);
+            ->setPriceRequestInformation($priceRequestInformation)
+            ->setPricingSource($pricingSource)
+            ->setValidatingAirlineCode($validatingAirlineCode)
+            ->setQuoteID($quoteID);
     }
     /**
      * Get ItinTotalFare value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare[]|null
      */
     public function getItinTotalFare()
     {
@@ -70,12 +104,34 @@ class AirItineraryPricingInfoType extends AbstractStructBase
     }
     /**
      * Set ItinTotalFare value
-     * @param mixed $itinTotalFare
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare[] $itinTotalFare
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfoType
      */
-    public function setItinTotalFare($itinTotalFare = null)
+    public function setItinTotalFare(array $itinTotalFare = array())
     {
+        foreach ($itinTotalFare as $airItineraryPricingInfoTypeItinTotalFareItem) {
+            // validation for constraint: itemType
+            if (!$airItineraryPricingInfoTypeItinTotalFareItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare) {
+                throw new \InvalidArgumentException(sprintf('The ItinTotalFare property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare, "%s" given', is_object($airItineraryPricingInfoTypeItinTotalFareItem) ? get_class($airItineraryPricingInfoTypeItinTotalFareItem) : gettype($airItineraryPricingInfoTypeItinTotalFareItem)), __LINE__);
+            }
+        }
         $this->ItinTotalFare = $itinTotalFare;
+        return $this;
+    }
+    /**
+     * Add item to ItinTotalFare value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfoType
+     */
+    public function addToItinTotalFare(\Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare) {
+            throw new \InvalidArgumentException(sprintf('The ItinTotalFare property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ItinTotalFare, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ItinTotalFare[] = $item;
         return $this;
     }
     /**
@@ -115,6 +171,24 @@ class AirItineraryPricingInfoType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get PriceRequestInformation value
+     * @return mixed|null
+     */
+    public function getPriceRequestInformation()
+    {
+        return $this->PriceRequestInformation;
+    }
+    /**
+     * Set PriceRequestInformation value
+     * @param mixed $priceRequestInformation
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfoType
+     */
+    public function setPriceRequestInformation($priceRequestInformation = null)
+    {
+        $this->PriceRequestInformation = $priceRequestInformation;
+        return $this;
+    }
+    /**
      * Get PricingSource value
      * @return string|null
      */
@@ -134,6 +208,50 @@ class AirItineraryPricingInfoType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pricingSource)), __LINE__);
         }
         $this->PricingSource = $pricingSource;
+        return $this;
+    }
+    /**
+     * Get ValidatingAirlineCode value
+     * @return string|null
+     */
+    public function getValidatingAirlineCode()
+    {
+        return $this->ValidatingAirlineCode;
+    }
+    /**
+     * Set ValidatingAirlineCode value
+     * @param string $validatingAirlineCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfoType
+     */
+    public function setValidatingAirlineCode($validatingAirlineCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($validatingAirlineCode) && !is_string($validatingAirlineCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($validatingAirlineCode)), __LINE__);
+        }
+        $this->ValidatingAirlineCode = $validatingAirlineCode;
+        return $this;
+    }
+    /**
+     * Get QuoteID value
+     * @return string|null
+     */
+    public function getQuoteID()
+    {
+        return $this->QuoteID;
+    }
+    /**
+     * Set QuoteID value
+     * @param string $quoteID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfoType
+     */
+    public function setQuoteID($quoteID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($quoteID) && !is_string($quoteID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($quoteID)), __LINE__);
+        }
+        $this->QuoteID = $quoteID;
         return $this;
     }
     /**

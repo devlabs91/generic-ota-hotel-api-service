@@ -15,6 +15,7 @@ class TravelerInfoSummaryType extends AbstractStructBase
     /**
      * The SeatsRequested
      * Meta informations extracted from the WSDL
+     * - documentation: Number of seats requested.
      * - maxOccurs: 99
      * - minOccurs: 0
      * @var int[]
@@ -23,6 +24,7 @@ class TravelerInfoSummaryType extends AbstractStructBase
     /**
      * The AirTravelerAvail
      * Meta informations extracted from the WSDL
+     * - documentation: Specifies passenger numbers and types.
      * - maxOccurs: 99
      * - minOccurs: 0
      * @var mixed[]
@@ -32,7 +34,7 @@ class TravelerInfoSummaryType extends AbstractStructBase
      * The PriceRequestInformation
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PriceRequestInformation
      */
     public $PriceRequestInformation;
     /**
@@ -42,9 +44,9 @@ class TravelerInfoSummaryType extends AbstractStructBase
      * @uses TravelerInfoSummaryType::setPriceRequestInformation()
      * @param int[] $seatsRequested
      * @param mixed[] $airTravelerAvail
-     * @param mixed $priceRequestInformation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PriceRequestInformation $priceRequestInformation
      */
-    public function __construct(array $seatsRequested = array(), array $airTravelerAvail = array(), $priceRequestInformation = null)
+    public function __construct(array $seatsRequested = array(), array $airTravelerAvail = array(), \Devlabs91\GenericOtaHotelApiService\StructType\PriceRequestInformation $priceRequestInformation = null)
     {
         $this
             ->setSeatsRequested($seatsRequested)
@@ -133,7 +135,7 @@ class TravelerInfoSummaryType extends AbstractStructBase
     }
     /**
      * Get PriceRequestInformation value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PriceRequestInformation|null
      */
     public function getPriceRequestInformation()
     {
@@ -141,10 +143,10 @@ class TravelerInfoSummaryType extends AbstractStructBase
     }
     /**
      * Set PriceRequestInformation value
-     * @param mixed $priceRequestInformation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PriceRequestInformation $priceRequestInformation
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\TravelerInfoSummaryType
      */
-    public function setPriceRequestInformation($priceRequestInformation = null)
+    public function setPriceRequestInformation(\Devlabs91\GenericOtaHotelApiService\StructType\PriceRequestInformation $priceRequestInformation = null)
     {
         $this->PriceRequestInformation = $priceRequestInformation;
         return $this;

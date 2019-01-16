@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AmountType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Base charge and additional charges related to a room that includes such things as additional guest amounts, cancel fees, etc. Also includes Discount percentages, total amount, and the rate description.
+ * - documentation: Base charge and additional charges related to a room that includes such things as additional guest amounts, cancel fees, etc. Also includes Discount percentages, total amount, and the rate description. | The effective date range for
+ * a charge. The EffectiveDate is used by Dynamic Packaging as the date the service is offered at the specified rate (used in conjunction with RateTimeUnit and UnitMultiplier attributes to denote a rate for a duration.)
  * @subpackage Structs
  */
 class AmountType extends AbstractStructBase
@@ -17,6 +18,7 @@ class AmountType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - documentation: The base amount charged for the accommodation or service per unit of time (ex: Nightly, Weekly, etc). If TaxInclusive is set to True, then taxes are included in the base amount. Note that any additional charges should itemized in the
      * other elements.
+     * - minOccurs: 0
      * @var mixed
      */
     public $Base;
@@ -38,7 +40,7 @@ class AmountType extends AbstractStructBase
     /**
      * The CancelPolicies
      * Meta informations extracted from the WSDL
-     * - documentation: A collection of Cancellation Policies
+     * - documentation: A collection of Cancellation Policies.
      * - minOccurs: 0
      * @var mixed
      */
@@ -54,15 +56,15 @@ class AmountType extends AbstractStructBase
     /**
      * The Discount
      * Meta informations extracted from the WSDL
-     * - documentation: Discount percentage and/or Amount, code and textual reason for discount
+     * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Discount[]
      */
     public $Discount;
     /**
      * The Total
      * Meta informations extracted from the WSDL
-     * - documentation: The total amount charged for this rate including additional occupant amounts and fees. If TaxInclusive is set to True, then taxes are included in the total amount.
+     * - documentation: The total amount charged for this rate including additional occupant amounts and fees.
      * - minOccurs: 0
      * @var mixed
      */
@@ -76,6 +78,14 @@ class AmountType extends AbstractStructBase
      */
     public $RateDescription;
     /**
+     * The AdditionalCharges
+     * Meta informations extracted from the WSDL
+     * - documentation: Collection of additional charges.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $AdditionalCharges;
+    /**
      * The GuaranteedInd
      * Meta informations extracted from the WSDL
      * - use: optional
@@ -86,7 +96,7 @@ class AmountType extends AbstractStructBase
      * The NumberOfUnits
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var int
      */
     public $NumberOfUnits;
     /**
@@ -146,6 +156,29 @@ class AmountType extends AbstractStructBase
      */
     public $StayOverDate;
     /**
+     * The AlternateCurrencyInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates the amounts are provided in an alternate currency. When false, indicates the amounts are provided in the primary currency. This may be used to indicate that the currency provided is different from the requested
+     * or stored currency.
+     * - use: optional
+     * @var bool
+     */
+    public $AlternateCurrencyInd;
+    /**
+     * The ChargeType
+     * Meta informations extracted from the WSDL
+     * - documentation: The type of the amount being charged, e.g. per night. Refer to OpenTravel Code List Charge Type Code (CHG).
+     * @var string
+     */
+    public $ChargeType;
+    /**
+     * The QuoteID
+     * Meta informations extracted from the WSDL
+     * - documentation: A reference string used to match a query, with rates, to a given time. This is useful for matching prices within a given quote period.
+     * @var string
+     */
+    public $QuoteID;
+    /**
      * Constructor method for AmountType
      * @uses AmountType::setBase()
      * @uses AmountType::setAdditionalGuestAmounts()
@@ -155,6 +188,7 @@ class AmountType extends AbstractStructBase
      * @uses AmountType::setDiscount()
      * @uses AmountType::setTotal()
      * @uses AmountType::setRateDescription()
+     * @uses AmountType::setAdditionalCharges()
      * @uses AmountType::setGuaranteedInd()
      * @uses AmountType::setNumberOfUnits()
      * @uses AmountType::setRateTimeUnit()
@@ -164,16 +198,20 @@ class AmountType extends AbstractStructBase
      * @uses AmountType::setMinLOS()
      * @uses AmountType::setMaxLOS()
      * @uses AmountType::setStayOverDate()
+     * @uses AmountType::setAlternateCurrencyInd()
+     * @uses AmountType::setChargeType()
+     * @uses AmountType::setQuoteID()
      * @param mixed $base
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmounts $additionalGuestAmounts
      * @param mixed $fees
      * @param mixed $cancelPolicies
      * @param mixed $paymentPolicies
-     * @param mixed $discount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Discount[] $discount
      * @param mixed $total
      * @param mixed $rateDescription
+     * @param mixed $additionalCharges
      * @param bool $guaranteedInd
-     * @param string $numberOfUnits
+     * @param int $numberOfUnits
      * @param string $rateTimeUnit
      * @param int $unitMultiplier
      * @param int $minGuestApplicable
@@ -181,8 +219,11 @@ class AmountType extends AbstractStructBase
      * @param int $minLOS
      * @param int $maxLOS
      * @param string $stayOverDate
+     * @param bool $alternateCurrencyInd
+     * @param string $chargeType
+     * @param string $quoteID
      */
-    public function __construct($base = null, \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmounts $additionalGuestAmounts = null, $fees = null, $cancelPolicies = null, $paymentPolicies = null, $discount = null, $total = null, $rateDescription = null, $guaranteedInd = null, $numberOfUnits = null, $rateTimeUnit = null, $unitMultiplier = null, $minGuestApplicable = null, $maxGuestApplicable = null, $minLOS = null, $maxLOS = null, $stayOverDate = null)
+    public function __construct($base = null, \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmounts $additionalGuestAmounts = null, $fees = null, $cancelPolicies = null, $paymentPolicies = null, array $discount = array(), $total = null, $rateDescription = null, $additionalCharges = null, $guaranteedInd = null, $numberOfUnits = null, $rateTimeUnit = null, $unitMultiplier = null, $minGuestApplicable = null, $maxGuestApplicable = null, $minLOS = null, $maxLOS = null, $stayOverDate = null, $alternateCurrencyInd = null, $chargeType = null, $quoteID = null)
     {
         $this
             ->setBase($base)
@@ -193,6 +234,7 @@ class AmountType extends AbstractStructBase
             ->setDiscount($discount)
             ->setTotal($total)
             ->setRateDescription($rateDescription)
+            ->setAdditionalCharges($additionalCharges)
             ->setGuaranteedInd($guaranteedInd)
             ->setNumberOfUnits($numberOfUnits)
             ->setRateTimeUnit($rateTimeUnit)
@@ -201,7 +243,10 @@ class AmountType extends AbstractStructBase
             ->setMaxGuestApplicable($maxGuestApplicable)
             ->setMinLOS($minLOS)
             ->setMaxLOS($maxLOS)
-            ->setStayOverDate($stayOverDate);
+            ->setStayOverDate($stayOverDate)
+            ->setAlternateCurrencyInd($alternateCurrencyInd)
+            ->setChargeType($chargeType)
+            ->setQuoteID($quoteID);
     }
     /**
      * Get Base value
@@ -295,7 +340,7 @@ class AmountType extends AbstractStructBase
     }
     /**
      * Get Discount value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Discount[]|null
      */
     public function getDiscount()
     {
@@ -303,12 +348,34 @@ class AmountType extends AbstractStructBase
     }
     /**
      * Set Discount value
-     * @param mixed $discount
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Discount[] $discount
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountType
      */
-    public function setDiscount($discount = null)
+    public function setDiscount(array $discount = array())
     {
+        foreach ($discount as $amountTypeDiscountItem) {
+            // validation for constraint: itemType
+            if (!$amountTypeDiscountItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Discount) {
+                throw new \InvalidArgumentException(sprintf('The Discount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Discount, "%s" given', is_object($amountTypeDiscountItem) ? get_class($amountTypeDiscountItem) : gettype($amountTypeDiscountItem)), __LINE__);
+            }
+        }
         $this->Discount = $discount;
+        return $this;
+    }
+    /**
+     * Add item to Discount value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Discount $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountType
+     */
+    public function addToDiscount(\Devlabs91\GenericOtaHotelApiService\StructType\Discount $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Discount) {
+            throw new \InvalidArgumentException(sprintf('The Discount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Discount, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Discount[] = $item;
         return $this;
     }
     /**
@@ -348,6 +415,24 @@ class AmountType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get AdditionalCharges value
+     * @return mixed|null
+     */
+    public function getAdditionalCharges()
+    {
+        return $this->AdditionalCharges;
+    }
+    /**
+     * Set AdditionalCharges value
+     * @param mixed $additionalCharges
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountType
+     */
+    public function setAdditionalCharges($additionalCharges = null)
+    {
+        $this->AdditionalCharges = $additionalCharges;
+        return $this;
+    }
+    /**
      * Get GuaranteedInd value
      * @return bool|null
      */
@@ -371,7 +456,7 @@ class AmountType extends AbstractStructBase
     }
     /**
      * Get NumberOfUnits value
-     * @return string|null
+     * @return int|null
      */
     public function getNumberOfUnits()
     {
@@ -379,14 +464,14 @@ class AmountType extends AbstractStructBase
     }
     /**
      * Set NumberOfUnits value
-     * @param string $numberOfUnits
+     * @param int $numberOfUnits
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountType
      */
     public function setNumberOfUnits($numberOfUnits = null)
     {
-        // validation for constraint: string
-        if (!is_null($numberOfUnits) && !is_string($numberOfUnits)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($numberOfUnits)), __LINE__);
+        // validation for constraint: int
+        if (!is_null($numberOfUnits) && !is_numeric($numberOfUnits)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfUnits)), __LINE__);
         }
         $this->NumberOfUnits = $numberOfUnits;
         return $this;
@@ -543,6 +628,72 @@ class AmountType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($stayOverDate)), __LINE__);
         }
         $this->StayOverDate = $stayOverDate;
+        return $this;
+    }
+    /**
+     * Get AlternateCurrencyInd value
+     * @return bool|null
+     */
+    public function getAlternateCurrencyInd()
+    {
+        return $this->AlternateCurrencyInd;
+    }
+    /**
+     * Set AlternateCurrencyInd value
+     * @param bool $alternateCurrencyInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountType
+     */
+    public function setAlternateCurrencyInd($alternateCurrencyInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($alternateCurrencyInd) && !is_bool($alternateCurrencyInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($alternateCurrencyInd)), __LINE__);
+        }
+        $this->AlternateCurrencyInd = $alternateCurrencyInd;
+        return $this;
+    }
+    /**
+     * Get ChargeType value
+     * @return string|null
+     */
+    public function getChargeType()
+    {
+        return $this->ChargeType;
+    }
+    /**
+     * Set ChargeType value
+     * @param string $chargeType
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountType
+     */
+    public function setChargeType($chargeType = null)
+    {
+        // validation for constraint: string
+        if (!is_null($chargeType) && !is_string($chargeType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($chargeType)), __LINE__);
+        }
+        $this->ChargeType = $chargeType;
+        return $this;
+    }
+    /**
+     * Get QuoteID value
+     * @return string|null
+     */
+    public function getQuoteID()
+    {
+        return $this->QuoteID;
+    }
+    /**
+     * Set QuoteID value
+     * @param string $quoteID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountType
+     */
+    public function setQuoteID($quoteID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($quoteID) && !is_string($quoteID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($quoteID)), __LINE__);
+        }
+        $this->QuoteID = $quoteID;
         return $this;
     }
     /**

@@ -16,7 +16,7 @@ class SeatMapDetailsType extends AbstractStructBase
      * The CabinClass
      * Meta informations extracted from the WSDL
      * - maxOccurs: 5
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass[]
      */
     public $CabinClass;
     /**
@@ -31,7 +31,7 @@ class SeatMapDetailsType extends AbstractStructBase
      * Constructor method for SeatMapDetailsType
      * @uses SeatMapDetailsType::setCabinClass()
      * @uses SeatMapDetailsType::setTravelerRefNumberRPHs()
-     * @param mixed[] $cabinClass
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass[] $cabinClass
      * @param string $travelerRefNumberRPHs
      */
     public function __construct(array $cabinClass = array(), $travelerRefNumberRPHs = null)
@@ -42,7 +42,7 @@ class SeatMapDetailsType extends AbstractStructBase
     }
     /**
      * Get CabinClass value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass[]|null
      */
     public function getCabinClass()
     {
@@ -51,15 +51,15 @@ class SeatMapDetailsType extends AbstractStructBase
     /**
      * Set CabinClass value
      * @throws \InvalidArgumentException
-     * @param mixed[] $cabinClass
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass[] $cabinClass
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SeatMapDetailsType
      */
     public function setCabinClass(array $cabinClass = array())
     {
         foreach ($cabinClass as $seatMapDetailsTypeCabinClassItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The CabinClass property can only contain items of anyType, "%s" given', is_object($seatMapDetailsTypeCabinClassItem) ? get_class($seatMapDetailsTypeCabinClassItem) : gettype($seatMapDetailsTypeCabinClassItem)), __LINE__);
+            if (!$seatMapDetailsTypeCabinClassItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass) {
+                throw new \InvalidArgumentException(sprintf('The CabinClass property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass, "%s" given', is_object($seatMapDetailsTypeCabinClassItem) ? get_class($seatMapDetailsTypeCabinClassItem) : gettype($seatMapDetailsTypeCabinClassItem)), __LINE__);
             }
         }
         $this->CabinClass = $cabinClass;
@@ -68,14 +68,14 @@ class SeatMapDetailsType extends AbstractStructBase
     /**
      * Add item to CabinClass value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SeatMapDetailsType
      */
-    public function addToCabinClass($item)
+    public function addToCabinClass(\Devlabs91\GenericOtaHotelApiService\StructType\CabinClass $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The CabinClass property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass) {
+            throw new \InvalidArgumentException(sprintf('The CabinClass property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CabinClass, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CabinClass[] = $item;
         return $this;

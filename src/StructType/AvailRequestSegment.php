@@ -7,9 +7,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AvailRequestSegment StructType
  * Meta informations extracted from the WSDL
- * - documentation: To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, BookingSegment. Each booking segment includes a collection of criteria that requests a bookable
- * entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each Booking Segment would be presumed to have a unique date
- * range for each request.
+ * - documentation: To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity,
+ * which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each
+ * request.
  * @subpackage Structs
  */
 class AvailRequestSegment extends AbstractStructBase
@@ -17,7 +17,8 @@ class AvailRequestSegment extends AbstractStructBase
     /**
      * The StayDateRange
      * Meta informations extracted from the WSDL
-     * - documentation: Range of Dates, or Fixed set of dates for Availability Request. Date range can also be specified by using start dates and number of nights (minimum, maximum or fixed).
+     * - documentation: Range of dates, or fixed set of dates for Availability Request. Date range can also be specified by using start dates and number of nights (minimum, maximum or fixed). **This element is maintained at this level to support those who
+     * have implemented this message prior to 2005B. For new implementations consider using this element under HotelSearchCriteria.**
      * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\DateTimeSpanType
      */
@@ -25,13 +26,15 @@ class AvailRequestSegment extends AbstractStructBase
     /**
      * The RateRange
      * Meta informations extracted from the WSDL
+     * - maxOccurs: 5
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateRangeType
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateRange[]
      */
     public $RateRange;
     /**
      * The RatePlanCandidates
      * Meta informations extracted from the WSDL
+     * - documentation: **This element is maintained at this level to support those who have implemented this message prior to 2005B. For new implementations consider using this element under HotelSearchCriteria.**
      * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidatesType
      */
@@ -39,6 +42,8 @@ class AvailRequestSegment extends AbstractStructBase
     /**
      * The Profiles
      * Meta informations extracted from the WSDL
+     * - documentation: A collection of profile objects or unique IDs of profiles. **This element is maintained at this level to support those who have implemented this message prior to 2005B. For new implementations consider using this element under
+     * HotelSearchCriteria.**
      * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\ProfilesType
      */
@@ -54,7 +59,7 @@ class AvailRequestSegment extends AbstractStructBase
      * The HotelSearchCriteria
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteriaType
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteria
      */
     public $HotelSearchCriteria;
     /**
@@ -74,12 +79,22 @@ class AvailRequestSegment extends AbstractStructBase
      * The MoreDataEchoToken
      * Meta informations extracted from the WSDL
      * - documentation: The availability response returns the attribute if there were additional rates that could not fit within the availability response. The text value should be echoed in this availability request to indicate where to begin the next
-     * block of availability data. | Used for Character Strings, length 1 to 32
-     * - maxLength: 32
+     * block of availability data. | Used for Character Strings, length 1 to 128.
+     * - maxLength: 128
      * - minLength: 1
      * @var string
      */
     public $MoreDataEchoToken;
+    /**
+     * The InfoSource
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to specify the source of the data being exchanged as determined by trading partners. | Used to specify the source of the data being exchanged.
+     * - use: optional
+     * - maxLength: 32
+     * - minLength: 1
+     * @var string
+     */
+    public $InfoSource;
     /**
      * The ResponseType
      * @var string
@@ -96,19 +111,21 @@ class AvailRequestSegment extends AbstractStructBase
      * @uses AvailRequestSegment::setTPA_Extensions()
      * @uses AvailRequestSegment::setAvailReqType()
      * @uses AvailRequestSegment::setMoreDataEchoToken()
+     * @uses AvailRequestSegment::setInfoSource()
      * @uses AvailRequestSegment::setResponseType()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\DateTimeSpanType $stayDateRange
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRangeType $rateRange
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRange[] $rateRange
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidatesType $ratePlanCandidates
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProfilesType $profiles
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidates $roomStayCandidates
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteriaType $hotelSearchCriteria
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteria $hotelSearchCriteria
      * @param mixed $tPA_Extensions
      * @param string $availReqType
      * @param string $moreDataEchoToken
+     * @param string $infoSource
      * @param string $responseType
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\DateTimeSpanType $stayDateRange = null, \Devlabs91\GenericOtaHotelApiService\StructType\RateRangeType $rateRange = null, \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidatesType $ratePlanCandidates = null, \Devlabs91\GenericOtaHotelApiService\StructType\ProfilesType $profiles = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidates $roomStayCandidates = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteriaType $hotelSearchCriteria = null, $tPA_Extensions = null, $availReqType = null, $moreDataEchoToken = null, $responseType = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\DateTimeSpanType $stayDateRange = null, array $rateRange = array(), \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidatesType $ratePlanCandidates = null, \Devlabs91\GenericOtaHotelApiService\StructType\ProfilesType $profiles = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidates $roomStayCandidates = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteria $hotelSearchCriteria = null, $tPA_Extensions = null, $availReqType = null, $moreDataEchoToken = null, $infoSource = null, $responseType = null)
     {
         $this
             ->setStayDateRange($stayDateRange)
@@ -120,6 +137,7 @@ class AvailRequestSegment extends AbstractStructBase
             ->setTPA_Extensions($tPA_Extensions)
             ->setAvailReqType($availReqType)
             ->setMoreDataEchoToken($moreDataEchoToken)
+            ->setInfoSource($infoSource)
             ->setResponseType($responseType);
     }
     /**
@@ -142,7 +160,7 @@ class AvailRequestSegment extends AbstractStructBase
     }
     /**
      * Get RateRange value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateRangeType|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateRange[]|null
      */
     public function getRateRange()
     {
@@ -150,12 +168,34 @@ class AvailRequestSegment extends AbstractStructBase
     }
     /**
      * Set RateRange value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRangeType $rateRange
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRange[] $rateRange
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailRequestSegment
      */
-    public function setRateRange(\Devlabs91\GenericOtaHotelApiService\StructType\RateRangeType $rateRange = null)
+    public function setRateRange(array $rateRange = array())
     {
+        foreach ($rateRange as $availRequestSegmentRateRangeItem) {
+            // validation for constraint: itemType
+            if (!$availRequestSegmentRateRangeItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateRange) {
+                throw new \InvalidArgumentException(sprintf('The RateRange property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateRange, "%s" given', is_object($availRequestSegmentRateRangeItem) ? get_class($availRequestSegmentRateRangeItem) : gettype($availRequestSegmentRateRangeItem)), __LINE__);
+            }
+        }
         $this->RateRange = $rateRange;
+        return $this;
+    }
+    /**
+     * Add item to RateRange value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateRange $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailRequestSegment
+     */
+    public function addToRateRange(\Devlabs91\GenericOtaHotelApiService\StructType\RateRange $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateRange) {
+            throw new \InvalidArgumentException(sprintf('The RateRange property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateRange, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->RateRange[] = $item;
         return $this;
     }
     /**
@@ -214,7 +254,7 @@ class AvailRequestSegment extends AbstractStructBase
     }
     /**
      * Get HotelSearchCriteria value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteriaType|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteria|null
      */
     public function getHotelSearchCriteria()
     {
@@ -222,10 +262,10 @@ class AvailRequestSegment extends AbstractStructBase
     }
     /**
      * Set HotelSearchCriteria value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteriaType $hotelSearchCriteria
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteria $hotelSearchCriteria
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailRequestSegment
      */
-    public function setHotelSearchCriteria(\Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteriaType $hotelSearchCriteria = null)
+    public function setHotelSearchCriteria(\Devlabs91\GenericOtaHotelApiService\StructType\HotelSearchCriteria $hotelSearchCriteria = null)
     {
         $this->HotelSearchCriteria = $hotelSearchCriteria;
         return $this;
@@ -286,8 +326,8 @@ class AvailRequestSegment extends AbstractStructBase
     public function setMoreDataEchoToken($moreDataEchoToken = null)
     {
         // validation for constraint: maxLength
-        if ((is_scalar($moreDataEchoToken) && strlen($moreDataEchoToken) > 32) || (is_array($moreDataEchoToken) && count($moreDataEchoToken) > 32)) {
-            throw new \InvalidArgumentException(sprintf('Invalid length, please provide an array with 32 element(s) or a scalar of 32 character(s) at most, "%d" length given', is_scalar($moreDataEchoToken) ? strlen($moreDataEchoToken) : count($moreDataEchoToken)), __LINE__);
+        if ((is_scalar($moreDataEchoToken) && strlen($moreDataEchoToken) > 128) || (is_array($moreDataEchoToken) && count($moreDataEchoToken) > 128)) {
+            throw new \InvalidArgumentException(sprintf('Invalid length, please provide an array with 128 element(s) or a scalar of 128 character(s) at most, "%d" length given', is_scalar($moreDataEchoToken) ? strlen($moreDataEchoToken) : count($moreDataEchoToken)), __LINE__);
         }
         // validation for constraint: minLength
         if ((is_scalar($moreDataEchoToken) && strlen($moreDataEchoToken) < 1) || (is_array($moreDataEchoToken) && count($moreDataEchoToken) < 1)) {
@@ -298,6 +338,36 @@ class AvailRequestSegment extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($moreDataEchoToken)), __LINE__);
         }
         $this->MoreDataEchoToken = $moreDataEchoToken;
+        return $this;
+    }
+    /**
+     * Get InfoSource value
+     * @return string|null
+     */
+    public function getInfoSource()
+    {
+        return $this->InfoSource;
+    }
+    /**
+     * Set InfoSource value
+     * @param string $infoSource
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailRequestSegment
+     */
+    public function setInfoSource($infoSource = null)
+    {
+        // validation for constraint: maxLength
+        if ((is_scalar($infoSource) && strlen($infoSource) > 32) || (is_array($infoSource) && count($infoSource) > 32)) {
+            throw new \InvalidArgumentException(sprintf('Invalid length, please provide an array with 32 element(s) or a scalar of 32 character(s) at most, "%d" length given', is_scalar($infoSource) ? strlen($infoSource) : count($infoSource)), __LINE__);
+        }
+        // validation for constraint: minLength
+        if ((is_scalar($infoSource) && strlen($infoSource) < 1) || (is_array($infoSource) && count($infoSource) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($infoSource) && !is_string($infoSource)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($infoSource)), __LINE__);
+        }
+        $this->InfoSource = $infoSource;
         return $this;
     }
     /**

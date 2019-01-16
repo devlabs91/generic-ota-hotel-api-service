@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for ClubMemberName StructType
  * Meta informations extracted from the WSDL
- * - documentation: Identifier assigned to person registered with travel club.
+ * - documentation: Name information for the club member. | Identifier assigned to person registered with travel club.
  * @subpackage Structs
  */
 class ClubMemberName extends PersonNameType

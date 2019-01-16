@@ -7,26 +7,43 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Policy StructType
  * Meta informations extracted from the WSDL
- * - documentation: The PolicyInfo class that describes the policies of the hotel, such as the type of payments, or whether children or pets are accepted. | May be used to give further detail on the code or to remove an obsolete item.
+ * - documentation: Policy information for this hotel. | Describes the policies of the hotel, such as the type of payments, or whether children or pets are accepted. | Used to indicate the effective dates of the policy. | May be used to give further
+ * detail on the code or to remove an obsolete item. | Used to indicate the effective day for the policy.
  * @subpackage Structs
  */
 class Policy extends AbstractStructBase
 {
     /**
+     * The CheckInTime
+     * Meta informations extracted from the WSDL
+     * - documentation: The checkin time required by this hotel for a room stay.
+     * - use: optional
+     * @var string
+     */
+    public $CheckInTime;
+    /**
+     * The CheckOutTime
+     * Meta informations extracted from the WSDL
+     * - documentation: The checkout time required by this hotel for a room stay.
+     * - use: optional
+     * @var string
+     */
+    public $CheckOutTime;
+    /**
      * The CancelPolicy
      * Meta informations extracted from the WSDL
-     * - documentation: The CancelPenalty class defines the cancellation policy of the hotel facility.
+     * - documentation: Defines the cancellation policy of the hotel facility.
      * - minOccurs: 0
      * @var mixed
      */
     public $CancelPolicy;
     /**
-     * The PaymentPolicy
+     * The GuaranteePaymentPolicy
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PaymentPolicy
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePaymentPolicy
      */
-    public $PaymentPolicy;
+    public $GuaranteePaymentPolicy;
     /**
      * The PolicyInfoCodes
      * Meta informations extracted from the WSDL
@@ -56,6 +73,34 @@ class Policy extends AbstractStructBase
      */
     public $TaxPolicies;
     /**
+     * The PetsPolicies
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PetsPolicies
+     */
+    public $PetsPolicies;
+    /**
+     * The StayRequirements
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\StayRequirements
+     */
+    public $StayRequirements;
+    /**
+     * The CommissionPolicy
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CommissionPolicy
+     */
+    public $CommissionPolicy;
+    /**
+     * The FeePolicies
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\FeePolicies
+     */
+    public $FeePolicies;
+    /**
      * The DefaultValidBookingMinOffset
      * Meta informations extracted from the WSDL
      * - documentation: Defines the default minimum number of days in advance that a booking must be made at this hotel.
@@ -72,14 +117,6 @@ class Policy extends AbstractStructBase
      */
     public $Code;
     /**
-     * The PetsPolicyCode
-     * Meta informations extracted from the WSDL
-     * - documentation: The code for the type of pet policy maintained at the hotel facility. Refer to OTA Code List Pets Policy Code (PET).
-     * - use: optional
-     * @var string
-     */
-    public $PetsPolicyCode;
-    /**
      * The LastUpdated
      * Meta informations extracted from the WSDL
      * - documentation: The date and time when the policy information for this hotel was last updated.
@@ -89,40 +126,99 @@ class Policy extends AbstractStructBase
     public $LastUpdated;
     /**
      * Constructor method for Policy
+     * @uses Policy::setCheckInTime()
+     * @uses Policy::setCheckOutTime()
      * @uses Policy::setCancelPolicy()
-     * @uses Policy::setPaymentPolicy()
+     * @uses Policy::setGuaranteePaymentPolicy()
      * @uses Policy::setPolicyInfoCodes()
      * @uses Policy::setCheckoutCharges()
      * @uses Policy::setPolicyInfo()
      * @uses Policy::setTaxPolicies()
+     * @uses Policy::setPetsPolicies()
+     * @uses Policy::setStayRequirements()
+     * @uses Policy::setCommissionPolicy()
+     * @uses Policy::setFeePolicies()
      * @uses Policy::setDefaultValidBookingMinOffset()
      * @uses Policy::setCode()
-     * @uses Policy::setPetsPolicyCode()
      * @uses Policy::setLastUpdated()
+     * @param string $checkInTime
+     * @param string $checkOutTime
      * @param mixed $cancelPolicy
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentPolicy $paymentPolicy
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePaymentPolicy $guaranteePaymentPolicy
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfoCodes $policyInfoCodes
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharges $checkoutCharges
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfo $policyInfo
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\TaxPolicies $taxPolicies
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PetsPolicies $petsPolicies
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StayRequirements $stayRequirements
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CommissionPolicy $commissionPolicy
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FeePolicies $feePolicies
      * @param int $defaultValidBookingMinOffset
      * @param string $code
-     * @param string $petsPolicyCode
      * @param string $lastUpdated
      */
-    public function __construct($cancelPolicy = null, \Devlabs91\GenericOtaHotelApiService\StructType\PaymentPolicy $paymentPolicy = null, \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfoCodes $policyInfoCodes = null, \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharges $checkoutCharges = null, \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfo $policyInfo = null, \Devlabs91\GenericOtaHotelApiService\StructType\TaxPolicies $taxPolicies = null, $defaultValidBookingMinOffset = null, $code = null, $petsPolicyCode = null, $lastUpdated = null)
+    public function __construct($checkInTime = null, $checkOutTime = null, $cancelPolicy = null, \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePaymentPolicy $guaranteePaymentPolicy = null, \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfoCodes $policyInfoCodes = null, \Devlabs91\GenericOtaHotelApiService\StructType\CheckoutCharges $checkoutCharges = null, \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfo $policyInfo = null, \Devlabs91\GenericOtaHotelApiService\StructType\TaxPolicies $taxPolicies = null, \Devlabs91\GenericOtaHotelApiService\StructType\PetsPolicies $petsPolicies = null, \Devlabs91\GenericOtaHotelApiService\StructType\StayRequirements $stayRequirements = null, \Devlabs91\GenericOtaHotelApiService\StructType\CommissionPolicy $commissionPolicy = null, \Devlabs91\GenericOtaHotelApiService\StructType\FeePolicies $feePolicies = null, $defaultValidBookingMinOffset = null, $code = null, $lastUpdated = null)
     {
         $this
+            ->setCheckInTime($checkInTime)
+            ->setCheckOutTime($checkOutTime)
             ->setCancelPolicy($cancelPolicy)
-            ->setPaymentPolicy($paymentPolicy)
+            ->setGuaranteePaymentPolicy($guaranteePaymentPolicy)
             ->setPolicyInfoCodes($policyInfoCodes)
             ->setCheckoutCharges($checkoutCharges)
             ->setPolicyInfo($policyInfo)
             ->setTaxPolicies($taxPolicies)
+            ->setPetsPolicies($petsPolicies)
+            ->setStayRequirements($stayRequirements)
+            ->setCommissionPolicy($commissionPolicy)
+            ->setFeePolicies($feePolicies)
             ->setDefaultValidBookingMinOffset($defaultValidBookingMinOffset)
             ->setCode($code)
-            ->setPetsPolicyCode($petsPolicyCode)
             ->setLastUpdated($lastUpdated);
+    }
+    /**
+     * Get CheckInTime value
+     * @return string|null
+     */
+    public function getCheckInTime()
+    {
+        return $this->CheckInTime;
+    }
+    /**
+     * Set CheckInTime value
+     * @param string $checkInTime
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
+     */
+    public function setCheckInTime($checkInTime = null)
+    {
+        // validation for constraint: string
+        if (!is_null($checkInTime) && !is_string($checkInTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($checkInTime)), __LINE__);
+        }
+        $this->CheckInTime = $checkInTime;
+        return $this;
+    }
+    /**
+     * Get CheckOutTime value
+     * @return string|null
+     */
+    public function getCheckOutTime()
+    {
+        return $this->CheckOutTime;
+    }
+    /**
+     * Set CheckOutTime value
+     * @param string $checkOutTime
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
+     */
+    public function setCheckOutTime($checkOutTime = null)
+    {
+        // validation for constraint: string
+        if (!is_null($checkOutTime) && !is_string($checkOutTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($checkOutTime)), __LINE__);
+        }
+        $this->CheckOutTime = $checkOutTime;
+        return $this;
     }
     /**
      * Get CancelPolicy value
@@ -143,21 +239,21 @@ class Policy extends AbstractStructBase
         return $this;
     }
     /**
-     * Get PaymentPolicy value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PaymentPolicy|null
+     * Get GuaranteePaymentPolicy value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePaymentPolicy|null
      */
-    public function getPaymentPolicy()
+    public function getGuaranteePaymentPolicy()
     {
-        return $this->PaymentPolicy;
+        return $this->GuaranteePaymentPolicy;
     }
     /**
-     * Set PaymentPolicy value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentPolicy $paymentPolicy
+     * Set GuaranteePaymentPolicy value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePaymentPolicy $guaranteePaymentPolicy
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
      */
-    public function setPaymentPolicy(\Devlabs91\GenericOtaHotelApiService\StructType\PaymentPolicy $paymentPolicy = null)
+    public function setGuaranteePaymentPolicy(\Devlabs91\GenericOtaHotelApiService\StructType\GuaranteePaymentPolicy $guaranteePaymentPolicy = null)
     {
-        $this->PaymentPolicy = $paymentPolicy;
+        $this->GuaranteePaymentPolicy = $guaranteePaymentPolicy;
         return $this;
     }
     /**
@@ -233,6 +329,78 @@ class Policy extends AbstractStructBase
         return $this;
     }
     /**
+     * Get PetsPolicies value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PetsPolicies|null
+     */
+    public function getPetsPolicies()
+    {
+        return $this->PetsPolicies;
+    }
+    /**
+     * Set PetsPolicies value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PetsPolicies $petsPolicies
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
+     */
+    public function setPetsPolicies(\Devlabs91\GenericOtaHotelApiService\StructType\PetsPolicies $petsPolicies = null)
+    {
+        $this->PetsPolicies = $petsPolicies;
+        return $this;
+    }
+    /**
+     * Get StayRequirements value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StayRequirements|null
+     */
+    public function getStayRequirements()
+    {
+        return $this->StayRequirements;
+    }
+    /**
+     * Set StayRequirements value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StayRequirements $stayRequirements
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
+     */
+    public function setStayRequirements(\Devlabs91\GenericOtaHotelApiService\StructType\StayRequirements $stayRequirements = null)
+    {
+        $this->StayRequirements = $stayRequirements;
+        return $this;
+    }
+    /**
+     * Get CommissionPolicy value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CommissionPolicy|null
+     */
+    public function getCommissionPolicy()
+    {
+        return $this->CommissionPolicy;
+    }
+    /**
+     * Set CommissionPolicy value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CommissionPolicy $commissionPolicy
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
+     */
+    public function setCommissionPolicy(\Devlabs91\GenericOtaHotelApiService\StructType\CommissionPolicy $commissionPolicy = null)
+    {
+        $this->CommissionPolicy = $commissionPolicy;
+        return $this;
+    }
+    /**
+     * Get FeePolicies value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FeePolicies|null
+     */
+    public function getFeePolicies()
+    {
+        return $this->FeePolicies;
+    }
+    /**
+     * Set FeePolicies value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FeePolicies $feePolicies
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
+     */
+    public function setFeePolicies(\Devlabs91\GenericOtaHotelApiService\StructType\FeePolicies $feePolicies = null)
+    {
+        $this->FeePolicies = $feePolicies;
+        return $this;
+    }
+    /**
      * Get DefaultValidBookingMinOffset value
      * @return int|null
      */
@@ -274,28 +442,6 @@ class Policy extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($code)), __LINE__);
         }
         $this->Code = $code;
-        return $this;
-    }
-    /**
-     * Get PetsPolicyCode value
-     * @return string|null
-     */
-    public function getPetsPolicyCode()
-    {
-        return $this->PetsPolicyCode;
-    }
-    /**
-     * Set PetsPolicyCode value
-     * @param string $petsPolicyCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Policy
-     */
-    public function setPetsPolicyCode($petsPolicyCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($petsPolicyCode) && !is_string($petsPolicyCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($petsPolicyCode)), __LINE__);
-        }
-        $this->PetsPolicyCode = $petsPolicyCode;
         return $this;
     }
     /**

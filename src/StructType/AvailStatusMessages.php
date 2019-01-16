@@ -15,8 +15,10 @@ class AvailStatusMessages extends AbstractStructBase
     /**
      * The AvailStatusMessage
      * Meta informations extracted from the WSDL
+     * - documentation: The AvailStatusMessage. It is here that one indicates whether the inventory is opened, closed, closed on request, etc. | The MinMaxLOSStatusMessage class communicates the set of minimum and maximum length-of-stay availability status
+     * changes to be synchronized with another system. | The RateHurdleStatusMessage class defines the setting for rate hurdle controls to be synchronized with the central reservation system.
      * - maxOccurs: unbounded
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType[]
      */
     public $AvailStatusMessage;
     /**
@@ -70,7 +72,7 @@ class AvailStatusMessages extends AbstractStructBase
      * @uses AvailStatusMessages::setHotelCodeContext()
      * @uses AvailStatusMessages::setChainName()
      * @uses AvailStatusMessages::setBrandName()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage[] $availStatusMessage
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType[] $availStatusMessage
      * @param string $chainCode
      * @param string $brandCode
      * @param string $hotelCode
@@ -95,7 +97,7 @@ class AvailStatusMessages extends AbstractStructBase
     }
     /**
      * Get AvailStatusMessage value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType[]|null
      */
     public function getAvailStatusMessage()
     {
@@ -104,15 +106,15 @@ class AvailStatusMessages extends AbstractStructBase
     /**
      * Set AvailStatusMessage value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage[] $availStatusMessage
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType[] $availStatusMessage
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessages
      */
     public function setAvailStatusMessage(array $availStatusMessage = array())
     {
         foreach ($availStatusMessage as $availStatusMessagesAvailStatusMessageItem) {
             // validation for constraint: itemType
-            if (!$availStatusMessagesAvailStatusMessageItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage) {
-                throw new \InvalidArgumentException(sprintf('The AvailStatusMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage, "%s" given', is_object($availStatusMessagesAvailStatusMessageItem) ? get_class($availStatusMessagesAvailStatusMessageItem) : gettype($availStatusMessagesAvailStatusMessageItem)), __LINE__);
+            if (!$availStatusMessagesAvailStatusMessageItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType) {
+                throw new \InvalidArgumentException(sprintf('The AvailStatusMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType, "%s" given', is_object($availStatusMessagesAvailStatusMessageItem) ? get_class($availStatusMessagesAvailStatusMessageItem) : gettype($availStatusMessagesAvailStatusMessageItem)), __LINE__);
             }
         }
         $this->AvailStatusMessage = $availStatusMessage;
@@ -121,14 +123,14 @@ class AvailStatusMessages extends AbstractStructBase
     /**
      * Add item to AvailStatusMessage value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessages
      */
-    public function addToAvailStatusMessage(\Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage $item)
+    public function addToAvailStatusMessage(\Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType $item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage) {
-            throw new \InvalidArgumentException(sprintf('The AvailStatusMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessage, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType) {
+            throw new \InvalidArgumentException(sprintf('The AvailStatusMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AvailStatusMessageType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->AvailStatusMessage[] = $item;
         return $this;

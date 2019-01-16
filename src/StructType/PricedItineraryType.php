@@ -13,16 +13,10 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class PricedItineraryType extends AbstractStructBase
 {
     /**
-     * The SequenceNumber
-     * Meta informations extracted from the WSDL
-     * - documentation: Assigns a number to priced itineraries.
-     * - use: required
-     * @var int
-     */
-    public $SequenceNumber;
-    /**
      * The AirItinerary
      * Meta informations extracted from the WSDL
+     * - documentation: Specifies the origin and destination of the traveler. Attributes: DirectionInd - A directional indicator that identifies a type of air booking, either one-way, round-trip, or open-jaw with the enumeration of (OneWay | RT | OpenJaw)
+     * respectively. ActionCode - Indicates the status of the booking, such as OK or Wait-List. NumberInParty - Indicates the traveler count.
      * - minOccurs: 0
      * @var mixed
      */
@@ -31,7 +25,7 @@ class PricedItineraryType extends AbstractStructBase
      * The AirItineraryPricingInfo
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfo
      */
     public $AirItineraryPricingInfo;
     /**
@@ -46,66 +40,72 @@ class PricedItineraryType extends AbstractStructBase
     /**
      * The TicketingInfo
      * Meta informations extracted from the WSDL
-     * - documentation: Container for TicketingInfoRS_Type.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TicketingInfo
      */
     public $TicketingInfo;
     /**
-     * The OriginDestinationRPH
+     * The SequenceNumber
      * Meta informations extracted from the WSDL
-     * - documentation: When a PricedItinerary element contains flights and pricing information for a single OriginDestinationPair from the OTA_LowFareSearchRQ message, this RPH attribute identifies that OriginDestinationPair from the RQ. When the
-     * PricedItinerary contains flights and pricing information for all OriginDestinationPairs from the OTA_LowFareSearchRQ message, this attribute should not be included.
+     * - documentation: Assigns a number to priced itineraries.
+     * - use: optional
+     * @var int
+     */
+    public $SequenceNumber;
+    /**
+     * The PriceType
+     * Meta informations extracted from the WSDL
+     * - documentation: Specifies how the pricing was done.
      * - use: optional
      * @var string
      */
-    public $OriginDestinationRPH;
+    public $PriceType;
+    /**
+     * The NUC_Rate
+     * Meta informations extracted from the WSDL
+     * - documentation: The neutral unit currency rate.
+     * - use: optional
+     * @var float
+     */
+    public $NUC_Rate;
+    /**
+     * The ExchangeRate
+     * Meta informations extracted from the WSDL
+     * - documentation: The currency exchange rate.
+     * - use: optional
+     * @var float
+     */
+    public $ExchangeRate;
     /**
      * Constructor method for PricedItineraryType
-     * @uses PricedItineraryType::setSequenceNumber()
      * @uses PricedItineraryType::setAirItinerary()
      * @uses PricedItineraryType::setAirItineraryPricingInfo()
      * @uses PricedItineraryType::setNotes()
      * @uses PricedItineraryType::setTicketingInfo()
-     * @uses PricedItineraryType::setOriginDestinationRPH()
-     * @param int $sequenceNumber
+     * @uses PricedItineraryType::setSequenceNumber()
+     * @uses PricedItineraryType::setPriceType()
+     * @uses PricedItineraryType::setNUC_Rate()
+     * @uses PricedItineraryType::setExchangeRate()
      * @param mixed $airItinerary
-     * @param mixed $airItineraryPricingInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfo $airItineraryPricingInfo
      * @param mixed[] $notes
-     * @param mixed $ticketingInfo
-     * @param string $originDestinationRPH
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TicketingInfo $ticketingInfo
+     * @param int $sequenceNumber
+     * @param string $priceType
+     * @param float $nUC_Rate
+     * @param float $exchangeRate
      */
-    public function __construct($sequenceNumber = null, $airItinerary = null, $airItineraryPricingInfo = null, array $notes = array(), $ticketingInfo = null, $originDestinationRPH = null)
+    public function __construct($airItinerary = null, \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfo $airItineraryPricingInfo = null, array $notes = array(), \Devlabs91\GenericOtaHotelApiService\StructType\TicketingInfo $ticketingInfo = null, $sequenceNumber = null, $priceType = null, $nUC_Rate = null, $exchangeRate = null)
     {
         $this
-            ->setSequenceNumber($sequenceNumber)
             ->setAirItinerary($airItinerary)
             ->setAirItineraryPricingInfo($airItineraryPricingInfo)
             ->setNotes($notes)
             ->setTicketingInfo($ticketingInfo)
-            ->setOriginDestinationRPH($originDestinationRPH);
-    }
-    /**
-     * Get SequenceNumber value
-     * @return int
-     */
-    public function getSequenceNumber()
-    {
-        return $this->SequenceNumber;
-    }
-    /**
-     * Set SequenceNumber value
-     * @param int $sequenceNumber
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PricedItineraryType
-     */
-    public function setSequenceNumber($sequenceNumber = null)
-    {
-        // validation for constraint: int
-        if (!is_null($sequenceNumber) && !is_numeric($sequenceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sequenceNumber)), __LINE__);
-        }
-        $this->SequenceNumber = $sequenceNumber;
-        return $this;
+            ->setSequenceNumber($sequenceNumber)
+            ->setPriceType($priceType)
+            ->setNUC_Rate($nUC_Rate)
+            ->setExchangeRate($exchangeRate);
     }
     /**
      * Get AirItinerary value
@@ -127,7 +127,7 @@ class PricedItineraryType extends AbstractStructBase
     }
     /**
      * Get AirItineraryPricingInfo value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfo|null
      */
     public function getAirItineraryPricingInfo()
     {
@@ -135,10 +135,10 @@ class PricedItineraryType extends AbstractStructBase
     }
     /**
      * Set AirItineraryPricingInfo value
-     * @param mixed $airItineraryPricingInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfo $airItineraryPricingInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PricedItineraryType
      */
-    public function setAirItineraryPricingInfo($airItineraryPricingInfo = null)
+    public function setAirItineraryPricingInfo(\Devlabs91\GenericOtaHotelApiService\StructType\AirItineraryPricingInfo $airItineraryPricingInfo = null)
     {
         $this->AirItineraryPricingInfo = $airItineraryPricingInfo;
         return $this;
@@ -185,7 +185,7 @@ class PricedItineraryType extends AbstractStructBase
     }
     /**
      * Get TicketingInfo value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TicketingInfo|null
      */
     public function getTicketingInfo()
     {
@@ -193,34 +193,92 @@ class PricedItineraryType extends AbstractStructBase
     }
     /**
      * Set TicketingInfo value
-     * @param mixed $ticketingInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TicketingInfo $ticketingInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PricedItineraryType
      */
-    public function setTicketingInfo($ticketingInfo = null)
+    public function setTicketingInfo(\Devlabs91\GenericOtaHotelApiService\StructType\TicketingInfo $ticketingInfo = null)
     {
         $this->TicketingInfo = $ticketingInfo;
         return $this;
     }
     /**
-     * Get OriginDestinationRPH value
-     * @return string|null
+     * Get SequenceNumber value
+     * @return int|null
      */
-    public function getOriginDestinationRPH()
+    public function getSequenceNumber()
     {
-        return $this->OriginDestinationRPH;
+        return $this->SequenceNumber;
     }
     /**
-     * Set OriginDestinationRPH value
-     * @param string $originDestinationRPH
+     * Set SequenceNumber value
+     * @param int $sequenceNumber
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PricedItineraryType
      */
-    public function setOriginDestinationRPH($originDestinationRPH = null)
+    public function setSequenceNumber($sequenceNumber = null)
+    {
+        // validation for constraint: int
+        if (!is_null($sequenceNumber) && !is_numeric($sequenceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sequenceNumber)), __LINE__);
+        }
+        $this->SequenceNumber = $sequenceNumber;
+        return $this;
+    }
+    /**
+     * Get PriceType value
+     * @return string|null
+     */
+    public function getPriceType()
+    {
+        return $this->PriceType;
+    }
+    /**
+     * Set PriceType value
+     * @param string $priceType
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PricedItineraryType
+     */
+    public function setPriceType($priceType = null)
     {
         // validation for constraint: string
-        if (!is_null($originDestinationRPH) && !is_string($originDestinationRPH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originDestinationRPH)), __LINE__);
+        if (!is_null($priceType) && !is_string($priceType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($priceType)), __LINE__);
         }
-        $this->OriginDestinationRPH = $originDestinationRPH;
+        $this->PriceType = $priceType;
+        return $this;
+    }
+    /**
+     * Get NUC_Rate value
+     * @return float|null
+     */
+    public function getNUC_Rate()
+    {
+        return $this->NUC_Rate;
+    }
+    /**
+     * Set NUC_Rate value
+     * @param float $nUC_Rate
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PricedItineraryType
+     */
+    public function setNUC_Rate($nUC_Rate = null)
+    {
+        $this->NUC_Rate = $nUC_Rate;
+        return $this;
+    }
+    /**
+     * Get ExchangeRate value
+     * @return float|null
+     */
+    public function getExchangeRate()
+    {
+        return $this->ExchangeRate;
+    }
+    /**
+     * Set ExchangeRate value
+     * @param float $exchangeRate
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PricedItineraryType
+     */
+    public function setExchangeRate($exchangeRate = null)
+    {
+        $this->ExchangeRate = $exchangeRate;
         return $this;
     }
     /**

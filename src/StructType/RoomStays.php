@@ -22,9 +22,10 @@ class RoomStays extends AbstractStructBase
     /**
      * The MoreIndicator
      * Meta informations extracted from the WSDL
-     * - documentation: A text field used to indicate that there are additional rates that could not be fit within the availability response. The text returned should be meaningful in identifying where to begin the next block of data and sent in the
-     * availability request. | Used for Character Strings, length 1 to 32
-     * - maxLength: 32
+     * - documentation: A text field used to indicate that there are additional rates that cannot fit in the availability response. The text returned should be meaningful in identifying where to begin the next block of data and sent in the availability
+     * request. | Used for Character Strings, length 1 to 128.
+     * - use: optional
+     * - maxLength: 128
      * - minLength: 1
      * @var string
      */
@@ -98,8 +99,8 @@ class RoomStays extends AbstractStructBase
     public function setMoreIndicator($moreIndicator = null)
     {
         // validation for constraint: maxLength
-        if ((is_scalar($moreIndicator) && strlen($moreIndicator) > 32) || (is_array($moreIndicator) && count($moreIndicator) > 32)) {
-            throw new \InvalidArgumentException(sprintf('Invalid length, please provide an array with 32 element(s) or a scalar of 32 character(s) at most, "%d" length given', is_scalar($moreIndicator) ? strlen($moreIndicator) : count($moreIndicator)), __LINE__);
+        if ((is_scalar($moreIndicator) && strlen($moreIndicator) > 128) || (is_array($moreIndicator) && count($moreIndicator) > 128)) {
+            throw new \InvalidArgumentException(sprintf('Invalid length, please provide an array with 128 element(s) or a scalar of 128 character(s) at most, "%d" length given', is_scalar($moreIndicator) ? strlen($moreIndicator) : count($moreIndicator)), __LINE__);
         }
         // validation for constraint: minLength
         if ((is_scalar($moreIndicator) && strlen($moreIndicator) < 1) || (is_array($moreIndicator) && count($moreIndicator) < 1)) {

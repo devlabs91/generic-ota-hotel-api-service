@@ -16,20 +16,31 @@ class ArchitecturalStyle extends AbstractStructBase
     /**
      * The Code
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Architectural Style Code (ARC).
+     * - documentation: Refer to OpenTravel Code List Architectural Style Code (ARC).
      * - use: optional
      * @var string
      */
     public $Code;
     /**
+     * The ExistsCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This attribute is used to explicitly define whether the Code applies. Refer to OpenTravel Code list Option Type Code (OTC). This is used in conjunction with Code.
+     * - use: optional
+     * @var string
+     */
+    public $ExistsCode;
+    /**
      * Constructor method for ArchitecturalStyle
      * @uses ArchitecturalStyle::setCode()
+     * @uses ArchitecturalStyle::setExistsCode()
      * @param string $code
+     * @param string $existsCode
      */
-    public function __construct($code = null)
+    public function __construct($code = null, $existsCode = null)
     {
         $this
-            ->setCode($code);
+            ->setCode($code)
+            ->setExistsCode($existsCode);
     }
     /**
      * Get Code value
@@ -51,6 +62,28 @@ class ArchitecturalStyle extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($code)), __LINE__);
         }
         $this->Code = $code;
+        return $this;
+    }
+    /**
+     * Get ExistsCode value
+     * @return string|null
+     */
+    public function getExistsCode()
+    {
+        return $this->ExistsCode;
+    }
+    /**
+     * Set ExistsCode value
+     * @param string $existsCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ArchitecturalStyle
+     */
+    public function setExistsCode($existsCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
+        }
+        $this->ExistsCode = $existsCode;
         return $this;
     }
     /**

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for ProgramRestriction StructType
  * Meta informations extracted from the WSDL
- * - documentation: Provides information regarding restrictions that apply to the loyal progaram.
+ * - documentation: Provides information regarding restrictions that apply to the loyal program.
  * @subpackage Structs
  */
 class ProgramRestriction extends ParagraphType

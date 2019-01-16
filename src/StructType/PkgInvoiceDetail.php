@@ -14,41 +14,38 @@ class PkgInvoiceDetail extends AbstractStructBase
 {
     /**
      * The CostingItems
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\CostingItems
      */
     public $CostingItems;
     /**
      * The GrossAmount
      * Meta informations extracted from the WSDL
-     * - documentation: Total amount in the declared unit of currency; may be repeated for multiple currencies e.g. GBP and Euros.
-     * - maxOccurs: 2
-     * @var mixed[]
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\GrossAmount
      */
     public $GrossAmount;
     /**
      * The DepositAmount
      * Meta informations extracted from the WSDL
-     * - documentation: Defines the amount payable at the time of booking to secure the booking; may be repeated for multiple currencies e.g. GBP and Euros.
-     * - maxOccurs: 2
-     * @var mixed[]
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\DepositAmount
      */
     public $DepositAmount;
     /**
-     * The DiscountCommission
+     * The AgentCommission
      * Meta informations extracted from the WSDL
-     * - documentation: Defines the fee earned by the agent for the booking or an amount of discount given on a direct booking.
      * - maxOccurs: 8
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission[]
      */
-    public $DiscountCommission;
+    public $AgentCommission;
     /**
      * The NetAmount
      * Meta informations extracted from the WSDL
-     * - documentation: The amount payable by the agent, i.e. GrossAmount less Discount/Commission; may be repeated for multiple currencies e.g. GBP and Euros.
-     * - maxOccurs: 2
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\NetAmount
      */
     public $NetAmount;
     /**
@@ -62,49 +59,47 @@ class PkgInvoiceDetail extends AbstractStructBase
     /**
      * The BalanceDueAmount
      * Meta informations extracted from the WSDL
-     * - documentation: The amount remaining to be paid by the customer i.e. GrossAmount less DepositAmount; may be repeated for multiple currencies e.g. GBP and Euros.
-     * - maxOccurs: 2
-     * @var mixed[]
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\BalanceDueAmount
      */
     public $BalanceDueAmount;
     /**
-     * The BalanceDueDate
+     * The AmountReceived
      * Meta informations extracted from the WSDL
-     * - documentation: Date on which payment must be received
-     * - use: optional
-     * @var string
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AmountReceived
      */
-    public $BalanceDueDate;
+    public $AmountReceived;
     /**
      * Constructor method for PkgInvoiceDetail
      * @uses PkgInvoiceDetail::setCostingItems()
      * @uses PkgInvoiceDetail::setGrossAmount()
      * @uses PkgInvoiceDetail::setDepositAmount()
-     * @uses PkgInvoiceDetail::setDiscountCommission()
+     * @uses PkgInvoiceDetail::setAgentCommission()
      * @uses PkgInvoiceDetail::setNetAmount()
      * @uses PkgInvoiceDetail::setTaxItems()
      * @uses PkgInvoiceDetail::setBalanceDueAmount()
-     * @uses PkgInvoiceDetail::setBalanceDueDate()
+     * @uses PkgInvoiceDetail::setAmountReceived()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\CostingItems $costingItems
-     * @param mixed[] $grossAmount
-     * @param mixed[] $depositAmount
-     * @param mixed[] $discountCommission
-     * @param mixed[] $netAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GrossAmount $grossAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DepositAmount $depositAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission[] $agentCommission
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\NetAmount $netAmount
      * @param mixed $taxItems
-     * @param mixed[] $balanceDueAmount
-     * @param string $balanceDueDate
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BalanceDueAmount $balanceDueAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AmountReceived $amountReceived
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\CostingItems $costingItems = null, array $grossAmount = array(), array $depositAmount = array(), array $discountCommission = array(), array $netAmount = array(), $taxItems = null, array $balanceDueAmount = array(), $balanceDueDate = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\CostingItems $costingItems = null, \Devlabs91\GenericOtaHotelApiService\StructType\GrossAmount $grossAmount = null, \Devlabs91\GenericOtaHotelApiService\StructType\DepositAmount $depositAmount = null, array $agentCommission = array(), \Devlabs91\GenericOtaHotelApiService\StructType\NetAmount $netAmount = null, $taxItems = null, \Devlabs91\GenericOtaHotelApiService\StructType\BalanceDueAmount $balanceDueAmount = null, \Devlabs91\GenericOtaHotelApiService\StructType\AmountReceived $amountReceived = null)
     {
         $this
             ->setCostingItems($costingItems)
             ->setGrossAmount($grossAmount)
             ->setDepositAmount($depositAmount)
-            ->setDiscountCommission($discountCommission)
+            ->setAgentCommission($agentCommission)
             ->setNetAmount($netAmount)
             ->setTaxItems($taxItems)
             ->setBalanceDueAmount($balanceDueAmount)
-            ->setBalanceDueDate($balanceDueDate);
+            ->setAmountReceived($amountReceived);
     }
     /**
      * Get CostingItems value
@@ -126,7 +121,7 @@ class PkgInvoiceDetail extends AbstractStructBase
     }
     /**
      * Get GrossAmount value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GrossAmount|null
      */
     public function getGrossAmount()
     {
@@ -134,39 +129,17 @@ class PkgInvoiceDetail extends AbstractStructBase
     }
     /**
      * Set GrossAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $grossAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\GrossAmount $grossAmount
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
      */
-    public function setGrossAmount(array $grossAmount = array())
+    public function setGrossAmount(\Devlabs91\GenericOtaHotelApiService\StructType\GrossAmount $grossAmount = null)
     {
-        foreach ($grossAmount as $pkgInvoiceDetailGrossAmountItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The GrossAmount property can only contain items of anyType, "%s" given', is_object($pkgInvoiceDetailGrossAmountItem) ? get_class($pkgInvoiceDetailGrossAmountItem) : gettype($pkgInvoiceDetailGrossAmountItem)), __LINE__);
-            }
-        }
         $this->GrossAmount = $grossAmount;
         return $this;
     }
     /**
-     * Add item to GrossAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
-     */
-    public function addToGrossAmount($item)
-    {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The GrossAmount property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->GrossAmount[] = $item;
-        return $this;
-    }
-    /**
      * Get DepositAmount value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\DepositAmount|null
      */
     public function getDepositAmount()
     {
@@ -174,79 +147,57 @@ class PkgInvoiceDetail extends AbstractStructBase
     }
     /**
      * Set DepositAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $depositAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DepositAmount $depositAmount
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
      */
-    public function setDepositAmount(array $depositAmount = array())
+    public function setDepositAmount(\Devlabs91\GenericOtaHotelApiService\StructType\DepositAmount $depositAmount = null)
     {
-        foreach ($depositAmount as $pkgInvoiceDetailDepositAmountItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The DepositAmount property can only contain items of anyType, "%s" given', is_object($pkgInvoiceDetailDepositAmountItem) ? get_class($pkgInvoiceDetailDepositAmountItem) : gettype($pkgInvoiceDetailDepositAmountItem)), __LINE__);
-            }
-        }
         $this->DepositAmount = $depositAmount;
         return $this;
     }
     /**
-     * Add item to DepositAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
+     * Get AgentCommission value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission[]|null
      */
-    public function addToDepositAmount($item)
+    public function getAgentCommission()
     {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The DepositAmount property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->DepositAmount[] = $item;
-        return $this;
+        return $this->AgentCommission;
     }
     /**
-     * Get DiscountCommission value
-     * @return mixed[]|null
-     */
-    public function getDiscountCommission()
-    {
-        return $this->DiscountCommission;
-    }
-    /**
-     * Set DiscountCommission value
+     * Set AgentCommission value
      * @throws \InvalidArgumentException
-     * @param mixed[] $discountCommission
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission[] $agentCommission
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
      */
-    public function setDiscountCommission(array $discountCommission = array())
+    public function setAgentCommission(array $agentCommission = array())
     {
-        foreach ($discountCommission as $pkgInvoiceDetailDiscountCommissionItem) {
+        foreach ($agentCommission as $pkgInvoiceDetailAgentCommissionItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The DiscountCommission property can only contain items of anyType, "%s" given', is_object($pkgInvoiceDetailDiscountCommissionItem) ? get_class($pkgInvoiceDetailDiscountCommissionItem) : gettype($pkgInvoiceDetailDiscountCommissionItem)), __LINE__);
+            if (!$pkgInvoiceDetailAgentCommissionItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission) {
+                throw new \InvalidArgumentException(sprintf('The AgentCommission property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission, "%s" given', is_object($pkgInvoiceDetailAgentCommissionItem) ? get_class($pkgInvoiceDetailAgentCommissionItem) : gettype($pkgInvoiceDetailAgentCommissionItem)), __LINE__);
             }
         }
-        $this->DiscountCommission = $discountCommission;
+        $this->AgentCommission = $agentCommission;
         return $this;
     }
     /**
-     * Add item to DiscountCommission value
+     * Add item to AgentCommission value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
      */
-    public function addToDiscountCommission($item)
+    public function addToAgentCommission(\Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The DiscountCommission property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission) {
+            throw new \InvalidArgumentException(sprintf('The AgentCommission property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AgentCommission, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
-        $this->DiscountCommission[] = $item;
+        $this->AgentCommission[] = $item;
         return $this;
     }
     /**
      * Get NetAmount value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\NetAmount|null
      */
     public function getNetAmount()
     {
@@ -254,34 +205,12 @@ class PkgInvoiceDetail extends AbstractStructBase
     }
     /**
      * Set NetAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $netAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\NetAmount $netAmount
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
      */
-    public function setNetAmount(array $netAmount = array())
+    public function setNetAmount(\Devlabs91\GenericOtaHotelApiService\StructType\NetAmount $netAmount = null)
     {
-        foreach ($netAmount as $pkgInvoiceDetailNetAmountItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The NetAmount property can only contain items of anyType, "%s" given', is_object($pkgInvoiceDetailNetAmountItem) ? get_class($pkgInvoiceDetailNetAmountItem) : gettype($pkgInvoiceDetailNetAmountItem)), __LINE__);
-            }
-        }
         $this->NetAmount = $netAmount;
-        return $this;
-    }
-    /**
-     * Add item to NetAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
-     */
-    public function addToNetAmount($item)
-    {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The NetAmount property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->NetAmount[] = $item;
         return $this;
     }
     /**
@@ -304,7 +233,7 @@ class PkgInvoiceDetail extends AbstractStructBase
     }
     /**
      * Get BalanceDueAmount value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BalanceDueAmount|null
      */
     public function getBalanceDueAmount()
     {
@@ -312,56 +241,30 @@ class PkgInvoiceDetail extends AbstractStructBase
     }
     /**
      * Set BalanceDueAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $balanceDueAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BalanceDueAmount $balanceDueAmount
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
      */
-    public function setBalanceDueAmount(array $balanceDueAmount = array())
+    public function setBalanceDueAmount(\Devlabs91\GenericOtaHotelApiService\StructType\BalanceDueAmount $balanceDueAmount = null)
     {
-        foreach ($balanceDueAmount as $pkgInvoiceDetailBalanceDueAmountItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The BalanceDueAmount property can only contain items of anyType, "%s" given', is_object($pkgInvoiceDetailBalanceDueAmountItem) ? get_class($pkgInvoiceDetailBalanceDueAmountItem) : gettype($pkgInvoiceDetailBalanceDueAmountItem)), __LINE__);
-            }
-        }
         $this->BalanceDueAmount = $balanceDueAmount;
         return $this;
     }
     /**
-     * Add item to BalanceDueAmount value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
+     * Get AmountReceived value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AmountReceived|null
      */
-    public function addToBalanceDueAmount($item)
+    public function getAmountReceived()
     {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The BalanceDueAmount property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->BalanceDueAmount[] = $item;
-        return $this;
+        return $this->AmountReceived;
     }
     /**
-     * Get BalanceDueDate value
-     * @return string|null
-     */
-    public function getBalanceDueDate()
-    {
-        return $this->BalanceDueDate;
-    }
-    /**
-     * Set BalanceDueDate value
-     * @param string $balanceDueDate
+     * Set AmountReceived value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AmountReceived $amountReceived
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgInvoiceDetail
      */
-    public function setBalanceDueDate($balanceDueDate = null)
+    public function setAmountReceived(\Devlabs91\GenericOtaHotelApiService\StructType\AmountReceived $amountReceived = null)
     {
-        // validation for constraint: string
-        if (!is_null($balanceDueDate) && !is_string($balanceDueDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($balanceDueDate)), __LINE__);
-        }
-        $this->BalanceDueDate = $balanceDueDate;
+        $this->AmountReceived = $amountReceived;
         return $this;
     }
     /**

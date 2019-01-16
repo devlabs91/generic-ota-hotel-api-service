@@ -15,20 +15,31 @@ class ChargesRules extends AbstractStructBase
     /**
      * The VoluntaryChanges
      * Meta informations extracted from the WSDL
-     * - documentation: Container for voluntary change charges
+     * - documentation: Specifies a voluntary change charge.
      * - minOccurs: 0
      * @var mixed
      */
     public $VoluntaryChanges;
     /**
+     * The VoluntaryRefunds
+     * Meta informations extracted from the WSDL
+     * - documentation: Specifies a Voluntary Refund (cancellation) charge.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $VoluntaryRefunds;
+    /**
      * Constructor method for ChargesRules
      * @uses ChargesRules::setVoluntaryChanges()
+     * @uses ChargesRules::setVoluntaryRefunds()
      * @param mixed $voluntaryChanges
+     * @param mixed $voluntaryRefunds
      */
-    public function __construct($voluntaryChanges = null)
+    public function __construct($voluntaryChanges = null, $voluntaryRefunds = null)
     {
         $this
-            ->setVoluntaryChanges($voluntaryChanges);
+            ->setVoluntaryChanges($voluntaryChanges)
+            ->setVoluntaryRefunds($voluntaryRefunds);
     }
     /**
      * Get VoluntaryChanges value
@@ -46,6 +57,24 @@ class ChargesRules extends AbstractStructBase
     public function setVoluntaryChanges($voluntaryChanges = null)
     {
         $this->VoluntaryChanges = $voluntaryChanges;
+        return $this;
+    }
+    /**
+     * Get VoluntaryRefunds value
+     * @return mixed|null
+     */
+    public function getVoluntaryRefunds()
+    {
+        return $this->VoluntaryRefunds;
+    }
+    /**
+     * Set VoluntaryRefunds value
+     * @param mixed $voluntaryRefunds
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ChargesRules
+     */
+    public function setVoluntaryRefunds($voluntaryRefunds = null)
+    {
+        $this->VoluntaryRefunds = $voluntaryRefunds;
         return $this;
     }
     /**

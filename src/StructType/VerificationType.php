@@ -23,6 +23,7 @@ class VerificationType extends AbstractStructBase
     /**
      * The Email
      * Meta informations extracted from the WSDL
+     * - documentation: Information on an email address.
      * - minOccurs: 0
      * @var mixed
      */
@@ -31,12 +32,13 @@ class VerificationType extends AbstractStructBase
      * The TelephoneInfo
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo
      */
     public $TelephoneInfo;
     /**
      * The PaymentCard
      * Meta informations extracted from the WSDL
+     * - documentation: Payment Card information.
      * - minOccurs: 0
      * @var mixed
      */
@@ -44,6 +46,7 @@ class VerificationType extends AbstractStructBase
     /**
      * The AddressInfo
      * Meta informations extracted from the WSDL
+     * - documentation: Detailed information on an address.
      * - minOccurs: 0
      * @var mixed
      */
@@ -53,13 +56,13 @@ class VerificationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[]
      */
     public $CustLoyalty;
     /**
      * The Vendor
      * Meta informations extracted from the WSDL
-     * - documentation: Vendor or Vendors associated with the Reservation
+     * - documentation: Vendor or vendors associated with the reservation.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -118,10 +121,10 @@ class VerificationType extends AbstractStructBase
      * @uses VerificationType::setTPA_Extensions()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\PersonName $personName
      * @param mixed $email
-     * @param mixed $telephoneInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo $telephoneInfo
      * @param mixed $paymentCard
      * @param mixed $addressInfo
-     * @param mixed[] $custLoyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[] $custLoyalty
      * @param mixed[] $vendor
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ReservationTimeSpan $reservationTimeSpan
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AssociatedQuantity[] $associatedQuantity
@@ -129,7 +132,7 @@ class VerificationType extends AbstractStructBase
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\EndLocation $endLocation
      * @param mixed $tPA_Extensions
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\PersonName $personName = null, $email = null, $telephoneInfo = null, $paymentCard = null, $addressInfo = null, array $custLoyalty = array(), array $vendor = array(), \Devlabs91\GenericOtaHotelApiService\StructType\ReservationTimeSpan $reservationTimeSpan = null, array $associatedQuantity = array(), \Devlabs91\GenericOtaHotelApiService\StructType\StartLocation $startLocation = null, \Devlabs91\GenericOtaHotelApiService\StructType\EndLocation $endLocation = null, $tPA_Extensions = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\PersonName $personName = null, $email = null, \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo $telephoneInfo = null, $paymentCard = null, $addressInfo = null, array $custLoyalty = array(), array $vendor = array(), \Devlabs91\GenericOtaHotelApiService\StructType\ReservationTimeSpan $reservationTimeSpan = null, array $associatedQuantity = array(), \Devlabs91\GenericOtaHotelApiService\StructType\StartLocation $startLocation = null, \Devlabs91\GenericOtaHotelApiService\StructType\EndLocation $endLocation = null, $tPA_Extensions = null)
     {
         $this
             ->setPersonName($personName)
@@ -183,7 +186,7 @@ class VerificationType extends AbstractStructBase
     }
     /**
      * Get TelephoneInfo value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo|null
      */
     public function getTelephoneInfo()
     {
@@ -191,10 +194,10 @@ class VerificationType extends AbstractStructBase
     }
     /**
      * Set TelephoneInfo value
-     * @param mixed $telephoneInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo $telephoneInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VerificationType
      */
-    public function setTelephoneInfo($telephoneInfo = null)
+    public function setTelephoneInfo(\Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo $telephoneInfo = null)
     {
         $this->TelephoneInfo = $telephoneInfo;
         return $this;
@@ -237,7 +240,7 @@ class VerificationType extends AbstractStructBase
     }
     /**
      * Get CustLoyalty value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[]|null
      */
     public function getCustLoyalty()
     {
@@ -246,15 +249,15 @@ class VerificationType extends AbstractStructBase
     /**
      * Set CustLoyalty value
      * @throws \InvalidArgumentException
-     * @param mixed[] $custLoyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[] $custLoyalty
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VerificationType
      */
     public function setCustLoyalty(array $custLoyalty = array())
     {
         foreach ($custLoyalty as $verificationTypeCustLoyaltyItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of anyType, "%s" given', is_object($verificationTypeCustLoyaltyItem) ? get_class($verificationTypeCustLoyaltyItem) : gettype($verificationTypeCustLoyaltyItem)), __LINE__);
+            if (!$verificationTypeCustLoyaltyItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty) {
+                throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty, "%s" given', is_object($verificationTypeCustLoyaltyItem) ? get_class($verificationTypeCustLoyaltyItem) : gettype($verificationTypeCustLoyaltyItem)), __LINE__);
             }
         }
         $this->CustLoyalty = $custLoyalty;
@@ -263,14 +266,14 @@ class VerificationType extends AbstractStructBase
     /**
      * Add item to CustLoyalty value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VerificationType
      */
-    public function addToCustLoyalty($item)
+    public function addToCustLoyalty(\Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty) {
+            throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CustLoyalty[] = $item;
         return $this;

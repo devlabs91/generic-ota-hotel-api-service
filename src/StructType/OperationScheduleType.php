@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OperationScheduleType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Details of an operating schedule (e.g. a golf tee time may be more expensive during peak hours v. off peak hours). | The date span applicable to the operation schedule.
  * @subpackage Structs
  */
 class OperationScheduleType extends AbstractStructBase

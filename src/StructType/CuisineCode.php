@@ -15,7 +15,7 @@ class CuisineCode extends AbstractStructBase
     /**
      * The Code
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Main Cuisine Code (CUI).
+     * - documentation: Refer to OpenTravel Code List Main Cuisine Code (CUI).
      * - use: optional
      * @var string
      */
@@ -29,17 +29,28 @@ class CuisineCode extends AbstractStructBase
      */
     public $IsMain;
     /**
+     * The ExistsCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This attribute is used to explicitly define whether the Code applies. Refer to OpenTravel Code list Option Type Code (OTC). This is used in conjunction with Code.
+     * - use: optional
+     * @var string
+     */
+    public $ExistsCode;
+    /**
      * Constructor method for CuisineCode
      * @uses CuisineCode::setCode()
      * @uses CuisineCode::setIsMain()
+     * @uses CuisineCode::setExistsCode()
      * @param string $code
      * @param bool $isMain
+     * @param string $existsCode
      */
-    public function __construct($code = null, $isMain = null)
+    public function __construct($code = null, $isMain = null, $existsCode = null)
     {
         $this
             ->setCode($code)
-            ->setIsMain($isMain);
+            ->setIsMain($isMain)
+            ->setExistsCode($existsCode);
     }
     /**
      * Get Code value
@@ -83,6 +94,28 @@ class CuisineCode extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMain)), __LINE__);
         }
         $this->IsMain = $isMain;
+        return $this;
+    }
+    /**
+     * Get ExistsCode value
+     * @return string|null
+     */
+    public function getExistsCode()
+    {
+        return $this->ExistsCode;
+    }
+    /**
+     * Set ExistsCode value
+     * @param string $existsCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CuisineCode
+     */
+    public function setExistsCode($existsCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
+        }
+        $this->ExistsCode = $existsCode;
         return $this;
     }
     /**

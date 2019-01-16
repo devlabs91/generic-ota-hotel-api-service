@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for AirItineraryType StructType
  * Meta informations extracted from the WSDL
  * - documentation: Specifies the origin and destination of the traveler. Attributes: DirectionInd - A directional indicator that identifies a type of air booking, either one-way, round-trip, or open-jaw with the enumeration of (OneWay | RT | OpenJaw)
- * respectively. ActionCode - Indicates the status of the booking, such as OK or Wait-List. NumberInParty - Indicates the traveler count.
+ * respectively; ActionCode - Indicates the status of the booking, such as OK or Wait-List; NumberInParty - Indicates the traveler count.
  * @subpackage Structs
  */
 class AirItineraryType extends AbstractStructBase
@@ -21,6 +21,7 @@ class AirItineraryType extends AbstractStructBase
     /**
      * The DirectionInd
      * Meta informations extracted from the WSDL
+     * - documentation: Identifies whether travel is: one way, return trip, circle trip, open jaw, other.
      * - use: optional
      * @var string
      */

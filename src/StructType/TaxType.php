@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TaxType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Applicable tax element. This element allows for both percentages and flat amounts. If one field is used, the other should be zero since logically, taxes should be calculated in only one of the two ways.
+ * - documentation: Applicable tax element. This element allows for both percentages and flat amounts. If one field is used, the other should be zero since logically, taxes should be calculated in only one of the two ways. | Provides details of the tax.
+ * | Provides the effective and expiry dates for the tax. | Specifies charge information by unit (e.g., room, person, item) and frequency (e.g., daily, weekly, stay).
  * @subpackage Structs
  */
 class TaxType extends AbstractStructBase

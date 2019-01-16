@@ -30,6 +30,13 @@ class PkgAirSegmentType extends FlightSegmentBaseType
      */
     public $AvailableSeats;
     /**
+     * The Passengers
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Passengers
+     */
+    public $Passengers;
+    /**
      * The CheckInDate
      * Meta informations extracted from the WSDL
      * - documentation: Provides the recommended date and time of passenger check-in.
@@ -54,7 +61,7 @@ class PkgAirSegmentType extends FlightSegmentBaseType
     /**
      * The TravelCode
      * Meta informations extracted from the WSDL
-     * - documentation: The supplier’s code to identify the travel arrangement for the package
+     * - documentation: The supplier's code to identify the travel arrangement for the package
      * - use: optional
      * @var string
      */
@@ -71,6 +78,7 @@ class PkgAirSegmentType extends FlightSegmentBaseType
      * Constructor method for PkgAirSegmentType
      * @uses PkgAirSegmentType::setSupplementCharges()
      * @uses PkgAirSegmentType::setAvailableSeats()
+     * @uses PkgAirSegmentType::setPassengers()
      * @uses PkgAirSegmentType::setCheckInDate()
      * @uses PkgAirSegmentType::setType()
      * @uses PkgAirSegmentType::setDepartureDay()
@@ -78,17 +86,19 @@ class PkgAirSegmentType extends FlightSegmentBaseType
      * @uses PkgAirSegmentType::setDuration()
      * @param mixed[] $supplementCharges
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailableSeats $availableSeats
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Passengers $passengers
      * @param string $checkInDate
      * @param string $type
      * @param string $departureDay
      * @param string $travelCode
      * @param string $duration
      */
-    public function __construct(array $supplementCharges = array(), \Devlabs91\GenericOtaHotelApiService\StructType\AvailableSeats $availableSeats = null, $checkInDate = null, $type = null, $departureDay = null, $travelCode = null, $duration = null)
+    public function __construct(array $supplementCharges = array(), \Devlabs91\GenericOtaHotelApiService\StructType\AvailableSeats $availableSeats = null, \Devlabs91\GenericOtaHotelApiService\StructType\Passengers $passengers = null, $checkInDate = null, $type = null, $departureDay = null, $travelCode = null, $duration = null)
     {
         $this
             ->setSupplementCharges($supplementCharges)
             ->setAvailableSeats($availableSeats)
+            ->setPassengers($passengers)
             ->setCheckInDate($checkInDate)
             ->setType($type)
             ->setDepartureDay($departureDay)
@@ -151,6 +161,24 @@ class PkgAirSegmentType extends FlightSegmentBaseType
     public function setAvailableSeats(\Devlabs91\GenericOtaHotelApiService\StructType\AvailableSeats $availableSeats = null)
     {
         $this->AvailableSeats = $availableSeats;
+        return $this;
+    }
+    /**
+     * Get Passengers value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Passengers|null
+     */
+    public function getPassengers()
+    {
+        return $this->Passengers;
+    }
+    /**
+     * Set Passengers value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Passengers $passengers
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgAirSegmentType
+     */
+    public function setPassengers(\Devlabs91\GenericOtaHotelApiService\StructType\Passengers $passengers = null)
+    {
+        $this->Passengers = $passengers;
         return $this;
     }
     /**

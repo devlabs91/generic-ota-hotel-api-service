@@ -49,9 +49,8 @@ class VehicleAvailVendorInfoType extends AbstractStructBase
     /**
      * The TourInfo
      * Meta informations extracted from the WSDL
-     * - documentation: Details of a tour with which this availability information is associated. Availability and rate information may vary if associated with a tour.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TourInfo
      */
     public $TourInfo;
     /**
@@ -74,10 +73,10 @@ class VehicleAvailVendorInfoType extends AbstractStructBase
      * @param mixed[] $offLocServices
      * @param mixed $paymentRules
      * @param mixed[] $locationDetails
-     * @param mixed $tourInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TourInfo $tourInfo
      * @param mixed $tPA_Extensions
      */
-    public function __construct($vendorMessages = null, array $offLocServices = array(), $paymentRules = null, array $locationDetails = array(), $tourInfo = null, $tPA_Extensions = null)
+    public function __construct($vendorMessages = null, array $offLocServices = array(), $paymentRules = null, array $locationDetails = array(), \Devlabs91\GenericOtaHotelApiService\StructType\TourInfo $tourInfo = null, $tPA_Extensions = null)
     {
         $this
             ->setVendorMessages($vendorMessages)
@@ -205,7 +204,7 @@ class VehicleAvailVendorInfoType extends AbstractStructBase
     }
     /**
      * Get TourInfo value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TourInfo|null
      */
     public function getTourInfo()
     {
@@ -213,10 +212,10 @@ class VehicleAvailVendorInfoType extends AbstractStructBase
     }
     /**
      * Set TourInfo value
-     * @param mixed $tourInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TourInfo $tourInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailVendorInfoType
      */
-    public function setTourInfo($tourInfo = null)
+    public function setTourInfo(\Devlabs91\GenericOtaHotelApiService\StructType\TourInfo $tourInfo = null)
     {
         $this->TourInfo = $tourInfo;
         return $this;

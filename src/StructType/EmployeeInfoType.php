@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for EmployeeInfoType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Employment identification; using an employee ID number, title, level within the company, and an indication of their status, i.e.: active, retired, on leave, or terminated from employment. Additional information about an employee can
- * be entered into the element, including the name of the employee, if it differs from the person name identified as a customer or contact. | Used for Character Strings, length 0 to 64
+ * - documentation: Employment identification; using an employee ID number, title, level within the company, and an indication of their status (e.g., active, retired, on leave, or terminated from employment). Additional information about an employee can
+ * be entered into the element, including the name of the employee, if it differs from the person name identified as a customer or contact. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs
@@ -26,6 +26,7 @@ class EmployeeInfoType extends AbstractStructBase
      * The EmployeeLevel
      * Meta informations extracted from the WSDL
      * - documentation: Level in employer organization (e.g. seniority) that coveys privileges.
+     * - use: optional
      * @var string
      */
     public $EmployeeLevel;
@@ -33,13 +34,14 @@ class EmployeeInfoType extends AbstractStructBase
      * The EmployeeTitle
      * Meta informations extracted from the WSDL
      * - documentation: Title of employee in the employer company that conveys rank or privileges.
+     * - use: optional
      * @var string
      */
     public $EmployeeTitle;
     /**
      * The EmployeeStatus
      * Meta informations extracted from the WSDL
-     * - documentation: Status of employment. Refer to OTA Code List Employee Status (EMP).
+     * - documentation: Status of employment. Refer to OpenTravel Code List Employee Status (EMP).
      * - use: optional
      * @var string
      */

@@ -7,11 +7,20 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PaymentRules StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of payment rules associated with this reservation.
+ * - documentation: A collection of payment rules associated with this reservation. This instance of PaymentRules would be used if there were payment rules that were applicable to a specific vehicle type. | A collection of payment rules associated with
+ * this reservation.
  * @subpackage Structs
  */
-class PaymentRules extends AbstractStructBase
+class PaymentRules extends PaymentRulesType
 {
+    /**
+     * The AcceptablePayments
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 2
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments[]
+     */
+    public $AcceptablePayments;
     /**
      * The PaymentRule
      * Meta informations extracted from the WSDL
@@ -22,13 +31,56 @@ class PaymentRules extends AbstractStructBase
     public $PaymentRule;
     /**
      * Constructor method for PaymentRules
+     * @uses PaymentRules::setAcceptablePayments()
      * @uses PaymentRules::setPaymentRule()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments[] $acceptablePayments
      * @param mixed[] $paymentRule
      */
-    public function __construct(array $paymentRule = array())
+    public function __construct(array $acceptablePayments = array(), array $paymentRule = array())
     {
         $this
+            ->setAcceptablePayments($acceptablePayments)
             ->setPaymentRule($paymentRule);
+    }
+    /**
+     * Get AcceptablePayments value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments[]|null
+     */
+    public function getAcceptablePayments()
+    {
+        return $this->AcceptablePayments;
+    }
+    /**
+     * Set AcceptablePayments value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments[] $acceptablePayments
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PaymentRules
+     */
+    public function setAcceptablePayments(array $acceptablePayments = array())
+    {
+        foreach ($acceptablePayments as $paymentRulesAcceptablePaymentsItem) {
+            // validation for constraint: itemType
+            if (!$paymentRulesAcceptablePaymentsItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments) {
+                throw new \InvalidArgumentException(sprintf('The AcceptablePayments property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments, "%s" given', is_object($paymentRulesAcceptablePaymentsItem) ? get_class($paymentRulesAcceptablePaymentsItem) : gettype($paymentRulesAcceptablePaymentsItem)), __LINE__);
+            }
+        }
+        $this->AcceptablePayments = $acceptablePayments;
+        return $this;
+    }
+    /**
+     * Add item to AcceptablePayments value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PaymentRules
+     */
+    public function addToAcceptablePayments(\Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments) {
+            throw new \InvalidArgumentException(sprintf('The AcceptablePayments property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePayments, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->AcceptablePayments[] = $item;
+        return $this;
     }
     /**
      * Get PaymentRule value

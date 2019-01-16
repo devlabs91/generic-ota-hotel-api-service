@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PersonName StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Detailed name information.
  * @subpackage Structs
  */
 class PersonName extends PersonNameType
@@ -13,6 +15,7 @@ class PersonName extends PersonNameType
     /**
      * The PartialName
      * Meta informations extracted from the WSDL
+     * - documentation: When true the full name is not provided.
      * - use: optional
      * @var bool
      */

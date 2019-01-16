@@ -46,6 +46,11 @@ class LocationDetailShuttleInfoType
      */
     const VALUE_MISCELLANEOUS = 'Miscellaneous';
     /**
+     * Constant for value 'Hours'
+     * @return string 'Hours'
+     */
+    const VALUE_HOURS = 'Hours';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -64,6 +69,7 @@ class LocationDetailShuttleInfoType
      * @uses self::VALUE_ELAPSED_TIME
      * @uses self::VALUE_FEE
      * @uses self::VALUE_MISCELLANEOUS
+     * @uses self::VALUE_HOURS
      * @return string[]
      */
     public static function getValidValues()
@@ -76,6 +82,7 @@ class LocationDetailShuttleInfoType
             self::VALUE_ELAPSED_TIME,
             self::VALUE_FEE,
             self::VALUE_MISCELLANEOUS,
+            self::VALUE_HOURS,
         );
     }
     /**

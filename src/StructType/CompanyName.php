@@ -6,6 +6,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CompanyName StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Company name to whom remittance should be directed. | The name of the company with which this contact is associated. | The ID attribute in this group is a unique identifying value assigned by the creating system and may be used to
+ * reference a primary-key value within a database or in a particular implementation.
  * @subpackage Structs
  */
 class CompanyName extends CompanyNameType

@@ -15,8 +15,9 @@ class RateAmountMessages extends AbstractStructBase
     /**
      * The RateAmountMessage
      * Meta informations extracted from the WSDL
+     * - documentation: RateAmountMessages that define the rate changes to be made.
      * - maxOccurs: unbounded
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType[]
      */
     public $RateAmountMessage;
     /**
@@ -70,7 +71,7 @@ class RateAmountMessages extends AbstractStructBase
      * @uses RateAmountMessages::setHotelCodeContext()
      * @uses RateAmountMessages::setChainName()
      * @uses RateAmountMessages::setBrandName()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage[] $rateAmountMessage
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType[] $rateAmountMessage
      * @param string $chainCode
      * @param string $brandCode
      * @param string $hotelCode
@@ -95,7 +96,7 @@ class RateAmountMessages extends AbstractStructBase
     }
     /**
      * Get RateAmountMessage value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType[]|null
      */
     public function getRateAmountMessage()
     {
@@ -104,15 +105,15 @@ class RateAmountMessages extends AbstractStructBase
     /**
      * Set RateAmountMessage value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage[] $rateAmountMessage
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType[] $rateAmountMessage
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessages
      */
     public function setRateAmountMessage(array $rateAmountMessage = array())
     {
         foreach ($rateAmountMessage as $rateAmountMessagesRateAmountMessageItem) {
             // validation for constraint: itemType
-            if (!$rateAmountMessagesRateAmountMessageItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage) {
-                throw new \InvalidArgumentException(sprintf('The RateAmountMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage, "%s" given', is_object($rateAmountMessagesRateAmountMessageItem) ? get_class($rateAmountMessagesRateAmountMessageItem) : gettype($rateAmountMessagesRateAmountMessageItem)), __LINE__);
+            if (!$rateAmountMessagesRateAmountMessageItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType) {
+                throw new \InvalidArgumentException(sprintf('The RateAmountMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType, "%s" given', is_object($rateAmountMessagesRateAmountMessageItem) ? get_class($rateAmountMessagesRateAmountMessageItem) : gettype($rateAmountMessagesRateAmountMessageItem)), __LINE__);
             }
         }
         $this->RateAmountMessage = $rateAmountMessage;
@@ -121,14 +122,14 @@ class RateAmountMessages extends AbstractStructBase
     /**
      * Add item to RateAmountMessage value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessages
      */
-    public function addToRateAmountMessage(\Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage $item)
+    public function addToRateAmountMessage(\Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType $item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage) {
-            throw new \InvalidArgumentException(sprintf('The RateAmountMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessage, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType) {
+            throw new \InvalidArgumentException(sprintf('The RateAmountMessage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessageType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->RateAmountMessage[] = $item;
         return $this;

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RatePlanInclusions StructType
  * Meta informations extracted from the WSDL
- * - documentation: Defines charges that are included in this rate plan.This element allows for future extention should there be a need.
+ * - documentation: Defines charges that are included in this rate plan.This element allows for future extension should there be a need.
  * @subpackage Structs
  */
 class RatePlanInclusions extends AbstractStructBase

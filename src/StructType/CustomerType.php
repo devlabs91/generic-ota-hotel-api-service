@@ -7,7 +7,10 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CustomerType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Contains basic data on the customer's identity, location, relationships, finances, memberships, etc. | Type of funds preferred for reviewing monetary values, in ISO 4217 codes.
+ * - documentation: Contains basic data on the customer's identity, location, relationships, finances, memberships, etc. | Identifies the gender of the customer. | Identifies the birth date of the customer. | Type of funds preferred for reviewing
+ * monetary values, in ISO 4217 codes. | The primary language of the customer.
+ * - type: StringLength1to8
+ * - use: optional
  * @subpackage Structs
  */
 class CustomerType extends AbstractStructBase
@@ -15,30 +18,32 @@ class CustomerType extends AbstractStructBase
     /**
      * The PersonName
      * Meta informations extracted from the WSDL
+     * - documentation: Detailed name information for the customer.
+     * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed
+     * @var mixed[]
      */
     public $PersonName;
     /**
      * The Telephone
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 5
+     * - maxOccurs: 99
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[]
      */
     public $Telephone;
     /**
      * The Email
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 5
+     * - maxOccurs: 99
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Email[]
      */
     public $Email;
     /**
      * The Address
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 5
+     * - maxOccurs: 99
      * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\Address[]
      */
@@ -48,15 +53,15 @@ class CustomerType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\URL[]
      */
     public $URL;
     /**
      * The CitizenCountryName
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 2
+     * - maxOccurs: 3
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName[]
      */
     public $CitizenCountryName;
     /**
@@ -64,12 +69,13 @@ class CustomerType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName[]
      */
     public $PhysChallName;
     /**
      * The PetInfo
      * Meta informations extracted from the WSDL
+     * - documentation: Describes the customer's pet.
      * - maxOccurs: 3
      * - minOccurs: 0
      * @var mixed[]
@@ -78,15 +84,16 @@ class CustomerType extends AbstractStructBase
     /**
      * The PaymentForm
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 5
+     * - maxOccurs: 100
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[]
      */
     public $PaymentForm;
     /**
      * The RelatedTraveler
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 9
+     * - documentation: Identifies a traveler associated with the customer.
+     * - maxOccurs: 99
      * - minOccurs: 0
      * @var mixed[]
      */
@@ -94,6 +101,7 @@ class CustomerType extends AbstractStructBase
     /**
      * The ContactPerson
      * Meta informations extracted from the WSDL
+     * - documentation: Information on a contact person for the customer.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -102,7 +110,8 @@ class CustomerType extends AbstractStructBase
     /**
      * The Document
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 5
+     * - documentation: Detailed document information for the customer (e.g., driver license, passport, visa).
+     * - maxOccurs: 99
      * - minOccurs: 0
      * @var mixed[]
      */
@@ -110,21 +119,49 @@ class CustomerType extends AbstractStructBase
     /**
      * The CustLoyalty
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 5
+     * - maxOccurs: 25
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[]
      */
     public $CustLoyalty;
     /**
      * The EmployeeInfo
      * Meta informations extracted from the WSDL
+     * - documentation: Employment information for the customer.
      * - maxOccurs: 3
      * - minOccurs: 0
      * @var mixed[]
      */
     public $EmployeeInfo;
     /**
+     * The EmployerInfo
+     * Meta informations extracted from the WSDL
+     * - documentation: Identifies the customer's employer.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $EmployerInfo;
+    /**
+     * The AdditionalLanguage
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 5
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage[]
+     */
+    public $AdditionalLanguage;
+    /**
+     * The TPA_Extensions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * - ref: TPA_Extensions
+     * @var mixed
+     */
+    public $TPA_Extensions;
+    /**
      * The Deceased
+     * Meta informations extracted from the WSDL
+     * - documentation: When true the customer is deceased.
+     * - use: optional
      * @var bool
      */
     public $Deceased;
@@ -132,9 +169,57 @@ class CustomerType extends AbstractStructBase
      * The LockoutType
      * Meta informations extracted from the WSDL
      * - documentation: Indicates reason for locking out record, such as Emergency, Incident, etc.
+     * - use: optional
      * @var string
      */
     public $LockoutType;
+    /**
+     * The VIP_Indicator
+     * Meta informations extracted from the WSDL
+     * - documentation: If true, indicates a very important person.
+     * - use: optional
+     * @var bool
+     */
+    public $VIP_Indicator;
+    /**
+     * The Text
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to specify textual information about the customer.
+     * - use: optional
+     * @var string
+     */
+    public $Text;
+    /**
+     * The CustomerValue
+     * Meta informations extracted from the WSDL
+     * - documentation: The supplier's ranking of the customer (e.g., VIP, numerical ranking).
+     * - use: optional
+     * @var string
+     */
+    public $CustomerValue;
+    /**
+     * The MaritalStatus
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $MaritalStatus;
+    /**
+     * The PreviouslyMarriedIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates the customer was previously married. When false, indicates the customer was not previously married.
+     * - use: optional
+     * @var bool
+     */
+    public $PreviouslyMarriedIndicator;
+    /**
+     * The ChildQuantity
+     * Meta informations extracted from the WSDL
+     * - documentation: The number of children of the customer.
+     * - use: optional
+     * @var string
+     */
+    public $ChildQuantity;
     /**
      * Constructor method for CustomerType
      * @uses CustomerType::setPersonName()
@@ -151,26 +236,44 @@ class CustomerType extends AbstractStructBase
      * @uses CustomerType::setDocument()
      * @uses CustomerType::setCustLoyalty()
      * @uses CustomerType::setEmployeeInfo()
+     * @uses CustomerType::setEmployerInfo()
+     * @uses CustomerType::setAdditionalLanguage()
+     * @uses CustomerType::setTPA_Extensions()
      * @uses CustomerType::setDeceased()
      * @uses CustomerType::setLockoutType()
-     * @param mixed $personName
-     * @param mixed[] $telephone
-     * @param mixed[] $email
+     * @uses CustomerType::setVIP_Indicator()
+     * @uses CustomerType::setText()
+     * @uses CustomerType::setCustomerValue()
+     * @uses CustomerType::setMaritalStatus()
+     * @uses CustomerType::setPreviouslyMarriedIndicator()
+     * @uses CustomerType::setChildQuantity()
+     * @param mixed[] $personName
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[] $telephone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Email[] $email
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Address[] $address
-     * @param mixed[] $uRL
-     * @param mixed[] $citizenCountryName
-     * @param mixed[] $physChallName
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\URL[] $uRL
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName[] $citizenCountryName
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName[] $physChallName
      * @param mixed[] $petInfo
-     * @param mixed[] $paymentForm
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[] $paymentForm
      * @param mixed[] $relatedTraveler
      * @param mixed[] $contactPerson
      * @param mixed[] $document
-     * @param mixed[] $custLoyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[] $custLoyalty
      * @param mixed[] $employeeInfo
+     * @param mixed $employerInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage[] $additionalLanguage
+     * @param mixed $tPA_Extensions
      * @param bool $deceased
      * @param string $lockoutType
+     * @param bool $vIP_Indicator
+     * @param string $text
+     * @param string $customerValue
+     * @param string $maritalStatus
+     * @param bool $previouslyMarriedIndicator
+     * @param string $childQuantity
      */
-    public function __construct($personName = null, array $telephone = array(), array $email = array(), array $address = array(), array $uRL = array(), array $citizenCountryName = array(), array $physChallName = array(), array $petInfo = array(), array $paymentForm = array(), array $relatedTraveler = array(), array $contactPerson = array(), array $document = array(), array $custLoyalty = array(), array $employeeInfo = array(), $deceased = null, $lockoutType = null)
+    public function __construct(array $personName = array(), array $telephone = array(), array $email = array(), array $address = array(), array $uRL = array(), array $citizenCountryName = array(), array $physChallName = array(), array $petInfo = array(), array $paymentForm = array(), array $relatedTraveler = array(), array $contactPerson = array(), array $document = array(), array $custLoyalty = array(), array $employeeInfo = array(), $employerInfo = null, array $additionalLanguage = array(), $tPA_Extensions = null, $deceased = null, $lockoutType = null, $vIP_Indicator = null, $text = null, $customerValue = null, $maritalStatus = null, $previouslyMarriedIndicator = null, $childQuantity = null)
     {
         $this
             ->setPersonName($personName)
@@ -187,12 +290,21 @@ class CustomerType extends AbstractStructBase
             ->setDocument($document)
             ->setCustLoyalty($custLoyalty)
             ->setEmployeeInfo($employeeInfo)
+            ->setEmployerInfo($employerInfo)
+            ->setAdditionalLanguage($additionalLanguage)
+            ->setTPA_Extensions($tPA_Extensions)
             ->setDeceased($deceased)
-            ->setLockoutType($lockoutType);
+            ->setLockoutType($lockoutType)
+            ->setVIP_Indicator($vIP_Indicator)
+            ->setText($text)
+            ->setCustomerValue($customerValue)
+            ->setMaritalStatus($maritalStatus)
+            ->setPreviouslyMarriedIndicator($previouslyMarriedIndicator)
+            ->setChildQuantity($childQuantity);
     }
     /**
      * Get PersonName value
-     * @return mixed|null
+     * @return mixed[]|null
      */
     public function getPersonName()
     {
@@ -200,17 +312,39 @@ class CustomerType extends AbstractStructBase
     }
     /**
      * Set PersonName value
-     * @param mixed $personName
+     * @throws \InvalidArgumentException
+     * @param mixed[] $personName
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function setPersonName($personName = null)
+    public function setPersonName(array $personName = array())
     {
+        foreach ($personName as $customerTypePersonNameItem) {
+            // validation for constraint: itemType
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The PersonName property can only contain items of anyType, "%s" given', is_object($customerTypePersonNameItem) ? get_class($customerTypePersonNameItem) : gettype($customerTypePersonNameItem)), __LINE__);
+            }
+        }
         $this->PersonName = $personName;
         return $this;
     }
     /**
+     * Add item to PersonName value
+     * @throws \InvalidArgumentException
+     * @param mixed $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function addToPersonName($item)
+    {
+        // validation for constraint: itemType
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The PersonName property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->PersonName[] = $item;
+        return $this;
+    }
+    /**
      * Get Telephone value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[]|null
      */
     public function getTelephone()
     {
@@ -219,15 +353,15 @@ class CustomerType extends AbstractStructBase
     /**
      * Set Telephone value
      * @throws \InvalidArgumentException
-     * @param mixed[] $telephone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone[] $telephone
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
     public function setTelephone(array $telephone = array())
     {
         foreach ($telephone as $customerTypeTelephoneItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of anyType, "%s" given', is_object($customerTypeTelephoneItem) ? get_class($customerTypeTelephoneItem) : gettype($customerTypeTelephoneItem)), __LINE__);
+            if (!$customerTypeTelephoneItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Telephone) {
+                throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Telephone, "%s" given', is_object($customerTypeTelephoneItem) ? get_class($customerTypeTelephoneItem) : gettype($customerTypeTelephoneItem)), __LINE__);
             }
         }
         $this->Telephone = $telephone;
@@ -236,21 +370,21 @@ class CustomerType extends AbstractStructBase
     /**
      * Add item to Telephone value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function addToTelephone($item)
+    public function addToTelephone(\Devlabs91\GenericOtaHotelApiService\StructType\Telephone $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Telephone) {
+            throw new \InvalidArgumentException(sprintf('The Telephone property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Telephone, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Telephone[] = $item;
         return $this;
     }
     /**
      * Get Email value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Email[]|null
      */
     public function getEmail()
     {
@@ -259,15 +393,15 @@ class CustomerType extends AbstractStructBase
     /**
      * Set Email value
      * @throws \InvalidArgumentException
-     * @param mixed[] $email
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Email[] $email
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
     public function setEmail(array $email = array())
     {
         foreach ($email as $customerTypeEmailItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Email property can only contain items of anyType, "%s" given', is_object($customerTypeEmailItem) ? get_class($customerTypeEmailItem) : gettype($customerTypeEmailItem)), __LINE__);
+            if (!$customerTypeEmailItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Email) {
+                throw new \InvalidArgumentException(sprintf('The Email property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Email, "%s" given', is_object($customerTypeEmailItem) ? get_class($customerTypeEmailItem) : gettype($customerTypeEmailItem)), __LINE__);
             }
         }
         $this->Email = $email;
@@ -276,14 +410,14 @@ class CustomerType extends AbstractStructBase
     /**
      * Add item to Email value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Email $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function addToEmail($item)
+    public function addToEmail(\Devlabs91\GenericOtaHotelApiService\StructType\Email $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Email property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Email) {
+            throw new \InvalidArgumentException(sprintf('The Email property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Email, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Email[] = $item;
         return $this;
@@ -330,7 +464,7 @@ class CustomerType extends AbstractStructBase
     }
     /**
      * Get URL value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\URL[]|null
      */
     public function getURL()
     {
@@ -339,15 +473,15 @@ class CustomerType extends AbstractStructBase
     /**
      * Set URL value
      * @throws \InvalidArgumentException
-     * @param mixed[] $uRL
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\URL[] $uRL
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
     public function setURL(array $uRL = array())
     {
         foreach ($uRL as $customerTypeURLItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The URL property can only contain items of anyType, "%s" given', is_object($customerTypeURLItem) ? get_class($customerTypeURLItem) : gettype($customerTypeURLItem)), __LINE__);
+            if (!$customerTypeURLItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\URL) {
+                throw new \InvalidArgumentException(sprintf('The URL property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\URL, "%s" given', is_object($customerTypeURLItem) ? get_class($customerTypeURLItem) : gettype($customerTypeURLItem)), __LINE__);
             }
         }
         $this->URL = $uRL;
@@ -356,21 +490,21 @@ class CustomerType extends AbstractStructBase
     /**
      * Add item to URL value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\URL $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function addToURL($item)
+    public function addToURL(\Devlabs91\GenericOtaHotelApiService\StructType\URL $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The URL property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\URL) {
+            throw new \InvalidArgumentException(sprintf('The URL property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\URL, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->URL[] = $item;
         return $this;
     }
     /**
      * Get CitizenCountryName value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName[]|null
      */
     public function getCitizenCountryName()
     {
@@ -379,15 +513,15 @@ class CustomerType extends AbstractStructBase
     /**
      * Set CitizenCountryName value
      * @throws \InvalidArgumentException
-     * @param mixed[] $citizenCountryName
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName[] $citizenCountryName
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
     public function setCitizenCountryName(array $citizenCountryName = array())
     {
         foreach ($citizenCountryName as $customerTypeCitizenCountryNameItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The CitizenCountryName property can only contain items of anyType, "%s" given', is_object($customerTypeCitizenCountryNameItem) ? get_class($customerTypeCitizenCountryNameItem) : gettype($customerTypeCitizenCountryNameItem)), __LINE__);
+            if (!$customerTypeCitizenCountryNameItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName) {
+                throw new \InvalidArgumentException(sprintf('The CitizenCountryName property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName, "%s" given', is_object($customerTypeCitizenCountryNameItem) ? get_class($customerTypeCitizenCountryNameItem) : gettype($customerTypeCitizenCountryNameItem)), __LINE__);
             }
         }
         $this->CitizenCountryName = $citizenCountryName;
@@ -396,21 +530,21 @@ class CustomerType extends AbstractStructBase
     /**
      * Add item to CitizenCountryName value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function addToCitizenCountryName($item)
+    public function addToCitizenCountryName(\Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The CitizenCountryName property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName) {
+            throw new \InvalidArgumentException(sprintf('The CitizenCountryName property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CitizenCountryName, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CitizenCountryName[] = $item;
         return $this;
     }
     /**
      * Get PhysChallName value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName[]|null
      */
     public function getPhysChallName()
     {
@@ -419,15 +553,15 @@ class CustomerType extends AbstractStructBase
     /**
      * Set PhysChallName value
      * @throws \InvalidArgumentException
-     * @param mixed[] $physChallName
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName[] $physChallName
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
     public function setPhysChallName(array $physChallName = array())
     {
         foreach ($physChallName as $customerTypePhysChallNameItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The PhysChallName property can only contain items of anyType, "%s" given', is_object($customerTypePhysChallNameItem) ? get_class($customerTypePhysChallNameItem) : gettype($customerTypePhysChallNameItem)), __LINE__);
+            if (!$customerTypePhysChallNameItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName) {
+                throw new \InvalidArgumentException(sprintf('The PhysChallName property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName, "%s" given', is_object($customerTypePhysChallNameItem) ? get_class($customerTypePhysChallNameItem) : gettype($customerTypePhysChallNameItem)), __LINE__);
             }
         }
         $this->PhysChallName = $physChallName;
@@ -436,14 +570,14 @@ class CustomerType extends AbstractStructBase
     /**
      * Add item to PhysChallName value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function addToPhysChallName($item)
+    public function addToPhysChallName(\Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The PhysChallName property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName) {
+            throw new \InvalidArgumentException(sprintf('The PhysChallName property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PhysChallName, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->PhysChallName[] = $item;
         return $this;
@@ -490,7 +624,7 @@ class CustomerType extends AbstractStructBase
     }
     /**
      * Get PaymentForm value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[]|null
      */
     public function getPaymentForm()
     {
@@ -499,15 +633,15 @@ class CustomerType extends AbstractStructBase
     /**
      * Set PaymentForm value
      * @throws \InvalidArgumentException
-     * @param mixed[] $paymentForm
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[] $paymentForm
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
     public function setPaymentForm(array $paymentForm = array())
     {
         foreach ($paymentForm as $customerTypePaymentFormItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of anyType, "%s" given', is_object($customerTypePaymentFormItem) ? get_class($customerTypePaymentFormItem) : gettype($customerTypePaymentFormItem)), __LINE__);
+            if (!$customerTypePaymentFormItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm) {
+                throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm, "%s" given', is_object($customerTypePaymentFormItem) ? get_class($customerTypePaymentFormItem) : gettype($customerTypePaymentFormItem)), __LINE__);
             }
         }
         $this->PaymentForm = $paymentForm;
@@ -516,14 +650,14 @@ class CustomerType extends AbstractStructBase
     /**
      * Add item to PaymentForm value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function addToPaymentForm($item)
+    public function addToPaymentForm(\Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm) {
+            throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->PaymentForm[] = $item;
         return $this;
@@ -650,7 +784,7 @@ class CustomerType extends AbstractStructBase
     }
     /**
      * Get CustLoyalty value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[]|null
      */
     public function getCustLoyalty()
     {
@@ -659,15 +793,15 @@ class CustomerType extends AbstractStructBase
     /**
      * Set CustLoyalty value
      * @throws \InvalidArgumentException
-     * @param mixed[] $custLoyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty[] $custLoyalty
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
     public function setCustLoyalty(array $custLoyalty = array())
     {
         foreach ($custLoyalty as $customerTypeCustLoyaltyItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of anyType, "%s" given', is_object($customerTypeCustLoyaltyItem) ? get_class($customerTypeCustLoyaltyItem) : gettype($customerTypeCustLoyaltyItem)), __LINE__);
+            if (!$customerTypeCustLoyaltyItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty) {
+                throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty, "%s" given', is_object($customerTypeCustLoyaltyItem) ? get_class($customerTypeCustLoyaltyItem) : gettype($customerTypeCustLoyaltyItem)), __LINE__);
             }
         }
         $this->CustLoyalty = $custLoyalty;
@@ -676,14 +810,14 @@ class CustomerType extends AbstractStructBase
     /**
      * Add item to CustLoyalty value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
      */
-    public function addToCustLoyalty($item)
+    public function addToCustLoyalty(\Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty) {
+            throw new \InvalidArgumentException(sprintf('The CustLoyalty property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CustLoyalty[] = $item;
         return $this;
@@ -729,6 +863,82 @@ class CustomerType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get EmployerInfo value
+     * @return mixed|null
+     */
+    public function getEmployerInfo()
+    {
+        return $this->EmployerInfo;
+    }
+    /**
+     * Set EmployerInfo value
+     * @param mixed $employerInfo
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setEmployerInfo($employerInfo = null)
+    {
+        $this->EmployerInfo = $employerInfo;
+        return $this;
+    }
+    /**
+     * Get AdditionalLanguage value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage[]|null
+     */
+    public function getAdditionalLanguage()
+    {
+        return $this->AdditionalLanguage;
+    }
+    /**
+     * Set AdditionalLanguage value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage[] $additionalLanguage
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setAdditionalLanguage(array $additionalLanguage = array())
+    {
+        foreach ($additionalLanguage as $customerTypeAdditionalLanguageItem) {
+            // validation for constraint: itemType
+            if (!$customerTypeAdditionalLanguageItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage) {
+                throw new \InvalidArgumentException(sprintf('The AdditionalLanguage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage, "%s" given', is_object($customerTypeAdditionalLanguageItem) ? get_class($customerTypeAdditionalLanguageItem) : gettype($customerTypeAdditionalLanguageItem)), __LINE__);
+            }
+        }
+        $this->AdditionalLanguage = $additionalLanguage;
+        return $this;
+    }
+    /**
+     * Add item to AdditionalLanguage value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function addToAdditionalLanguage(\Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage) {
+            throw new \InvalidArgumentException(sprintf('The AdditionalLanguage property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalLanguage, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->AdditionalLanguage[] = $item;
+        return $this;
+    }
+    /**
+     * Get TPA_Extensions value
+     * @return mixed|null
+     */
+    public function getTPA_Extensions()
+    {
+        return $this->TPA_Extensions;
+    }
+    /**
+     * Set TPA_Extensions value
+     * @param mixed $tPA_Extensions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setTPA_Extensions($tPA_Extensions = null)
+    {
+        $this->TPA_Extensions = $tPA_Extensions;
+        return $this;
+    }
+    /**
      * Get Deceased value
      * @return bool|null
      */
@@ -770,6 +980,138 @@ class CustomerType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lockoutType)), __LINE__);
         }
         $this->LockoutType = $lockoutType;
+        return $this;
+    }
+    /**
+     * Get VIP_Indicator value
+     * @return bool|null
+     */
+    public function getVIP_Indicator()
+    {
+        return $this->VIP_Indicator;
+    }
+    /**
+     * Set VIP_Indicator value
+     * @param bool $vIP_Indicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setVIP_Indicator($vIP_Indicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($vIP_Indicator) && !is_bool($vIP_Indicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($vIP_Indicator)), __LINE__);
+        }
+        $this->VIP_Indicator = $vIP_Indicator;
+        return $this;
+    }
+    /**
+     * Get Text value
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->Text;
+    }
+    /**
+     * Set Text value
+     * @param string $text
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setText($text = null)
+    {
+        // validation for constraint: string
+        if (!is_null($text) && !is_string($text)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($text)), __LINE__);
+        }
+        $this->Text = $text;
+        return $this;
+    }
+    /**
+     * Get CustomerValue value
+     * @return string|null
+     */
+    public function getCustomerValue()
+    {
+        return $this->CustomerValue;
+    }
+    /**
+     * Set CustomerValue value
+     * @param string $customerValue
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setCustomerValue($customerValue = null)
+    {
+        // validation for constraint: string
+        if (!is_null($customerValue) && !is_string($customerValue)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($customerValue)), __LINE__);
+        }
+        $this->CustomerValue = $customerValue;
+        return $this;
+    }
+    /**
+     * Get MaritalStatus value
+     * @return string|null
+     */
+    public function getMaritalStatus()
+    {
+        return $this->MaritalStatus;
+    }
+    /**
+     * Set MaritalStatus value
+     * @param string $maritalStatus
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setMaritalStatus($maritalStatus = null)
+    {
+        // validation for constraint: string
+        if (!is_null($maritalStatus) && !is_string($maritalStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($maritalStatus)), __LINE__);
+        }
+        $this->MaritalStatus = $maritalStatus;
+        return $this;
+    }
+    /**
+     * Get PreviouslyMarriedIndicator value
+     * @return bool|null
+     */
+    public function getPreviouslyMarriedIndicator()
+    {
+        return $this->PreviouslyMarriedIndicator;
+    }
+    /**
+     * Set PreviouslyMarriedIndicator value
+     * @param bool $previouslyMarriedIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setPreviouslyMarriedIndicator($previouslyMarriedIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($previouslyMarriedIndicator) && !is_bool($previouslyMarriedIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($previouslyMarriedIndicator)), __LINE__);
+        }
+        $this->PreviouslyMarriedIndicator = $previouslyMarriedIndicator;
+        return $this;
+    }
+    /**
+     * Get ChildQuantity value
+     * @return string|null
+     */
+    public function getChildQuantity()
+    {
+        return $this->ChildQuantity;
+    }
+    /**
+     * Set ChildQuantity value
+     * @param string $childQuantity
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerType
+     */
+    public function setChildQuantity($childQuantity = null)
+    {
+        // validation for constraint: string
+        if (!is_null($childQuantity) && !is_string($childQuantity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($childQuantity)), __LINE__);
+        }
+        $this->ChildQuantity = $childQuantity;
         return $this;
     }
     /**

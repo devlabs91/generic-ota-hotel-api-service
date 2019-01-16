@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for FreeTextType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Textual information to provide descriptions and/or additional information.
+ * - documentation: Textual information to provide descriptions and/or additional information. | Language of the text.
  * @subpackage Structs
  */
 class FreeTextType extends AbstractStructBase

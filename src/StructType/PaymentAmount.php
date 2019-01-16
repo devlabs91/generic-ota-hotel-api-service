@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PaymentAmount StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Provides the monetary amount due for payment as quoted. A second instance could show the actual paid amount in a different currency. | The currency amount of the payment.
  * @subpackage Structs
  */
 class PaymentAmount extends AbstractStructBase
@@ -13,7 +15,7 @@ class PaymentAmount extends AbstractStructBase
     /**
      * The ApprovalCode
      * Meta informations extracted from the WSDL
-     * - documentation: The approval code returned as part of an authorization process.
+     * - documentation: The approval code returned as part of an authorization process. | The approval code returned as part of an authorization process.
      * - use: optional
      * @var string
      */

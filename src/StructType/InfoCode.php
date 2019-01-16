@@ -22,7 +22,7 @@ class InfoCode extends AbstractStructBase
     /**
      * The Code
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Restaurant Category (RES).
+     * - documentation: Refer to OpenTravel Code List Restaurant Category (RES).
      * - use: optional
      * @var string
      */

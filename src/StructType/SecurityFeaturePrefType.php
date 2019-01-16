@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SecurityFeaturePrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for type of security features in a hotel. | Identifies the customer's level of preference for the hotel security feature identified. Refer to OTA Code List Security Feature Code (SEC). | Used for codes in the
- * OTA code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
+ * - documentation: Indicates preferences for type of security features in a hotel. | Identifies the customer's level of preference for the hotel security feature identified. Refer to OpenTravel Code List Security Feature Code (SEC). | Used for codes in
+ * the OpenTravel Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
  * - pattern: [0-9A-Z]{1,3}(\.[A-Z]{3}(\.X){0,1}){0,1}
  * @subpackage Structs
  */

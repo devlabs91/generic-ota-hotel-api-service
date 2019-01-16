@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PhysChallFeaturePrefType StructType
  * Meta informations extracted from the WSDL
  * - documentation: Indicates preferences for type of features required to meet the needs of persons with physical challenges, disabilities, etc. | Identifies the customer's level of preference for the hotel physically challenged feature identified. |
- * Used for Character Strings, length 1 to 128
+ * Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -18,7 +18,7 @@ class PhysChallFeaturePrefType extends AbstractStructBase
     /**
      * The PhysChallFeatureType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the types of features the hotel offers to service physically challenged guests. Refer to OTA Code List Physically Challenged Feature Code (PHY).
+     * - documentation: Identifies the types of features the hotel offers to service physically challenged guests. Refer to OpenTravel Code List Physically Challenged Feature Code (PHY).
      * @var string
      */
     public $PhysChallFeatureType;

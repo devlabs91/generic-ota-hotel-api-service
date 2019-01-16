@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for FareBasisCodes StructType
  * Meta informations extracted from the WSDL
- * - documentation: This is a collection of Fare Basis Codes
+ * - documentation: This is a collection of fare basis codes.
  * @subpackage Structs
  */
 class FareBasisCodes extends AbstractStructBase
@@ -16,7 +16,7 @@ class FareBasisCodes extends AbstractStructBase
      * The FareBasisCode
      * Meta informations extracted from the WSDL
      * - documentation: Fare basis code for the price for this PTC
-     * - maxOccurs: 10
+     * - maxOccurs: 299
      * @var mixed[]
      */
     public $FareBasisCode;

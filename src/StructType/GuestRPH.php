@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for GuestRPH StructType
  * Meta informations extracted from the WSDL
- * - documentation: References one of the guest(s) staying in this room | (Reference Place Holder) - an index code to identify an instance in a collection of like items.. For example, used to assign individual passengers or clients to particular
- * itinerary items.
+ * - documentation: References one of the guest(s) staying in this room. | The Reference Place Holder (RPH) is an index code used to identify an instance in a collection of like items (e.g. used to assign individual passengers or clients to particular
+ * itinerary items).
  * - pattern: [0-9]{1,8}
  * @subpackage Structs
  */

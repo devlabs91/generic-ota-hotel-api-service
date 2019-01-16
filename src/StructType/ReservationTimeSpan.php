@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for ReservationTimeSpan StructType
  * Meta informations extracted from the WSDL
- * - documentation: The start and end day of the reservation.
+ * - documentation: The start and end date of the reservation. | The start and end date of the reservation.
  * @subpackage Structs
  */
 class ReservationTimeSpan extends AbstractStructBase

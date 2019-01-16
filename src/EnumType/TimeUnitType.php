@@ -5,7 +5,7 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for TimeUnitType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: An enumerated type defining the unit in which the time is expressed.
+ * - documentation: Defines the unit in which the time is expressed (e.g. year, day, hour).
  * @subpackage Enumerations
  */
 class TimeUnitType
@@ -46,6 +46,11 @@ class TimeUnitType
      */
     const VALUE_FULL_DURATION = 'FullDuration';
     /**
+     * Constant for value 'Minute'
+     * @return string 'Minute'
+     */
+    const VALUE_MINUTE = 'Minute';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -64,6 +69,7 @@ class TimeUnitType
      * @uses self::VALUE_HOUR
      * @uses self::VALUE_SECOND
      * @uses self::VALUE_FULL_DURATION
+     * @uses self::VALUE_MINUTE
      * @return string[]
      */
     public static function getValidValues()
@@ -76,6 +82,7 @@ class TimeUnitType
             self::VALUE_HOUR,
             self::VALUE_SECOND,
             self::VALUE_FULL_DURATION,
+            self::VALUE_MINUTE,
         );
     }
     /**

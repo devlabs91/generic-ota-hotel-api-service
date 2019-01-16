@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CompanyNamePrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Identifies a preferred company by name.
+ * - documentation: Identifies a preferred company by name. | Used to specify the preference level for this company.
  * @subpackage Structs
  */
 class CompanyNamePrefType extends CompanyNameType

@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CancelRules StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: A collection of cancellation rules.
  * @subpackage Structs
  */
 class CancelRules extends AbstractStructBase
@@ -13,6 +15,7 @@ class CancelRules extends AbstractStructBase
     /**
      * The CancelRule
      * Meta informations extracted from the WSDL
+     * - documentation: Details of a cancellation rule.
      * - maxOccurs: unbounded
      * @var mixed[]
      */

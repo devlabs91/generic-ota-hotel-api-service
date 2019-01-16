@@ -7,15 +7,23 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SpecialServiceRequest StructType
  * Meta informations extracted from the WSDL
- * - documentation: Special Service Requests (SSR) for this booking
+ * - documentation: Special Service Requests (SSR) for this booking. | AWG to revisit. | The birth date of the traveler to whom this SSR applies.
  * @subpackage Structs
  */
 class SpecialServiceRequest extends SpecialServiceRequestType
 {
     /**
+     * The FlightLeg
+     * Meta informations extracted from the WSDL
+     * - documentation: Flight information associated to this special request, used when FlightRefNumberRPHList is not available or is different.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $FlightLeg;
+    /**
      * The TravelerRefNumberRPHList
      * Meta informations extracted from the WSDL
-     * - documentation: One or more travelers to whom this request applies
+     * - documentation: One or more travelers to whom this request applies.
      * - use: optional
      * @var string
      */
@@ -23,23 +31,44 @@ class SpecialServiceRequest extends SpecialServiceRequestType
     /**
      * The FlightRefNumberRPHList
      * Meta informations extracted from the WSDL
-     * - documentation: One or more flights to whom this request applies
+     * - documentation: One or more flights to whom this request applies.
      * - use: optional
      * @var string
      */
     public $FlightRefNumberRPHList;
     /**
      * Constructor method for SpecialServiceRequest
+     * @uses SpecialServiceRequest::setFlightLeg()
      * @uses SpecialServiceRequest::setTravelerRefNumberRPHList()
      * @uses SpecialServiceRequest::setFlightRefNumberRPHList()
+     * @param mixed $flightLeg
      * @param string $travelerRefNumberRPHList
      * @param string $flightRefNumberRPHList
      */
-    public function __construct($travelerRefNumberRPHList = null, $flightRefNumberRPHList = null)
+    public function __construct($flightLeg = null, $travelerRefNumberRPHList = null, $flightRefNumberRPHList = null)
     {
         $this
+            ->setFlightLeg($flightLeg)
             ->setTravelerRefNumberRPHList($travelerRefNumberRPHList)
             ->setFlightRefNumberRPHList($flightRefNumberRPHList);
+    }
+    /**
+     * Get FlightLeg value
+     * @return mixed|null
+     */
+    public function getFlightLeg()
+    {
+        return $this->FlightLeg;
+    }
+    /**
+     * Set FlightLeg value
+     * @param mixed $flightLeg
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialServiceRequest
+     */
+    public function setFlightLeg($flightLeg = null)
+    {
+        $this->FlightLeg = $flightLeg;
+        return $this;
     }
     /**
      * Get TravelerRefNumberRPHList value

@@ -56,11 +56,18 @@ class ContactInfoType extends AbstractStructBase
     /**
      * The CompanyName
      * Meta informations extracted from the WSDL
-     * - documentation: The name of the company with which this contact is associated.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CompanyName
      */
     public $CompanyName;
+    /**
+     * The Location
+     * Meta informations extracted from the WSDL
+     * - documentation: The location of the contact (e.g., at a hotel property, at a central office). Refer to OpenTravel Code List Contact Location (CON).
+     * - use: optional
+     * @var string
+     */
+    public $Location;
     /**
      * Constructor method for ContactInfoType
      * @uses ContactInfoType::setNames()
@@ -69,14 +76,16 @@ class ContactInfoType extends AbstractStructBase
      * @uses ContactInfoType::setEmails()
      * @uses ContactInfoType::setURLs()
      * @uses ContactInfoType::setCompanyName()
+     * @uses ContactInfoType::setLocation()
      * @param mixed $names
      * @param mixed $addresses
      * @param mixed $phones
      * @param mixed $emails
      * @param mixed $uRLs
-     * @param mixed $companyName
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CompanyName $companyName
+     * @param string $location
      */
-    public function __construct($names = null, $addresses = null, $phones = null, $emails = null, $uRLs = null, $companyName = null)
+    public function __construct($names = null, $addresses = null, $phones = null, $emails = null, $uRLs = null, \Devlabs91\GenericOtaHotelApiService\StructType\CompanyName $companyName = null, $location = null)
     {
         $this
             ->setNames($names)
@@ -84,7 +93,8 @@ class ContactInfoType extends AbstractStructBase
             ->setPhones($phones)
             ->setEmails($emails)
             ->setURLs($uRLs)
-            ->setCompanyName($companyName);
+            ->setCompanyName($companyName)
+            ->setLocation($location);
     }
     /**
      * Get Names value
@@ -178,7 +188,7 @@ class ContactInfoType extends AbstractStructBase
     }
     /**
      * Get CompanyName value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyName|null
      */
     public function getCompanyName()
     {
@@ -186,12 +196,34 @@ class ContactInfoType extends AbstractStructBase
     }
     /**
      * Set CompanyName value
-     * @param mixed $companyName
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CompanyName $companyName
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ContactInfoType
      */
-    public function setCompanyName($companyName = null)
+    public function setCompanyName(\Devlabs91\GenericOtaHotelApiService\StructType\CompanyName $companyName = null)
     {
         $this->CompanyName = $companyName;
+        return $this;
+    }
+    /**
+     * Get Location value
+     * @return string|null
+     */
+    public function getLocation()
+    {
+        return $this->Location;
+    }
+    /**
+     * Set Location value
+     * @param string $location
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ContactInfoType
+     */
+    public function setLocation($location = null)
+    {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
+        $this->Location = $location;
         return $this;
     }
     /**

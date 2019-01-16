@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for VendorMessageType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Provides formatted textual information that a vendor wishes to make known. The type of information is indicated
+ * - documentation: Provides formatted textual information that a vendor wishes to make known. The type of information is indicated.
  * @subpackage Structs
  */
 class VendorMessageType extends FormattedTextType
@@ -15,7 +15,7 @@ class VendorMessageType extends FormattedTextType
     /**
      * The InfoType
      * Meta informations extracted from the WSDL
-     * - documentation: To define the type of information such as Description, Policy, Marketing, etc. Refer to OTA Code List Information Type (INF).
+     * - documentation: To define the type of information such as Description, Policy, Marketing, etc. Refer to OpenTravel Code List Information Type (INF).
      * - use: required
      * @var string
      */

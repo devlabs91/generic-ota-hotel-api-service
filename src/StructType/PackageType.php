@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PackageType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Defines a complete package holiday.
+ * - documentation: Defines a complete package holiday request. | An identifier for the package.
  * @subpackage Structs
  */
 class PackageType extends AbstractStructBase
@@ -15,6 +15,7 @@ class PackageType extends AbstractStructBase
     /**
      * The URL
      * Meta informations extracted from the WSDL
+     * - documentation: A reference to a source of information for the package.
      * - minOccurs: 0
      * @var mixed
      */
@@ -22,6 +23,7 @@ class PackageType extends AbstractStructBase
     /**
      * The CompanyName
      * Meta informations extracted from the WSDL
+     * - documentation: The company supplying the package.
      * - minOccurs: 0
      * @var mixed
      */
@@ -41,16 +43,16 @@ class PackageType extends AbstractStructBase
      */
     public $ItineraryItems;
     /**
-     * The Cautions
+     * The Extras
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Cautions
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Extras
      */
-    public $Cautions;
+    public $Extras;
     /**
      * The Type
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Package Type (PKG).
+     * - documentation: Refer to OpenTravel Code List Package Type (PKG).
      * - use: optional
      * @var string
      */
@@ -58,6 +60,7 @@ class PackageType extends AbstractStructBase
     /**
      * The TravelCode
      * Meta informations extracted from the WSDL
+     * - documentation: The supplier's code to identify the travel arrangement for the package
      * - use: optional
      * @var string
      */
@@ -65,21 +68,15 @@ class PackageType extends AbstractStructBase
     /**
      * The TourCode
      * Meta informations extracted from the WSDL
-     * - documentation: The supplier’s code to identify the accommodation/tour arrangement for a package.
+     * - documentation: The supplier's code to identify the accommodation/tour arrangement for a package.
      * - use: optional
      * @var string
      */
     public $TourCode;
     /**
-     * The ShortDescription
-     * Meta informations extracted from the WSDL
-     * - use: optional
-     * @var string
-     */
-    public $ShortDescription;
-    /**
      * The BoardCode
      * Meta informations extracted from the WSDL
+     * - documentation: The code for a meal plan e.g. AB- as brochure, AI- all inclusive, BB- bed and breakfast, FB- full board, HB- Half Board, RO- room only,SC- self catering
      * - use: optional
      * @var string
      */
@@ -87,49 +84,80 @@ class PackageType extends AbstractStructBase
     /**
      * The PromotionCode
      * Meta informations extracted from the WSDL
+     * - documentation: A code to request a specific promotional price.
      * - use: optional
      * @var string
      */
     public $PromotionCode;
+    /**
+     * The FreeChildrenQuantity
+     * Meta informations extracted from the WSDL
+     * - documentation: The number of free child places required.
+     * - use: optional
+     * @var string
+     */
+    public $FreeChildrenQuantity;
+    /**
+     * The BrandCode
+     * Meta informations extracted from the WSDL
+     * - documentation: The code for the tour operator's product brand (e.g., Thomascook, JMC, Sunset).
+     * - use: optional
+     * @var string
+     */
+    public $BrandCode;
+    /**
+     * The ProductCode
+     * Meta informations extracted from the WSDL
+     * - documentation: The tour operator's code for the product within the brand (e.g. Summersun, Greece).
+     * - use: optional
+     * @var string
+     */
+    public $ProductCode;
     /**
      * Constructor method for PackageType
      * @uses PackageType::setURL()
      * @uses PackageType::setCompanyName()
      * @uses PackageType::setDateRange()
      * @uses PackageType::setItineraryItems()
-     * @uses PackageType::setCautions()
+     * @uses PackageType::setExtras()
      * @uses PackageType::setType()
      * @uses PackageType::setTravelCode()
      * @uses PackageType::setTourCode()
-     * @uses PackageType::setShortDescription()
      * @uses PackageType::setBoardCode()
      * @uses PackageType::setPromotionCode()
+     * @uses PackageType::setFreeChildrenQuantity()
+     * @uses PackageType::setBrandCode()
+     * @uses PackageType::setProductCode()
      * @param mixed $uRL
      * @param mixed $companyName
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\DateRange $dateRange
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\ItineraryItems $itineraryItems
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Cautions $cautions
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Extras $extras
      * @param string $type
      * @param string $travelCode
      * @param string $tourCode
-     * @param string $shortDescription
      * @param string $boardCode
      * @param string $promotionCode
+     * @param string $freeChildrenQuantity
+     * @param string $brandCode
+     * @param string $productCode
      */
-    public function __construct($uRL = null, $companyName = null, \Devlabs91\GenericOtaHotelApiService\StructType\DateRange $dateRange = null, \Devlabs91\GenericOtaHotelApiService\StructType\ItineraryItems $itineraryItems = null, \Devlabs91\GenericOtaHotelApiService\StructType\Cautions $cautions = null, $type = null, $travelCode = null, $tourCode = null, $shortDescription = null, $boardCode = null, $promotionCode = null)
+    public function __construct($uRL = null, $companyName = null, \Devlabs91\GenericOtaHotelApiService\StructType\DateRange $dateRange = null, \Devlabs91\GenericOtaHotelApiService\StructType\ItineraryItems $itineraryItems = null, \Devlabs91\GenericOtaHotelApiService\StructType\Extras $extras = null, $type = null, $travelCode = null, $tourCode = null, $boardCode = null, $promotionCode = null, $freeChildrenQuantity = null, $brandCode = null, $productCode = null)
     {
         $this
             ->setURL($uRL)
             ->setCompanyName($companyName)
             ->setDateRange($dateRange)
             ->setItineraryItems($itineraryItems)
-            ->setCautions($cautions)
+            ->setExtras($extras)
             ->setType($type)
             ->setTravelCode($travelCode)
             ->setTourCode($tourCode)
-            ->setShortDescription($shortDescription)
             ->setBoardCode($boardCode)
-            ->setPromotionCode($promotionCode);
+            ->setPromotionCode($promotionCode)
+            ->setFreeChildrenQuantity($freeChildrenQuantity)
+            ->setBrandCode($brandCode)
+            ->setProductCode($productCode);
     }
     /**
      * Get URL value
@@ -204,21 +232,21 @@ class PackageType extends AbstractStructBase
         return $this;
     }
     /**
-     * Get Cautions value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Cautions|null
+     * Get Extras value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Extras|null
      */
-    public function getCautions()
+    public function getExtras()
     {
-        return $this->Cautions;
+        return $this->Extras;
     }
     /**
-     * Set Cautions value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Cautions $cautions
+     * Set Extras value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Extras $extras
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PackageType
      */
-    public function setCautions(\Devlabs91\GenericOtaHotelApiService\StructType\Cautions $cautions = null)
+    public function setExtras(\Devlabs91\GenericOtaHotelApiService\StructType\Extras $extras = null)
     {
-        $this->Cautions = $cautions;
+        $this->Extras = $extras;
         return $this;
     }
     /**
@@ -288,28 +316,6 @@ class PackageType extends AbstractStructBase
         return $this;
     }
     /**
-     * Get ShortDescription value
-     * @return string|null
-     */
-    public function getShortDescription()
-    {
-        return $this->ShortDescription;
-    }
-    /**
-     * Set ShortDescription value
-     * @param string $shortDescription
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PackageType
-     */
-    public function setShortDescription($shortDescription = null)
-    {
-        // validation for constraint: string
-        if (!is_null($shortDescription) && !is_string($shortDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($shortDescription)), __LINE__);
-        }
-        $this->ShortDescription = $shortDescription;
-        return $this;
-    }
-    /**
      * Get BoardCode value
      * @return string|null
      */
@@ -351,6 +357,72 @@ class PackageType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($promotionCode)), __LINE__);
         }
         $this->PromotionCode = $promotionCode;
+        return $this;
+    }
+    /**
+     * Get FreeChildrenQuantity value
+     * @return string|null
+     */
+    public function getFreeChildrenQuantity()
+    {
+        return $this->FreeChildrenQuantity;
+    }
+    /**
+     * Set FreeChildrenQuantity value
+     * @param string $freeChildrenQuantity
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PackageType
+     */
+    public function setFreeChildrenQuantity($freeChildrenQuantity = null)
+    {
+        // validation for constraint: string
+        if (!is_null($freeChildrenQuantity) && !is_string($freeChildrenQuantity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($freeChildrenQuantity)), __LINE__);
+        }
+        $this->FreeChildrenQuantity = $freeChildrenQuantity;
+        return $this;
+    }
+    /**
+     * Get BrandCode value
+     * @return string|null
+     */
+    public function getBrandCode()
+    {
+        return $this->BrandCode;
+    }
+    /**
+     * Set BrandCode value
+     * @param string $brandCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PackageType
+     */
+    public function setBrandCode($brandCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($brandCode) && !is_string($brandCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($brandCode)), __LINE__);
+        }
+        $this->BrandCode = $brandCode;
+        return $this;
+    }
+    /**
+     * Get ProductCode value
+     * @return string|null
+     */
+    public function getProductCode()
+    {
+        return $this->ProductCode;
+    }
+    /**
+     * Set ProductCode value
+     * @param string $productCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PackageType
+     */
+    public function setProductCode($productCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($productCode) && !is_string($productCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productCode)), __LINE__);
+        }
+        $this->ProductCode = $productCode;
         return $this;
     }
     /**

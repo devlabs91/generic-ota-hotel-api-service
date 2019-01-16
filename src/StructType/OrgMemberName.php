@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OrgMemberName StructType
  * Meta informations extracted from the WSDL
- * - documentation: Name of the member of the organization, as listed among the options of customer names.
+ * - documentation: Name of the member of the organization, as listed among the options of customer names. | Provides member information.
  * @subpackage Structs
  */
 class OrgMemberName extends PersonNameType

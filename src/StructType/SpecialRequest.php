@@ -29,17 +29,28 @@ class SpecialRequest extends ParagraphType
      */
     public $CodeContext;
     /**
+     * The NumberOfUnits
+     * Meta informations extracted from the WSDL
+     * - documentation: Allows you to pass the number of units that the special request is for (e.g., if 4 rooms are booked you may want 3 with double/double beds and 1 with a king).
+     * - use: optional
+     * @var int
+     */
+    public $NumberOfUnits;
+    /**
      * Constructor method for SpecialRequest
      * @uses SpecialRequest::setRequestCode()
      * @uses SpecialRequest::setCodeContext()
+     * @uses SpecialRequest::setNumberOfUnits()
      * @param string $requestCode
      * @param string $codeContext
+     * @param int $numberOfUnits
      */
-    public function __construct($requestCode = null, $codeContext = null)
+    public function __construct($requestCode = null, $codeContext = null, $numberOfUnits = null)
     {
         $this
             ->setRequestCode($requestCode)
-            ->setCodeContext($codeContext);
+            ->setCodeContext($codeContext)
+            ->setNumberOfUnits($numberOfUnits);
     }
     /**
      * Get RequestCode value
@@ -83,6 +94,28 @@ class SpecialRequest extends ParagraphType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($codeContext)), __LINE__);
         }
         $this->CodeContext = $codeContext;
+        return $this;
+    }
+    /**
+     * Get NumberOfUnits value
+     * @return int|null
+     */
+    public function getNumberOfUnits()
+    {
+        return $this->NumberOfUnits;
+    }
+    /**
+     * Set NumberOfUnits value
+     * @param int $numberOfUnits
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRequest
+     */
+    public function setNumberOfUnits($numberOfUnits = null)
+    {
+        // validation for constraint: int
+        if (!is_null($numberOfUnits) && !is_numeric($numberOfUnits)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfUnits)), __LINE__);
+        }
+        $this->NumberOfUnits = $numberOfUnits;
         return $this;
     }
     /**

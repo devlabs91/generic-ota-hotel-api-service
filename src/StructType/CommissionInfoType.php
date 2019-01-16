@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CommissionInfoType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Contains information about agreements for commission arrangements with the business entity. | Identifies a rate for paying commissions; can be a decimal value based on percentage paid for the commission plan, or a flat rate.
+ * - documentation: Contains information about agreements for commission arrangements with the business entity. | Allows for control of the sharing of data between parties. | Identifies a rate for paying commissions; can be a decimal value based on
+ * percentage paid for the commission plan, or a flat rate.
  * @subpackage Structs
  */
 class CommissionInfoType extends FreeTextType

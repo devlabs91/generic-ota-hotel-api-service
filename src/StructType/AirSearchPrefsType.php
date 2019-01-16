@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AirSearchPrefsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Defines user preferences to be used in conducting a search. | Request smoking flights in response. Defaults to false - no desire for smoking flights.
+ * - documentation: Defines user preferences to be used in conducting a search. | Request smoking flights in response. Defaults to false - no desire for smoking flights. | Used to specify the earliest and latest departure times for which flights are
+ * requested.
  * @subpackage Structs
  */
 class AirSearchPrefsType extends AbstractStructBase
@@ -15,19 +16,17 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * The VendorPref
      * Meta informations extracted from the WSDL
-     * - documentation: Specify vendors to include and exclude from the response.
      * - maxOccurs: 99
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref[]
      */
     public $VendorPref;
     /**
      * The FlightTypePref
      * Meta informations extracted from the WSDL
-     * - documentation: Defines preferred flight characteristics to be used in a search.
      * - maxOccurs: 3
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref[]
      */
     public $FlightTypePref;
     /**
@@ -50,21 +49,26 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * The CabinPref
      * Meta informations extracted from the WSDL
-     * - documentation: Defines preferred cabin(s) to be used in a search.
      * - maxOccurs: 3
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref[]
      */
     public $CabinPref;
     /**
      * The TicketDistribPref
      * Meta informations extracted from the WSDL
-     * - documentation: Defines Distribution prefernces.
      * - maxOccurs: 3
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref[]
      */
     public $TicketDistribPref;
+    /**
+     * The BookingSeatPref
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\BookingSeatPref
+     */
+    public $BookingSeatPref;
     /**
      * The OnTimeRate
      * Meta informations extracted from the WSDL
@@ -76,8 +80,7 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * The ETicketDesired
      * Meta informations extracted from the WSDL
-     * - default: false
-     * - documentation: Request flights that are e-ticketable in the response.
+     * - documentation: Request flights that are e-ticketable in the response. | false
      * - use: optional
      * @var bool
      */
@@ -98,20 +101,22 @@ class AirSearchPrefsType extends AbstractStructBase
      * @uses AirSearchPrefsType::setEquipPref()
      * @uses AirSearchPrefsType::setCabinPref()
      * @uses AirSearchPrefsType::setTicketDistribPref()
+     * @uses AirSearchPrefsType::setBookingSeatPref()
      * @uses AirSearchPrefsType::setOnTimeRate()
      * @uses AirSearchPrefsType::setETicketDesired()
      * @uses AirSearchPrefsType::setMaxStopsQuantity()
-     * @param mixed[] $vendorPref
-     * @param mixed[] $flightTypePref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref[] $vendorPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref[] $flightTypePref
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\FareRestrictPref[] $fareRestrictPref
      * @param mixed[] $equipPref
-     * @param mixed[] $cabinPref
-     * @param mixed[] $ticketDistribPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref[] $cabinPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref[] $ticketDistribPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingSeatPref $bookingSeatPref
      * @param string $onTimeRate
      * @param bool $eTicketDesired
      * @param string $maxStopsQuantity
      */
-    public function __construct(array $vendorPref = array(), array $flightTypePref = array(), array $fareRestrictPref = array(), array $equipPref = array(), array $cabinPref = array(), array $ticketDistribPref = array(), $onTimeRate = null, $eTicketDesired = false, $maxStopsQuantity = null)
+    public function __construct(array $vendorPref = array(), array $flightTypePref = array(), array $fareRestrictPref = array(), array $equipPref = array(), array $cabinPref = array(), array $ticketDistribPref = array(), \Devlabs91\GenericOtaHotelApiService\StructType\BookingSeatPref $bookingSeatPref = null, $onTimeRate = null, $eTicketDesired = null, $maxStopsQuantity = null)
     {
         $this
             ->setVendorPref($vendorPref)
@@ -120,13 +125,14 @@ class AirSearchPrefsType extends AbstractStructBase
             ->setEquipPref($equipPref)
             ->setCabinPref($cabinPref)
             ->setTicketDistribPref($ticketDistribPref)
+            ->setBookingSeatPref($bookingSeatPref)
             ->setOnTimeRate($onTimeRate)
             ->setETicketDesired($eTicketDesired)
             ->setMaxStopsQuantity($maxStopsQuantity);
     }
     /**
      * Get VendorPref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref[]|null
      */
     public function getVendorPref()
     {
@@ -135,15 +141,15 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Set VendorPref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $vendorPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref[] $vendorPref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
     public function setVendorPref(array $vendorPref = array())
     {
         foreach ($vendorPref as $airSearchPrefsTypeVendorPrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The VendorPref property can only contain items of anyType, "%s" given', is_object($airSearchPrefsTypeVendorPrefItem) ? get_class($airSearchPrefsTypeVendorPrefItem) : gettype($airSearchPrefsTypeVendorPrefItem)), __LINE__);
+            if (!$airSearchPrefsTypeVendorPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref) {
+                throw new \InvalidArgumentException(sprintf('The VendorPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref, "%s" given', is_object($airSearchPrefsTypeVendorPrefItem) ? get_class($airSearchPrefsTypeVendorPrefItem) : gettype($airSearchPrefsTypeVendorPrefItem)), __LINE__);
             }
         }
         $this->VendorPref = $vendorPref;
@@ -152,21 +158,21 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Add item to VendorPref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
-    public function addToVendorPref($item)
+    public function addToVendorPref(\Devlabs91\GenericOtaHotelApiService\StructType\VendorPref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The VendorPref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref) {
+            throw new \InvalidArgumentException(sprintf('The VendorPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\VendorPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->VendorPref[] = $item;
         return $this;
     }
     /**
      * Get FlightTypePref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref[]|null
      */
     public function getFlightTypePref()
     {
@@ -175,15 +181,15 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Set FlightTypePref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $flightTypePref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref[] $flightTypePref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
     public function setFlightTypePref(array $flightTypePref = array())
     {
         foreach ($flightTypePref as $airSearchPrefsTypeFlightTypePrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The FlightTypePref property can only contain items of anyType, "%s" given', is_object($airSearchPrefsTypeFlightTypePrefItem) ? get_class($airSearchPrefsTypeFlightTypePrefItem) : gettype($airSearchPrefsTypeFlightTypePrefItem)), __LINE__);
+            if (!$airSearchPrefsTypeFlightTypePrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref) {
+                throw new \InvalidArgumentException(sprintf('The FlightTypePref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref, "%s" given', is_object($airSearchPrefsTypeFlightTypePrefItem) ? get_class($airSearchPrefsTypeFlightTypePrefItem) : gettype($airSearchPrefsTypeFlightTypePrefItem)), __LINE__);
             }
         }
         $this->FlightTypePref = $flightTypePref;
@@ -192,14 +198,14 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Add item to FlightTypePref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
-    public function addToFlightTypePref($item)
+    public function addToFlightTypePref(\Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The FlightTypePref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref) {
+            throw new \InvalidArgumentException(sprintf('The FlightTypePref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\FlightTypePref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->FlightTypePref[] = $item;
         return $this;
@@ -286,7 +292,7 @@ class AirSearchPrefsType extends AbstractStructBase
     }
     /**
      * Get CabinPref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref[]|null
      */
     public function getCabinPref()
     {
@@ -295,15 +301,15 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Set CabinPref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $cabinPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref[] $cabinPref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
     public function setCabinPref(array $cabinPref = array())
     {
         foreach ($cabinPref as $airSearchPrefsTypeCabinPrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The CabinPref property can only contain items of anyType, "%s" given', is_object($airSearchPrefsTypeCabinPrefItem) ? get_class($airSearchPrefsTypeCabinPrefItem) : gettype($airSearchPrefsTypeCabinPrefItem)), __LINE__);
+            if (!$airSearchPrefsTypeCabinPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref) {
+                throw new \InvalidArgumentException(sprintf('The CabinPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref, "%s" given', is_object($airSearchPrefsTypeCabinPrefItem) ? get_class($airSearchPrefsTypeCabinPrefItem) : gettype($airSearchPrefsTypeCabinPrefItem)), __LINE__);
             }
         }
         $this->CabinPref = $cabinPref;
@@ -312,21 +318,21 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Add item to CabinPref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
-    public function addToCabinPref($item)
+    public function addToCabinPref(\Devlabs91\GenericOtaHotelApiService\StructType\CabinPref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The CabinPref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref) {
+            throw new \InvalidArgumentException(sprintf('The CabinPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CabinPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CabinPref[] = $item;
         return $this;
     }
     /**
      * Get TicketDistribPref value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref[]|null
      */
     public function getTicketDistribPref()
     {
@@ -335,15 +341,15 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Set TicketDistribPref value
      * @throws \InvalidArgumentException
-     * @param mixed[] $ticketDistribPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref[] $ticketDistribPref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
     public function setTicketDistribPref(array $ticketDistribPref = array())
     {
         foreach ($ticketDistribPref as $airSearchPrefsTypeTicketDistribPrefItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The TicketDistribPref property can only contain items of anyType, "%s" given', is_object($airSearchPrefsTypeTicketDistribPrefItem) ? get_class($airSearchPrefsTypeTicketDistribPrefItem) : gettype($airSearchPrefsTypeTicketDistribPrefItem)), __LINE__);
+            if (!$airSearchPrefsTypeTicketDistribPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref) {
+                throw new \InvalidArgumentException(sprintf('The TicketDistribPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref, "%s" given', is_object($airSearchPrefsTypeTicketDistribPrefItem) ? get_class($airSearchPrefsTypeTicketDistribPrefItem) : gettype($airSearchPrefsTypeTicketDistribPrefItem)), __LINE__);
             }
         }
         $this->TicketDistribPref = $ticketDistribPref;
@@ -352,16 +358,34 @@ class AirSearchPrefsType extends AbstractStructBase
     /**
      * Add item to TicketDistribPref value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
-    public function addToTicketDistribPref($item)
+    public function addToTicketDistribPref(\Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The TicketDistribPref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref) {
+            throw new \InvalidArgumentException(sprintf('The TicketDistribPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TicketDistribPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->TicketDistribPref[] = $item;
+        return $this;
+    }
+    /**
+     * Get BookingSeatPref value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingSeatPref|null
+     */
+    public function getBookingSeatPref()
+    {
+        return $this->BookingSeatPref;
+    }
+    /**
+     * Set BookingSeatPref value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingSeatPref $bookingSeatPref
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
+     */
+    public function setBookingSeatPref(\Devlabs91\GenericOtaHotelApiService\StructType\BookingSeatPref $bookingSeatPref = null)
+    {
+        $this->BookingSeatPref = $bookingSeatPref;
         return $this;
     }
     /**
@@ -399,7 +423,7 @@ class AirSearchPrefsType extends AbstractStructBase
      * @param bool $eTicketDesired
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirSearchPrefsType
      */
-    public function setETicketDesired($eTicketDesired = false)
+    public function setETicketDesired($eTicketDesired = null)
     {
         // validation for constraint: boolean
         if (!is_null($eTicketDesired) && !is_bool($eTicketDesired)) {

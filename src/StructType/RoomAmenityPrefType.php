@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoomAmenityPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for hotel room amenities. | Identifies the customer's level of preference for the hotel room amenity identified. | Used for Character Strings, length 0 to 128
+ * - documentation: Indicates preferences for hotel room amenities. | Identifies the customer's level of preference for the hotel room amenity identified. | Used for Character Strings, length 0 to 128.
  * - maxLength: 128
  * - minLength: 0
  * @subpackage Structs
@@ -17,20 +17,42 @@ class RoomAmenityPrefType extends AbstractStructBase
     /**
      * The RoomAmenity
      * Meta informations extracted from the WSDL
-     * - documentation: Identifes the types of room amenities offered by the property. Refer to OTA Code List Room Amenity Type (RMA).
+     * - documentation: Identifes the types of room amenities offered by the property. Refer to OpenTravel Code List Room Amenity Type (RMA).
      * - use: optional
      * @var string
      */
     public $RoomAmenity;
     /**
+     * The ExistsCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This attribute is used to explicitly define whether an amenity or service is offered. Refer to OpenTravel Code list Option Type Code (OTC). This is used in conjunction with RoomAmenity.
+     * - use: optional
+     * @var string
+     */
+    public $ExistsCode;
+    /**
+     * The QualityLevel
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to designate the quality level of the RoomAmenity e.g., premium, deluxe, standard, economy.
+     * - use: optional
+     * @var string
+     */
+    public $QualityLevel;
+    /**
      * Constructor method for RoomAmenityPrefType
      * @uses RoomAmenityPrefType::setRoomAmenity()
+     * @uses RoomAmenityPrefType::setExistsCode()
+     * @uses RoomAmenityPrefType::setQualityLevel()
      * @param string $roomAmenity
+     * @param string $existsCode
+     * @param string $qualityLevel
      */
-    public function __construct($roomAmenity = null)
+    public function __construct($roomAmenity = null, $existsCode = null, $qualityLevel = null)
     {
         $this
-            ->setRoomAmenity($roomAmenity);
+            ->setRoomAmenity($roomAmenity)
+            ->setExistsCode($existsCode)
+            ->setQualityLevel($qualityLevel);
     }
     /**
      * Get RoomAmenity value
@@ -52,6 +74,50 @@ class RoomAmenityPrefType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($roomAmenity)), __LINE__);
         }
         $this->RoomAmenity = $roomAmenity;
+        return $this;
+    }
+    /**
+     * Get ExistsCode value
+     * @return string|null
+     */
+    public function getExistsCode()
+    {
+        return $this->ExistsCode;
+    }
+    /**
+     * Set ExistsCode value
+     * @param string $existsCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomAmenityPrefType
+     */
+    public function setExistsCode($existsCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
+        }
+        $this->ExistsCode = $existsCode;
+        return $this;
+    }
+    /**
+     * Get QualityLevel value
+     * @return string|null
+     */
+    public function getQualityLevel()
+    {
+        return $this->QualityLevel;
+    }
+    /**
+     * Set QualityLevel value
+     * @param string $qualityLevel
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomAmenityPrefType
+     */
+    public function setQualityLevel($qualityLevel = null)
+    {
+        // validation for constraint: string
+        if (!is_null($qualityLevel) && !is_string($qualityLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($qualityLevel)), __LINE__);
+        }
+        $this->QualityLevel = $qualityLevel;
         return $this;
     }
     /**

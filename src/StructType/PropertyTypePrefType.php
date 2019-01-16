@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PropertyTypePrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preference for hotel property types. | Identifies the customer's level of preference for the hotel type identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preference for hotel property types. | Identifies the customer's level of preference for the hotel type identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs

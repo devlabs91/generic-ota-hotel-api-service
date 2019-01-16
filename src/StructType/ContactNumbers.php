@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContactNumbers StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of hotel contact numbers.
  * @subpackage Structs
  */
 class ContactNumbers extends AbstractStructBase
@@ -13,16 +15,15 @@ class ContactNumbers extends AbstractStructBase
     /**
      * The ContactNumber
      * Meta informations extracted from the WSDL
-     * - documentation: Contact numbers of the hotel property. Examples are telephone and fax numbers.
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber[]
      */
     public $ContactNumber;
     /**
      * Constructor method for ContactNumbers
      * @uses ContactNumbers::setContactNumber()
-     * @param mixed[] $contactNumber
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber[] $contactNumber
      */
     public function __construct(array $contactNumber = array())
     {
@@ -31,7 +32,7 @@ class ContactNumbers extends AbstractStructBase
     }
     /**
      * Get ContactNumber value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber[]|null
      */
     public function getContactNumber()
     {
@@ -40,15 +41,15 @@ class ContactNumbers extends AbstractStructBase
     /**
      * Set ContactNumber value
      * @throws \InvalidArgumentException
-     * @param mixed[] $contactNumber
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber[] $contactNumber
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumbers
      */
     public function setContactNumber(array $contactNumber = array())
     {
         foreach ($contactNumber as $contactNumbersContactNumberItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The ContactNumber property can only contain items of anyType, "%s" given', is_object($contactNumbersContactNumberItem) ? get_class($contactNumbersContactNumberItem) : gettype($contactNumbersContactNumberItem)), __LINE__);
+            if (!$contactNumbersContactNumberItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber) {
+                throw new \InvalidArgumentException(sprintf('The ContactNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber, "%s" given', is_object($contactNumbersContactNumberItem) ? get_class($contactNumbersContactNumberItem) : gettype($contactNumbersContactNumberItem)), __LINE__);
             }
         }
         $this->ContactNumber = $contactNumber;
@@ -57,14 +58,14 @@ class ContactNumbers extends AbstractStructBase
     /**
      * Add item to ContactNumber value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumbers
      */
-    public function addToContactNumber($item)
+    public function addToContactNumber(\Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The ContactNumber property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber) {
+            throw new \InvalidArgumentException(sprintf('The ContactNumber property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ContactNumber, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->ContactNumber[] = $item;
         return $this;

@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SearchValueMatch StructType
  * Meta informations extracted from the WSDL
  * - documentation: The string value used to search for a property is returned. The SearchValueMatch element returns the input value and offers systems the ability to generate text in the Warnings that communicate the reason for failure to locate a
- * hotel. For example, a Reference Point search may return the following processing message; "No hotels found within 5 miles of Oswego Regional Airport". | Used for Character Strings, length 1 to 8
+ * hotel. For example, a Reference Point search may return the following processing message; "No hotels found within 5 miles of Oswego Regional Airport". | Used for Character Strings, length 1 to 8.
  * - maxLength: 8
  * - minLength: 1
  * @subpackage Structs

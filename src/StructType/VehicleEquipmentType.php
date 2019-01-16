@@ -10,17 +10,19 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: The VehicleEquipmentType complex type identifies the data that fully describes a piece of special equipment, including the description and any restrictions that may apply to its rental.
  * @subpackage Structs
  */
-class VehicleEquipmentType extends VehicleEquipmentCoreType
+class VehicleEquipmentType extends AbstractStructBase
 {
     /**
      * The Description
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var mixed
+     * @var string
      */
     public $Description;
     /**
      * The Restriction
+     * Meta informations extracted from the WSDL
+     * - use: optional
      * @var string
      */
     public $Restriction;
@@ -28,7 +30,7 @@ class VehicleEquipmentType extends VehicleEquipmentCoreType
      * Constructor method for VehicleEquipmentType
      * @uses VehicleEquipmentType::setDescription()
      * @uses VehicleEquipmentType::setRestriction()
-     * @param mixed $description
+     * @param string $description
      * @param string $restriction
      */
     public function __construct($description = null, $restriction = null)
@@ -39,7 +41,7 @@ class VehicleEquipmentType extends VehicleEquipmentCoreType
     }
     /**
      * Get Description value
-     * @return mixed|null
+     * @return string|null
      */
     public function getDescription()
     {
@@ -47,11 +49,15 @@ class VehicleEquipmentType extends VehicleEquipmentCoreType
     }
     /**
      * Set Description value
-     * @param mixed $description
+     * @param string $description
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleEquipmentType
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }

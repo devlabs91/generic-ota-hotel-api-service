@@ -7,14 +7,22 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for LengthOfStay StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of unsigned integers defining allowable lengths of stay (LOS).
+ * - documentation: A collection of patterns defining allowable lengths of stay (LOS).
  * @subpackage Structs
  */
 class LengthOfStay extends AbstractStructBase
 {
     /**
+     * The LOS_Pattern
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\LOS_Pattern
+     */
+    public $LOS_Pattern;
+    /**
      * The Time
      * Meta informations extracted from the WSDL
+     * - documentation: Used in conjunction with the MinMaxMessageType and the TimeUnit to define the length of stay requirements.
      * - use: optional
      * @var int
      */
@@ -28,6 +36,14 @@ class LengthOfStay extends AbstractStructBase
      */
     public $TimeUnit;
     /**
+     * The OpenStatusIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: Indicates if the length of stay is open or closed when MinMaxMessageType is FullPatternLOS if true then open and if false then closed.
+     * - use: optional
+     * @var bool
+     */
+    public $OpenStatusIndicator;
+    /**
      * The MinMaxMessageType
      * Meta informations extracted from the WSDL
      * - use: optional
@@ -36,19 +52,43 @@ class LengthOfStay extends AbstractStructBase
     public $MinMaxMessageType;
     /**
      * Constructor method for LengthOfStay
+     * @uses LengthOfStay::setLOS_Pattern()
      * @uses LengthOfStay::setTime()
      * @uses LengthOfStay::setTimeUnit()
+     * @uses LengthOfStay::setOpenStatusIndicator()
      * @uses LengthOfStay::setMinMaxMessageType()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\LOS_Pattern $lOS_Pattern
      * @param int $time
      * @param string $timeUnit
+     * @param bool $openStatusIndicator
      * @param string $minMaxMessageType
      */
-    public function __construct($time = null, $timeUnit = null, $minMaxMessageType = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\LOS_Pattern $lOS_Pattern = null, $time = null, $timeUnit = null, $openStatusIndicator = null, $minMaxMessageType = null)
     {
         $this
+            ->setLOS_Pattern($lOS_Pattern)
             ->setTime($time)
             ->setTimeUnit($timeUnit)
+            ->setOpenStatusIndicator($openStatusIndicator)
             ->setMinMaxMessageType($minMaxMessageType);
+    }
+    /**
+     * Get LOS_Pattern value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\LOS_Pattern|null
+     */
+    public function getLOS_Pattern()
+    {
+        return $this->LOS_Pattern;
+    }
+    /**
+     * Set LOS_Pattern value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\LOS_Pattern $lOS_Pattern
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\LengthOfStay
+     */
+    public function setLOS_Pattern(\Devlabs91\GenericOtaHotelApiService\StructType\LOS_Pattern $lOS_Pattern = null)
+    {
+        $this->LOS_Pattern = $lOS_Pattern;
+        return $this;
     }
     /**
      * Get Time value
@@ -92,6 +132,28 @@ class LengthOfStay extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeUnit)), __LINE__);
         }
         $this->TimeUnit = $timeUnit;
+        return $this;
+    }
+    /**
+     * Get OpenStatusIndicator value
+     * @return bool|null
+     */
+    public function getOpenStatusIndicator()
+    {
+        return $this->OpenStatusIndicator;
+    }
+    /**
+     * Set OpenStatusIndicator value
+     * @param bool $openStatusIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\LengthOfStay
+     */
+    public function setOpenStatusIndicator($openStatusIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($openStatusIndicator) && !is_bool($openStatusIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($openStatusIndicator)), __LINE__);
+        }
+        $this->OpenStatusIndicator = $openStatusIndicator;
         return $this;
     }
     /**

@@ -7,18 +7,22 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TravelDateTimeType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Date and time of trip, that allows specifying a time window before and after the given date.
+ * - documentation: Date and time of trip that allows specifying a time window before and after the given date.
  * @subpackage Structs
  */
 class TravelDateTimeType extends AbstractStructBase
 {
     /**
      * The DepartureDateTime
+     * Meta informations extracted from the WSDL
+     * - documentation: The departure date and optionally a time period that can be applied before and/or after the departure date.
      * @var mixed
      */
     public $DepartureDateTime;
     /**
      * The ArrivalDateTime
+     * Meta informations extracted from the WSDL
+     * - documentation: The arrival date and optionally a time period that can be applied before and/or after the arrival date.
      * @var mixed
      */
     public $ArrivalDateTime;

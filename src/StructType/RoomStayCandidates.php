@@ -6,6 +6,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RoomStayCandidates StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of room stay candidates. | Collection of room stay candidates. **This element is maintained at this level to support those who have implemented this message prior to 2005B. For new implementations consider using this
+ * element under HotelSearchCriteria.**
  * @subpackage Structs
  */
 class RoomStayCandidates extends AbstractStructBase
@@ -13,15 +16,15 @@ class RoomStayCandidates extends AbstractStructBase
     /**
      * The RoomStayCandidate
      * Meta informations extracted from the WSDL
-     * - documentation: element used to identify available room products and rates.
+     * - documentation: Element used to identify available room products.
      * - maxOccurs: unbounded
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType[]
+     * @var mixed[]
      */
     public $RoomStayCandidate;
     /**
      * Constructor method for RoomStayCandidates
      * @uses RoomStayCandidates::setRoomStayCandidate()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType[] $roomStayCandidate
+     * @param mixed[] $roomStayCandidate
      */
     public function __construct(array $roomStayCandidate = array())
     {
@@ -30,7 +33,7 @@ class RoomStayCandidates extends AbstractStructBase
     }
     /**
      * Get RoomStayCandidate value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType[]|null
+     * @return mixed[]|null
      */
     public function getRoomStayCandidate()
     {
@@ -39,15 +42,15 @@ class RoomStayCandidates extends AbstractStructBase
     /**
      * Set RoomStayCandidate value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType[] $roomStayCandidate
+     * @param mixed[] $roomStayCandidate
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidates
      */
     public function setRoomStayCandidate(array $roomStayCandidate = array())
     {
         foreach ($roomStayCandidate as $roomStayCandidatesRoomStayCandidateItem) {
             // validation for constraint: itemType
-            if (!$roomStayCandidatesRoomStayCandidateItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType) {
-                throw new \InvalidArgumentException(sprintf('The RoomStayCandidate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType, "%s" given', is_object($roomStayCandidatesRoomStayCandidateItem) ? get_class($roomStayCandidatesRoomStayCandidateItem) : gettype($roomStayCandidatesRoomStayCandidateItem)), __LINE__);
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The RoomStayCandidate property can only contain items of anyType, "%s" given', is_object($roomStayCandidatesRoomStayCandidateItem) ? get_class($roomStayCandidatesRoomStayCandidateItem) : gettype($roomStayCandidatesRoomStayCandidateItem)), __LINE__);
             }
         }
         $this->RoomStayCandidate = $roomStayCandidate;
@@ -56,14 +59,14 @@ class RoomStayCandidates extends AbstractStructBase
     /**
      * Add item to RoomStayCandidate value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType $item
+     * @param mixed $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidates
      */
-    public function addToRoomStayCandidate(\Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType $item)
+    public function addToRoomStayCandidate($item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType) {
-            throw new \InvalidArgumentException(sprintf('The RoomStayCandidate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RoomStayCandidateType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The RoomStayCandidate property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->RoomStayCandidate[] = $item;
         return $this;

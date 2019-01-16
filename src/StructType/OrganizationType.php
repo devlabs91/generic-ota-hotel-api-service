@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OrganizationType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Membership organization that has travel benefits, programs, or discounts.
+ * - documentation: Membership organization that has travel benefits, programs, or discounts. | Indicates whether the organization is the default choice among several. | Allows for control of the sharing of organization data between parties. | The
+ * effective and expiry dates for this organization membership. | Designates the office category within an organization.
  * @subpackage Structs
  */
 class OrganizationType extends AbstractStructBase
@@ -22,6 +23,7 @@ class OrganizationType extends AbstractStructBase
     /**
      * The OrgName
      * Meta informations extracted from the WSDL
+     * - documentation: Name of the organization.
      * - minOccurs: 0
      * @var mixed
      */
@@ -29,6 +31,7 @@ class OrganizationType extends AbstractStructBase
     /**
      * The RelatedOrgName
      * Meta informations extracted from the WSDL
+     * - documentation: An organization that is related to this organization.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -37,6 +40,7 @@ class OrganizationType extends AbstractStructBase
     /**
      * The TravelArranger
      * Meta informations extracted from the WSDL
+     * - documentation: Information on the company responsible for arranging travel for the organization.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]

@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MessageAcknowledgementType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Information to acknowledge the receipt of a message. | The OTA_PayloadStdAttributes defines the standard attributes that appear on the root element for all OpenTravel Messages.
  * @subpackage Structs
  */
 class MessageAcknowledgementType extends AbstractStructBase
@@ -13,14 +15,14 @@ class MessageAcknowledgementType extends AbstractStructBase
     /**
      * The Success
      * Meta informations extracted from the WSDL
-     * - documentation: The presence of the empty Success element explicitly indicates that the OTA versioned message succeeded.
+     * - documentation: Returning an empty element of this type indicates the successful processing of an OpenTravel message. This is used in conjunction with Warnings to report any warnings or business errors.
      * @var mixed
      */
     public $Success;
     /**
      * The Warnings
      * Meta informations extracted from the WSDL
-     * - documentation: Used in conjunction with the Success element to define one or more business errors.
+     * - documentation: Used when a message has been successfully processed to report any warnings or business errors that occurred.
      * - minOccurs: 0
      * @var mixed
      */
@@ -28,7 +30,7 @@ class MessageAcknowledgementType extends AbstractStructBase
     /**
      * The Errors
      * Meta informations extracted from the WSDL
-     * - documentation: Errors is returned if the request was unable to be processed.
+     * - documentation: Indicates an error occurred during the processing of an OpenTravel message. If the message successfully processes, but there are business errors, those errors should be passed in the warning element.
      * @var mixed
      */
     public $Errors;
@@ -41,23 +43,34 @@ class MessageAcknowledgementType extends AbstractStructBase
      */
     public $UniqueID;
     /**
+     * The TPA_Extensions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * - ref: TPA_Extensions
+     * @var mixed
+     */
+    public $TPA_Extensions;
+    /**
      * Constructor method for MessageAcknowledgementType
      * @uses MessageAcknowledgementType::setSuccess()
      * @uses MessageAcknowledgementType::setWarnings()
      * @uses MessageAcknowledgementType::setErrors()
      * @uses MessageAcknowledgementType::setUniqueID()
+     * @uses MessageAcknowledgementType::setTPA_Extensions()
      * @param mixed $success
      * @param mixed $warnings
      * @param mixed $errors
      * @param mixed $uniqueID
+     * @param mixed $tPA_Extensions
      */
-    public function __construct($success = null, $warnings = null, $errors = null, $uniqueID = null)
+    public function __construct($success = null, $warnings = null, $errors = null, $uniqueID = null, $tPA_Extensions = null)
     {
         $this
             ->setSuccess($success)
             ->setWarnings($warnings)
             ->setErrors($errors)
-            ->setUniqueID($uniqueID);
+            ->setUniqueID($uniqueID)
+            ->setTPA_Extensions($tPA_Extensions);
     }
     /**
      * Get Success value
@@ -129,6 +142,24 @@ class MessageAcknowledgementType extends AbstractStructBase
     public function setUniqueID($uniqueID = null)
     {
         $this->UniqueID = $uniqueID;
+        return $this;
+    }
+    /**
+     * Get TPA_Extensions value
+     * @return mixed|null
+     */
+    public function getTPA_Extensions()
+    {
+        return $this->TPA_Extensions;
+    }
+    /**
+     * Set TPA_Extensions value
+     * @param mixed $tPA_Extensions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MessageAcknowledgementType
+     */
+    public function setTPA_Extensions($tPA_Extensions = null)
+    {
+        $this->TPA_Extensions = $tPA_Extensions;
         return $this;
     }
     /**

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PaymentFormPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Form(s) of payment to be used with this collection of preferences. | Used for Character Strings, length 1 to 64
+ * - documentation: Identifies a form of payment preference. | Used to indicate a level of preference for a form of payment. | Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs
@@ -16,6 +16,9 @@ class PaymentFormPrefType extends AbstractStructBase
 {
     /**
      * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: The unique reference for a payment form within this message.
+     * - use: optional
      * @var string
      */
     public $RPH;

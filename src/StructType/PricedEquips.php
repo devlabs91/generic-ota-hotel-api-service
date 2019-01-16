@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PricedEquips StructType
  * Meta informations extracted from the WSDL
  * - documentation: A collection of special equipment that is part of this quote, along with the charges associated with this equipment. | A collection of special equipment that is part of this reservation, along with the charges associated with this
- * equipment.
+ * equipment. | A collection of special equipment that is part of this reservation, along with the charges associated with this equipment.
  * @subpackage Structs
  */
 class PricedEquips extends AbstractStructBase

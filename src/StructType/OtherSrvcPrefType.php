@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OtherSrvcPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Other travel service preferences.
+ * - documentation: Identifies other service preferences. | Used to indicate a level of preference for a service perference. | Allows for control of the sharing of data between parties.
  * @subpackage Structs
  */
 class OtherSrvcPrefType extends AbstractStructBase
@@ -15,13 +15,14 @@ class OtherSrvcPrefType extends AbstractStructBase
     /**
      * The OtherSrvcName
      * Meta informations extracted from the WSDL
-     * - documentation: Name of other travel services identified in this collection of preferences.
+     * - documentation: The name identfiying the service.
      * @var mixed
      */
     public $OtherSrvcName;
     /**
      * The VendorPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a vendor.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -30,6 +31,7 @@ class OtherSrvcPrefType extends AbstractStructBase
     /**
      * The LoyaltyPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a loyalty program.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -38,6 +40,7 @@ class OtherSrvcPrefType extends AbstractStructBase
     /**
      * The PaymentFormPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a form of payment.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -46,6 +49,7 @@ class OtherSrvcPrefType extends AbstractStructBase
     /**
      * The SpecRequestPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a special request.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -62,7 +66,7 @@ class OtherSrvcPrefType extends AbstractStructBase
     /**
      * The TravelPurpose
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Travel Purpose (TVP).
+     * - documentation: Refer to OpenTravel Code List Travel Purpose (TVP).
      * - use: optional
      * @var string
      */

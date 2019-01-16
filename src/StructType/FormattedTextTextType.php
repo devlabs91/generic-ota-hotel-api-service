@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FormattedTextTextType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Provides text and indicates whether it is formatted or not. | The language in which the text is provided.
  * @subpackage Structs
  */
 class FormattedTextTextType extends AbstractStructBase
@@ -24,17 +26,27 @@ class FormattedTextTextType extends AbstractStructBase
      */
     public $Formatted;
     /**
+     * The TextFormat
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $TextFormat;
+    /**
      * Constructor method for FormattedTextTextType
      * @uses FormattedTextTextType::set_()
      * @uses FormattedTextTextType::setFormatted()
+     * @uses FormattedTextTextType::setTextFormat()
      * @param string $_
      * @param bool $formatted
+     * @param string $textFormat
      */
-    public function __construct($_ = null, $formatted = null)
+    public function __construct($_ = null, $formatted = null, $textFormat = null)
     {
         $this
             ->set_($_)
-            ->setFormatted($formatted);
+            ->setFormatted($formatted)
+            ->setTextFormat($textFormat);
     }
     /**
      * Get _ value
@@ -78,6 +90,28 @@ class FormattedTextTextType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($formatted)), __LINE__);
         }
         $this->Formatted = $formatted;
+        return $this;
+    }
+    /**
+     * Get TextFormat value
+     * @return string|null
+     */
+    public function getTextFormat()
+    {
+        return $this->TextFormat;
+    }
+    /**
+     * Set TextFormat value
+     * @param string $textFormat
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FormattedTextTextType
+     */
+    public function setTextFormat($textFormat = null)
+    {
+        // validation for constraint: string
+        if (!is_null($textFormat) && !is_string($textFormat)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($textFormat)), __LINE__);
+        }
+        $this->TextFormat = $textFormat;
         return $this;
     }
     /**

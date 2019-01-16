@@ -7,13 +7,16 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for DateTimeSpanType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Used to specify a time window range by either specifying an earliest and latest date for the start date and end date or by giving a date with a time period that can be applied before and/or after the start date.
+ * - documentation: Used to specify a time window range by either specifying an earliest and latest date for the start date and end date or by giving a date with a time period that can be applied before and/or after the start date. | Defines the date
+ * and/or time span.
  * @subpackage Structs
  */
 class DateTimeSpanType extends AbstractStructBase
 {
     /**
      * The DateWindowRange
+     * Meta informations extracted from the WSDL
+     * - documentation: Specifies a time period that can be applied before and/or after the start date.
      * @var mixed
      */
     public $DateWindowRange;
@@ -21,14 +24,14 @@ class DateTimeSpanType extends AbstractStructBase
      * The StartDateWindow
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\StartDateWindow
      */
     public $StartDateWindow;
     /**
      * The EndDateWindow
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\EndDateWindow
      */
     public $EndDateWindow;
     /**
@@ -37,10 +40,10 @@ class DateTimeSpanType extends AbstractStructBase
      * @uses DateTimeSpanType::setStartDateWindow()
      * @uses DateTimeSpanType::setEndDateWindow()
      * @param mixed $dateWindowRange
-     * @param mixed $startDateWindow
-     * @param mixed $endDateWindow
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StartDateWindow $startDateWindow
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\EndDateWindow $endDateWindow
      */
-    public function __construct($dateWindowRange = null, $startDateWindow = null, $endDateWindow = null)
+    public function __construct($dateWindowRange = null, \Devlabs91\GenericOtaHotelApiService\StructType\StartDateWindow $startDateWindow = null, \Devlabs91\GenericOtaHotelApiService\StructType\EndDateWindow $endDateWindow = null)
     {
         $this
             ->setDateWindowRange($dateWindowRange)
@@ -67,7 +70,7 @@ class DateTimeSpanType extends AbstractStructBase
     }
     /**
      * Get StartDateWindow value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StartDateWindow|null
      */
     public function getStartDateWindow()
     {
@@ -75,17 +78,17 @@ class DateTimeSpanType extends AbstractStructBase
     }
     /**
      * Set StartDateWindow value
-     * @param mixed $startDateWindow
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StartDateWindow $startDateWindow
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\DateTimeSpanType
      */
-    public function setStartDateWindow($startDateWindow = null)
+    public function setStartDateWindow(\Devlabs91\GenericOtaHotelApiService\StructType\StartDateWindow $startDateWindow = null)
     {
         $this->StartDateWindow = $startDateWindow;
         return $this;
     }
     /**
      * Get EndDateWindow value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\EndDateWindow|null
      */
     public function getEndDateWindow()
     {
@@ -93,10 +96,10 @@ class DateTimeSpanType extends AbstractStructBase
     }
     /**
      * Set EndDateWindow value
-     * @param mixed $endDateWindow
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\EndDateWindow $endDateWindow
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\DateTimeSpanType
      */
-    public function setEndDateWindow($endDateWindow = null)
+    public function setEndDateWindow(\Devlabs91\GenericOtaHotelApiService\StructType\EndDateWindow $endDateWindow = null)
     {
         $this->EndDateWindow = $endDateWindow;
         return $this;

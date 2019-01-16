@@ -4,6 +4,8 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 
 /**
  * This class stands for YesNoType EnumType
+ * Meta informations extracted from the WSDL
+ * - documentation: Used to indicate a positive or negative choice. Not recommended for use, use xs:boolean.
  * @subpackage Enumerations
  */
 class YesNoType

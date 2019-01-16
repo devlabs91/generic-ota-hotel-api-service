@@ -46,6 +46,41 @@ class TransactionStatusType
      */
     const VALUE_UNSUCCESSFUL = 'Unsuccessful';
     /**
+     * Constant for value 'PendingCancellation'
+     * @return string 'PendingCancellation'
+     */
+    const VALUE_PENDING_CANCELLATION = 'PendingCancellation';
+    /**
+     * Constant for value 'PendingPurchase'
+     * @return string 'PendingPurchase'
+     */
+    const VALUE_PENDING_PURCHASE = 'PendingPurchase';
+    /**
+     * Constant for value 'Requested'
+     * @return string 'Requested'
+     */
+    const VALUE_REQUESTED = 'Requested';
+    /**
+     * Constant for value 'Reserved'
+     * @return string 'Reserved'
+     */
+    const VALUE_RESERVED = 'Reserved';
+    /**
+     * Constant for value 'Unchanged'
+     * @return string 'Unchanged'
+     */
+    const VALUE_UNCHANGED = 'Unchanged';
+    /**
+     * Constant for value 'RequestDenied'
+     * @return string 'RequestDenied'
+     */
+    const VALUE_REQUEST_DENIED = 'RequestDenied';
+    /**
+     * Constant for value 'Ticketed'
+     * @return string 'Ticketed'
+     */
+    const VALUE_TICKETED = 'Ticketed';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -64,6 +99,13 @@ class TransactionStatusType
      * @uses self::VALUE_IGNORED
      * @uses self::VALUE_ON_HOLD
      * @uses self::VALUE_UNSUCCESSFUL
+     * @uses self::VALUE_PENDING_CANCELLATION
+     * @uses self::VALUE_PENDING_PURCHASE
+     * @uses self::VALUE_REQUESTED
+     * @uses self::VALUE_RESERVED
+     * @uses self::VALUE_UNCHANGED
+     * @uses self::VALUE_REQUEST_DENIED
+     * @uses self::VALUE_TICKETED
      * @return string[]
      */
     public static function getValidValues()
@@ -76,6 +118,13 @@ class TransactionStatusType
             self::VALUE_IGNORED,
             self::VALUE_ON_HOLD,
             self::VALUE_UNSUCCESSFUL,
+            self::VALUE_PENDING_CANCELLATION,
+            self::VALUE_PENDING_PURCHASE,
+            self::VALUE_REQUESTED,
+            self::VALUE_RESERVED,
+            self::VALUE_UNCHANGED,
+            self::VALUE_REQUEST_DENIED,
+            self::VALUE_TICKETED,
         );
     }
     /**

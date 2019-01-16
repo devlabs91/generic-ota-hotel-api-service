@@ -7,50 +7,16 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PassengerTypeQuantityType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Specifies a PTC and the associated number of PTC's - for use in specifying passenger lists
+ * - documentation: Specifies a PTC and the associated number of PTC's - for use in specifying passenger lists.
  * @subpackage Structs
  */
-class PassengerTypeQuantityType extends TravelerCountType
+class PassengerTypeQuantityType extends AbstractStructBase
 {
     /**
-     * The Changeable
-     * Meta informations extracted from the WSDL
-     * - default: true
-     * - use: optional
-     * @var bool
-     */
-    public $Changeable;
-    /**
      * Constructor method for PassengerTypeQuantityType
-     * @uses PassengerTypeQuantityType::setChangeable()
-     * @param bool $changeable
      */
-    public function __construct($changeable = true)
+    public function __construct()
     {
-        $this
-            ->setChangeable($changeable);
-    }
-    /**
-     * Get Changeable value
-     * @return bool|null
-     */
-    public function getChangeable()
-    {
-        return $this->Changeable;
-    }
-    /**
-     * Set Changeable value
-     * @param bool $changeable
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PassengerTypeQuantityType
-     */
-    public function setChangeable($changeable = true)
-    {
-        // validation for constraint: boolean
-        if (!is_null($changeable) && !is_bool($changeable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($changeable)), __LINE__);
-        }
-        $this->Changeable = $changeable;
-        return $this;
     }
     /**
      * Method called when an object has been exported with var_export() functions

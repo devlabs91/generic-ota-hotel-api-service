@@ -31,9 +31,9 @@ class SpecificFlightInfoType extends AbstractStructBase
     /**
      * The BookingClassPref
      * Meta informations extracted from the WSDL
-     * - documentation: Specify specific booking classes to include and exclude in the response
+     * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref[]
      */
     public $BookingClassPref;
     /**
@@ -43,9 +43,9 @@ class SpecificFlightInfoType extends AbstractStructBase
      * @uses SpecificFlightInfoType::setBookingClassPref()
      * @param mixed $flightNumber
      * @param mixed $airline
-     * @param mixed $bookingClassPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref[] $bookingClassPref
      */
-    public function __construct($flightNumber = null, $airline = null, $bookingClassPref = null)
+    public function __construct($flightNumber = null, $airline = null, array $bookingClassPref = array())
     {
         $this
             ->setFlightNumber($flightNumber)
@@ -90,7 +90,7 @@ class SpecificFlightInfoType extends AbstractStructBase
     }
     /**
      * Get BookingClassPref value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref[]|null
      */
     public function getBookingClassPref()
     {
@@ -98,12 +98,34 @@ class SpecificFlightInfoType extends AbstractStructBase
     }
     /**
      * Set BookingClassPref value
-     * @param mixed $bookingClassPref
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref[] $bookingClassPref
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecificFlightInfoType
      */
-    public function setBookingClassPref($bookingClassPref = null)
+    public function setBookingClassPref(array $bookingClassPref = array())
     {
+        foreach ($bookingClassPref as $specificFlightInfoTypeBookingClassPrefItem) {
+            // validation for constraint: itemType
+            if (!$specificFlightInfoTypeBookingClassPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref) {
+                throw new \InvalidArgumentException(sprintf('The BookingClassPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref, "%s" given', is_object($specificFlightInfoTypeBookingClassPrefItem) ? get_class($specificFlightInfoTypeBookingClassPrefItem) : gettype($specificFlightInfoTypeBookingClassPrefItem)), __LINE__);
+            }
+        }
         $this->BookingClassPref = $bookingClassPref;
+        return $this;
+    }
+    /**
+     * Add item to BookingClassPref value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecificFlightInfoType
+     */
+    public function addToBookingClassPref(\Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref) {
+            throw new \InvalidArgumentException(sprintf('The BookingClassPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\BookingClassPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->BookingClassPref[] = $item;
         return $this;
     }
     /**

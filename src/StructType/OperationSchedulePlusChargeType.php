@@ -15,23 +15,25 @@ class OperationSchedulePlusChargeType extends OperationScheduleType
     /**
      * The Charge
      * Meta informations extracted from the WSDL
+     * - documentation: Cost associated with an amenity.
+     * - maxOccurs: 5
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Charge
+     * @var mixed[]
      */
     public $Charge;
     /**
      * Constructor method for OperationSchedulePlusChargeType
      * @uses OperationSchedulePlusChargeType::setCharge()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Charge $charge
+     * @param mixed[] $charge
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Charge $charge = null)
+    public function __construct(array $charge = array())
     {
         $this
             ->setCharge($charge);
     }
     /**
      * Get Charge value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Charge|null
+     * @return mixed[]|null
      */
     public function getCharge()
     {
@@ -39,12 +41,34 @@ class OperationSchedulePlusChargeType extends OperationScheduleType
     }
     /**
      * Set Charge value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Charge $charge
+     * @throws \InvalidArgumentException
+     * @param mixed[] $charge
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedulePlusChargeType
      */
-    public function setCharge(\Devlabs91\GenericOtaHotelApiService\StructType\Charge $charge = null)
+    public function setCharge(array $charge = array())
     {
+        foreach ($charge as $operationSchedulePlusChargeTypeChargeItem) {
+            // validation for constraint: itemType
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The Charge property can only contain items of anyType, "%s" given', is_object($operationSchedulePlusChargeTypeChargeItem) ? get_class($operationSchedulePlusChargeTypeChargeItem) : gettype($operationSchedulePlusChargeTypeChargeItem)), __LINE__);
+            }
+        }
         $this->Charge = $charge;
+        return $this;
+    }
+    /**
+     * Add item to Charge value
+     * @throws \InvalidArgumentException
+     * @param mixed $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedulePlusChargeType
+     */
+    public function addToCharge($item)
+    {
+        // validation for constraint: itemType
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The Charge property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Charge[] = $item;
         return $this;
     }
     /**

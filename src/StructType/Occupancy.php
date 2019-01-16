@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Occupancy StructType
  * Meta informations extracted from the WSDL
- * - documentation: The Occupancy details of a meeting room.
+ * - documentation: Provides parameters of occupancy limits. | Minimum or maximum number of people allowed in a room type as defined by age. | Specifies the age parameters for the occupancy of this guest room type. | The Occupancy details of a meeting
+ * room. | Provides parameters of occupancy limits. | Minimum or maximum number of people allowed in a room type as defined by age. | Specifies the age parameters for the occupancy of this guest room type.
  * @subpackage Structs
  */
 class Occupancy extends AbstractStructBase

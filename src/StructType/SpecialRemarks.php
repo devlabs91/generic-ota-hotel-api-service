@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SpecialRemarks StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of Special Remark
+ * - documentation: A collection of Special Remark.
  * @subpackage Structs
  */
 class SpecialRemarks extends AbstractStructBase
@@ -15,15 +15,14 @@ class SpecialRemarks extends AbstractStructBase
     /**
      * The SpecialRemark
      * Meta informations extracted from the WSDL
-     * - documentation: Itinerary Remarks, Invoice Remarks, etc.
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark[]
      */
     public $SpecialRemark;
     /**
      * Constructor method for SpecialRemarks
      * @uses SpecialRemarks::setSpecialRemark()
-     * @param mixed[] $specialRemark
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark[] $specialRemark
      */
     public function __construct(array $specialRemark = array())
     {
@@ -32,7 +31,7 @@ class SpecialRemarks extends AbstractStructBase
     }
     /**
      * Get SpecialRemark value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark[]|null
      */
     public function getSpecialRemark()
     {
@@ -41,15 +40,15 @@ class SpecialRemarks extends AbstractStructBase
     /**
      * Set SpecialRemark value
      * @throws \InvalidArgumentException
-     * @param mixed[] $specialRemark
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark[] $specialRemark
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarks
      */
     public function setSpecialRemark(array $specialRemark = array())
     {
         foreach ($specialRemark as $specialRemarksSpecialRemarkItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The SpecialRemark property can only contain items of anyType, "%s" given', is_object($specialRemarksSpecialRemarkItem) ? get_class($specialRemarksSpecialRemarkItem) : gettype($specialRemarksSpecialRemarkItem)), __LINE__);
+            if (!$specialRemarksSpecialRemarkItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark) {
+                throw new \InvalidArgumentException(sprintf('The SpecialRemark property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark, "%s" given', is_object($specialRemarksSpecialRemarkItem) ? get_class($specialRemarksSpecialRemarkItem) : gettype($specialRemarksSpecialRemarkItem)), __LINE__);
             }
         }
         $this->SpecialRemark = $specialRemark;
@@ -58,14 +57,14 @@ class SpecialRemarks extends AbstractStructBase
     /**
      * Add item to SpecialRemark value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarks
      */
-    public function addToSpecialRemark($item)
+    public function addToSpecialRemark(\Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The SpecialRemark property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark) {
+            throw new \InvalidArgumentException(sprintf('The SpecialRemark property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemark, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->SpecialRemark[] = $item;
         return $this;

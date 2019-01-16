@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for GuestRoom StructType
  * Meta informations extracted from the WSDL
- * - documentation: The accomodation occupied by a guest. | The hotel specific room type code that does not reference the OTA_Code Table as there are numerous hotel room types that are chain specific.
+ * - documentation: The accommodation occupied by a guest. | The hotel specific room type code that does not reference the OpenTravel Code Table as there are numerous hotel room types that are chain specific. | This may be used to uniquely identify a
+ * guest room.
  * @subpackage Structs
  */
 class GuestRoom extends AbstractStructBase
@@ -36,13 +37,21 @@ class GuestRoom extends AbstractStructBase
      */
     public $Features;
     /**
-     * The Description
+     * The MultimediaDescriptions
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 5
+     * - documentation: Multimedia information about the guest room.
      * - minOccurs: 0
-     * @var mixed[]
+     * @var mixed
      */
-    public $Description;
+    public $MultimediaDescriptions;
+    /**
+     * The DescriptiveText
+     * Meta informations extracted from the WSDL
+     * - documentation: Descriptive text that describes the guest room.
+     * - minOccurs: 0
+     * @var string
+     */
+    public $DescriptiveText;
     /**
      * The RoomTypeName
      * Meta informations extracted from the WSDL
@@ -91,41 +100,66 @@ class GuestRoom extends AbstractStructBase
      */
     public $NonsmokingQuantity;
     /**
+     * The MaxChildOccupancy
+     * Meta informations extracted from the WSDL
+     * - documentation: Maximum number of children allowed in a room type.
+     * - use: optional
+     * @var int
+     */
+    public $MaxChildOccupancy;
+    /**
+     * The Sort
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to define the display order.
+     * - use: optional
+     * @var int
+     */
+    public $Sort;
+    /**
      * Constructor method for GuestRoom
      * @uses GuestRoom::setTypeRoom()
      * @uses GuestRoom::setAmenities()
      * @uses GuestRoom::setFeatures()
-     * @uses GuestRoom::setDescription()
+     * @uses GuestRoom::setMultimediaDescriptions()
+     * @uses GuestRoom::setDescriptiveText()
      * @uses GuestRoom::setRoomTypeName()
      * @uses GuestRoom::setComposite()
      * @uses GuestRoom::setQuality()
      * @uses GuestRoom::setMaxOccupancy()
      * @uses GuestRoom::setMaxAdultOccupancy()
      * @uses GuestRoom::setNonsmokingQuantity()
+     * @uses GuestRoom::setMaxChildOccupancy()
+     * @uses GuestRoom::setSort()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\TypeRoom[] $typeRoom
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities
      * @param mixed $features
-     * @param mixed[] $description
+     * @param mixed $multimediaDescriptions
+     * @param string $descriptiveText
      * @param string $roomTypeName
      * @param bool $composite
      * @param string $quality
      * @param int $maxOccupancy
      * @param int $maxAdultOccupancy
      * @param int $nonsmokingQuantity
+     * @param int $maxChildOccupancy
+     * @param int $sort
      */
-    public function __construct(array $typeRoom = array(), \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null, $features = null, array $description = array(), $roomTypeName = null, $composite = null, $quality = null, $maxOccupancy = null, $maxAdultOccupancy = null, $nonsmokingQuantity = null)
+    public function __construct(array $typeRoom = array(), \Devlabs91\GenericOtaHotelApiService\StructType\Amenities $amenities = null, $features = null, $multimediaDescriptions = null, $descriptiveText = null, $roomTypeName = null, $composite = null, $quality = null, $maxOccupancy = null, $maxAdultOccupancy = null, $nonsmokingQuantity = null, $maxChildOccupancy = null, $sort = null)
     {
         $this
             ->setTypeRoom($typeRoom)
             ->setAmenities($amenities)
             ->setFeatures($features)
-            ->setDescription($description)
+            ->setMultimediaDescriptions($multimediaDescriptions)
+            ->setDescriptiveText($descriptiveText)
             ->setRoomTypeName($roomTypeName)
             ->setComposite($composite)
             ->setQuality($quality)
             ->setMaxOccupancy($maxOccupancy)
             ->setMaxAdultOccupancy($maxAdultOccupancy)
-            ->setNonsmokingQuantity($nonsmokingQuantity);
+            ->setNonsmokingQuantity($nonsmokingQuantity)
+            ->setMaxChildOccupancy($maxChildOccupancy)
+            ->setSort($sort);
     }
     /**
      * Get TypeRoom value
@@ -204,43 +238,43 @@ class GuestRoom extends AbstractStructBase
         return $this;
     }
     /**
-     * Get Description value
-     * @return mixed[]|null
+     * Get MultimediaDescriptions value
+     * @return mixed|null
      */
-    public function getDescription()
+    public function getMultimediaDescriptions()
     {
-        return $this->Description;
+        return $this->MultimediaDescriptions;
     }
     /**
-     * Set Description value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $description
+     * Set MultimediaDescriptions value
+     * @param mixed $multimediaDescriptions
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoom
      */
-    public function setDescription(array $description = array())
+    public function setMultimediaDescriptions($multimediaDescriptions = null)
     {
-        foreach ($description as $guestRoomDescriptionItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($guestRoomDescriptionItem) ? get_class($guestRoomDescriptionItem) : gettype($guestRoomDescriptionItem)), __LINE__);
-            }
-        }
-        $this->Description = $description;
+        $this->MultimediaDescriptions = $multimediaDescriptions;
         return $this;
     }
     /**
-     * Add item to Description value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
+     * Get DescriptiveText value
+     * @return string|null
+     */
+    public function getDescriptiveText()
+    {
+        return $this->DescriptiveText;
+    }
+    /**
+     * Set DescriptiveText value
+     * @param string $descriptiveText
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoom
      */
-    public function addToDescription($item)
+    public function setDescriptiveText($descriptiveText = null)
     {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($descriptiveText) && !is_string($descriptiveText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptiveText)), __LINE__);
         }
-        $this->Description[] = $item;
+        $this->DescriptiveText = $descriptiveText;
         return $this;
     }
     /**
@@ -373,6 +407,50 @@ class GuestRoom extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($nonsmokingQuantity)), __LINE__);
         }
         $this->NonsmokingQuantity = $nonsmokingQuantity;
+        return $this;
+    }
+    /**
+     * Get MaxChildOccupancy value
+     * @return int|null
+     */
+    public function getMaxChildOccupancy()
+    {
+        return $this->MaxChildOccupancy;
+    }
+    /**
+     * Set MaxChildOccupancy value
+     * @param int $maxChildOccupancy
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoom
+     */
+    public function setMaxChildOccupancy($maxChildOccupancy = null)
+    {
+        // validation for constraint: int
+        if (!is_null($maxChildOccupancy) && !is_numeric($maxChildOccupancy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxChildOccupancy)), __LINE__);
+        }
+        $this->MaxChildOccupancy = $maxChildOccupancy;
+        return $this;
+    }
+    /**
+     * Get Sort value
+     * @return int|null
+     */
+    public function getSort()
+    {
+        return $this->Sort;
+    }
+    /**
+     * Set Sort value
+     * @param int $sort
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoom
+     */
+    public function setSort($sort = null)
+    {
+        // validation for constraint: int
+        if (!is_null($sort) && !is_numeric($sort)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sort)), __LINE__);
+        }
+        $this->Sort = $sort;
         return $this;
     }
     /**

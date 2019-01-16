@@ -15,6 +15,7 @@ class CabinAvailabilityType extends AbstractStructBase
     /**
      * The CabinType
      * Meta informations extracted from the WSDL
+     * - documentation: A section of an aircraft identified by the service level (e.g., First, Business, Economy)
      * - use: required
      * @var string
      */
@@ -28,17 +29,27 @@ class CabinAvailabilityType extends AbstractStructBase
      */
     public $Meal;
     /**
+     * The BaggageAllowance
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\BaggageAllowance
+     */
+    public $BaggageAllowance;
+    /**
      * Constructor method for CabinAvailabilityType
      * @uses CabinAvailabilityType::setCabinType()
      * @uses CabinAvailabilityType::setMeal()
+     * @uses CabinAvailabilityType::setBaggageAllowance()
      * @param string $cabinType
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Meal[] $meal
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BaggageAllowance $baggageAllowance
      */
-    public function __construct($cabinType = null, array $meal = array())
+    public function __construct($cabinType = null, array $meal = array(), \Devlabs91\GenericOtaHotelApiService\StructType\BaggageAllowance $baggageAllowance = null)
     {
         $this
             ->setCabinType($cabinType)
-            ->setMeal($meal);
+            ->setMeal($meal)
+            ->setBaggageAllowance($baggageAllowance);
     }
     /**
      * Get CabinType value
@@ -100,6 +111,24 @@ class CabinAvailabilityType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The Meal property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Meal, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Meal[] = $item;
+        return $this;
+    }
+    /**
+     * Get BaggageAllowance value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BaggageAllowance|null
+     */
+    public function getBaggageAllowance()
+    {
+        return $this->BaggageAllowance;
+    }
+    /**
+     * Set BaggageAllowance value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BaggageAllowance $baggageAllowance
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CabinAvailabilityType
+     */
+    public function setBaggageAllowance(\Devlabs91\GenericOtaHotelApiService\StructType\BaggageAllowance $baggageAllowance = null)
+    {
+        $this->BaggageAllowance = $baggageAllowance;
         return $this;
     }
     /**

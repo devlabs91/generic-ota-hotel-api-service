@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FormattedTextType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of formatted text sub sections.
  * @subpackage Structs
  */
 class FormattedTextType extends AbstractStructBase
@@ -13,6 +15,7 @@ class FormattedTextType extends AbstractStructBase
     /**
      * The SubSection
      * Meta informations extracted from the WSDL
+     * - documentation: Subsection formatted text information.
      * - maxOccurs: 99
      * @var mixed[]
      */
@@ -20,7 +23,7 @@ class FormattedTextType extends AbstractStructBase
     /**
      * The Title
      * Meta informations extracted from the WSDL
-     * - documentation: This attribute may be used to provide a title for the formatted free text,for example, Driving Directions. Each of the sub sections that are definedto be a part of the formatted text would provide detailed information aboutthe
+     * - documentation: This attribute may be used to provide a title for the formatted free text, for example, Driving Directions. Each of the sub sections that are defined to be a part of the formatted text would provide detailed information about the
      * subject identified by the title.
      * - use: optional
      * @var string
@@ -29,6 +32,7 @@ class FormattedTextType extends AbstractStructBase
     /**
      * The Language
      * Meta informations extracted from the WSDL
+     * - documentation: The language in which the content is provided.
      * - use: optional
      * @var string
      */

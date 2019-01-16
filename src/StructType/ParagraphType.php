@@ -7,23 +7,29 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for ParagraphType StructType
  * Meta informations extracted from the WSDL
- * - documentation: An indication of a new paragraph for a sub-section of a formatted text message.
+ * - documentation: An indication of a new paragraph for a sub-section of a formatted text message. | Creation date time, Creator ID, last modification date time and last modifier ID for the paragraph. | The language for this paragraph.
  * @subpackage Structs
  */
 class ParagraphType extends AbstractStructBase
 {
     /**
      * The Text
+     * Meta informations extracted from the WSDL
+     * - documentation: Formatted text content.
      * @var mixed
      */
     public $Text;
     /**
      * The Image
+     * Meta informations extracted from the WSDL
+     * - documentation: An image for this paragraph.
      * @var string
      */
     public $Image;
     /**
      * The URL
+     * Meta informations extracted from the WSDL
+     * - documentation: A URL for this paragraph.
      * @var string
      */
     public $URL;
@@ -43,6 +49,7 @@ class ParagraphType extends AbstractStructBase
     /**
      * The ParagraphNumber
      * Meta informations extracted from the WSDL
+     * - documentation: The sequence number for the paragraph.
      * - use: optional
      * @var int
      */

@@ -51,6 +51,21 @@ class TransactionActionType
      */
     const VALUE_CANCEL = 'Cancel';
     /**
+     * Constant for value 'CommitOverrideEdits'
+     * @return string 'CommitOverrideEdits'
+     */
+    const VALUE_COMMIT_OVERRIDE_EDITS = 'CommitOverrideEdits';
+    /**
+     * Constant for value 'VerifyPrice'
+     * @return string 'VerifyPrice'
+     */
+    const VALUE_VERIFY_PRICE = 'VerifyPrice';
+    /**
+     * Constant for value 'Ticket'
+     * @return string 'Ticket'
+     */
+    const VALUE_TICKET = 'Ticket';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -70,6 +85,9 @@ class TransactionActionType
      * @uses self::VALUE_MODIFY
      * @uses self::VALUE_COMMIT
      * @uses self::VALUE_CANCEL
+     * @uses self::VALUE_COMMIT_OVERRIDE_EDITS
+     * @uses self::VALUE_VERIFY_PRICE
+     * @uses self::VALUE_TICKET
      * @return string[]
      */
     public static function getValidValues()
@@ -83,6 +101,9 @@ class TransactionActionType
             self::VALUE_MODIFY,
             self::VALUE_COMMIT,
             self::VALUE_CANCEL,
+            self::VALUE_COMMIT_OVERRIDE_EDITS,
+            self::VALUE_VERIFY_PRICE,
+            self::VALUE_TICKET,
         );
     }
     /**

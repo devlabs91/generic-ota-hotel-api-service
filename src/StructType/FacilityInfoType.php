@@ -13,14 +13,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class FacilityInfoType extends AbstractStructBase
 {
     /**
-     * The LastUpdated
-     * Meta informations extracted from the WSDL
-     * - documentation: The date and time when this hotel information was last updated in the system.
-     * - use: required
-     * @var string
-     */
-    public $LastUpdated;
-    /**
      * The MeetingRooms
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -43,45 +35,31 @@ class FacilityInfoType extends AbstractStructBase
      */
     public $Restaurants;
     /**
+     * The LastUpdated
+     * Meta informations extracted from the WSDL
+     * - documentation: The date and time when this hotel information was last updated in the system.
+     * - use: optional
+     * @var string
+     */
+    public $LastUpdated;
+    /**
      * Constructor method for FacilityInfoType
-     * @uses FacilityInfoType::setLastUpdated()
      * @uses FacilityInfoType::setMeetingRooms()
      * @uses FacilityInfoType::setGuestRooms()
      * @uses FacilityInfoType::setRestaurants()
-     * @param string $lastUpdated
+     * @uses FacilityInfoType::setLastUpdated()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRooms $meetingRooms
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuestRooms $guestRooms
      * @param mixed $restaurants
+     * @param string $lastUpdated
      */
-    public function __construct($lastUpdated = null, \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRooms $meetingRooms = null, \Devlabs91\GenericOtaHotelApiService\StructType\GuestRooms $guestRooms = null, $restaurants = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\MeetingRooms $meetingRooms = null, \Devlabs91\GenericOtaHotelApiService\StructType\GuestRooms $guestRooms = null, $restaurants = null, $lastUpdated = null)
     {
         $this
-            ->setLastUpdated($lastUpdated)
             ->setMeetingRooms($meetingRooms)
             ->setGuestRooms($guestRooms)
-            ->setRestaurants($restaurants);
-    }
-    /**
-     * Get LastUpdated value
-     * @return string
-     */
-    public function getLastUpdated()
-    {
-        return $this->LastUpdated;
-    }
-    /**
-     * Set LastUpdated value
-     * @param string $lastUpdated
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FacilityInfoType
-     */
-    public function setLastUpdated($lastUpdated = null)
-    {
-        // validation for constraint: string
-        if (!is_null($lastUpdated) && !is_string($lastUpdated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastUpdated)), __LINE__);
-        }
-        $this->LastUpdated = $lastUpdated;
-        return $this;
+            ->setRestaurants($restaurants)
+            ->setLastUpdated($lastUpdated);
     }
     /**
      * Get MeetingRooms value
@@ -135,6 +113,28 @@ class FacilityInfoType extends AbstractStructBase
     public function setRestaurants($restaurants = null)
     {
         $this->Restaurants = $restaurants;
+        return $this;
+    }
+    /**
+     * Get LastUpdated value
+     * @return string|null
+     */
+    public function getLastUpdated()
+    {
+        return $this->LastUpdated;
+    }
+    /**
+     * Set LastUpdated value
+     * @param string $lastUpdated
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FacilityInfoType
+     */
+    public function setLastUpdated($lastUpdated = null)
+    {
+        // validation for constraint: string
+        if (!is_null($lastUpdated) && !is_string($lastUpdated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastUpdated)), __LINE__);
+        }
+        $this->LastUpdated = $lastUpdated;
         return $this;
     }
     /**

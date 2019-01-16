@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FormattedTextSubSectionType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Used to provide subsection formatted text information.
  * @subpackage Structs
  */
 class FormattedTextSubSectionType extends AbstractStructBase
@@ -13,6 +15,7 @@ class FormattedTextSubSectionType extends AbstractStructBase
     /**
      * The Paragraph
      * Meta informations extracted from the WSDL
+     * - documentation: Details and content of a paragraph for a formatted text message.
      * - maxOccurs: 99
      * @var mixed[]
      */
@@ -21,8 +24,8 @@ class FormattedTextSubSectionType extends AbstractStructBase
      * The SubTitle
      * Meta informations extracted from the WSDL
      * - documentation: This attribute may be used to provide a title for a sub-section of the formatted free text. A sub-section may have multiple related paragraphs of information. For example, if used to provide driving directions there may be multiple
-     * paragraphs, and these paragraphs may be grouped into a sub-section called "Driving from the North". A second subsection may be titled"Driving from the South", and may contain several paragraphs to describe the driving directions when driving from the
-     * south.
+     * paragraphs, and these paragraphs may be grouped into a sub-section called "Driving from the North". A second subsection may be titled "Driving from the South", and may contain several paragraphs to describe the driving directions when driving from
+     * the south.
      * - use: optional
      * @var string
      */

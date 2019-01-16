@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Reference StructType
  * Meta informations extracted from the WSDL
- * - documentation: Information by which this availability quote can be later cross-referenced | This element defines a security token reference
+ * - documentation: Information identifying an earlier availability quote. | Information by which this availability quote can be later cross-referenced. | Information by which this availability quote can be later cross-referenced | Information
+ * identifying an earlier availability quote. | This element defines a security token reference
  * - type: wsse:ReferenceType
  * @subpackage Structs
  */
@@ -16,19 +17,31 @@ class Reference extends UniqueID_Type
     /**
      * The DateTime
      * Meta informations extracted from the WSDL
-     * - documentation: The date and time at which this availability quote was made available.
+     * - documentation: The date and time at which this availability quote was made available. | The date and time at which this availability quote was made available. | The date and time at which this availability quote was made available. | The date and
+     * time at which this availability quote was made available.
+     * - use: optional
      * @var string
      */
     public $DateTime;
     /**
+     * The Amount
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $Amount;
+    /**
      * Constructor method for Reference
      * @uses Reference::setDateTime()
+     * @uses Reference::setAmount()
      * @param string $dateTime
+     * @param string $amount
      */
-    public function __construct($dateTime = null)
+    public function __construct($dateTime = null, $amount = null)
     {
         $this
-            ->setDateTime($dateTime);
+            ->setDateTime($dateTime)
+            ->setAmount($amount);
     }
     /**
      * Get DateTime value
@@ -50,6 +63,28 @@ class Reference extends UniqueID_Type
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTime)), __LINE__);
         }
         $this->DateTime = $dateTime;
+        return $this;
+    }
+    /**
+     * Get Amount value
+     * @return string|null
+     */
+    public function getAmount()
+    {
+        return $this->Amount;
+    }
+    /**
+     * Set Amount value
+     * @param string $amount
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Reference
+     */
+    public function setAmount($amount = null)
+    {
+        // validation for constraint: string
+        if (!is_null($amount) && !is_string($amount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($amount)), __LINE__);
+        }
+        $this->Amount = $amount;
         return $this;
     }
     /**

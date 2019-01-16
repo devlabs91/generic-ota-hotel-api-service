@@ -21,6 +21,8 @@ class PersonalInsuranceItemType extends AbstractStructBase
     public $Code;
     /**
      * The CustomerCounts
+     * Meta informations extracted from the WSDL
+     * - documentation: Counts of the number of passengers in age categories. Used when individual passenger identification is not required.
      * @var mixed
      */
     public $CustomerCounts;

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoomProfiles StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of RoomProfile elements
+ * - documentation: A collection of RoomProfile elements | A collection of RoomProfile elements
  * @subpackage Structs
  */
 class RoomProfiles extends AbstractStructBase
@@ -15,6 +15,7 @@ class RoomProfiles extends AbstractStructBase
     /**
      * The RoomProfile
      * Meta informations extracted from the WSDL
+     * - documentation: Details of passengers and amenities for a room.
      * - maxOccurs: 9
      * @var mixed[]
      */

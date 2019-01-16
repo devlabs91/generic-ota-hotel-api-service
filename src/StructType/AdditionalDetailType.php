@@ -22,48 +22,34 @@ class AdditionalDetailType extends AbstractStructBase
     /**
      * The Type
      * Meta informations extracted from the WSDL
-     * - documentation: Used to define the type of information being sent (e.g., rate description, property description, room information). Refer to OTA Code List Additional Detail Type (ADT).
+     * - documentation: Used to define the type of information being sent (e.g., rate description, property description, room information). Refer to OpenTravel Code List Additional Detail Type (ADT).
+     * - use: optional
      * @var string
      */
     public $Type;
     /**
      * The Code
      * Meta informations extracted from the WSDL
-     * - documentation: Trading partner code associated to AdditionalDetailType
+     * - documentation: Trading partner code associated to AdditionalDetailType.
+     * - use: optional
      * @var string
      */
     public $Code;
-    /**
-     * The Amount
-     * @var string
-     */
-    public $Amount;
-    /**
-     * The CurrencyCode
-     * @var string
-     */
-    public $CurrencyCode;
     /**
      * Constructor method for AdditionalDetailType
      * @uses AdditionalDetailType::setDetailDescription()
      * @uses AdditionalDetailType::setType()
      * @uses AdditionalDetailType::setCode()
-     * @uses AdditionalDetailType::setAmount()
-     * @uses AdditionalDetailType::setCurrencyCode()
      * @param mixed $detailDescription
      * @param string $type
      * @param string $code
-     * @param string $amount
-     * @param string $currencyCode
      */
-    public function __construct($detailDescription = null, $type = null, $code = null, $amount = null, $currencyCode = null)
+    public function __construct($detailDescription = null, $type = null, $code = null)
     {
         $this
             ->setDetailDescription($detailDescription)
             ->setType($type)
-            ->setCode($code)
-            ->setAmount($amount)
-            ->setCurrencyCode($currencyCode);
+            ->setCode($code);
     }
     /**
      * Get DetailDescription value
@@ -125,50 +111,6 @@ class AdditionalDetailType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($code)), __LINE__);
         }
         $this->Code = $code;
-        return $this;
-    }
-    /**
-     * Get Amount value
-     * @return string|null
-     */
-    public function getAmount()
-    {
-        return $this->Amount;
-    }
-    /**
-     * Set Amount value
-     * @param string $amount
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalDetailType
-     */
-    public function setAmount($amount = null)
-    {
-        // validation for constraint: string
-        if (!is_null($amount) && !is_string($amount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($amount)), __LINE__);
-        }
-        $this->Amount = $amount;
-        return $this;
-    }
-    /**
-     * Get CurrencyCode value
-     * @return string|null
-     */
-    public function getCurrencyCode()
-    {
-        return $this->CurrencyCode;
-    }
-    /**
-     * Set CurrencyCode value
-     * @param string $currencyCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalDetailType
-     */
-    public function setCurrencyCode($currencyCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($currencyCode) && !is_string($currencyCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currencyCode)), __LINE__);
-        }
-        $this->CurrencyCode = $currencyCode;
         return $this;
     }
     /**

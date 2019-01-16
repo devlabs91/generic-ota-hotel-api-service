@@ -29,17 +29,19 @@ class VehicleAvailCoreType extends AbstractStructBase
     /**
      * The RentalRate
      * Meta informations extracted from the WSDL
+     * - documentation: Information on the rates associated with this vehicle. Rate information can include the distance and the base rental cost, along with information on the various factors that may infuence this rate. This element may repeat to allow
+     * different distances to be made available for different charges. For example, $20.00 with 100 miles per day or $30.00 for unlimited mileage.
      * - maxOccurs: 5
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate[]
+     * @var mixed[]
      */
     public $RentalRate;
     /**
      * The TotalCharge
      * Meta informations extracted from the WSDL
-     * - documentation: The anticipated total cost of a reservation, the sum of the individual charges, optional charges and associated fees.
+     * - maxOccurs: 2
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge[]
      */
     public $TotalCharge;
     /**
@@ -64,6 +66,35 @@ class VehicleAvailCoreType extends AbstractStructBase
      */
     public $Reference;
     /**
+     * The Vendor
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Vendor
+     */
+    public $Vendor;
+    /**
+     * The VendorLocation
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VendorLocation
+     */
+    public $VendorLocation;
+    /**
+     * The DropOffLocation
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\DropOffLocation
+     */
+    public $DropOffLocation;
+    /**
+     * The Discount
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 5
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Discount[]
+     */
+    public $Discount;
+    /**
      * The TPA_Extensions
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -71,6 +102,14 @@ class VehicleAvailCoreType extends AbstractStructBase
      * @var mixed
      */
     public $TPA_Extensions;
+    /**
+     * The IsAlternateInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, this vehicle is an alternate to what was requested.
+     * - use: optional
+     * @var bool
+     */
+    public $IsAlternateInd;
     /**
      * Constructor method for VehicleAvailCoreType
      * @uses VehicleAvailCoreType::setStatus()
@@ -80,17 +119,27 @@ class VehicleAvailCoreType extends AbstractStructBase
      * @uses VehicleAvailCoreType::setPricedEquips()
      * @uses VehicleAvailCoreType::setFees()
      * @uses VehicleAvailCoreType::setReference()
+     * @uses VehicleAvailCoreType::setVendor()
+     * @uses VehicleAvailCoreType::setVendorLocation()
+     * @uses VehicleAvailCoreType::setDropOffLocation()
+     * @uses VehicleAvailCoreType::setDiscount()
      * @uses VehicleAvailCoreType::setTPA_Extensions()
+     * @uses VehicleAvailCoreType::setIsAlternateInd()
      * @param string $status
      * @param mixed $vehicle
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate[] $rentalRate
-     * @param mixed $totalCharge
+     * @param mixed[] $rentalRate
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge[] $totalCharge
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\PricedEquips $pricedEquips
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Fees $fees
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Reference $reference
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Vendor $vendor
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VendorLocation $vendorLocation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DropOffLocation $dropOffLocation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Discount[] $discount
      * @param mixed $tPA_Extensions
+     * @param bool $isAlternateInd
      */
-    public function __construct($status = null, $vehicle = null, array $rentalRate = array(), $totalCharge = null, \Devlabs91\GenericOtaHotelApiService\StructType\PricedEquips $pricedEquips = null, \Devlabs91\GenericOtaHotelApiService\StructType\Fees $fees = null, \Devlabs91\GenericOtaHotelApiService\StructType\Reference $reference = null, $tPA_Extensions = null)
+    public function __construct($status = null, $vehicle = null, array $rentalRate = array(), array $totalCharge = array(), \Devlabs91\GenericOtaHotelApiService\StructType\PricedEquips $pricedEquips = null, \Devlabs91\GenericOtaHotelApiService\StructType\Fees $fees = null, \Devlabs91\GenericOtaHotelApiService\StructType\Reference $reference = null, \Devlabs91\GenericOtaHotelApiService\StructType\Vendor $vendor = null, \Devlabs91\GenericOtaHotelApiService\StructType\VendorLocation $vendorLocation = null, \Devlabs91\GenericOtaHotelApiService\StructType\DropOffLocation $dropOffLocation = null, array $discount = array(), $tPA_Extensions = null, $isAlternateInd = null)
     {
         $this
             ->setStatus($status)
@@ -100,7 +149,12 @@ class VehicleAvailCoreType extends AbstractStructBase
             ->setPricedEquips($pricedEquips)
             ->setFees($fees)
             ->setReference($reference)
-            ->setTPA_Extensions($tPA_Extensions);
+            ->setVendor($vendor)
+            ->setVendorLocation($vendorLocation)
+            ->setDropOffLocation($dropOffLocation)
+            ->setDiscount($discount)
+            ->setTPA_Extensions($tPA_Extensions)
+            ->setIsAlternateInd($isAlternateInd);
     }
     /**
      * Get Status value
@@ -144,7 +198,7 @@ class VehicleAvailCoreType extends AbstractStructBase
     }
     /**
      * Get RentalRate value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate[]|null
+     * @return mixed[]|null
      */
     public function getRentalRate()
     {
@@ -153,15 +207,15 @@ class VehicleAvailCoreType extends AbstractStructBase
     /**
      * Set RentalRate value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate[] $rentalRate
+     * @param mixed[] $rentalRate
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
      */
     public function setRentalRate(array $rentalRate = array())
     {
         foreach ($rentalRate as $vehicleAvailCoreTypeRentalRateItem) {
             // validation for constraint: itemType
-            if (!$vehicleAvailCoreTypeRentalRateItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate) {
-                throw new \InvalidArgumentException(sprintf('The RentalRate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate, "%s" given', is_object($vehicleAvailCoreTypeRentalRateItem) ? get_class($vehicleAvailCoreTypeRentalRateItem) : gettype($vehicleAvailCoreTypeRentalRateItem)), __LINE__);
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The RentalRate property can only contain items of anyType, "%s" given', is_object($vehicleAvailCoreTypeRentalRateItem) ? get_class($vehicleAvailCoreTypeRentalRateItem) : gettype($vehicleAvailCoreTypeRentalRateItem)), __LINE__);
             }
         }
         $this->RentalRate = $rentalRate;
@@ -170,21 +224,21 @@ class VehicleAvailCoreType extends AbstractStructBase
     /**
      * Add item to RentalRate value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate $item
+     * @param mixed $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
      */
-    public function addToRentalRate(\Devlabs91\GenericOtaHotelApiService\StructType\RentalRate $item)
+    public function addToRentalRate($item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate) {
-            throw new \InvalidArgumentException(sprintf('The RentalRate property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The RentalRate property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->RentalRate[] = $item;
         return $this;
     }
     /**
      * Get TotalCharge value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge[]|null
      */
     public function getTotalCharge()
     {
@@ -192,12 +246,34 @@ class VehicleAvailCoreType extends AbstractStructBase
     }
     /**
      * Set TotalCharge value
-     * @param mixed $totalCharge
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge[] $totalCharge
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
      */
-    public function setTotalCharge($totalCharge = null)
+    public function setTotalCharge(array $totalCharge = array())
     {
+        foreach ($totalCharge as $vehicleAvailCoreTypeTotalChargeItem) {
+            // validation for constraint: itemType
+            if (!$vehicleAvailCoreTypeTotalChargeItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge) {
+                throw new \InvalidArgumentException(sprintf('The TotalCharge property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge, "%s" given', is_object($vehicleAvailCoreTypeTotalChargeItem) ? get_class($vehicleAvailCoreTypeTotalChargeItem) : gettype($vehicleAvailCoreTypeTotalChargeItem)), __LINE__);
+            }
+        }
         $this->TotalCharge = $totalCharge;
+        return $this;
+    }
+    /**
+     * Add item to TotalCharge value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
+     */
+    public function addToTotalCharge(\Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge) {
+            throw new \InvalidArgumentException(sprintf('The TotalCharge property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->TotalCharge[] = $item;
         return $this;
     }
     /**
@@ -255,6 +331,100 @@ class VehicleAvailCoreType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get Vendor value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Vendor|null
+     */
+    public function getVendor()
+    {
+        return $this->Vendor;
+    }
+    /**
+     * Set Vendor value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Vendor $vendor
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
+     */
+    public function setVendor(\Devlabs91\GenericOtaHotelApiService\StructType\Vendor $vendor = null)
+    {
+        $this->Vendor = $vendor;
+        return $this;
+    }
+    /**
+     * Get VendorLocation value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VendorLocation|null
+     */
+    public function getVendorLocation()
+    {
+        return $this->VendorLocation;
+    }
+    /**
+     * Set VendorLocation value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VendorLocation $vendorLocation
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
+     */
+    public function setVendorLocation(\Devlabs91\GenericOtaHotelApiService\StructType\VendorLocation $vendorLocation = null)
+    {
+        $this->VendorLocation = $vendorLocation;
+        return $this;
+    }
+    /**
+     * Get DropOffLocation value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\DropOffLocation|null
+     */
+    public function getDropOffLocation()
+    {
+        return $this->DropOffLocation;
+    }
+    /**
+     * Set DropOffLocation value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DropOffLocation $dropOffLocation
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
+     */
+    public function setDropOffLocation(\Devlabs91\GenericOtaHotelApiService\StructType\DropOffLocation $dropOffLocation = null)
+    {
+        $this->DropOffLocation = $dropOffLocation;
+        return $this;
+    }
+    /**
+     * Get Discount value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Discount[]|null
+     */
+    public function getDiscount()
+    {
+        return $this->Discount;
+    }
+    /**
+     * Set Discount value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Discount[] $discount
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
+     */
+    public function setDiscount(array $discount = array())
+    {
+        foreach ($discount as $vehicleAvailCoreTypeDiscountItem) {
+            // validation for constraint: itemType
+            if (!$vehicleAvailCoreTypeDiscountItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Discount) {
+                throw new \InvalidArgumentException(sprintf('The Discount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Discount, "%s" given', is_object($vehicleAvailCoreTypeDiscountItem) ? get_class($vehicleAvailCoreTypeDiscountItem) : gettype($vehicleAvailCoreTypeDiscountItem)), __LINE__);
+            }
+        }
+        $this->Discount = $discount;
+        return $this;
+    }
+    /**
+     * Add item to Discount value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Discount $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
+     */
+    public function addToDiscount(\Devlabs91\GenericOtaHotelApiService\StructType\Discount $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Discount) {
+            throw new \InvalidArgumentException(sprintf('The Discount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Discount, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Discount[] = $item;
+        return $this;
+    }
+    /**
      * Get TPA_Extensions value
      * @return mixed|null
      */
@@ -270,6 +440,28 @@ class VehicleAvailCoreType extends AbstractStructBase
     public function setTPA_Extensions($tPA_Extensions = null)
     {
         $this->TPA_Extensions = $tPA_Extensions;
+        return $this;
+    }
+    /**
+     * Get IsAlternateInd value
+     * @return bool|null
+     */
+    public function getIsAlternateInd()
+    {
+        return $this->IsAlternateInd;
+    }
+    /**
+     * Set IsAlternateInd value
+     * @param bool $isAlternateInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleAvailCoreType
+     */
+    public function setIsAlternateInd($isAlternateInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($isAlternateInd) && !is_bool($isAlternateInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAlternateInd)), __LINE__);
+        }
+        $this->IsAlternateInd = $isAlternateInd;
         return $this;
     }
     /**

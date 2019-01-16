@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PrefCollection StructType
  * Meta informations extracted from the WSDL
- * - documentation: Unique aggregation of customer travel needs.
+ * - documentation: Aggregation of customer travel needs. | Allows for control of the sharing of data between parties.
  * @subpackage Structs
  */
 class PrefCollection extends AbstractStructBase
@@ -15,6 +15,7 @@ class PrefCollection extends AbstractStructBase
     /**
      * The CommonPref
      * Meta informations extracted from the WSDL
+     * - documentation: Supplier-independent preferences.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -23,6 +24,7 @@ class PrefCollection extends AbstractStructBase
     /**
      * The VehicleRentalPref
      * Meta informations extracted from the WSDL
+     * - documentation: A set of preferences for vehicle rental.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -31,6 +33,7 @@ class PrefCollection extends AbstractStructBase
     /**
      * The AirlinePref
      * Meta informations extracted from the WSDL
+     * - documentation: A set of preferences for air travel.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -39,6 +42,7 @@ class PrefCollection extends AbstractStructBase
     /**
      * The HotelPref
      * Meta informations extracted from the WSDL
+     * - documentation: A set of preferences for hotel stay.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -47,6 +51,7 @@ class PrefCollection extends AbstractStructBase
     /**
      * The OtherSrvcPref
      * Meta informations extracted from the WSDL
+     * - documentation: A set of preferences for other services.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -63,7 +68,7 @@ class PrefCollection extends AbstractStructBase
     /**
      * The TravelPurpose
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Travel Purpose (TVP).
+     * - documentation: Refer to OpenTravel Code List Travel Purpose (TVP).
      * - use: optional
      * @var string
      */

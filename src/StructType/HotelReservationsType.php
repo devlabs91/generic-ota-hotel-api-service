@@ -15,7 +15,7 @@ class HotelReservationsType extends AbstractStructBase
     /**
      * The HotelReservation
      * Meta informations extracted from the WSDL
-     * - documentation: The Reservation class contains the current reservation being created or altered.
+     * - documentation: Contains a hotel reservation.
      * - maxOccurs: unbounded
      * @var mixed[]
      */
@@ -37,20 +37,31 @@ class HotelReservationsType extends AbstractStructBase
      */
     public $WrittenConfInst;
     /**
+     * The TPA_Extensions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * - ref: TPA_Extensions
+     * @var mixed
+     */
+    public $TPA_Extensions;
+    /**
      * Constructor method for HotelReservationsType
      * @uses HotelReservationsType::setHotelReservation()
      * @uses HotelReservationsType::setRoutingHops()
      * @uses HotelReservationsType::setWrittenConfInst()
+     * @uses HotelReservationsType::setTPA_Extensions()
      * @param mixed[] $hotelReservation
      * @param mixed $routingHops
      * @param mixed $writtenConfInst
+     * @param mixed $tPA_Extensions
      */
-    public function __construct(array $hotelReservation = array(), $routingHops = null, $writtenConfInst = null)
+    public function __construct(array $hotelReservation = array(), $routingHops = null, $writtenConfInst = null, $tPA_Extensions = null)
     {
         $this
             ->setHotelReservation($hotelReservation)
             ->setRoutingHops($routingHops)
-            ->setWrittenConfInst($writtenConfInst);
+            ->setWrittenConfInst($writtenConfInst)
+            ->setTPA_Extensions($tPA_Extensions);
     }
     /**
      * Get HotelReservation value
@@ -126,6 +137,24 @@ class HotelReservationsType extends AbstractStructBase
     public function setWrittenConfInst($writtenConfInst = null)
     {
         $this->WrittenConfInst = $writtenConfInst;
+        return $this;
+    }
+    /**
+     * Get TPA_Extensions value
+     * @return mixed|null
+     */
+    public function getTPA_Extensions()
+    {
+        return $this->TPA_Extensions;
+    }
+    /**
+     * Set TPA_Extensions value
+     * @param mixed $tPA_Extensions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelReservationsType
+     */
+    public function setTPA_Extensions($tPA_Extensions = null)
+    {
+        $this->TPA_Extensions = $tPA_Extensions;
         return $this;
     }
     /**

@@ -7,166 +7,193 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RatePlanCandidate StructType
  * Meta informations extracted from the WSDL
- * - documentation: element used to identify available products and rates.
+ * - documentation: Element used to identify available products and rates.
  * @subpackage Structs
  */
 class RatePlanCandidate extends AbstractStructBase
 {
     /**
-     * The RatePlanType
+     * The HotelRefs
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\HotelRefs
+     */
+    public $HotelRefs;
+    /**
+     * The MealsIncluded
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded
+     */
+    public $MealsIncluded;
+    /**
+     * The ArrivalPolicy
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalPolicy
+     */
+    public $ArrivalPolicy;
+    /**
+     * The RatePlanCommission
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCommission
+     */
+    public $RatePlanCommission;
+    /**
+     * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: A unique identifier for this rate plan candidate.
+     * - use: optional
      * @var string
      */
-    public $RatePlanType;
+    public $RPH;
     /**
-     * The RatePlanCode
+     * The PrepaidQualifier
+     * Meta informations extracted from the WSDL
+     * - use: optional
      * @var string
      */
-    public $RatePlanCode;
-    /**
-     * The RatePlanID
-     * @var string
-     */
-    public $RatePlanID;
-    /**
-     * The RatePlanQualifier
-     * @var bool
-     */
-    public $RatePlanQualifier;
-    /**
-     * The RatePlanCategory
-     * @var string
-     */
-    public $RatePlanCategory;
+    public $PrepaidQualifier;
     /**
      * Constructor method for RatePlanCandidate
-     * @uses RatePlanCandidate::setRatePlanType()
-     * @uses RatePlanCandidate::setRatePlanCode()
-     * @uses RatePlanCandidate::setRatePlanID()
-     * @uses RatePlanCandidate::setRatePlanQualifier()
-     * @uses RatePlanCandidate::setRatePlanCategory()
-     * @param string $ratePlanType
-     * @param string $ratePlanCode
-     * @param string $ratePlanID
-     * @param bool $ratePlanQualifier
-     * @param string $ratePlanCategory
+     * @uses RatePlanCandidate::setHotelRefs()
+     * @uses RatePlanCandidate::setMealsIncluded()
+     * @uses RatePlanCandidate::setArrivalPolicy()
+     * @uses RatePlanCandidate::setRatePlanCommission()
+     * @uses RatePlanCandidate::setRPH()
+     * @uses RatePlanCandidate::setPrepaidQualifier()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelRefs $hotelRefs
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalPolicy $arrivalPolicy
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCommission $ratePlanCommission
+     * @param string $rPH
+     * @param string $prepaidQualifier
      */
-    public function __construct($ratePlanType = null, $ratePlanCode = null, $ratePlanID = null, $ratePlanQualifier = null, $ratePlanCategory = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\HotelRefs $hotelRefs = null, \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded = null, \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalPolicy $arrivalPolicy = null, \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCommission $ratePlanCommission = null, $rPH = null, $prepaidQualifier = null)
     {
         $this
-            ->setRatePlanType($ratePlanType)
-            ->setRatePlanCode($ratePlanCode)
-            ->setRatePlanID($ratePlanID)
-            ->setRatePlanQualifier($ratePlanQualifier)
-            ->setRatePlanCategory($ratePlanCategory);
+            ->setHotelRefs($hotelRefs)
+            ->setMealsIncluded($mealsIncluded)
+            ->setArrivalPolicy($arrivalPolicy)
+            ->setRatePlanCommission($ratePlanCommission)
+            ->setRPH($rPH)
+            ->setPrepaidQualifier($prepaidQualifier);
     }
     /**
-     * Get RatePlanType value
-     * @return string|null
+     * Get HotelRefs value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelRefs|null
      */
-    public function getRatePlanType()
+    public function getHotelRefs()
     {
-        return $this->RatePlanType;
+        return $this->HotelRefs;
     }
     /**
-     * Set RatePlanType value
-     * @param string $ratePlanType
+     * Set HotelRefs value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelRefs $hotelRefs
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidate
      */
-    public function setRatePlanType($ratePlanType = null)
+    public function setHotelRefs(\Devlabs91\GenericOtaHotelApiService\StructType\HotelRefs $hotelRefs = null)
     {
-        // validation for constraint: string
-        if (!is_null($ratePlanType) && !is_string($ratePlanType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ratePlanType)), __LINE__);
-        }
-        $this->RatePlanType = $ratePlanType;
+        $this->HotelRefs = $hotelRefs;
         return $this;
     }
     /**
-     * Get RatePlanCode value
-     * @return string|null
+     * Get MealsIncluded value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded|null
      */
-    public function getRatePlanCode()
+    public function getMealsIncluded()
     {
-        return $this->RatePlanCode;
+        return $this->MealsIncluded;
     }
     /**
-     * Set RatePlanCode value
-     * @param string $ratePlanCode
+     * Set MealsIncluded value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidate
      */
-    public function setRatePlanCode($ratePlanCode = null)
+    public function setMealsIncluded(\Devlabs91\GenericOtaHotelApiService\StructType\MealsIncluded $mealsIncluded = null)
     {
-        // validation for constraint: string
-        if (!is_null($ratePlanCode) && !is_string($ratePlanCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ratePlanCode)), __LINE__);
-        }
-        $this->RatePlanCode = $ratePlanCode;
+        $this->MealsIncluded = $mealsIncluded;
         return $this;
     }
     /**
-     * Get RatePlanID value
-     * @return string|null
+     * Get ArrivalPolicy value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalPolicy|null
      */
-    public function getRatePlanID()
+    public function getArrivalPolicy()
     {
-        return $this->RatePlanID;
+        return $this->ArrivalPolicy;
     }
     /**
-     * Set RatePlanID value
-     * @param string $ratePlanID
+     * Set ArrivalPolicy value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalPolicy $arrivalPolicy
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidate
      */
-    public function setRatePlanID($ratePlanID = null)
+    public function setArrivalPolicy(\Devlabs91\GenericOtaHotelApiService\StructType\ArrivalPolicy $arrivalPolicy = null)
     {
-        // validation for constraint: string
-        if (!is_null($ratePlanID) && !is_string($ratePlanID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ratePlanID)), __LINE__);
-        }
-        $this->RatePlanID = $ratePlanID;
+        $this->ArrivalPolicy = $arrivalPolicy;
         return $this;
     }
     /**
-     * Get RatePlanQualifier value
-     * @return bool|null
+     * Get RatePlanCommission value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCommission|null
      */
-    public function getRatePlanQualifier()
+    public function getRatePlanCommission()
     {
-        return $this->RatePlanQualifier;
+        return $this->RatePlanCommission;
     }
     /**
-     * Set RatePlanQualifier value
-     * @param bool $ratePlanQualifier
+     * Set RatePlanCommission value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCommission $ratePlanCommission
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidate
      */
-    public function setRatePlanQualifier($ratePlanQualifier = null)
+    public function setRatePlanCommission(\Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCommission $ratePlanCommission = null)
     {
-        // validation for constraint: boolean
-        if (!is_null($ratePlanQualifier) && !is_bool($ratePlanQualifier)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($ratePlanQualifier)), __LINE__);
-        }
-        $this->RatePlanQualifier = $ratePlanQualifier;
+        $this->RatePlanCommission = $ratePlanCommission;
         return $this;
     }
     /**
-     * Get RatePlanCategory value
+     * Get RPH value
      * @return string|null
      */
-    public function getRatePlanCategory()
+    public function getRPH()
     {
-        return $this->RatePlanCategory;
+        return $this->RPH;
     }
     /**
-     * Set RatePlanCategory value
-     * @param string $ratePlanCategory
+     * Set RPH value
+     * @param string $rPH
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidate
      */
-    public function setRatePlanCategory($ratePlanCategory = null)
+    public function setRPH($rPH = null)
     {
         // validation for constraint: string
-        if (!is_null($ratePlanCategory) && !is_string($ratePlanCategory)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ratePlanCategory)), __LINE__);
+        if (!is_null($rPH) && !is_string($rPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
         }
-        $this->RatePlanCategory = $ratePlanCategory;
+        $this->RPH = $rPH;
+        return $this;
+    }
+    /**
+     * Get PrepaidQualifier value
+     * @return string|null
+     */
+    public function getPrepaidQualifier()
+    {
+        return $this->PrepaidQualifier;
+    }
+    /**
+     * Set PrepaidQualifier value
+     * @param string $prepaidQualifier
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlanCandidate
+     */
+    public function setPrepaidQualifier($prepaidQualifier = null)
+    {
+        // validation for constraint: string
+        if (!is_null($prepaidQualifier) && !is_string($prepaidQualifier)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($prepaidQualifier)), __LINE__);
+        }
+        $this->PrepaidQualifier = $prepaidQualifier;
         return $this;
     }
     /**

@@ -15,15 +15,14 @@ class AcceptablePaymentCards extends AbstractStructBase
     /**
      * The AcceptablePaymentCard
      * Meta informations extracted from the WSDL
-     * - documentation: Specific information of one payment card that is acceptable as a form of payment.
      * - maxOccurs: 99
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard[]
      */
     public $AcceptablePaymentCard;
     /**
      * Constructor method for AcceptablePaymentCards
      * @uses AcceptablePaymentCards::setAcceptablePaymentCard()
-     * @param mixed[] $acceptablePaymentCard
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard[] $acceptablePaymentCard
      */
     public function __construct(array $acceptablePaymentCard = array())
     {
@@ -32,7 +31,7 @@ class AcceptablePaymentCards extends AbstractStructBase
     }
     /**
      * Get AcceptablePaymentCard value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard[]|null
      */
     public function getAcceptablePaymentCard()
     {
@@ -41,15 +40,15 @@ class AcceptablePaymentCards extends AbstractStructBase
     /**
      * Set AcceptablePaymentCard value
      * @throws \InvalidArgumentException
-     * @param mixed[] $acceptablePaymentCard
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard[] $acceptablePaymentCard
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCards
      */
     public function setAcceptablePaymentCard(array $acceptablePaymentCard = array())
     {
         foreach ($acceptablePaymentCard as $acceptablePaymentCardsAcceptablePaymentCardItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The AcceptablePaymentCard property can only contain items of anyType, "%s" given', is_object($acceptablePaymentCardsAcceptablePaymentCardItem) ? get_class($acceptablePaymentCardsAcceptablePaymentCardItem) : gettype($acceptablePaymentCardsAcceptablePaymentCardItem)), __LINE__);
+            if (!$acceptablePaymentCardsAcceptablePaymentCardItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard) {
+                throw new \InvalidArgumentException(sprintf('The AcceptablePaymentCard property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard, "%s" given', is_object($acceptablePaymentCardsAcceptablePaymentCardItem) ? get_class($acceptablePaymentCardsAcceptablePaymentCardItem) : gettype($acceptablePaymentCardsAcceptablePaymentCardItem)), __LINE__);
             }
         }
         $this->AcceptablePaymentCard = $acceptablePaymentCard;
@@ -58,14 +57,14 @@ class AcceptablePaymentCards extends AbstractStructBase
     /**
      * Add item to AcceptablePaymentCard value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCards
      */
-    public function addToAcceptablePaymentCard($item)
+    public function addToAcceptablePaymentCard(\Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The AcceptablePaymentCard property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard) {
+            throw new \InvalidArgumentException(sprintf('The AcceptablePaymentCard property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AcceptablePaymentCard, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->AcceptablePaymentCard[] = $item;
         return $this;

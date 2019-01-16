@@ -13,6 +13,7 @@ class PassengerRPH extends AbstractStructBase
     /**
      * The RPH
      * Meta informations extracted from the WSDL
+     * - documentation: (Reference Place Holder) - an index code to identify an instance in a collection of like items. For example, used to assign individual passengers or clients to particular itinerary items.
      * - use: required
      * @var string
      */

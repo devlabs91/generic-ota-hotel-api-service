@@ -20,6 +20,7 @@ class Adjustment extends AbstractStructBase
     /**
      * The ConfirmationID
      * Meta informations extracted from the WSDL
+     * - documentation: The confirmation ID number.
      * - use: optional
      * @var string
      */
@@ -27,6 +28,7 @@ class Adjustment extends AbstractStructBase
     /**
      * The ReservationID
      * Meta informations extracted from the WSDL
+     * - documentation: The reservation ID number.
      * - use: optional
      * @var string
      */

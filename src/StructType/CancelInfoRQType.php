@@ -23,7 +23,7 @@ class CancelInfoRQType extends AbstractStructBase
     /**
      * The UniqueID
      * Meta informations extracted from the WSDL
-     * - documentation: Sending own UniqueID and partner UniqueID - the receiving system needs to know which one - UniqueID acts as a reference for each system
+     * - documentation: Sending own UniqueID and partner UniqueID - the receiving system needs to know which one - UniqueID acts as a reference for each system.
      * - maxOccurs: 2
      * @var mixed[]
      */

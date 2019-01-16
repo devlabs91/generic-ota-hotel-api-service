@@ -15,20 +15,32 @@ class CancelPenaltiesType extends AbstractStructBase
     /**
      * The CancelPenalty
      * Meta informations extracted from the WSDL
-     * - documentation: Defines the cancellation policy of the hotel facility.
+     * - documentation: Defines the cancellation penalty of the hotel facility.
      * - maxOccurs: unbounded
+     * - minOccurs: 0
      * @var mixed[]
      */
     public $CancelPenalty;
     /**
+     * The CancelPolicyIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates a cancel policy exits. When false, no cancel policy exists. Typically this indicator is used when details are not being sent.
+     * - use: optional
+     * @var bool
+     */
+    public $CancelPolicyIndicator;
+    /**
      * Constructor method for CancelPenaltiesType
      * @uses CancelPenaltiesType::setCancelPenalty()
+     * @uses CancelPenaltiesType::setCancelPolicyIndicator()
      * @param mixed[] $cancelPenalty
+     * @param bool $cancelPolicyIndicator
      */
-    public function __construct(array $cancelPenalty = array())
+    public function __construct(array $cancelPenalty = array(), $cancelPolicyIndicator = null)
     {
         $this
-            ->setCancelPenalty($cancelPenalty);
+            ->setCancelPenalty($cancelPenalty)
+            ->setCancelPolicyIndicator($cancelPolicyIndicator);
     }
     /**
      * Get CancelPenalty value
@@ -68,6 +80,28 @@ class CancelPenaltiesType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The CancelPenalty property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CancelPenalty[] = $item;
+        return $this;
+    }
+    /**
+     * Get CancelPolicyIndicator value
+     * @return bool|null
+     */
+    public function getCancelPolicyIndicator()
+    {
+        return $this->CancelPolicyIndicator;
+    }
+    /**
+     * Set CancelPolicyIndicator value
+     * @param bool $cancelPolicyIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CancelPenaltiesType
+     */
+    public function setCancelPolicyIndicator($cancelPolicyIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($cancelPolicyIndicator) && !is_bool($cancelPolicyIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($cancelPolicyIndicator)), __LINE__);
+        }
+        $this->CancelPolicyIndicator = $cancelPolicyIndicator;
         return $this;
     }
     /**

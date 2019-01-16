@@ -13,14 +13,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class AffiliationInfoType extends AbstractStructBase
 {
     /**
-     * The LastUpdated
-     * Meta informations extracted from the WSDL
-     * - documentation: The date and time when the affiliation information for this hotel was last updated.
-     * - use: required
-     * @var string
-     */
-    public $LastUpdated;
-    /**
      * The DistribSystems
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -49,48 +41,54 @@ class AffiliationInfoType extends AbstractStructBase
      */
     public $Awards;
     /**
+     * The PartnerInfos
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PartnerInfos
+     */
+    public $PartnerInfos;
+    /**
+     * The Descriptions
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions
+     */
+    public $Descriptions;
+    /**
+     * The LastUpdated
+     * Meta informations extracted from the WSDL
+     * - documentation: The date and time when the affiliation information for this hotel was last updated.
+     * - use: optional
+     * @var string
+     */
+    public $LastUpdated;
+    /**
      * Constructor method for AffiliationInfoType
-     * @uses AffiliationInfoType::setLastUpdated()
      * @uses AffiliationInfoType::setDistribSystems()
      * @uses AffiliationInfoType::setBrands()
      * @uses AffiliationInfoType::setLoyalPrograms()
      * @uses AffiliationInfoType::setAwards()
-     * @param string $lastUpdated
+     * @uses AffiliationInfoType::setPartnerInfos()
+     * @uses AffiliationInfoType::setDescriptions()
+     * @uses AffiliationInfoType::setLastUpdated()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\DistribSystems $distribSystems
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Brands $brands
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\LoyalPrograms $loyalPrograms
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Awards $awards
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PartnerInfos $partnerInfos
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions $descriptions
+     * @param string $lastUpdated
      */
-    public function __construct($lastUpdated = null, \Devlabs91\GenericOtaHotelApiService\StructType\DistribSystems $distribSystems = null, \Devlabs91\GenericOtaHotelApiService\StructType\Brands $brands = null, \Devlabs91\GenericOtaHotelApiService\StructType\LoyalPrograms $loyalPrograms = null, \Devlabs91\GenericOtaHotelApiService\StructType\Awards $awards = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\DistribSystems $distribSystems = null, \Devlabs91\GenericOtaHotelApiService\StructType\Brands $brands = null, \Devlabs91\GenericOtaHotelApiService\StructType\LoyalPrograms $loyalPrograms = null, \Devlabs91\GenericOtaHotelApiService\StructType\Awards $awards = null, \Devlabs91\GenericOtaHotelApiService\StructType\PartnerInfos $partnerInfos = null, \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions $descriptions = null, $lastUpdated = null)
     {
         $this
-            ->setLastUpdated($lastUpdated)
             ->setDistribSystems($distribSystems)
             ->setBrands($brands)
             ->setLoyalPrograms($loyalPrograms)
-            ->setAwards($awards);
-    }
-    /**
-     * Get LastUpdated value
-     * @return string
-     */
-    public function getLastUpdated()
-    {
-        return $this->LastUpdated;
-    }
-    /**
-     * Set LastUpdated value
-     * @param string $lastUpdated
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AffiliationInfoType
-     */
-    public function setLastUpdated($lastUpdated = null)
-    {
-        // validation for constraint: string
-        if (!is_null($lastUpdated) && !is_string($lastUpdated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastUpdated)), __LINE__);
-        }
-        $this->LastUpdated = $lastUpdated;
-        return $this;
+            ->setAwards($awards)
+            ->setPartnerInfos($partnerInfos)
+            ->setDescriptions($descriptions)
+            ->setLastUpdated($lastUpdated);
     }
     /**
      * Get DistribSystems value
@@ -162,6 +160,64 @@ class AffiliationInfoType extends AbstractStructBase
     public function setAwards(\Devlabs91\GenericOtaHotelApiService\StructType\Awards $awards = null)
     {
         $this->Awards = $awards;
+        return $this;
+    }
+    /**
+     * Get PartnerInfos value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PartnerInfos|null
+     */
+    public function getPartnerInfos()
+    {
+        return $this->PartnerInfos;
+    }
+    /**
+     * Set PartnerInfos value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PartnerInfos $partnerInfos
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AffiliationInfoType
+     */
+    public function setPartnerInfos(\Devlabs91\GenericOtaHotelApiService\StructType\PartnerInfos $partnerInfos = null)
+    {
+        $this->PartnerInfos = $partnerInfos;
+        return $this;
+    }
+    /**
+     * Get Descriptions value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions|null
+     */
+    public function getDescriptions()
+    {
+        return $this->Descriptions;
+    }
+    /**
+     * Set Descriptions value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Descriptions $descriptions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AffiliationInfoType
+     */
+    public function setDescriptions(\Devlabs91\GenericOtaHotelApiService\StructType\Descriptions $descriptions = null)
+    {
+        $this->Descriptions = $descriptions;
+        return $this;
+    }
+    /**
+     * Get LastUpdated value
+     * @return string|null
+     */
+    public function getLastUpdated()
+    {
+        return $this->LastUpdated;
+    }
+    /**
+     * Set LastUpdated value
+     * @param string $lastUpdated
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AffiliationInfoType
+     */
+    public function setLastUpdated($lastUpdated = null)
+    {
+        // validation for constraint: string
+        if (!is_null($lastUpdated) && !is_string($lastUpdated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastUpdated)), __LINE__);
+        }
+        $this->LastUpdated = $lastUpdated;
         return $this;
     }
     /**

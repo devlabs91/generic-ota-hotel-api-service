@@ -24,7 +24,7 @@ class MasterContact extends ContactPersonType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 5
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty[]
      */
     public $Loyalty;
     /**
@@ -32,7 +32,7 @@ class MasterContact extends ContactPersonType
      * @uses MasterContact::setUniqueIDs()
      * @uses MasterContact::setLoyalty()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueIDs $uniqueIDs
-     * @param mixed[] $loyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty[] $loyalty
      */
     public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\UniqueIDs $uniqueIDs = null, array $loyalty = array())
     {
@@ -60,7 +60,7 @@ class MasterContact extends ContactPersonType
     }
     /**
      * Get Loyalty value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty[]|null
      */
     public function getLoyalty()
     {
@@ -69,15 +69,15 @@ class MasterContact extends ContactPersonType
     /**
      * Set Loyalty value
      * @throws \InvalidArgumentException
-     * @param mixed[] $loyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty[] $loyalty
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\MasterContact
      */
     public function setLoyalty(array $loyalty = array())
     {
         foreach ($loyalty as $masterContactLoyaltyItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Loyalty property can only contain items of anyType, "%s" given', is_object($masterContactLoyaltyItem) ? get_class($masterContactLoyaltyItem) : gettype($masterContactLoyaltyItem)), __LINE__);
+            if (!$masterContactLoyaltyItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty) {
+                throw new \InvalidArgumentException(sprintf('The Loyalty property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty, "%s" given', is_object($masterContactLoyaltyItem) ? get_class($masterContactLoyaltyItem) : gettype($masterContactLoyaltyItem)), __LINE__);
             }
         }
         $this->Loyalty = $loyalty;
@@ -86,14 +86,14 @@ class MasterContact extends ContactPersonType
     /**
      * Add item to Loyalty value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\MasterContact
      */
-    public function addToLoyalty($item)
+    public function addToLoyalty(\Devlabs91\GenericOtaHotelApiService\StructType\Loyalty $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Loyalty property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty) {
+            throw new \InvalidArgumentException(sprintf('The Loyalty property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Loyalty, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Loyalty[] = $item;
         return $this;

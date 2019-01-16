@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for JobTitle StructType
  * Meta informations extracted from the WSDL
- * - documentation: Used for Character Strings, length 1 to 64
+ * - documentation: Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs

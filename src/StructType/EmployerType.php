@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for EmployerType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Company or organization that employs the customer.
+ * - documentation: Company or organization that employs the customer. | Indicates that the receiving system should assume the default value if the user specifies no overriding value or action. | Designates the office category within an organization. |
+ * Used to send the effective date and/or expiration date.
  * @subpackage Structs
  */
 class EmployerType extends AbstractStructBase
@@ -15,6 +16,7 @@ class EmployerType extends AbstractStructBase
     /**
      * The CompanyName
      * Meta informations extracted from the WSDL
+     * - documentation: The name of the company.
      * - minOccurs: 0
      * @var mixed
      */
@@ -22,6 +24,7 @@ class EmployerType extends AbstractStructBase
     /**
      * The RelatedEmployer
      * Meta informations extracted from the WSDL
+     * - documentation: The name of a company affiliated with the employer.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -30,6 +33,7 @@ class EmployerType extends AbstractStructBase
     /**
      * The EmployeeInfo
      * Meta informations extracted from the WSDL
+     * - documentation: Information about the employee.
      * - maxOccurs: 3
      * - minOccurs: 0
      * @var mixed[]
@@ -47,6 +51,7 @@ class EmployerType extends AbstractStructBase
     /**
      * The TravelArranger
      * Meta informations extracted from the WSDL
+     * - documentation: Information on the organization responsible for arranging travel for the employer.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -55,6 +60,7 @@ class EmployerType extends AbstractStructBase
     /**
      * The LoyaltyProgram
      * Meta informations extracted from the WSDL
+     * - documentation: Employer's loyalty program information.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]

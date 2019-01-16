@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SuccessType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Standard way to indicate successful processing of an OTA message. Returning an empty element of this type indicates success.
+ * - documentation: Returning an empty element of this type indicates the successful processing of an OpenTravel message. This is used in conjunction with the Warning Type to report any warnings or business errors.
  * @subpackage Structs
  */
 class SuccessType extends AbstractStructBase

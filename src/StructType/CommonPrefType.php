@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CommonPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Travel needs associated with a collection but independent of specific travel services.
+ * - documentation: Identifies preferences for common travel needs not associated with a specific travel service. | Allows for control of the sharing of common preferences between parties. | Used to indicate if smoking is preferred. | Used to specify
+ * the preferred language. | Used to specify the preferred alternate language.
  * @subpackage Structs
  */
 class CommonPrefType extends AbstractStructBase
@@ -15,6 +16,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The NamePref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for name information.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -23,6 +25,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The PhonePref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for telephone information.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -31,6 +34,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The AddressPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for address information.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -39,6 +43,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The PaymentFormPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for form of payment.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -47,6 +52,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The InterestPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a traveler's interests.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -55,6 +61,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The InsurancePref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for insurance.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -63,6 +70,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The SeatingPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for seating.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -71,6 +79,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The TicketDistribPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a method of ticket distribution.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -79,6 +88,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The MediaEntertainPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for media and entertainment.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -87,6 +97,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The PetInfoPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for pet information.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -95,6 +106,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The MealPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for food and beverage.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -103,6 +115,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The LoyaltyPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a loyalty program.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -111,6 +124,7 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The SpecRequestPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a special request.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -119,11 +133,28 @@ class CommonPrefType extends AbstractStructBase
     /**
      * The RelatedTravelerPref
      * Meta informations extracted from the WSDL
+     * - documentation: Enables a preference to be indicated for a related traveler.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
      */
     public $RelatedTravelerPref;
+    /**
+     * The ContactPref
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 99
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref[]
+     */
+    public $ContactPref;
+    /**
+     * The EmployeeLevelInfo
+     * Meta informations extracted from the WSDL
+     * - documentation: Defines the category of the traveler and the purpose of the trip for which these preferences apply. Typically used for company profiles.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $EmployeeLevelInfo;
     /**
      * The TPA_Extensions
      * Meta informations extracted from the WSDL
@@ -148,6 +179,8 @@ class CommonPrefType extends AbstractStructBase
      * @uses CommonPrefType::setLoyaltyPref()
      * @uses CommonPrefType::setSpecRequestPref()
      * @uses CommonPrefType::setRelatedTravelerPref()
+     * @uses CommonPrefType::setContactPref()
+     * @uses CommonPrefType::setEmployeeLevelInfo()
      * @uses CommonPrefType::setTPA_Extensions()
      * @param mixed[] $namePref
      * @param mixed[] $phonePref
@@ -163,9 +196,11 @@ class CommonPrefType extends AbstractStructBase
      * @param mixed[] $loyaltyPref
      * @param mixed[] $specRequestPref
      * @param mixed[] $relatedTravelerPref
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref[] $contactPref
+     * @param mixed $employeeLevelInfo
      * @param mixed $tPA_Extensions
      */
-    public function __construct(array $namePref = array(), array $phonePref = array(), array $addressPref = array(), array $paymentFormPref = array(), array $interestPref = array(), array $insurancePref = array(), array $seatingPref = array(), array $ticketDistribPref = array(), array $mediaEntertainPref = array(), array $petInfoPref = array(), array $mealPref = array(), array $loyaltyPref = array(), array $specRequestPref = array(), array $relatedTravelerPref = array(), $tPA_Extensions = null)
+    public function __construct(array $namePref = array(), array $phonePref = array(), array $addressPref = array(), array $paymentFormPref = array(), array $interestPref = array(), array $insurancePref = array(), array $seatingPref = array(), array $ticketDistribPref = array(), array $mediaEntertainPref = array(), array $petInfoPref = array(), array $mealPref = array(), array $loyaltyPref = array(), array $specRequestPref = array(), array $relatedTravelerPref = array(), array $contactPref = array(), $employeeLevelInfo = null, $tPA_Extensions = null)
     {
         $this
             ->setNamePref($namePref)
@@ -182,6 +217,8 @@ class CommonPrefType extends AbstractStructBase
             ->setLoyaltyPref($loyaltyPref)
             ->setSpecRequestPref($specRequestPref)
             ->setRelatedTravelerPref($relatedTravelerPref)
+            ->setContactPref($contactPref)
+            ->setEmployeeLevelInfo($employeeLevelInfo)
             ->setTPA_Extensions($tPA_Extensions);
     }
     /**
@@ -742,6 +779,64 @@ class CommonPrefType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The RelatedTravelerPref property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->RelatedTravelerPref[] = $item;
+        return $this;
+    }
+    /**
+     * Get ContactPref value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref[]|null
+     */
+    public function getContactPref()
+    {
+        return $this->ContactPref;
+    }
+    /**
+     * Set ContactPref value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref[] $contactPref
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CommonPrefType
+     */
+    public function setContactPref(array $contactPref = array())
+    {
+        foreach ($contactPref as $commonPrefTypeContactPrefItem) {
+            // validation for constraint: itemType
+            if (!$commonPrefTypeContactPrefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref) {
+                throw new \InvalidArgumentException(sprintf('The ContactPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref, "%s" given', is_object($commonPrefTypeContactPrefItem) ? get_class($commonPrefTypeContactPrefItem) : gettype($commonPrefTypeContactPrefItem)), __LINE__);
+            }
+        }
+        $this->ContactPref = $contactPref;
+        return $this;
+    }
+    /**
+     * Add item to ContactPref value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CommonPrefType
+     */
+    public function addToContactPref(\Devlabs91\GenericOtaHotelApiService\StructType\ContactPref $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref) {
+            throw new \InvalidArgumentException(sprintf('The ContactPref property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ContactPref, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ContactPref[] = $item;
+        return $this;
+    }
+    /**
+     * Get EmployeeLevelInfo value
+     * @return mixed|null
+     */
+    public function getEmployeeLevelInfo()
+    {
+        return $this->EmployeeLevelInfo;
+    }
+    /**
+     * Set EmployeeLevelInfo value
+     * @param mixed $employeeLevelInfo
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CommonPrefType
+     */
+    public function setEmployeeLevelInfo($employeeLevelInfo = null)
+    {
+        $this->EmployeeLevelInfo = $employeeLevelInfo;
         return $this;
     }
     /**

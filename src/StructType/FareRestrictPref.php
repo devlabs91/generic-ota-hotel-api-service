@@ -7,15 +7,15 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for FareRestrictPref StructType
  * Meta informations extracted from the WSDL
- * - documentation: Constrains a fare search to those with restrictions that satisfy user-imposed limitations.
+ * - documentation: Indicates preferred fare restrictions to be used in search. | Constrains a fare search to those with restrictions that satisfy user-imposed limitations. | Container used for specifying or limiting acceptable fare restrictions.
  * @subpackage Structs
  */
-class FareRestrictPref extends FareRestrictPrefType
+class FareRestrictPref extends AbstractStructBase
 {
     /**
      * The AdvResTicketing
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies whether advance reservation or ticketing restrictions are acceptable in the search results
+     * - documentation: Identifies whether advance reservation or ticketing restrictions are acceptable in the search results.
      * - minOccurs: 0
      * @var mixed
      */
@@ -23,7 +23,7 @@ class FareRestrictPref extends FareRestrictPrefType
     /**
      * The StayRestrictions
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies whether restrictions on minimum or maximum stays should be included in the search results
+     * - documentation: Identifies whether restrictions on minimum or maximum stays should be included in the search results.
      * - minOccurs: 0
      * @var mixed
      */
@@ -31,26 +31,48 @@ class FareRestrictPref extends FareRestrictPrefType
     /**
      * The VoluntaryChanges
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies whether penalties associated with voluntary changes should be included in the search results
+     * - documentation: Identifies whether penalties associated with voluntary changes should be included in the search results.
      * - minOccurs: 0
      * @var mixed
      */
     public $VoluntaryChanges;
     /**
+     * The FareDisplayCurrency
+     * Meta informations extracted from the WSDL
+     * - documentation: Currency in which fare display is requested.
+     * - use: optional
+     * @var string
+     */
+    public $FareDisplayCurrency;
+    /**
+     * The CurrencyOverride
+     * Meta informations extracted from the WSDL
+     * - documentation: Display fare published in other than local selling currency only.
+     * - use: optional
+     * @var string
+     */
+    public $CurrencyOverride;
+    /**
      * Constructor method for FareRestrictPref
      * @uses FareRestrictPref::setAdvResTicketing()
      * @uses FareRestrictPref::setStayRestrictions()
      * @uses FareRestrictPref::setVoluntaryChanges()
+     * @uses FareRestrictPref::setFareDisplayCurrency()
+     * @uses FareRestrictPref::setCurrencyOverride()
      * @param mixed $advResTicketing
      * @param mixed $stayRestrictions
      * @param mixed $voluntaryChanges
+     * @param string $fareDisplayCurrency
+     * @param string $currencyOverride
      */
-    public function __construct($advResTicketing = null, $stayRestrictions = null, $voluntaryChanges = null)
+    public function __construct($advResTicketing = null, $stayRestrictions = null, $voluntaryChanges = null, $fareDisplayCurrency = null, $currencyOverride = null)
     {
         $this
             ->setAdvResTicketing($advResTicketing)
             ->setStayRestrictions($stayRestrictions)
-            ->setVoluntaryChanges($voluntaryChanges);
+            ->setVoluntaryChanges($voluntaryChanges)
+            ->setFareDisplayCurrency($fareDisplayCurrency)
+            ->setCurrencyOverride($currencyOverride);
     }
     /**
      * Get AdvResTicketing value
@@ -104,6 +126,50 @@ class FareRestrictPref extends FareRestrictPrefType
     public function setVoluntaryChanges($voluntaryChanges = null)
     {
         $this->VoluntaryChanges = $voluntaryChanges;
+        return $this;
+    }
+    /**
+     * Get FareDisplayCurrency value
+     * @return string|null
+     */
+    public function getFareDisplayCurrency()
+    {
+        return $this->FareDisplayCurrency;
+    }
+    /**
+     * Set FareDisplayCurrency value
+     * @param string $fareDisplayCurrency
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FareRestrictPref
+     */
+    public function setFareDisplayCurrency($fareDisplayCurrency = null)
+    {
+        // validation for constraint: string
+        if (!is_null($fareDisplayCurrency) && !is_string($fareDisplayCurrency)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fareDisplayCurrency)), __LINE__);
+        }
+        $this->FareDisplayCurrency = $fareDisplayCurrency;
+        return $this;
+    }
+    /**
+     * Get CurrencyOverride value
+     * @return string|null
+     */
+    public function getCurrencyOverride()
+    {
+        return $this->CurrencyOverride;
+    }
+    /**
+     * Set CurrencyOverride value
+     * @param string $currencyOverride
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FareRestrictPref
+     */
+    public function setCurrencyOverride($currencyOverride = null)
+    {
+        // validation for constraint: string
+        if (!is_null($currencyOverride) && !is_string($currencyOverride)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currencyOverride)), __LINE__);
+        }
+        $this->CurrencyOverride = $currencyOverride;
         return $this;
     }
     /**

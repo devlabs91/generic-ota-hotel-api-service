@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SystemCodes StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of strings that identify the systems associated with this viewership record.
+ * - documentation: A collection of system codes.
  * @subpackage Structs
  */
 class SystemCodes extends AbstractStructBase
@@ -15,15 +15,14 @@ class SystemCodes extends AbstractStructBase
     /**
      * The SystemCode
      * Meta informations extracted from the WSDL
-     * - documentation: The system code (e.g. AA, 1P, 1G, 1A, etc.).
      * - maxOccurs: unbounded
-     * @var string[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode[]
      */
     public $SystemCode;
     /**
      * The SystemCodesInclusive
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates whether the collection of System Codes is inclusive or exclusive. | Values: false=Exclusive, true=Inclusive.
+     * - documentation: Indicates whether the collection of System Codes is inclusive or exclusive. Values: false=Exclusive, true=Inclusive.
      * - use: optional
      * @var bool
      */
@@ -32,7 +31,7 @@ class SystemCodes extends AbstractStructBase
      * Constructor method for SystemCodes
      * @uses SystemCodes::setSystemCode()
      * @uses SystemCodes::setSystemCodesInclusive()
-     * @param string[] $systemCode
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode[] $systemCode
      * @param bool $systemCodesInclusive
      */
     public function __construct(array $systemCode = array(), $systemCodesInclusive = null)
@@ -43,7 +42,7 @@ class SystemCodes extends AbstractStructBase
     }
     /**
      * Get SystemCode value
-     * @return string[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode[]|null
      */
     public function getSystemCode()
     {
@@ -52,15 +51,15 @@ class SystemCodes extends AbstractStructBase
     /**
      * Set SystemCode value
      * @throws \InvalidArgumentException
-     * @param string[] $systemCode
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode[] $systemCode
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SystemCodes
      */
     public function setSystemCode(array $systemCode = array())
     {
         foreach ($systemCode as $systemCodesSystemCodeItem) {
             // validation for constraint: itemType
-            if (!is_string($systemCodesSystemCodeItem)) {
-                throw new \InvalidArgumentException(sprintf('The SystemCode property can only contain items of string, "%s" given', is_object($systemCodesSystemCodeItem) ? get_class($systemCodesSystemCodeItem) : gettype($systemCodesSystemCodeItem)), __LINE__);
+            if (!$systemCodesSystemCodeItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode) {
+                throw new \InvalidArgumentException(sprintf('The SystemCode property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode, "%s" given', is_object($systemCodesSystemCodeItem) ? get_class($systemCodesSystemCodeItem) : gettype($systemCodesSystemCodeItem)), __LINE__);
             }
         }
         $this->SystemCode = $systemCode;
@@ -69,14 +68,14 @@ class SystemCodes extends AbstractStructBase
     /**
      * Add item to SystemCode value
      * @throws \InvalidArgumentException
-     * @param string $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SystemCodes
      */
-    public function addToSystemCode($item)
+    public function addToSystemCode(\Devlabs91\GenericOtaHotelApiService\StructType\SystemCode $item)
     {
         // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The SystemCode property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode) {
+            throw new \InvalidArgumentException(sprintf('The SystemCode property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\SystemCode, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->SystemCode[] = $item;
         return $this;

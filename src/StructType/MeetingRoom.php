@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for MeetingRoom StructType
  * Meta informations extracted from the WSDL
- * - documentation: Dedicated or non-dedicated space or area in which to hold a meeting.
+ * - documentation: Dedicated or non-dedicated space or area in which to hold a meeting. | This may be used to uniquely identify a meeting room.
  * @subpackage Structs
  */
 class MeetingRoom extends AbstractStructBase
@@ -22,9 +22,8 @@ class MeetingRoom extends AbstractStructBase
     /**
      * The Dimension
      * Meta informations extracted from the WSDL
-     * - documentation: Dimensions of the meeting room.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Dimension
      */
     public $Dimension;
     /**
@@ -37,22 +36,24 @@ class MeetingRoom extends AbstractStructBase
     /**
      * The Features
      * Meta informations extracted from the WSDL
+     * - documentation: Collection of features.
      * - minOccurs: 0
      * @var mixed
      */
     public $Features;
     /**
-     * The Description
+     * The MultimediaDescriptions
      * Meta informations extracted from the WSDL
-     * - documentation: Information describing the restaurant.
+     * - documentation: Information describing the meeting room.
      * - minOccurs: 0
      * @var mixed
      */
-    public $Description;
+    public $MultimediaDescriptions;
     /**
      * The Irregular
      * Meta informations extracted from the WSDL
      * - documentation: This provides information as to whether the room has an irregular shape, if true the room would not be of a traditional square or rectangular style.
+     * - use: optional
      * @var bool
      */
     public $Irregular;
@@ -60,6 +61,7 @@ class MeetingRoom extends AbstractStructBase
      * The PropertySystemName
      * Meta informations extracted from the WSDL
      * - documentation: This is the room name as it is defined by the system. The name used internally may differ from the name used by guests.
+     * - use: optional
      * @var string
      */
     public $PropertySystemName;
@@ -67,6 +69,7 @@ class MeetingRoom extends AbstractStructBase
      * The RoomName
      * Meta informations extracted from the WSDL
      * - documentation: This is the meeting room name as provided to the guests.
+     * - use: optional
      * @var string
      */
     public $RoomName;
@@ -74,6 +77,7 @@ class MeetingRoom extends AbstractStructBase
      * The Sort
      * Meta informations extracted from the WSDL
      * - documentation: This is a number assigned to rooms, usually used to define the display order.
+     * - use: optional
      * @var int
      */
     public $Sort;
@@ -81,56 +85,90 @@ class MeetingRoom extends AbstractStructBase
      * The MeetingRoomCapacity
      * Meta informations extracted from the WSDL
      * - documentation: The total number of people permitted in the meeting room.
+     * - use: optional
      * @var int
      */
     public $MeetingRoomCapacity;
     /**
      * The Access
      * Meta informations extracted from the WSDL
-     * - documentation: Used to imply the type of access to the meeting space (e.g. private access, public access, etc.).
+     * - documentation: Used to imply the type of access to the meeting space (e.g. private access, public access, etc.)
      * - use: optional
      * @var string
      */
     public $Access;
+    /**
+     * The MeetingRoomTypeCode
+     * Meta informations extracted from the WSDL
+     * - documentation: Defines the type of the meeting room being described (eg. boardroom, ballroom, exhibit space). Refer to OpenTravel Codelist Meeting Room Format Code (MRF).
+     * - use: optional
+     * @var string
+     */
+    public $MeetingRoomTypeCode;
+    /**
+     * The MeetingRoomLevel
+     * Meta informations extracted from the WSDL
+     * - documentation: Defines the level in the facility where the meeting room is located (i.e., lobby, mezzanine, first floor, ground, outdoor, etc.)
+     * - use: optional
+     * @var string
+     */
+    public $MeetingRoomLevel;
+    /**
+     * The DedicatedIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, the room is used for a single purpose as indicated by the MeetingRoomTypeCode attribute.
+     * - use: optional
+     * @var bool
+     */
+    public $DedicatedIndicator;
     /**
      * Constructor method for MeetingRoom
      * @uses MeetingRoom::setCodes()
      * @uses MeetingRoom::setDimension()
      * @uses MeetingRoom::setAvailableCapacities()
      * @uses MeetingRoom::setFeatures()
-     * @uses MeetingRoom::setDescription()
+     * @uses MeetingRoom::setMultimediaDescriptions()
      * @uses MeetingRoom::setIrregular()
      * @uses MeetingRoom::setPropertySystemName()
      * @uses MeetingRoom::setRoomName()
      * @uses MeetingRoom::setSort()
      * @uses MeetingRoom::setMeetingRoomCapacity()
      * @uses MeetingRoom::setAccess()
+     * @uses MeetingRoom::setMeetingRoomTypeCode()
+     * @uses MeetingRoom::setMeetingRoomLevel()
+     * @uses MeetingRoom::setDedicatedIndicator()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Codes $codes
-     * @param mixed $dimension
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Dimension $dimension
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\AvailableCapacities $availableCapacities
      * @param mixed $features
-     * @param mixed $description
+     * @param mixed $multimediaDescriptions
      * @param bool $irregular
      * @param string $propertySystemName
      * @param string $roomName
      * @param int $sort
      * @param int $meetingRoomCapacity
      * @param string $access
+     * @param string $meetingRoomTypeCode
+     * @param string $meetingRoomLevel
+     * @param bool $dedicatedIndicator
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Codes $codes = null, $dimension = null, \Devlabs91\GenericOtaHotelApiService\StructType\AvailableCapacities $availableCapacities = null, $features = null, $description = null, $irregular = null, $propertySystemName = null, $roomName = null, $sort = null, $meetingRoomCapacity = null, $access = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Codes $codes = null, \Devlabs91\GenericOtaHotelApiService\StructType\Dimension $dimension = null, \Devlabs91\GenericOtaHotelApiService\StructType\AvailableCapacities $availableCapacities = null, $features = null, $multimediaDescriptions = null, $irregular = null, $propertySystemName = null, $roomName = null, $sort = null, $meetingRoomCapacity = null, $access = null, $meetingRoomTypeCode = null, $meetingRoomLevel = null, $dedicatedIndicator = null)
     {
         $this
             ->setCodes($codes)
             ->setDimension($dimension)
             ->setAvailableCapacities($availableCapacities)
             ->setFeatures($features)
-            ->setDescription($description)
+            ->setMultimediaDescriptions($multimediaDescriptions)
             ->setIrregular($irregular)
             ->setPropertySystemName($propertySystemName)
             ->setRoomName($roomName)
             ->setSort($sort)
             ->setMeetingRoomCapacity($meetingRoomCapacity)
-            ->setAccess($access);
+            ->setAccess($access)
+            ->setMeetingRoomTypeCode($meetingRoomTypeCode)
+            ->setMeetingRoomLevel($meetingRoomLevel)
+            ->setDedicatedIndicator($dedicatedIndicator);
     }
     /**
      * Get Codes value
@@ -152,7 +190,7 @@ class MeetingRoom extends AbstractStructBase
     }
     /**
      * Get Dimension value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Dimension|null
      */
     public function getDimension()
     {
@@ -160,10 +198,10 @@ class MeetingRoom extends AbstractStructBase
     }
     /**
      * Set Dimension value
-     * @param mixed $dimension
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Dimension $dimension
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoom
      */
-    public function setDimension($dimension = null)
+    public function setDimension(\Devlabs91\GenericOtaHotelApiService\StructType\Dimension $dimension = null)
     {
         $this->Dimension = $dimension;
         return $this;
@@ -205,21 +243,21 @@ class MeetingRoom extends AbstractStructBase
         return $this;
     }
     /**
-     * Get Description value
+     * Get MultimediaDescriptions value
      * @return mixed|null
      */
-    public function getDescription()
+    public function getMultimediaDescriptions()
     {
-        return $this->Description;
+        return $this->MultimediaDescriptions;
     }
     /**
-     * Set Description value
-     * @param mixed $description
+     * Set MultimediaDescriptions value
+     * @param mixed $multimediaDescriptions
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoom
      */
-    public function setDescription($description = null)
+    public function setMultimediaDescriptions($multimediaDescriptions = null)
     {
-        $this->Description = $description;
+        $this->MultimediaDescriptions = $multimediaDescriptions;
         return $this;
     }
     /**
@@ -352,6 +390,72 @@ class MeetingRoom extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($access)), __LINE__);
         }
         $this->Access = $access;
+        return $this;
+    }
+    /**
+     * Get MeetingRoomTypeCode value
+     * @return string|null
+     */
+    public function getMeetingRoomTypeCode()
+    {
+        return $this->MeetingRoomTypeCode;
+    }
+    /**
+     * Set MeetingRoomTypeCode value
+     * @param string $meetingRoomTypeCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoom
+     */
+    public function setMeetingRoomTypeCode($meetingRoomTypeCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($meetingRoomTypeCode) && !is_string($meetingRoomTypeCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingRoomTypeCode)), __LINE__);
+        }
+        $this->MeetingRoomTypeCode = $meetingRoomTypeCode;
+        return $this;
+    }
+    /**
+     * Get MeetingRoomLevel value
+     * @return string|null
+     */
+    public function getMeetingRoomLevel()
+    {
+        return $this->MeetingRoomLevel;
+    }
+    /**
+     * Set MeetingRoomLevel value
+     * @param string $meetingRoomLevel
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoom
+     */
+    public function setMeetingRoomLevel($meetingRoomLevel = null)
+    {
+        // validation for constraint: string
+        if (!is_null($meetingRoomLevel) && !is_string($meetingRoomLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingRoomLevel)), __LINE__);
+        }
+        $this->MeetingRoomLevel = $meetingRoomLevel;
+        return $this;
+    }
+    /**
+     * Get DedicatedIndicator value
+     * @return bool|null
+     */
+    public function getDedicatedIndicator()
+    {
+        return $this->DedicatedIndicator;
+    }
+    /**
+     * Set DedicatedIndicator value
+     * @param bool $dedicatedIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoom
+     */
+    public function setDedicatedIndicator($dedicatedIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($dedicatedIndicator) && !is_bool($dedicatedIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($dedicatedIndicator)), __LINE__);
+        }
+        $this->DedicatedIndicator = $dedicatedIndicator;
         return $this;
     }
     /**

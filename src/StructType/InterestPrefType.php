@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for InterestPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Traveler interests to be used with this collection of preferences. | Used for Character Strings, length 1 to 64
+ * - documentation: Identifies a preference for a traveler's interest. | Used to specify the preference level for a traveler's interest. | Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs

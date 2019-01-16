@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for MediaEntertainPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Media and entertainment information preferences. | Used for Character Strings, length 1 to 64
+ * - documentation: Media and entertainment information preferences. | Used to indicate a level of preference for media or entertainment. | Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs

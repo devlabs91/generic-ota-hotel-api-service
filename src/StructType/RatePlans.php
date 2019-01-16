@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RatePlans StructType
  * Meta informations extracted from the WSDL
- * - documentation: Rate Plan info. | A collection of Rate Plans associated with a particular Room Stay. | The rate plan element is used to contain all the rate information for a single Rate Plan Code (ex RACK) for a given date range. A given Rate Plan
- * may have variable rates, over the effective period of the Rate Plan, this is represented by the child element Rates.
+ * - documentation: This allows for multiple rate plans for a specific room type. | Rate Plan info. | A collection of Rate Plans associated with a particular Room Stay. | The rate plan element is used to contain all the rate information for a single
+ * Rate Plan Code (ex RACK) for a given date range. A given Rate Plan may have variable rates, over the effective period of the Rate Plan, this is represented by the child element Rates.
  * @subpackage Structs
  */
 class RatePlans extends AbstractStructBase
@@ -17,13 +17,13 @@ class RatePlans extends AbstractStructBase
      * The RatePlan
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan[]
      */
     public $RatePlan;
     /**
      * Constructor method for RatePlans
      * @uses RatePlans::setRatePlan()
-     * @param mixed[] $ratePlan
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan[] $ratePlan
      */
     public function __construct(array $ratePlan = array())
     {
@@ -32,7 +32,7 @@ class RatePlans extends AbstractStructBase
     }
     /**
      * Get RatePlan value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan[]|null
      */
     public function getRatePlan()
     {
@@ -41,15 +41,15 @@ class RatePlans extends AbstractStructBase
     /**
      * Set RatePlan value
      * @throws \InvalidArgumentException
-     * @param mixed[] $ratePlan
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan[] $ratePlan
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlans
      */
     public function setRatePlan(array $ratePlan = array())
     {
         foreach ($ratePlan as $ratePlansRatePlanItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The RatePlan property can only contain items of anyType, "%s" given', is_object($ratePlansRatePlanItem) ? get_class($ratePlansRatePlanItem) : gettype($ratePlansRatePlanItem)), __LINE__);
+            if (!$ratePlansRatePlanItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan) {
+                throw new \InvalidArgumentException(sprintf('The RatePlan property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan, "%s" given', is_object($ratePlansRatePlanItem) ? get_class($ratePlansRatePlanItem) : gettype($ratePlansRatePlanItem)), __LINE__);
             }
         }
         $this->RatePlan = $ratePlan;
@@ -58,14 +58,14 @@ class RatePlans extends AbstractStructBase
     /**
      * Add item to RatePlan value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RatePlans
      */
-    public function addToRatePlan($item)
+    public function addToRatePlan(\Devlabs91\GenericOtaHotelApiService\StructType\RatePlan $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The RatePlan property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan) {
+            throw new \InvalidArgumentException(sprintf('The RatePlan property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RatePlan, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->RatePlan[] = $item;
         return $this;

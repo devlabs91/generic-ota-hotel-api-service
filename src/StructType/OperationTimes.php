@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OperationTimes StructType
  * Meta informations extracted from the WSDL
- * - documentation: The OperationTime class indicates the times and availability of a facility.
+ * - documentation: A collection of OperationTimes.
  * @subpackage Structs
  */
 class OperationTimes extends AbstractStructBase

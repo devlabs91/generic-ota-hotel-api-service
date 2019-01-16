@@ -5,38 +5,36 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for Status EnumType
  * Meta informations extracted from the WSDL
- * - documentation: Provides a search filter by the status of sailing, category, fare, or cabin.
- * - type: OTA_CodeType
+ * - documentation: The status of the product. This attribute would primarily be used in the response message to identify the status of the item being purchased. | Provides a search filter by the status of sailing, category, fare, or cabin. | Used to
+ * specify the status of the reservation with either one of the enumerations in InventoryStatusType or an UpperCaseAlphaLength1to2 code such as an IATA status code. | Used to specify the status of the item identified by the ConfID. | Used to specify the
+ * status of the item identified by the ConfID.
+ * - type: AvailabilityStatusType
+ * - union: InventoryStatusType | UpperCaseAlphaLength1to2
  * - use: optional
  * @subpackage Enumerations
  */
-class Status
+class Status extends \Devlabs91\GenericOtaHotelApiService\EnumType\InventoryStatusType
 {
     /**
-     * Constant for value 'Open'
-     * @return string 'Open'
+     * Constant for value 'OrderPending'
+     * @return string 'OrderPending'
      */
-    const VALUE_OPEN = 'Open';
+    const VALUE_ORDER_PENDING = 'OrderPending';
     /**
-     * Constant for value 'Close'
-     * @return string 'Close'
+     * Constant for value 'BackOrder'
+     * @return string 'BackOrder'
      */
-    const VALUE_CLOSE = 'Close';
+    const VALUE_BACK_ORDER = 'BackOrder';
     /**
-     * Constant for value 'ClosedOnArrival'
-     * @return string 'ClosedOnArrival'
+     * Constant for value 'Unavailable'
+     * @return string 'Unavailable'
      */
-    const VALUE_CLOSED_ON_ARRIVAL = 'ClosedOnArrival';
+    const VALUE_UNAVAILABLE = 'Unavailable';
     /**
-     * Constant for value 'ClosedOnArrivalOnRequest'
-     * @return string 'ClosedOnArrivalOnRequest'
+     * Constant for value 'Confirmed'
+     * @return string 'Confirmed'
      */
-    const VALUE_CLOSED_ON_ARRIVAL_ON_REQUEST = 'ClosedOnArrivalOnRequest';
-    /**
-     * Constant for value 'OnRequest'
-     * @return string 'OnRequest'
-     */
-    const VALUE_ON_REQUEST = 'OnRequest';
+    const VALUE_CONFIRMED = 'Confirmed';
     /**
      * The Status
      * Meta informations extracted from the WSDL
@@ -57,21 +55,19 @@ class Status
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_OPEN
-     * @uses self::VALUE_CLOSE
-     * @uses self::VALUE_CLOSED_ON_ARRIVAL
-     * @uses self::VALUE_CLOSED_ON_ARRIVAL_ON_REQUEST
-     * @uses self::VALUE_ON_REQUEST
+     * @uses self::VALUE_ORDER_PENDING
+     * @uses self::VALUE_BACK_ORDER
+     * @uses self::VALUE_UNAVAILABLE
+     * @uses self::VALUE_CONFIRMED
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_OPEN,
-            self::VALUE_CLOSE,
-            self::VALUE_CLOSED_ON_ARRIVAL,
-            self::VALUE_CLOSED_ON_ARRIVAL_ON_REQUEST,
-            self::VALUE_ON_REQUEST,
+            self::VALUE_ORDER_PENDING,
+            self::VALUE_BACK_ORDER,
+            self::VALUE_UNAVAILABLE,
+            self::VALUE_CONFIRMED,
         );
     }
     /**

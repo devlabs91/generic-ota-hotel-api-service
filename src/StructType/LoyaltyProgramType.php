@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for LoyaltyProgramType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Identifies a membership or loyalty program offered by the company by name of the program. | Used for Character Strings, length 0 to 32
+ * - documentation: Identifies a membership or loyalty program offered by the company by name of the program. | Indicates the alliance status of the loyalty program. | Used for Character Strings, length 0 to 32.
  * - maxLength: 32
  * - minLength: 0
  * @subpackage Structs
@@ -18,6 +18,7 @@ class LoyaltyProgramType extends AbstractStructBase
      * The ProgramCode
      * Meta informations extracted from the WSDL
      * - documentation: Identification of the loyalty program by code.
+     * - use: optional
      * @var string
      */
     public $ProgramCode;
@@ -25,29 +26,44 @@ class LoyaltyProgramType extends AbstractStructBase
      * The LoyaltyLevel
      * Meta informations extracted from the WSDL
      * - documentation: Indicates special privileges in program assigned to individual.
+     * - use: optional
      * @var string
      */
     public $LoyaltyLevel;
     /**
      * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: A unique reference for a loyalty program within this message.
+     * - use: optional
      * @var string
      */
     public $RPH;
+    /**
+     * The PrimaryLoyaltyIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates this is the primary loyalty program and when false, indicates this is not the primary loyalty program.
+     * - use: optional
+     * @var bool
+     */
+    public $PrimaryLoyaltyIndicator;
     /**
      * Constructor method for LoyaltyProgramType
      * @uses LoyaltyProgramType::setProgramCode()
      * @uses LoyaltyProgramType::setLoyaltyLevel()
      * @uses LoyaltyProgramType::setRPH()
+     * @uses LoyaltyProgramType::setPrimaryLoyaltyIndicator()
      * @param string $programCode
      * @param string $loyaltyLevel
      * @param string $rPH
+     * @param bool $primaryLoyaltyIndicator
      */
-    public function __construct($programCode = null, $loyaltyLevel = null, $rPH = null)
+    public function __construct($programCode = null, $loyaltyLevel = null, $rPH = null, $primaryLoyaltyIndicator = null)
     {
         $this
             ->setProgramCode($programCode)
             ->setLoyaltyLevel($loyaltyLevel)
-            ->setRPH($rPH);
+            ->setRPH($rPH)
+            ->setPrimaryLoyaltyIndicator($primaryLoyaltyIndicator);
     }
     /**
      * Get ProgramCode value
@@ -113,6 +129,28 @@ class LoyaltyProgramType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
         }
         $this->RPH = $rPH;
+        return $this;
+    }
+    /**
+     * Get PrimaryLoyaltyIndicator value
+     * @return bool|null
+     */
+    public function getPrimaryLoyaltyIndicator()
+    {
+        return $this->PrimaryLoyaltyIndicator;
+    }
+    /**
+     * Set PrimaryLoyaltyIndicator value
+     * @param bool $primaryLoyaltyIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\LoyaltyProgramType
+     */
+    public function setPrimaryLoyaltyIndicator($primaryLoyaltyIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($primaryLoyaltyIndicator) && !is_bool($primaryLoyaltyIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($primaryLoyaltyIndicator)), __LINE__);
+        }
+        $this->PrimaryLoyaltyIndicator = $primaryLoyaltyIndicator;
         return $this;
     }
     /**

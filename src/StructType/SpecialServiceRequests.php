@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SpecialServiceRequests StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of Special Service Request
+ * - documentation: A collection of Special Service Request.
  * @subpackage Structs
  */
 class SpecialServiceRequests extends AbstractStructBase

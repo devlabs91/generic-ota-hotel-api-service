@@ -14,6 +14,8 @@ class ProfileRef extends AbstractStructBase
 {
     /**
      * The UniqueID
+     * Meta informations extracted from the WSDL
+     * - documentation: An identifier used to uniquely reference a customer profile.
      * @var mixed
      */
     public $UniqueID;

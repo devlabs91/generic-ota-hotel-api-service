@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Award StructType
  * Meta informations extracted from the WSDL
- * - documentation: An element that identifies the hotel ratings. | An element that identifies the hotel ratings. | Provides detailed information regarding each award program used by this hotel.
+ * - documentation: An element that identifies the hotel ratings. | An element that identifies the hotel ratings. | Provides detailed information regarding each award for this hotel.
  * @subpackage Structs
  */
 class Award extends AbstractStructBase
@@ -15,7 +15,7 @@ class Award extends AbstractStructBase
     /**
      * The Provider
      * Meta informations extracted from the WSDL
-     * - documentation: The name of the award or ratings provider. | The name of the award or ratings provider. | The name of the award or ratings provider.
+     * - documentation: The name of the award or ratings provider. | The name of the award or ratings provider. | The name of the award or ratings provider (e.g., Michelin, American Automobile Association (AAA)).
      * - use: optional
      * @var string
      */
@@ -23,7 +23,8 @@ class Award extends AbstractStructBase
     /**
      * The Rating
      * Meta informations extracted from the WSDL
-     * - documentation: The actual award or rating received by the hotel facility. | The actual award or rating received by the hotel facility. | The actual award or rating received by the hotel facility.
+     * - documentation: The actual award or rating received by the hotel facility. | The actual award or rating received by the hotel facility. | The actual award or rating received by the hotel facility (e.g. 4 stars, 3 diamonds). If used in conjunction
+     * with RatingSymbol only the numeric rating would be passed here.
      * - use: optional
      * @var string
      */
@@ -37,20 +38,41 @@ class Award extends AbstractStructBase
      */
     public $Date;
     /**
+     * The OfficialAppointmentInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true indicates the property has received official permission from the award provider to use the rating in publications and marketing materials; when false this permission has not been granted.
+     * - use: optional
+     * @var bool
+     */
+    public $OfficialAppointmentInd;
+    /**
+     * The RatingSymbol
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $RatingSymbol;
+    /**
      * Constructor method for Award
      * @uses Award::setProvider()
      * @uses Award::setRating()
      * @uses Award::setDate()
+     * @uses Award::setOfficialAppointmentInd()
+     * @uses Award::setRatingSymbol()
      * @param string $provider
      * @param string $rating
      * @param string $date
+     * @param bool $officialAppointmentInd
+     * @param string $ratingSymbol
      */
-    public function __construct($provider = null, $rating = null, $date = null)
+    public function __construct($provider = null, $rating = null, $date = null, $officialAppointmentInd = null, $ratingSymbol = null)
     {
         $this
             ->setProvider($provider)
             ->setRating($rating)
-            ->setDate($date);
+            ->setDate($date)
+            ->setOfficialAppointmentInd($officialAppointmentInd)
+            ->setRatingSymbol($ratingSymbol);
     }
     /**
      * Get Provider value
@@ -116,6 +138,50 @@ class Award extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($date)), __LINE__);
         }
         $this->Date = $date;
+        return $this;
+    }
+    /**
+     * Get OfficialAppointmentInd value
+     * @return bool|null
+     */
+    public function getOfficialAppointmentInd()
+    {
+        return $this->OfficialAppointmentInd;
+    }
+    /**
+     * Set OfficialAppointmentInd value
+     * @param bool $officialAppointmentInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Award
+     */
+    public function setOfficialAppointmentInd($officialAppointmentInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($officialAppointmentInd) && !is_bool($officialAppointmentInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($officialAppointmentInd)), __LINE__);
+        }
+        $this->OfficialAppointmentInd = $officialAppointmentInd;
+        return $this;
+    }
+    /**
+     * Get RatingSymbol value
+     * @return string|null
+     */
+    public function getRatingSymbol()
+    {
+        return $this->RatingSymbol;
+    }
+    /**
+     * Set RatingSymbol value
+     * @param string $ratingSymbol
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Award
+     */
+    public function setRatingSymbol($ratingSymbol = null)
+    {
+        // validation for constraint: string
+        if (!is_null($ratingSymbol) && !is_string($ratingSymbol)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ratingSymbol)), __LINE__);
+        }
+        $this->RatingSymbol = $ratingSymbol;
         return $this;
     }
     /**

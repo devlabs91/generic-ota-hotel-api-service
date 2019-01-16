@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for ConnectionLocation StructType
  * Meta informations extracted from the WSDL
- * - documentation: The preference level for the connection point - only, unacceptable, preferred.
+ * - documentation: Specifies a connection location, preference level, min connection time, and whether the location is allowed for stopping or changing. | The preference level for the connection point - only, unacceptable, preferred.
  * @subpackage Structs
  */
 class ConnectionLocation extends LocationType
@@ -15,7 +15,7 @@ class ConnectionLocation extends LocationType
     /**
      * The Inclusive
      * Meta informations extracted from the WSDL
-     * - default: true
+     * - documentation: When true, indicates the location is acceptable for a connection. When false the location should not be included for a connection. | true
      * - use: optional
      * @var bool
      */
@@ -36,20 +36,41 @@ class ConnectionLocation extends LocationType
      */
     public $ConnectionInfo;
     /**
+     * The MultiAirportCityInd
+     * Meta informations extracted from the WSDL
+     * - documentation: If true, other airports within this city may be considered (e.g., EWR, JFK when origin location is LGA.)
+     * - use: optional
+     * @var bool
+     */
+    public $MultiAirportCityInd;
+    /**
+     * The ConnectType
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $ConnectType;
+    /**
      * Constructor method for ConnectionLocation
      * @uses ConnectionLocation::setInclusive()
      * @uses ConnectionLocation::setMinChangeTime()
      * @uses ConnectionLocation::setConnectionInfo()
+     * @uses ConnectionLocation::setMultiAirportCityInd()
+     * @uses ConnectionLocation::setConnectType()
      * @param bool $inclusive
      * @param int $minChangeTime
      * @param string $connectionInfo
+     * @param bool $multiAirportCityInd
+     * @param string $connectType
      */
-    public function __construct($inclusive = true, $minChangeTime = null, $connectionInfo = null)
+    public function __construct($inclusive = null, $minChangeTime = null, $connectionInfo = null, $multiAirportCityInd = null, $connectType = null)
     {
         $this
             ->setInclusive($inclusive)
             ->setMinChangeTime($minChangeTime)
-            ->setConnectionInfo($connectionInfo);
+            ->setConnectionInfo($connectionInfo)
+            ->setMultiAirportCityInd($multiAirportCityInd)
+            ->setConnectType($connectType);
     }
     /**
      * Get Inclusive value
@@ -64,7 +85,7 @@ class ConnectionLocation extends LocationType
      * @param bool $inclusive
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ConnectionLocation
      */
-    public function setInclusive($inclusive = true)
+    public function setInclusive($inclusive = null)
     {
         // validation for constraint: boolean
         if (!is_null($inclusive) && !is_bool($inclusive)) {
@@ -115,6 +136,50 @@ class ConnectionLocation extends LocationType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($connectionInfo)), __LINE__);
         }
         $this->ConnectionInfo = $connectionInfo;
+        return $this;
+    }
+    /**
+     * Get MultiAirportCityInd value
+     * @return bool|null
+     */
+    public function getMultiAirportCityInd()
+    {
+        return $this->MultiAirportCityInd;
+    }
+    /**
+     * Set MultiAirportCityInd value
+     * @param bool $multiAirportCityInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ConnectionLocation
+     */
+    public function setMultiAirportCityInd($multiAirportCityInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($multiAirportCityInd) && !is_bool($multiAirportCityInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($multiAirportCityInd)), __LINE__);
+        }
+        $this->MultiAirportCityInd = $multiAirportCityInd;
+        return $this;
+    }
+    /**
+     * Get ConnectType value
+     * @return string|null
+     */
+    public function getConnectType()
+    {
+        return $this->ConnectType;
+    }
+    /**
+     * Set ConnectType value
+     * @param string $connectType
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ConnectionLocation
+     */
+    public function setConnectType($connectType = null)
+    {
+        // validation for constraint: string
+        if (!is_null($connectType) && !is_string($connectType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($connectType)), __LINE__);
+        }
+        $this->ConnectType = $connectType;
         return $this;
     }
     /**

@@ -15,14 +15,15 @@ class ResGuestsType extends AbstractStructBase
     /**
      * The ResGuest
      * Meta informations extracted from the WSDL
+     * - documentation: The ResGuest object contains the information about a guest associated with a reservation.
      * - maxOccurs: unbounded
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest[]
+     * @var mixed[]
      */
     public $ResGuest;
     /**
      * Constructor method for ResGuestsType
      * @uses ResGuestsType::setResGuest()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest[] $resGuest
+     * @param mixed[] $resGuest
      */
     public function __construct(array $resGuest = array())
     {
@@ -31,7 +32,7 @@ class ResGuestsType extends AbstractStructBase
     }
     /**
      * Get ResGuest value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest[]|null
+     * @return mixed[]|null
      */
     public function getResGuest()
     {
@@ -40,15 +41,15 @@ class ResGuestsType extends AbstractStructBase
     /**
      * Set ResGuest value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest[] $resGuest
+     * @param mixed[] $resGuest
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestsType
      */
     public function setResGuest(array $resGuest = array())
     {
         foreach ($resGuest as $resGuestsTypeResGuestItem) {
             // validation for constraint: itemType
-            if (!$resGuestsTypeResGuestItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest) {
-                throw new \InvalidArgumentException(sprintf('The ResGuest property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest, "%s" given', is_object($resGuestsTypeResGuestItem) ? get_class($resGuestsTypeResGuestItem) : gettype($resGuestsTypeResGuestItem)), __LINE__);
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The ResGuest property can only contain items of anyType, "%s" given', is_object($resGuestsTypeResGuestItem) ? get_class($resGuestsTypeResGuestItem) : gettype($resGuestsTypeResGuestItem)), __LINE__);
             }
         }
         $this->ResGuest = $resGuest;
@@ -57,14 +58,14 @@ class ResGuestsType extends AbstractStructBase
     /**
      * Add item to ResGuest value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest $item
+     * @param mixed $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestsType
      */
-    public function addToResGuest(\Devlabs91\GenericOtaHotelApiService\StructType\ResGuest $item)
+    public function addToResGuest($item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest) {
-            throw new \InvalidArgumentException(sprintf('The ResGuest property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ResGuest, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The ResGuest property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->ResGuest[] = $item;
         return $this;

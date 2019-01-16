@@ -4,6 +4,8 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 
 /**
  * This class stands for SpecialRemarkOptionType EnumType
+ * Meta informations extracted from the WSDL
+ * - documentation: Identifies the type of special remark used.
  * @subpackage Enumerations
  */
 class SpecialRemarkOptionType
@@ -24,6 +26,31 @@ class SpecialRemarkOptionType
      */
     const VALUE_ENDORSEMENT = 'Endorsement';
     /**
+     * Constant for value 'Save'
+     * @return string 'Save'
+     */
+    const VALUE_SAVE = 'Save';
+    /**
+     * Constant for value 'Confidential'
+     * @return string 'Confidential'
+     */
+    const VALUE_CONFIDENTIAL = 'Confidential';
+    /**
+     * Constant for value 'Free'
+     * @return string 'Free'
+     */
+    const VALUE_FREE = 'Free';
+    /**
+     * Constant for value 'GRMS'
+     * @return string 'GRMS'
+     */
+    const VALUE_GRMS = 'GRMS';
+    /**
+     * Constant for value 'Split'
+     * @return string 'Split'
+     */
+    const VALUE_SPLIT = 'Split';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -38,6 +65,11 @@ class SpecialRemarkOptionType
      * @uses self::VALUE_ITINERARY
      * @uses self::VALUE_INVOICE
      * @uses self::VALUE_ENDORSEMENT
+     * @uses self::VALUE_SAVE
+     * @uses self::VALUE_CONFIDENTIAL
+     * @uses self::VALUE_FREE
+     * @uses self::VALUE_GRMS
+     * @uses self::VALUE_SPLIT
      * @return string[]
      */
     public static function getValidValues()
@@ -46,6 +78,11 @@ class SpecialRemarkOptionType
             self::VALUE_ITINERARY,
             self::VALUE_INVOICE,
             self::VALUE_ENDORSEMENT,
+            self::VALUE_SAVE,
+            self::VALUE_CONFIDENTIAL,
+            self::VALUE_FREE,
+            self::VALUE_GRMS,
+            self::VALUE_SPLIT,
         );
     }
     /**

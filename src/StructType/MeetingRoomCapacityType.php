@@ -22,7 +22,9 @@ class MeetingRoomCapacityType extends AbstractStructBase
     /**
      * The MeetingRoomFormatCode
      * Meta informations extracted from the WSDL
-     * - documentation: The code for the format of a meeting room at the hotel facility, such as U-shape, banquet, conference style, etc. A hotel may indicate all formats that apply to the meeting room. Refer to OTA Code List Meeting Room Format Code (MRF).
+     * - documentation: The code for the format of a meeting room at the hotel facility, such as U-shape, banquet, conference style, etc. A hotel may indicate all formats that apply to the meeting room. Refer to OpenTravel Code List Meeting Room Format Code
+     * (MRF).
+     * - use: optional
      * @var string
      */
     public $MeetingRoomFormatCode;

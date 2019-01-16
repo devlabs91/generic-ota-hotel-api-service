@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for MasterAccountUsage StructType
  * Meta informations extracted from the WSDL
- * - documentation: Autnhorized usage of the Master Account established at the hotel for the purposes of billing arrangements.
+ * - documentation: Authorized usage of the Master Account established at the hotel for the purposes of billing arrangements.
  * @subpackage Structs
  */
 class MasterAccountUsage extends AbstractStructBase

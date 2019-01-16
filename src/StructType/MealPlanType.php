@@ -15,30 +15,51 @@ class MealPlanType extends AbstractStructBase
     /**
      * The CustomerCounts
      * Meta informations extracted from the WSDL
+     * - documentation: Counts of the number of passengers in age categories. Used when individual passenger identification is not required.
      * - minOccurs: 0
      * @var mixed
      */
     public $CustomerCounts;
     /**
-     * The SupplementCharges
+     * The PassengerRPHs
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 2
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PassengerRPHs
      */
-    public $SupplementCharges;
+    public $PassengerRPHs;
+    /**
+     * The Prices
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Prices
+     */
+    public $Prices;
+    /**
+     * The ListOfRoomRPH
+     * Meta informations extracted from the WSDL
+     * - documentation: A list of the Rooms with which this Meal Plan is available.
+     * - use: optional
+     * @var string
+     */
+    public $ListOfRoomRPH;
     /**
      * Constructor method for MealPlanType
      * @uses MealPlanType::setCustomerCounts()
-     * @uses MealPlanType::setSupplementCharges()
+     * @uses MealPlanType::setPassengerRPHs()
+     * @uses MealPlanType::setPrices()
+     * @uses MealPlanType::setListOfRoomRPH()
      * @param mixed $customerCounts
-     * @param mixed[] $supplementCharges
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PassengerRPHs $passengerRPHs
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Prices $prices
+     * @param string $listOfRoomRPH
      */
-    public function __construct($customerCounts = null, array $supplementCharges = array())
+    public function __construct($customerCounts = null, \Devlabs91\GenericOtaHotelApiService\StructType\PassengerRPHs $passengerRPHs = null, \Devlabs91\GenericOtaHotelApiService\StructType\Prices $prices = null, $listOfRoomRPH = null)
     {
         $this
             ->setCustomerCounts($customerCounts)
-            ->setSupplementCharges($supplementCharges);
+            ->setPassengerRPHs($passengerRPHs)
+            ->setPrices($prices)
+            ->setListOfRoomRPH($listOfRoomRPH);
     }
     /**
      * Get CustomerCounts value
@@ -59,43 +80,61 @@ class MealPlanType extends AbstractStructBase
         return $this;
     }
     /**
-     * Get SupplementCharges value
-     * @return mixed[]|null
+     * Get PassengerRPHs value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PassengerRPHs|null
      */
-    public function getSupplementCharges()
+    public function getPassengerRPHs()
     {
-        return $this->SupplementCharges;
+        return $this->PassengerRPHs;
     }
     /**
-     * Set SupplementCharges value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $supplementCharges
+     * Set PassengerRPHs value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PassengerRPHs $passengerRPHs
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\MealPlanType
      */
-    public function setSupplementCharges(array $supplementCharges = array())
+    public function setPassengerRPHs(\Devlabs91\GenericOtaHotelApiService\StructType\PassengerRPHs $passengerRPHs = null)
     {
-        foreach ($supplementCharges as $mealPlanTypeSupplementChargesItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The SupplementCharges property can only contain items of anyType, "%s" given', is_object($mealPlanTypeSupplementChargesItem) ? get_class($mealPlanTypeSupplementChargesItem) : gettype($mealPlanTypeSupplementChargesItem)), __LINE__);
-            }
-        }
-        $this->SupplementCharges = $supplementCharges;
+        $this->PassengerRPHs = $passengerRPHs;
         return $this;
     }
     /**
-     * Add item to SupplementCharges value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
+     * Get Prices value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Prices|null
+     */
+    public function getPrices()
+    {
+        return $this->Prices;
+    }
+    /**
+     * Set Prices value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Prices $prices
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\MealPlanType
      */
-    public function addToSupplementCharges($item)
+    public function setPrices(\Devlabs91\GenericOtaHotelApiService\StructType\Prices $prices = null)
     {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The SupplementCharges property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        $this->Prices = $prices;
+        return $this;
+    }
+    /**
+     * Get ListOfRoomRPH value
+     * @return string|null
+     */
+    public function getListOfRoomRPH()
+    {
+        return $this->ListOfRoomRPH;
+    }
+    /**
+     * Set ListOfRoomRPH value
+     * @param string $listOfRoomRPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MealPlanType
+     */
+    public function setListOfRoomRPH($listOfRoomRPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($listOfRoomRPH) && !is_string($listOfRoomRPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($listOfRoomRPH)), __LINE__);
         }
-        $this->SupplementCharges[] = $item;
+        $this->ListOfRoomRPH = $listOfRoomRPH;
         return $this;
     }
     /**

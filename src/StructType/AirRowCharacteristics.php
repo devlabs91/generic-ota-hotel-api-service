@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AirRowCharacteristics StructType
  * Meta informations extracted from the WSDL
- * - documentation: Contains a list of characteristics of an Air Row.
+ * - documentation: Contains a list of characteristics of an air row.
  * @subpackage Structs
  */
 class AirRowCharacteristics extends AbstractStructBase
@@ -15,23 +15,24 @@ class AirRowCharacteristics extends AbstractStructBase
     /**
      * The CharacteristicList
      * Meta informations extracted from the WSDL
+     * - documentation: Describes the characteristics of a specific seat row. Refer to OpenTravel Code List Air Row Type (ROW).
      * - use: required
-     * @var int[]
+     * @var string
      */
     public $CharacteristicList;
     /**
      * Constructor method for AirRowCharacteristics
      * @uses AirRowCharacteristics::setCharacteristicList()
-     * @param int[] $characteristicList
+     * @param string $characteristicList
      */
-    public function __construct(array $characteristicList = array())
+    public function __construct($characteristicList = null)
     {
         $this
             ->setCharacteristicList($characteristicList);
     }
     /**
      * Get CharacteristicList value
-     * @return int[]
+     * @return string
      */
     public function getCharacteristicList()
     {
@@ -39,34 +40,16 @@ class AirRowCharacteristics extends AbstractStructBase
     }
     /**
      * Set CharacteristicList value
-     * @throws \InvalidArgumentException
-     * @param int[] $characteristicList
+     * @param string $characteristicList
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirRowCharacteristics
      */
-    public function setCharacteristicList(array $characteristicList = array())
+    public function setCharacteristicList($characteristicList = null)
     {
-        foreach ($characteristicList as $airRowCharacteristicsCharacteristicListItem) {
-            // validation for constraint: itemType
-            if (!is_numeric($airRowCharacteristicsCharacteristicListItem)) {
-                throw new \InvalidArgumentException(sprintf('The CharacteristicList property can only contain items of integer, "%s" given', is_object($airRowCharacteristicsCharacteristicListItem) ? get_class($airRowCharacteristicsCharacteristicListItem) : gettype($airRowCharacteristicsCharacteristicListItem)), __LINE__);
-            }
+        // validation for constraint: string
+        if (!is_null($characteristicList) && !is_string($characteristicList)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($characteristicList)), __LINE__);
         }
         $this->CharacteristicList = $characteristicList;
-        return $this;
-    }
-    /**
-     * Add item to CharacteristicList value
-     * @throws \InvalidArgumentException
-     * @param int $item
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirRowCharacteristics
-     */
-    public function addToCharacteristicList($item)
-    {
-        // validation for constraint: itemType
-        if (!is_numeric($item)) {
-            throw new \InvalidArgumentException(sprintf('The CharacteristicList property can only contain items of integer, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->CharacteristicList[] = $item;
         return $this;
     }
     /**

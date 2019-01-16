@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for GuestRPHs StructType
  * Meta informations extracted from the WSDL
- * - documentation: Collection of Guest RPH items
+ * - documentation: Collection of Guest RPH items.
  * @subpackage Structs
  */
 class GuestRPHs extends AbstractStructBase

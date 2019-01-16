@@ -49,6 +49,13 @@ class HotelRoomListType extends AbstractStructBase
      */
     public $RoomStays;
     /**
+     * The Event
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Event
+     */
+    public $Event;
+    /**
      * The GroupBlockCode
      * Meta informations extracted from the WSDL
      * - documentation: The code that identifies which group within a specific hotel for which this room list has been provided.
@@ -57,21 +64,33 @@ class HotelRoomListType extends AbstractStructBase
      */
     public $GroupBlockCode;
     /**
+     * The CreationDate
+     * Meta informations extracted from the WSDL
+     * - documentation: Date this room list was initially created.
+     * - use: optional
+     * @var string
+     */
+    public $CreationDate;
+    /**
      * Constructor method for HotelRoomListType
      * @uses HotelRoomListType::setUniqueID()
      * @uses HotelRoomListType::setGuests()
      * @uses HotelRoomListType::setMasterContact()
      * @uses HotelRoomListType::setMasterAccount()
      * @uses HotelRoomListType::setRoomStays()
+     * @uses HotelRoomListType::setEvent()
      * @uses HotelRoomListType::setGroupBlockCode()
+     * @uses HotelRoomListType::setCreationDate()
      * @param mixed $uniqueID
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Guests $guests
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\MasterContact $masterContact
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\MasterAccount $masterAccount
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays $roomStays
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Event $event
      * @param string $groupBlockCode
+     * @param string $creationDate
      */
-    public function __construct($uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\Guests $guests = null, \Devlabs91\GenericOtaHotelApiService\StructType\MasterContact $masterContact = null, \Devlabs91\GenericOtaHotelApiService\StructType\MasterAccount $masterAccount = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays $roomStays = null, $groupBlockCode = null)
+    public function __construct($uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\Guests $guests = null, \Devlabs91\GenericOtaHotelApiService\StructType\MasterContact $masterContact = null, \Devlabs91\GenericOtaHotelApiService\StructType\MasterAccount $masterAccount = null, \Devlabs91\GenericOtaHotelApiService\StructType\RoomStays $roomStays = null, \Devlabs91\GenericOtaHotelApiService\StructType\Event $event = null, $groupBlockCode = null, $creationDate = null)
     {
         $this
             ->setUniqueID($uniqueID)
@@ -79,7 +98,9 @@ class HotelRoomListType extends AbstractStructBase
             ->setMasterContact($masterContact)
             ->setMasterAccount($masterAccount)
             ->setRoomStays($roomStays)
-            ->setGroupBlockCode($groupBlockCode);
+            ->setEvent($event)
+            ->setGroupBlockCode($groupBlockCode)
+            ->setCreationDate($creationDate);
     }
     /**
      * Get UniqueID value
@@ -172,6 +193,24 @@ class HotelRoomListType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get Event value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Event|null
+     */
+    public function getEvent()
+    {
+        return $this->Event;
+    }
+    /**
+     * Set Event value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Event $event
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelRoomListType
+     */
+    public function setEvent(\Devlabs91\GenericOtaHotelApiService\StructType\Event $event = null)
+    {
+        $this->Event = $event;
+        return $this;
+    }
+    /**
      * Get GroupBlockCode value
      * @return string|null
      */
@@ -191,6 +230,28 @@ class HotelRoomListType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupBlockCode)), __LINE__);
         }
         $this->GroupBlockCode = $groupBlockCode;
+        return $this;
+    }
+    /**
+     * Get CreationDate value
+     * @return string|null
+     */
+    public function getCreationDate()
+    {
+        return $this->CreationDate;
+    }
+    /**
+     * Set CreationDate value
+     * @param string $creationDate
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelRoomListType
+     */
+    public function setCreationDate($creationDate = null)
+    {
+        // validation for constraint: string
+        if (!is_null($creationDate) && !is_string($creationDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($creationDate)), __LINE__);
+        }
+        $this->CreationDate = $creationDate;
         return $this;
     }
     /**

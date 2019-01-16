@@ -14,12 +14,15 @@ class AdditionalGuestAmountType extends AbstractStructBase
 {
     /**
      * The Amount
+     * Meta informations extracted from the WSDL
+     * - documentation: The amount charged for an additional guest.
      * @var mixed
      */
     public $Amount;
     /**
      * The AddlGuestAmtDescription
      * Meta informations extracted from the WSDL
+     * - documentation: Descriptive information regarding amounts charged for additional guests.
      * - maxOccurs: 9
      * - minOccurs: 0
      * @var mixed[]
@@ -29,13 +32,14 @@ class AdditionalGuestAmountType extends AbstractStructBase
      * The MaxAdditionalGuests
      * Meta informations extracted from the WSDL
      * - documentation: Increase the base rate by the additional occupant amount for each additional occupant of the same age group up to this maximum number of occupants of this age group.
+     * - use: optional
      * @var string
      */
     public $MaxAdditionalGuests;
     /**
      * The Type
      * Meta informations extracted from the WSDL
-     * - documentation: A code representing the charges related to additional guests. Refer to OTA Code List Additional Detail Type (ADT).
+     * - documentation: A code representing the charges related to additional guests. Refer to OpenTravel Code List Additional Detail Type (ADT). Typically, the extra person information code would be used here.
      * - use: optional
      * @var string
      */
@@ -49,26 +53,37 @@ class AdditionalGuestAmountType extends AbstractStructBase
      */
     public $Percent;
     /**
+     * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: An index code to identify an instance in a collection of like items.
+     * - use: optional
+     * @var string
+     */
+    public $RPH;
+    /**
      * Constructor method for AdditionalGuestAmountType
      * @uses AdditionalGuestAmountType::setAmount()
      * @uses AdditionalGuestAmountType::setAddlGuestAmtDescription()
      * @uses AdditionalGuestAmountType::setMaxAdditionalGuests()
      * @uses AdditionalGuestAmountType::setType()
      * @uses AdditionalGuestAmountType::setPercent()
+     * @uses AdditionalGuestAmountType::setRPH()
      * @param mixed $amount
      * @param mixed[] $addlGuestAmtDescription
      * @param string $maxAdditionalGuests
      * @param string $type
      * @param string $percent
+     * @param string $rPH
      */
-    public function __construct($amount = null, array $addlGuestAmtDescription = array(), $maxAdditionalGuests = null, $type = null, $percent = null)
+    public function __construct($amount = null, array $addlGuestAmtDescription = array(), $maxAdditionalGuests = null, $type = null, $percent = null, $rPH = null)
     {
         $this
             ->setAmount($amount)
             ->setAddlGuestAmtDescription($addlGuestAmtDescription)
             ->setMaxAdditionalGuests($maxAdditionalGuests)
             ->setType($type)
-            ->setPercent($percent);
+            ->setPercent($percent)
+            ->setRPH($rPH);
     }
     /**
      * Get Amount value
@@ -192,6 +207,28 @@ class AdditionalGuestAmountType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($percent)), __LINE__);
         }
         $this->Percent = $percent;
+        return $this;
+    }
+    /**
+     * Get RPH value
+     * @return string|null
+     */
+    public function getRPH()
+    {
+        return $this->RPH;
+    }
+    /**
+     * Set RPH value
+     * @param string $rPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmountType
+     */
+    public function setRPH($rPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($rPH) && !is_string($rPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
+        }
+        $this->RPH = $rPH;
         return $this;
     }
     /**

@@ -15,6 +15,7 @@ class AcceptedPaymentsType extends AbstractStructBase
     /**
      * The AcceptedPayment
      * Meta informations extracted from the WSDL
+     * - documentation: An acceptable form of payment.
      * - maxOccurs: unbounded
      * @var mixed[]
      */

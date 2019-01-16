@@ -5,7 +5,7 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for CabinType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: A cabin is either First, Business or Economy
+ * - documentation: Specifies the cabin type (e.g. first, business, economy).
  * @subpackage Enumerations
  */
 class CabinType

@@ -51,6 +51,13 @@ class VehicleLocationAdditionalDetailsType extends AbstractStructBase
      */
     public $Shuttle;
     /**
+     * The OneWayDropLocations
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OneWayDropLocations
+     */
+    public $OneWayDropLocations;
+    /**
      * The TPA_Extensions
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -65,15 +72,17 @@ class VehicleLocationAdditionalDetailsType extends AbstractStructBase
      * @uses VehicleLocationAdditionalDetailsType::setCounterLocation()
      * @uses VehicleLocationAdditionalDetailsType::setOperationSchedules()
      * @uses VehicleLocationAdditionalDetailsType::setShuttle()
+     * @uses VehicleLocationAdditionalDetailsType::setOneWayDropLocations()
      * @uses VehicleLocationAdditionalDetailsType::setTPA_Extensions()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehRentLocInfos $vehRentLocInfos
      * @param mixed $parkLocation
      * @param mixed $counterLocation
      * @param mixed $operationSchedules
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Shuttle $shuttle
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OneWayDropLocations $oneWayDropLocations
      * @param mixed $tPA_Extensions
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\VehRentLocInfos $vehRentLocInfos = null, $parkLocation = null, $counterLocation = null, $operationSchedules = null, \Devlabs91\GenericOtaHotelApiService\StructType\Shuttle $shuttle = null, $tPA_Extensions = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\VehRentLocInfos $vehRentLocInfos = null, $parkLocation = null, $counterLocation = null, $operationSchedules = null, \Devlabs91\GenericOtaHotelApiService\StructType\Shuttle $shuttle = null, \Devlabs91\GenericOtaHotelApiService\StructType\OneWayDropLocations $oneWayDropLocations = null, $tPA_Extensions = null)
     {
         $this
             ->setVehRentLocInfos($vehRentLocInfos)
@@ -81,6 +90,7 @@ class VehicleLocationAdditionalDetailsType extends AbstractStructBase
             ->setCounterLocation($counterLocation)
             ->setOperationSchedules($operationSchedules)
             ->setShuttle($shuttle)
+            ->setOneWayDropLocations($oneWayDropLocations)
             ->setTPA_Extensions($tPA_Extensions);
     }
     /**
@@ -171,6 +181,24 @@ class VehicleLocationAdditionalDetailsType extends AbstractStructBase
     public function setShuttle(\Devlabs91\GenericOtaHotelApiService\StructType\Shuttle $shuttle = null)
     {
         $this->Shuttle = $shuttle;
+        return $this;
+    }
+    /**
+     * Get OneWayDropLocations value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OneWayDropLocations|null
+     */
+    public function getOneWayDropLocations()
+    {
+        return $this->OneWayDropLocations;
+    }
+    /**
+     * Set OneWayDropLocations value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OneWayDropLocations $oneWayDropLocations
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleLocationAdditionalDetailsType
+     */
+    public function setOneWayDropLocations(\Devlabs91\GenericOtaHotelApiService\StructType\OneWayDropLocations $oneWayDropLocations = null)
+    {
+        $this->OneWayDropLocations = $oneWayDropLocations;
         return $this;
     }
     /**

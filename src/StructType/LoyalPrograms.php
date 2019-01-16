@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for LoyalPrograms StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of LoyalProgram elements.
+ * - documentation: Collection of LoyalPrograms.
  * @subpackage Structs
  */
 class LoyalPrograms extends AbstractStructBase

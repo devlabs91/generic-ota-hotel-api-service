@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for InsuranceType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Travel insurance carried by the customer or company.
+ * - documentation: Travel insurance carried by the customer or company. | Allows for control of the sharing of insurance data between parties. | The effective and expiry dates for this policy.
  * @subpackage Structs
  */
 class InsuranceType extends AbstractStructBase
@@ -23,6 +23,7 @@ class InsuranceType extends AbstractStructBase
     /**
      * The InsuredName
      * Meta informations extracted from the WSDL
+     * - documentation: Name of the person insured.
      * - minOccurs: 0
      * @var mixed
      */
@@ -30,6 +31,7 @@ class InsuranceType extends AbstractStructBase
     /**
      * The InsuranceCompany
      * Meta informations extracted from the WSDL
+     * - documentation: Name of the insurance company.
      * - minOccurs: 0
      * @var mixed
      */
@@ -46,12 +48,14 @@ class InsuranceType extends AbstractStructBase
      * The InsuranceType
      * Meta informations extracted from the WSDL
      * - documentation: Type of insurance policy carried by the individual or company.
+     * - use: optional
      * @var string
      */
     public $InsuranceType;
     /**
      * The RPH
      * Meta informations extracted from the WSDL
+     * - documentation: A unique reference for this insurance policy within this message.
      * - use: optional
      * @var string
      */

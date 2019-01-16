@@ -7,29 +7,29 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PhonePrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Telephone number(s) to be used with this collection of preferences.
+ * - documentation: Identifies a telephone number preference.
  * @subpackage Structs
  */
 class PhonePrefType extends AbstractStructBase
 {
     /**
      * The Telephone
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Telephone
      */
     public $Telephone;
     /**
      * Constructor method for PhonePrefType
      * @uses PhonePrefType::setTelephone()
-     * @param mixed $telephone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone
      */
-    public function __construct($telephone = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone = null)
     {
         $this
             ->setTelephone($telephone);
     }
     /**
      * Get Telephone value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Telephone|null
      */
     public function getTelephone()
     {
@@ -37,10 +37,10 @@ class PhonePrefType extends AbstractStructBase
     }
     /**
      * Set Telephone value
-     * @param mixed $telephone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\PhonePrefType
      */
-    public function setTelephone($telephone = null)
+    public function setTelephone(\Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone = null)
     {
         $this->Telephone = $telephone;
         return $this;

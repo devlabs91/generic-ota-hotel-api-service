@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Penalty StructType
  * Meta informations extracted from the WSDL
- * - documentation: Specifies penalty charges as either a currency amount or a percentage of the fare | The penalty charge defined a fee in terms of its amount, currency and decimal laces.
+ * - documentation: Specifies penalty charges as either a currency amount or a percentage of the fare | The penalty charge defined a fee in terms of its amount, currency and decimal places.
  * @subpackage Structs
  */
 class Penalty extends AbstractStructBase

@@ -15,16 +15,14 @@ class ResGuestRPHsType extends AbstractStructBase
     /**
      * The ResGuestRPH
      * Meta informations extracted from the WSDL
-     * - documentation: This is a reference placeholder, used as an index for this guest in this reservation. In the ResGuest object it is used like all other RPH attributes to send the delta of a reservation. It is used by the RoomStay and Service objects
-     * to indicate which guests are associated with that room stay or service.
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH[]
      */
     public $ResGuestRPH;
     /**
      * Constructor method for ResGuestRPHsType
      * @uses ResGuestRPHsType::setResGuestRPH()
-     * @param mixed[] $resGuestRPH
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH[] $resGuestRPH
      */
     public function __construct(array $resGuestRPH = array())
     {
@@ -33,7 +31,7 @@ class ResGuestRPHsType extends AbstractStructBase
     }
     /**
      * Get ResGuestRPH value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH[]|null
      */
     public function getResGuestRPH()
     {
@@ -42,15 +40,15 @@ class ResGuestRPHsType extends AbstractStructBase
     /**
      * Set ResGuestRPH value
      * @throws \InvalidArgumentException
-     * @param mixed[] $resGuestRPH
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH[] $resGuestRPH
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPHsType
      */
     public function setResGuestRPH(array $resGuestRPH = array())
     {
         foreach ($resGuestRPH as $resGuestRPHsTypeResGuestRPHItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The ResGuestRPH property can only contain items of anyType, "%s" given', is_object($resGuestRPHsTypeResGuestRPHItem) ? get_class($resGuestRPHsTypeResGuestRPHItem) : gettype($resGuestRPHsTypeResGuestRPHItem)), __LINE__);
+            if (!$resGuestRPHsTypeResGuestRPHItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH) {
+                throw new \InvalidArgumentException(sprintf('The ResGuestRPH property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH, "%s" given', is_object($resGuestRPHsTypeResGuestRPHItem) ? get_class($resGuestRPHsTypeResGuestRPHItem) : gettype($resGuestRPHsTypeResGuestRPHItem)), __LINE__);
             }
         }
         $this->ResGuestRPH = $resGuestRPH;
@@ -59,14 +57,14 @@ class ResGuestRPHsType extends AbstractStructBase
     /**
      * Add item to ResGuestRPH value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPHsType
      */
-    public function addToResGuestRPH($item)
+    public function addToResGuestRPH(\Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The ResGuestRPH property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH) {
+            throw new \InvalidArgumentException(sprintf('The ResGuestRPH property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ResGuestRPH, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->ResGuestRPH[] = $item;
         return $this;

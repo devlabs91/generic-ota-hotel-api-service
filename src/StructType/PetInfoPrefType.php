@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PetInfoPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates the preferences for information about pets that accompany the customer in a given travel situation. | Used for Character Strings, length 1 to 64
+ * - documentation: Indentifies preferences regarding a pet. | Used to indicate a level of preference for pet information. | Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs

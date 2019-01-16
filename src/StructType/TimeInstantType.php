@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TimeInstantType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A construct to validate either a date or a dateTime value.
+ * - documentation: Specifies a time window. | A construct to validate either a date or a dateTime value.
  * - union: date | dateTime
  * @subpackage Structs
  */
@@ -16,6 +16,7 @@ class TimeInstantType extends AbstractStructBase
     /**
      * The WindowBefore
      * Meta informations extracted from the WSDL
+     * - documentation: A period of time that can be applied to another time resulting in an earlier range of time.
      * - use: optional
      * @var string
      */
@@ -23,6 +24,7 @@ class TimeInstantType extends AbstractStructBase
     /**
      * The WindowAfter
      * Meta informations extracted from the WSDL
+     * - documentation: A period of time that can be applied to another time resulting in a later range of time.
      * - use: optional
      * @var string
      */

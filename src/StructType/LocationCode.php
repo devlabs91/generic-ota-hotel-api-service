@@ -6,6 +6,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for LocationCode StructType
+ * Meta informations extracted from the WSDL
+ * - type: StringLength1to16
+ * - use: optional
  * @subpackage Structs
  */
 class LocationCode extends AbstractStructBase

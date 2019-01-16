@@ -11,6 +11,14 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class PolicyInfo extends AbstractStructBase
 {
     /**
+     * The Description
+     * Meta informations extracted from the WSDL
+     * - documentation: Provides additional information regarding policy information.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $Description;
+    /**
      * The CheckInTime
      * Meta informations extracted from the WSDL
      * - documentation: The usual check-in time for the hotel.
@@ -83,7 +91,24 @@ class PolicyInfo extends AbstractStructBase
      */
     public $KidsStayFree;
     /**
+     * The MaxChildAge
+     * Meta informations extracted from the WSDL
+     * - documentation: The maximum age for a child price.
+     * - use: optional
+     * @var string
+     */
+    public $MaxChildAge;
+    /**
+     * The InternetGuaranteeRequiredInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, a guarantee is required for an Internet booking. When false, a guarantee is not required for an Internet booking.
+     * - use: optional
+     * @var bool
+     */
+    public $InternetGuaranteeRequiredInd;
+    /**
      * Constructor method for PolicyInfo
+     * @uses PolicyInfo::setDescription()
      * @uses PolicyInfo::setCheckInTime()
      * @uses PolicyInfo::setCheckOutTime()
      * @uses PolicyInfo::setMinGuestAge()
@@ -93,6 +118,9 @@ class PolicyInfo extends AbstractStructBase
      * @uses PolicyInfo::setTotalGuestCount()
      * @uses PolicyInfo::setDefaultTaxServiceInclusive()
      * @uses PolicyInfo::setKidsStayFree()
+     * @uses PolicyInfo::setMaxChildAge()
+     * @uses PolicyInfo::setInternetGuaranteeRequiredInd()
+     * @param mixed $description
      * @param string $checkInTime
      * @param string $checkOutTime
      * @param int $minGuestAge
@@ -102,10 +130,13 @@ class PolicyInfo extends AbstractStructBase
      * @param int $totalGuestCount
      * @param bool $defaultTaxServiceInclusive
      * @param bool $kidsStayFree
+     * @param string $maxChildAge
+     * @param bool $internetGuaranteeRequiredInd
      */
-    public function __construct($checkInTime = null, $checkOutTime = null, $minGuestAge = null, $minRecommendedGuestAge = null, $usualStayFreeCutoffAge = null, $usualStayFreeChildPerAdult = null, $totalGuestCount = null, $defaultTaxServiceInclusive = null, $kidsStayFree = null)
+    public function __construct($description = null, $checkInTime = null, $checkOutTime = null, $minGuestAge = null, $minRecommendedGuestAge = null, $usualStayFreeCutoffAge = null, $usualStayFreeChildPerAdult = null, $totalGuestCount = null, $defaultTaxServiceInclusive = null, $kidsStayFree = null, $maxChildAge = null, $internetGuaranteeRequiredInd = null)
     {
         $this
+            ->setDescription($description)
             ->setCheckInTime($checkInTime)
             ->setCheckOutTime($checkOutTime)
             ->setMinGuestAge($minGuestAge)
@@ -114,7 +145,27 @@ class PolicyInfo extends AbstractStructBase
             ->setUsualStayFreeChildPerAdult($usualStayFreeChildPerAdult)
             ->setTotalGuestCount($totalGuestCount)
             ->setDefaultTaxServiceInclusive($defaultTaxServiceInclusive)
-            ->setKidsStayFree($kidsStayFree);
+            ->setKidsStayFree($kidsStayFree)
+            ->setMaxChildAge($maxChildAge)
+            ->setInternetGuaranteeRequiredInd($internetGuaranteeRequiredInd);
+    }
+    /**
+     * Get Description value
+     * @return mixed|null
+     */
+    public function getDescription()
+    {
+        return $this->Description;
+    }
+    /**
+     * Set Description value
+     * @param mixed $description
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfo
+     */
+    public function setDescription($description = null)
+    {
+        $this->Description = $description;
+        return $this;
     }
     /**
      * Get CheckInTime value
@@ -312,6 +363,50 @@ class PolicyInfo extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($kidsStayFree)), __LINE__);
         }
         $this->KidsStayFree = $kidsStayFree;
+        return $this;
+    }
+    /**
+     * Get MaxChildAge value
+     * @return string|null
+     */
+    public function getMaxChildAge()
+    {
+        return $this->MaxChildAge;
+    }
+    /**
+     * Set MaxChildAge value
+     * @param string $maxChildAge
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfo
+     */
+    public function setMaxChildAge($maxChildAge = null)
+    {
+        // validation for constraint: string
+        if (!is_null($maxChildAge) && !is_string($maxChildAge)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($maxChildAge)), __LINE__);
+        }
+        $this->MaxChildAge = $maxChildAge;
+        return $this;
+    }
+    /**
+     * Get InternetGuaranteeRequiredInd value
+     * @return bool|null
+     */
+    public function getInternetGuaranteeRequiredInd()
+    {
+        return $this->InternetGuaranteeRequiredInd;
+    }
+    /**
+     * Set InternetGuaranteeRequiredInd value
+     * @param bool $internetGuaranteeRequiredInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PolicyInfo
+     */
+    public function setInternetGuaranteeRequiredInd($internetGuaranteeRequiredInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($internetGuaranteeRequiredInd) && !is_bool($internetGuaranteeRequiredInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($internetGuaranteeRequiredInd)), __LINE__);
+        }
+        $this->InternetGuaranteeRequiredInd = $internetGuaranteeRequiredInd;
         return $this;
     }
     /**

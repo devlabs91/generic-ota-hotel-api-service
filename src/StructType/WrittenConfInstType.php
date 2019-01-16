@@ -15,18 +15,23 @@ class WrittenConfInstType extends AbstractStructBase
     /**
      * The SupplementalData
      * Meta informations extracted from the WSDL
-     * - documentation: Additional data that will be sent with the confirmation. This could be used to include a map, pictures, or any other information that the reservation source wishes to include with the confirmation
+     * - documentation: Additional data that will be sent with the confirmation. This could be used to include a map, pictures, or any other information that the reservation source wishes to include with the confirmation.
+     * - minOccurs: 0
      * @var mixed
      */
     public $SupplementalData;
     /**
      * The Email
+     * Meta informations extracted from the WSDL
+     * - documentation: An email address to which the confirmation should be sent.
+     * - minOccurs: 0
      * @var mixed
      */
     public $Email;
     /**
      * The LanguageID
      * Meta informations extracted from the WSDL
+     * - documentation: The language in which the confirmation should be provided.
      * - use: optional
      * @var string
      */
@@ -34,6 +39,7 @@ class WrittenConfInstType extends AbstractStructBase
     /**
      * The AddresseeName
      * Meta informations extracted from the WSDL
+     * - documentation: The name to which the confirmation should be addressed.
      * - use: optional
      * @var string
      */
@@ -41,6 +47,7 @@ class WrittenConfInstType extends AbstractStructBase
     /**
      * The Address
      * Meta informations extracted from the WSDL
+     * - documentation: The mailing address to which the confirmation should be delivered.
      * - use: optional
      * @var string
      */
@@ -48,10 +55,19 @@ class WrittenConfInstType extends AbstractStructBase
     /**
      * The Telephone
      * Meta informations extracted from the WSDL
+     * - documentation: The telephone number associated with the delivery address.
      * - use: optional
      * @var string
      */
     public $Telephone;
+    /**
+     * The ConfirmInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true a written confirmation was requested and will be sent.
+     * - use: optional
+     * @var bool
+     */
+    public $ConfirmInd;
     /**
      * Constructor method for WrittenConfInstType
      * @uses WrittenConfInstType::setSupplementalData()
@@ -60,14 +76,16 @@ class WrittenConfInstType extends AbstractStructBase
      * @uses WrittenConfInstType::setAddresseeName()
      * @uses WrittenConfInstType::setAddress()
      * @uses WrittenConfInstType::setTelephone()
+     * @uses WrittenConfInstType::setConfirmInd()
      * @param mixed $supplementalData
      * @param mixed $email
      * @param string $languageID
      * @param string $addresseeName
      * @param string $address
      * @param string $telephone
+     * @param bool $confirmInd
      */
-    public function __construct($supplementalData = null, $email = null, $languageID = null, $addresseeName = null, $address = null, $telephone = null)
+    public function __construct($supplementalData = null, $email = null, $languageID = null, $addresseeName = null, $address = null, $telephone = null, $confirmInd = null)
     {
         $this
             ->setSupplementalData($supplementalData)
@@ -75,7 +93,8 @@ class WrittenConfInstType extends AbstractStructBase
             ->setLanguageID($languageID)
             ->setAddresseeName($addresseeName)
             ->setAddress($address)
-            ->setTelephone($telephone);
+            ->setTelephone($telephone)
+            ->setConfirmInd($confirmInd);
     }
     /**
      * Get SupplementalData value
@@ -199,6 +218,28 @@ class WrittenConfInstType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($telephone)), __LINE__);
         }
         $this->Telephone = $telephone;
+        return $this;
+    }
+    /**
+     * Get ConfirmInd value
+     * @return bool|null
+     */
+    public function getConfirmInd()
+    {
+        return $this->ConfirmInd;
+    }
+    /**
+     * Set ConfirmInd value
+     * @param bool $confirmInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\WrittenConfInstType
+     */
+    public function setConfirmInd($confirmInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($confirmInd) && !is_bool($confirmInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($confirmInd)), __LINE__);
+        }
+        $this->ConfirmInd = $confirmInd;
         return $this;
     }
     /**

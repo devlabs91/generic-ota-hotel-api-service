@@ -14,28 +14,25 @@ class CustomerPrimaryAdditionalType extends AbstractStructBase
 {
     /**
      * The Primary
-     * Meta informations extracted from the WSDL
-     * - documentation: Information on the primary driver, possibly including frequent renter number.
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Primary
      */
     public $Primary;
     /**
      * The Additional
      * Meta informations extracted from the WSDL
-     * - documentation: Information on additional driver(s), possibly including frequent renter number.
      * - maxOccurs: 9
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Additional[]
      */
     public $Additional;
     /**
      * Constructor method for CustomerPrimaryAdditionalType
      * @uses CustomerPrimaryAdditionalType::setPrimary()
      * @uses CustomerPrimaryAdditionalType::setAdditional()
-     * @param mixed $primary
-     * @param mixed[] $additional
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Primary $primary
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Additional[] $additional
      */
-    public function __construct($primary = null, array $additional = array())
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Primary $primary = null, array $additional = array())
     {
         $this
             ->setPrimary($primary)
@@ -43,7 +40,7 @@ class CustomerPrimaryAdditionalType extends AbstractStructBase
     }
     /**
      * Get Primary value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Primary|null
      */
     public function getPrimary()
     {
@@ -51,17 +48,17 @@ class CustomerPrimaryAdditionalType extends AbstractStructBase
     }
     /**
      * Set Primary value
-     * @param mixed $primary
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Primary $primary
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerPrimaryAdditionalType
      */
-    public function setPrimary($primary = null)
+    public function setPrimary(\Devlabs91\GenericOtaHotelApiService\StructType\Primary $primary = null)
     {
         $this->Primary = $primary;
         return $this;
     }
     /**
      * Get Additional value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Additional[]|null
      */
     public function getAdditional()
     {
@@ -70,15 +67,15 @@ class CustomerPrimaryAdditionalType extends AbstractStructBase
     /**
      * Set Additional value
      * @throws \InvalidArgumentException
-     * @param mixed[] $additional
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Additional[] $additional
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerPrimaryAdditionalType
      */
     public function setAdditional(array $additional = array())
     {
         foreach ($additional as $customerPrimaryAdditionalTypeAdditionalItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Additional property can only contain items of anyType, "%s" given', is_object($customerPrimaryAdditionalTypeAdditionalItem) ? get_class($customerPrimaryAdditionalTypeAdditionalItem) : gettype($customerPrimaryAdditionalTypeAdditionalItem)), __LINE__);
+            if (!$customerPrimaryAdditionalTypeAdditionalItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Additional) {
+                throw new \InvalidArgumentException(sprintf('The Additional property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Additional, "%s" given', is_object($customerPrimaryAdditionalTypeAdditionalItem) ? get_class($customerPrimaryAdditionalTypeAdditionalItem) : gettype($customerPrimaryAdditionalTypeAdditionalItem)), __LINE__);
             }
         }
         $this->Additional = $additional;
@@ -87,14 +84,14 @@ class CustomerPrimaryAdditionalType extends AbstractStructBase
     /**
      * Add item to Additional value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Additional $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerPrimaryAdditionalType
      */
-    public function addToAdditional($item)
+    public function addToAdditional(\Devlabs91\GenericOtaHotelApiService\StructType\Additional $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Additional property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Additional) {
+            throw new \InvalidArgumentException(sprintf('The Additional property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Additional, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Additional[] = $item;
         return $this;

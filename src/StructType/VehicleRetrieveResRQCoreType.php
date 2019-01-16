@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for VehicleRetrieveResRQCoreType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The VehicleRetrieveInfoRQType complex type defines the common,or core, data by which an existing reservation can be identified for retrieval | One of UNIQUEID, PERSONNAME or CUSTLOYALTY must be specified.
+ * - documentation: The VehicleRetrieveInfoRQType complex type defines the common,or core, data by which an existing reservation can be identified for retrieval
  * @subpackage Structs
  */
 class VehicleRetrieveResRQCoreType extends AbstractStructBase
@@ -15,14 +15,16 @@ class VehicleRetrieveResRQCoreType extends AbstractStructBase
     /**
      * The UniqueID
      * Meta informations extracted from the WSDL
-     * - documentation: A unique identifier to reference the reservation, such as a reservation number.
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type
+     * - documentation: A unique identifier to reference a reservation, such as a reservation number or customer ID. May also be used to pass the IATA agency number.
+     * - maxOccurs: 2
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type[]
      */
     public $UniqueID;
     /**
      * The PersonName
      * Meta informations extracted from the WSDL
-     * - documentation: A name by which the reservation may be identified. | A name by which the reservation may be identified.
+     * - documentation: A name by which the reservation may be identified.
      * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\PersonNameType
      */
@@ -30,9 +32,8 @@ class VehicleRetrieveResRQCoreType extends AbstractStructBase
     /**
      * The CustLoyalty
      * Meta informations extracted from the WSDL
-     * - documentation: A frequent renter number associated with the reservation. | A frequent renter number associated with the reservation.
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyaltyType
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty
      */
     public $CustLoyalty;
     /**
@@ -49,12 +50,12 @@ class VehicleRetrieveResRQCoreType extends AbstractStructBase
      * @uses VehicleRetrieveResRQCoreType::setPersonName()
      * @uses VehicleRetrieveResRQCoreType::setCustLoyalty()
      * @uses VehicleRetrieveResRQCoreType::setTPA_Extensions()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type[] $uniqueID
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\PersonNameType $personName
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyaltyType $custLoyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $custLoyalty
      * @param mixed $tPA_Extensions
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\PersonNameType $personName = null, \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyaltyType $custLoyalty = null, $tPA_Extensions = null)
+    public function __construct(array $uniqueID = array(), \Devlabs91\GenericOtaHotelApiService\StructType\PersonNameType $personName = null, \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $custLoyalty = null, $tPA_Extensions = null)
     {
         $this
             ->setUniqueID($uniqueID)
@@ -64,7 +65,7 @@ class VehicleRetrieveResRQCoreType extends AbstractStructBase
     }
     /**
      * Get UniqueID value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type[]|null
      */
     public function getUniqueID()
     {
@@ -72,12 +73,34 @@ class VehicleRetrieveResRQCoreType extends AbstractStructBase
     }
     /**
      * Set UniqueID value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type[] $uniqueID
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType
      */
-    public function setUniqueID(\Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID = null)
+    public function setUniqueID(array $uniqueID = array())
     {
+        foreach ($uniqueID as $vehicleRetrieveResRQCoreTypeUniqueIDItem) {
+            // validation for constraint: itemType
+            if (!$vehicleRetrieveResRQCoreTypeUniqueIDItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type) {
+                throw new \InvalidArgumentException(sprintf('The UniqueID property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type, "%s" given', is_object($vehicleRetrieveResRQCoreTypeUniqueIDItem) ? get_class($vehicleRetrieveResRQCoreTypeUniqueIDItem) : gettype($vehicleRetrieveResRQCoreTypeUniqueIDItem)), __LINE__);
+            }
+        }
         $this->UniqueID = $uniqueID;
+        return $this;
+    }
+    /**
+     * Add item to UniqueID value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType
+     */
+    public function addToUniqueID(\Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type) {
+            throw new \InvalidArgumentException(sprintf('The UniqueID property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->UniqueID[] = $item;
         return $this;
     }
     /**
@@ -100,7 +123,7 @@ class VehicleRetrieveResRQCoreType extends AbstractStructBase
     }
     /**
      * Get CustLoyalty value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyaltyType|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty|null
      */
     public function getCustLoyalty()
     {
@@ -108,10 +131,10 @@ class VehicleRetrieveResRQCoreType extends AbstractStructBase
     }
     /**
      * Set CustLoyalty value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyaltyType $custLoyalty
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $custLoyalty
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleRetrieveResRQCoreType
      */
-    public function setCustLoyalty(\Devlabs91\GenericOtaHotelApiService\StructType\CustLoyaltyType $custLoyalty = null)
+    public function setCustLoyalty(\Devlabs91\GenericOtaHotelApiService\StructType\CustLoyalty $custLoyalty = null)
     {
         $this->CustLoyalty = $custLoyalty;
         return $this;

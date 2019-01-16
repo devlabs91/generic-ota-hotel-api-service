@@ -15,15 +15,14 @@ class BookingChannelCodes extends AbstractStructBase
     /**
      * The BookingChannelCode
      * Meta informations extracted from the WSDL
-     * - documentation: Specific code in relation to POS booking source (e.g. Expedia, hotels.com, etc.).
      * - maxOccurs: unbounded
-     * @var string[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode[]
      */
     public $BookingChannelCode;
     /**
      * The ChannelCodesInclusive
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates whether the collection of Channel Codes for booking channels is inclusive or exclusive. | Values: false=Exclusive, true=Inclusive.
+     * - documentation: Indicates whether the collection of Channel Codes for booking channels is inclusive or exclusive. Values: false=Exclusive, true=Inclusive.
      * - use: optional
      * @var bool
      */
@@ -32,7 +31,7 @@ class BookingChannelCodes extends AbstractStructBase
      * Constructor method for BookingChannelCodes
      * @uses BookingChannelCodes::setBookingChannelCode()
      * @uses BookingChannelCodes::setChannelCodesInclusive()
-     * @param string[] $bookingChannelCode
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode[] $bookingChannelCode
      * @param bool $channelCodesInclusive
      */
     public function __construct(array $bookingChannelCode = array(), $channelCodesInclusive = null)
@@ -43,7 +42,7 @@ class BookingChannelCodes extends AbstractStructBase
     }
     /**
      * Get BookingChannelCode value
-     * @return string[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode[]|null
      */
     public function getBookingChannelCode()
     {
@@ -52,15 +51,15 @@ class BookingChannelCodes extends AbstractStructBase
     /**
      * Set BookingChannelCode value
      * @throws \InvalidArgumentException
-     * @param string[] $bookingChannelCode
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode[] $bookingChannelCode
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCodes
      */
     public function setBookingChannelCode(array $bookingChannelCode = array())
     {
         foreach ($bookingChannelCode as $bookingChannelCodesBookingChannelCodeItem) {
             // validation for constraint: itemType
-            if (!is_string($bookingChannelCodesBookingChannelCodeItem)) {
-                throw new \InvalidArgumentException(sprintf('The BookingChannelCode property can only contain items of string, "%s" given', is_object($bookingChannelCodesBookingChannelCodeItem) ? get_class($bookingChannelCodesBookingChannelCodeItem) : gettype($bookingChannelCodesBookingChannelCodeItem)), __LINE__);
+            if (!$bookingChannelCodesBookingChannelCodeItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode) {
+                throw new \InvalidArgumentException(sprintf('The BookingChannelCode property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode, "%s" given', is_object($bookingChannelCodesBookingChannelCodeItem) ? get_class($bookingChannelCodesBookingChannelCodeItem) : gettype($bookingChannelCodesBookingChannelCodeItem)), __LINE__);
             }
         }
         $this->BookingChannelCode = $bookingChannelCode;
@@ -69,14 +68,14 @@ class BookingChannelCodes extends AbstractStructBase
     /**
      * Add item to BookingChannelCode value
      * @throws \InvalidArgumentException
-     * @param string $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCodes
      */
-    public function addToBookingChannelCode($item)
+    public function addToBookingChannelCode(\Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode $item)
     {
         // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The BookingChannelCode property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode) {
+            throw new \InvalidArgumentException(sprintf('The BookingChannelCode property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\BookingChannelCode, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->BookingChannelCode[] = $item;
         return $this;

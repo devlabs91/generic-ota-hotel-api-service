@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OTA_HotelResNotifRQ StructType
  * Meta informations extracted from the WSDL
- * - documentation: Hotel Reservation Notif Request supports the functionality of updating other systems with reservation data. The message assumes a push model, with the originating system pushing the data to another system. The originating system
- * would usually be a booking source, such as a Global Distribution System (GDS), a Central Reservation System (CRS) or some other agent of the hotel.
+ * - documentation: This message supports the functionality of updating other systems with reservation data. The message assumes a push model, with the originating system pushing the data to another system. The originating system would usually be a
+ * booking source, such as a Global Distribution System (GDS), a Central Reservation System (CRS) or some other agent of the hotel.
  * @subpackage Structs
  */
 class OTA_HotelResNotifRQ extends AbstractStructBase
@@ -21,6 +21,14 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type
      */
     public $POS;
+    /**
+     * The MessageID
+     * Meta informations extracted from the WSDL
+     * - documentation: This represents a batch ID.
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type
+     */
+    public $MessageID;
     /**
      * The HotelReservations
      * Meta informations extracted from the WSDL
@@ -35,6 +43,14 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
      * @var string
      */
     public $ResStatus;
+    /**
+     * The HoldDuration
+     * Meta informations extracted from the WSDL
+     * - documentation: The time until a hold is released.
+     * - use: optional
+     * @var string
+     */
+    public $HoldDuration;
     /**
      * The EchoToken
      * @var string
@@ -71,10 +87,22 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
      */
     public $TransactionStatusCode;
     /**
+     * The RetransmissionIndicator
+     * @var bool
+     */
+    public $RetransmissionIndicator;
+    /**
+     * The CorrelationID
+     * @var string
+     */
+    public $CorrelationID;
+    /**
      * Constructor method for OTA_HotelResNotifRQ
      * @uses OTA_HotelResNotifRQ::setPOS()
+     * @uses OTA_HotelResNotifRQ::setMessageID()
      * @uses OTA_HotelResNotifRQ::setHotelReservations()
      * @uses OTA_HotelResNotifRQ::setResStatus()
+     * @uses OTA_HotelResNotifRQ::setHoldDuration()
      * @uses OTA_HotelResNotifRQ::setEchoToken()
      * @uses OTA_HotelResNotifRQ::setTimeStamp()
      * @uses OTA_HotelResNotifRQ::setTarget()
@@ -82,9 +110,13 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
      * @uses OTA_HotelResNotifRQ::setTransactionIdentifier()
      * @uses OTA_HotelResNotifRQ::setSequenceNmbr()
      * @uses OTA_HotelResNotifRQ::setTransactionStatusCode()
+     * @uses OTA_HotelResNotifRQ::setRetransmissionIndicator()
+     * @uses OTA_HotelResNotifRQ::setCorrelationID()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $messageID
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelReservationsType $hotelReservations
      * @param string $resStatus
+     * @param string $holdDuration
      * @param string $echoToken
      * @param string $timeStamp
      * @param string $target
@@ -92,20 +124,26 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
      * @param string $transactionIdentifier
      * @param int $sequenceNmbr
      * @param string $transactionStatusCode
+     * @param bool $retransmissionIndicator
+     * @param string $correlationID
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelReservationsType $hotelReservations = null, $resStatus = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $messageID = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelReservationsType $hotelReservations = null, $resStatus = null, $holdDuration = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $retransmissionIndicator = null, $correlationID = null)
     {
         $this
             ->setPOS($pOS)
+            ->setMessageID($messageID)
             ->setHotelReservations($hotelReservations)
             ->setResStatus($resStatus)
+            ->setHoldDuration($holdDuration)
             ->setEchoToken($echoToken)
             ->setTimeStamp($timeStamp)
             ->setTarget($target)
             ->setVersion($version)
             ->setTransactionIdentifier($transactionIdentifier)
             ->setSequenceNmbr($sequenceNmbr)
-            ->setTransactionStatusCode($transactionStatusCode);
+            ->setTransactionStatusCode($transactionStatusCode)
+            ->setRetransmissionIndicator($retransmissionIndicator)
+            ->setCorrelationID($correlationID);
     }
     /**
      * Get POS value
@@ -123,6 +161,24 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
     public function setPOS(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null)
     {
         $this->POS = $pOS;
+        return $this;
+    }
+    /**
+     * Get MessageID value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type|null
+     */
+    public function getMessageID()
+    {
+        return $this->MessageID;
+    }
+    /**
+     * Set MessageID value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $messageID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelResNotifRQ
+     */
+    public function setMessageID(\Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $messageID = null)
+    {
+        $this->MessageID = $messageID;
         return $this;
     }
     /**
@@ -166,6 +222,28 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $resStatus, implode(', ', \Devlabs91\GenericOtaHotelApiService\EnumType\TransactionActionType::getValidValues())), __LINE__);
         }
         $this->ResStatus = $resStatus;
+        return $this;
+    }
+    /**
+     * Get HoldDuration value
+     * @return string|null
+     */
+    public function getHoldDuration()
+    {
+        return $this->HoldDuration;
+    }
+    /**
+     * Set HoldDuration value
+     * @param string $holdDuration
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelResNotifRQ
+     */
+    public function setHoldDuration($holdDuration = null)
+    {
+        // validation for constraint: string
+        if (!is_null($holdDuration) && !is_string($holdDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($holdDuration)), __LINE__);
+        }
+        $this->HoldDuration = $holdDuration;
         return $this;
     }
     /**
@@ -316,6 +394,50 @@ class OTA_HotelResNotifRQ extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionStatusCode)), __LINE__);
         }
         $this->TransactionStatusCode = $transactionStatusCode;
+        return $this;
+    }
+    /**
+     * Get RetransmissionIndicator value
+     * @return bool|null
+     */
+    public function getRetransmissionIndicator()
+    {
+        return $this->RetransmissionIndicator;
+    }
+    /**
+     * Set RetransmissionIndicator value
+     * @param bool $retransmissionIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelResNotifRQ
+     */
+    public function setRetransmissionIndicator($retransmissionIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($retransmissionIndicator) && !is_bool($retransmissionIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retransmissionIndicator)), __LINE__);
+        }
+        $this->RetransmissionIndicator = $retransmissionIndicator;
+        return $this;
+    }
+    /**
+     * Get CorrelationID value
+     * @return string|null
+     */
+    public function getCorrelationID()
+    {
+        return $this->CorrelationID;
+    }
+    /**
+     * Set CorrelationID value
+     * @param string $correlationID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelResNotifRQ
+     */
+    public function setCorrelationID($correlationID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($correlationID) && !is_string($correlationID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($correlationID)), __LINE__);
+        }
+        $this->CorrelationID = $correlationID;
         return $this;
     }
     /**

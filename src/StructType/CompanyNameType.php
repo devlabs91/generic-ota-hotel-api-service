@@ -7,18 +7,85 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CompanyNameType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Identifies a company by name. | Used for Character Strings, length 0 to 64
- * - maxLength: 64
+ * - documentation: Identifies a company by name. | Provides detailed information on a company. | Used for Character Strings, length 0 to 128.
+ * - maxLength: 128
  * - minLength: 0
  * @subpackage Structs
  */
 class CompanyNameType extends AbstractStructBase
 {
     /**
-     * Constructor method for CompanyNameType
+     * The Division
+     * Meta informations extracted from the WSDL
+     * - documentation: The division name or ID with which the contact is associated.
+     * - use: optional
+     * @var string
      */
-    public function __construct()
+    public $Division;
+    /**
+     * The Department
+     * Meta informations extracted from the WSDL
+     * - documentation: The department name or ID with which the contact is associated.
+     * - use: optional
+     * @var string
+     */
+    public $Department;
+    /**
+     * Constructor method for CompanyNameType
+     * @uses CompanyNameType::setDivision()
+     * @uses CompanyNameType::setDepartment()
+     * @param string $division
+     * @param string $department
+     */
+    public function __construct($division = null, $department = null)
     {
+        $this
+            ->setDivision($division)
+            ->setDepartment($department);
+    }
+    /**
+     * Get Division value
+     * @return string|null
+     */
+    public function getDivision()
+    {
+        return $this->Division;
+    }
+    /**
+     * Set Division value
+     * @param string $division
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyNameType
+     */
+    public function setDivision($division = null)
+    {
+        // validation for constraint: string
+        if (!is_null($division) && !is_string($division)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($division)), __LINE__);
+        }
+        $this->Division = $division;
+        return $this;
+    }
+    /**
+     * Get Department value
+     * @return string|null
+     */
+    public function getDepartment()
+    {
+        return $this->Department;
+    }
+    /**
+     * Set Department value
+     * @param string $department
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyNameType
+     */
+    public function setDepartment($department = null)
+    {
+        // validation for constraint: string
+        if (!is_null($department) && !is_string($department)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($department)), __LINE__);
+        }
+        $this->Department = $department;
+        return $this;
     }
     /**
      * Method called when an object has been exported with var_export() functions

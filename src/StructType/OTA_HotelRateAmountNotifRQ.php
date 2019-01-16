@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OTA_HotelRateAmountNotifRQ StructType
  * Meta informations extracted from the WSDL
- * - documentation: The OTA_HotelRateAmountNotifRQ is used to provide a notification of a new rate plan created for a hotel, and to synchronize the rate plan between systems for booking. | This element defines standard attributes that appear on the root
- * element for all OTA payloads. | Candidate for removal in a future release, usage is not recommended at this level. This attribute group should be used within the RateAmountMessages element.
+ * - documentation: This message is used to provide a notification of a new rate plan created for a hotel, and to synchronize the rate plan between systems for booking. | This element defines standard attributes that appear on the root element for all
+ * OpenTravel Messages.
  * @subpackage Structs
  */
 class OTA_HotelRateAmountNotifRQ extends AbstractStructBase
@@ -33,7 +33,6 @@ class OTA_HotelRateAmountNotifRQ extends AbstractStructBase
      * The RateAmountMessages
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - ref: RateAmountMessages
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessages
      */
     public $RateAmountMessages;
@@ -73,45 +72,15 @@ class OTA_HotelRateAmountNotifRQ extends AbstractStructBase
      */
     public $TransactionStatusCode;
     /**
-     * The ChainCode
-     * @var string
+     * The RetransmissionIndicator
+     * @var bool
      */
-    public $ChainCode;
+    public $RetransmissionIndicator;
     /**
-     * The BrandCode
+     * The CorrelationID
      * @var string
      */
-    public $BrandCode;
-    /**
-     * The HotelCode
-     * @var string
-     */
-    public $HotelCode;
-    /**
-     * The HotelCityCode
-     * @var string
-     */
-    public $HotelCityCode;
-    /**
-     * The HotelName
-     * @var string
-     */
-    public $HotelName;
-    /**
-     * The HotelCodeContext
-     * @var string
-     */
-    public $HotelCodeContext;
-    /**
-     * The ChainName
-     * @var string
-     */
-    public $ChainName;
-    /**
-     * The BrandName
-     * @var string
-     */
-    public $BrandName;
+    public $CorrelationID;
     /**
      * Constructor method for OTA_HotelRateAmountNotifRQ
      * @uses OTA_HotelRateAmountNotifRQ::setPOS()
@@ -124,14 +93,8 @@ class OTA_HotelRateAmountNotifRQ extends AbstractStructBase
      * @uses OTA_HotelRateAmountNotifRQ::setTransactionIdentifier()
      * @uses OTA_HotelRateAmountNotifRQ::setSequenceNmbr()
      * @uses OTA_HotelRateAmountNotifRQ::setTransactionStatusCode()
-     * @uses OTA_HotelRateAmountNotifRQ::setChainCode()
-     * @uses OTA_HotelRateAmountNotifRQ::setBrandCode()
-     * @uses OTA_HotelRateAmountNotifRQ::setHotelCode()
-     * @uses OTA_HotelRateAmountNotifRQ::setHotelCityCode()
-     * @uses OTA_HotelRateAmountNotifRQ::setHotelName()
-     * @uses OTA_HotelRateAmountNotifRQ::setHotelCodeContext()
-     * @uses OTA_HotelRateAmountNotifRQ::setChainName()
-     * @uses OTA_HotelRateAmountNotifRQ::setBrandName()
+     * @uses OTA_HotelRateAmountNotifRQ::setRetransmissionIndicator()
+     * @uses OTA_HotelRateAmountNotifRQ::setCorrelationID()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessages $rateAmountMessages
@@ -142,16 +105,10 @@ class OTA_HotelRateAmountNotifRQ extends AbstractStructBase
      * @param string $transactionIdentifier
      * @param int $sequenceNmbr
      * @param string $transactionStatusCode
-     * @param string $chainCode
-     * @param string $brandCode
-     * @param string $hotelCode
-     * @param string $hotelCityCode
-     * @param string $hotelName
-     * @param string $hotelCodeContext
-     * @param string $chainName
-     * @param string $brandName
+     * @param bool $retransmissionIndicator
+     * @param string $correlationID
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessages $rateAmountMessages = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $chainCode = null, $brandCode = null, $hotelCode = null, $hotelCityCode = null, $hotelName = null, $hotelCodeContext = null, $chainName = null, $brandName = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\POS_Type $pOS = null, \Devlabs91\GenericOtaHotelApiService\StructType\UniqueID_Type $uniqueID = null, \Devlabs91\GenericOtaHotelApiService\StructType\RateAmountMessages $rateAmountMessages = null, $echoToken = null, $timeStamp = null, $target = null, $version = null, $transactionIdentifier = null, $sequenceNmbr = null, $transactionStatusCode = null, $retransmissionIndicator = null, $correlationID = null)
     {
         $this
             ->setPOS($pOS)
@@ -164,14 +121,8 @@ class OTA_HotelRateAmountNotifRQ extends AbstractStructBase
             ->setTransactionIdentifier($transactionIdentifier)
             ->setSequenceNmbr($sequenceNmbr)
             ->setTransactionStatusCode($transactionStatusCode)
-            ->setChainCode($chainCode)
-            ->setBrandCode($brandCode)
-            ->setHotelCode($hotelCode)
-            ->setHotelCityCode($hotelCityCode)
-            ->setHotelName($hotelName)
-            ->setHotelCodeContext($hotelCodeContext)
-            ->setChainName($chainName)
-            ->setBrandName($brandName);
+            ->setRetransmissionIndicator($retransmissionIndicator)
+            ->setCorrelationID($correlationID);
     }
     /**
      * Get POS value
@@ -378,179 +329,47 @@ class OTA_HotelRateAmountNotifRQ extends AbstractStructBase
         return $this;
     }
     /**
-     * Get ChainCode value
-     * @return string|null
+     * Get RetransmissionIndicator value
+     * @return bool|null
      */
-    public function getChainCode()
+    public function getRetransmissionIndicator()
     {
-        return $this->ChainCode;
+        return $this->RetransmissionIndicator;
     }
     /**
-     * Set ChainCode value
-     * @param string $chainCode
+     * Set RetransmissionIndicator value
+     * @param bool $retransmissionIndicator
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
      */
-    public function setChainCode($chainCode = null)
+    public function setRetransmissionIndicator($retransmissionIndicator = null)
     {
-        // validation for constraint: string
-        if (!is_null($chainCode) && !is_string($chainCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($chainCode)), __LINE__);
+        // validation for constraint: boolean
+        if (!is_null($retransmissionIndicator) && !is_bool($retransmissionIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retransmissionIndicator)), __LINE__);
         }
-        $this->ChainCode = $chainCode;
+        $this->RetransmissionIndicator = $retransmissionIndicator;
         return $this;
     }
     /**
-     * Get BrandCode value
+     * Get CorrelationID value
      * @return string|null
      */
-    public function getBrandCode()
+    public function getCorrelationID()
     {
-        return $this->BrandCode;
+        return $this->CorrelationID;
     }
     /**
-     * Set BrandCode value
-     * @param string $brandCode
+     * Set CorrelationID value
+     * @param string $correlationID
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
      */
-    public function setBrandCode($brandCode = null)
+    public function setCorrelationID($correlationID = null)
     {
         // validation for constraint: string
-        if (!is_null($brandCode) && !is_string($brandCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($brandCode)), __LINE__);
+        if (!is_null($correlationID) && !is_string($correlationID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($correlationID)), __LINE__);
         }
-        $this->BrandCode = $brandCode;
-        return $this;
-    }
-    /**
-     * Get HotelCode value
-     * @return string|null
-     */
-    public function getHotelCode()
-    {
-        return $this->HotelCode;
-    }
-    /**
-     * Set HotelCode value
-     * @param string $hotelCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
-     */
-    public function setHotelCode($hotelCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($hotelCode) && !is_string($hotelCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hotelCode)), __LINE__);
-        }
-        $this->HotelCode = $hotelCode;
-        return $this;
-    }
-    /**
-     * Get HotelCityCode value
-     * @return string|null
-     */
-    public function getHotelCityCode()
-    {
-        return $this->HotelCityCode;
-    }
-    /**
-     * Set HotelCityCode value
-     * @param string $hotelCityCode
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
-     */
-    public function setHotelCityCode($hotelCityCode = null)
-    {
-        // validation for constraint: string
-        if (!is_null($hotelCityCode) && !is_string($hotelCityCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hotelCityCode)), __LINE__);
-        }
-        $this->HotelCityCode = $hotelCityCode;
-        return $this;
-    }
-    /**
-     * Get HotelName value
-     * @return string|null
-     */
-    public function getHotelName()
-    {
-        return $this->HotelName;
-    }
-    /**
-     * Set HotelName value
-     * @param string $hotelName
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
-     */
-    public function setHotelName($hotelName = null)
-    {
-        // validation for constraint: string
-        if (!is_null($hotelName) && !is_string($hotelName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hotelName)), __LINE__);
-        }
-        $this->HotelName = $hotelName;
-        return $this;
-    }
-    /**
-     * Get HotelCodeContext value
-     * @return string|null
-     */
-    public function getHotelCodeContext()
-    {
-        return $this->HotelCodeContext;
-    }
-    /**
-     * Set HotelCodeContext value
-     * @param string $hotelCodeContext
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
-     */
-    public function setHotelCodeContext($hotelCodeContext = null)
-    {
-        // validation for constraint: string
-        if (!is_null($hotelCodeContext) && !is_string($hotelCodeContext)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hotelCodeContext)), __LINE__);
-        }
-        $this->HotelCodeContext = $hotelCodeContext;
-        return $this;
-    }
-    /**
-     * Get ChainName value
-     * @return string|null
-     */
-    public function getChainName()
-    {
-        return $this->ChainName;
-    }
-    /**
-     * Set ChainName value
-     * @param string $chainName
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
-     */
-    public function setChainName($chainName = null)
-    {
-        // validation for constraint: string
-        if (!is_null($chainName) && !is_string($chainName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($chainName)), __LINE__);
-        }
-        $this->ChainName = $chainName;
-        return $this;
-    }
-    /**
-     * Get BrandName value
-     * @return string|null
-     */
-    public function getBrandName()
-    {
-        return $this->BrandName;
-    }
-    /**
-     * Set BrandName value
-     * @param string $brandName
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OTA_HotelRateAmountNotifRQ
-     */
-    public function setBrandName($brandName = null)
-    {
-        // validation for constraint: string
-        if (!is_null($brandName) && !is_string($brandName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($brandName)), __LINE__);
-        }
-        $this->BrandName = $brandName;
+        $this->CorrelationID = $correlationID;
         return $this;
     }
     /**

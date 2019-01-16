@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for StreetNmbrType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Street name; number on street. | Used for Character Strings, length 0 to 64
+ * - documentation: Street name; number on street. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs

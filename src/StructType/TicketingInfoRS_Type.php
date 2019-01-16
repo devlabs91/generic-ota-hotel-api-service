@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for TicketingInfoRS_Type StructType
  * Meta informations extracted from the WSDL
- * - documentation: Extends TicketingInfoType to provide an eTicketNumber.
+ * - documentation: Extends TicketingInfoType to provide an eTicketNumber. | Minimum information about ticketing required to complete the booking transaction plus eTicket number.
  * @subpackage Structs
  */
 class TicketingInfoRS_Type extends TicketingInfoType

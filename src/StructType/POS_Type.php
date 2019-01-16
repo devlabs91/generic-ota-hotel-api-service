@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for POS_Type StructType
  * Meta informations extracted from the WSDL
- * - documentation: Point of Sale (POS) is the details identifying the party or connection channel making the request.
+ * - documentation: Point of Sale (POS) identifies the party or connection channel making the request.
  * @subpackage Structs
  */
 class POS_Type extends AbstractStructBase
@@ -15,8 +15,8 @@ class POS_Type extends AbstractStructBase
     /**
      * The Source
      * Meta informations extracted from the WSDL
-     * - documentation: This holds details regarding the requestor. It may be repeated to also accommodate the delivery systems.
-     * - maxOccurs: 5
+     * - documentation: This holds the details about the requestor. It may be repeated to also accommodate the delivery systems.
+     * - maxOccurs: 10
      * @var mixed[]
      */
     public $Source;

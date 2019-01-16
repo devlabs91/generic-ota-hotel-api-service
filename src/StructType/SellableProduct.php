@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SellableProduct StructType
  * Meta informations extracted from the WSDL
- * - documentation: The individual sellable product. A sellable product is one of GuestRoom, MeetingRoom or InventoryBlock. Attributes of SellableProduct are the inventory codes, information on the use, application and sequencing of the inventory
- * information.
+ * - documentation: The individual sellable product. A sellable product may be a guest room, a meeting room or an inventory block. Attributes of SellableProduct are the inventory codes, information on the use, application and sequencing of the inventory
+ * information. | Defines the sellable date range for this product.
  * @subpackage Structs
  */
 class SellableProduct extends AbstractStructBase
@@ -16,9 +16,8 @@ class SellableProduct extends AbstractStructBase
     /**
      * The DestinationSystemCodes
      * Meta informations extracted from the WSDL
-     * - documentation: A collection of destination system codes. These are systems for which this Sellable product is targeted.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\DestinationSystemCodes
      */
     public $DestinationSystemCodes;
     /**
@@ -29,17 +28,15 @@ class SellableProduct extends AbstractStructBase
      */
     public $GuestRoom;
     /**
-     * The MeetingRoom
+     * The MeetingRooms
      * Meta informations extracted from the WSDL
      * - documentation: Meeting room information if this sellable product is a meeting room.
      * @var mixed
      */
-    public $MeetingRoom;
+    public $MeetingRooms;
     /**
      * The InventoryBlock
-     * Meta informations extracted from the WSDL
-     * - documentation: Inventory block information if this sellable product is an inventory block.
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\InventoryBlock
      */
     public $InventoryBlock;
     /**
@@ -59,13 +56,13 @@ class SellableProduct extends AbstractStructBase
      */
     public $UniqueID;
     /**
-     * The SellableProductRPH
+     * The RPH
      * Meta informations extracted from the WSDL
-     * - documentation: This is a reference placeholder, used as an index for this object.
+     * - documentation: This is a reference placeholder, used as an index for this sellable product.
      * - use: optional
-     * @var int
+     * @var string
      */
-    public $SellableProductRPH;
+    public $RPH;
     /**
      * The InvNotifType
      * Meta informations extracted from the WSDL
@@ -100,37 +97,37 @@ class SellableProduct extends AbstractStructBase
      * Constructor method for SellableProduct
      * @uses SellableProduct::setDestinationSystemCodes()
      * @uses SellableProduct::setGuestRoom()
-     * @uses SellableProduct::setMeetingRoom()
+     * @uses SellableProduct::setMeetingRooms()
      * @uses SellableProduct::setInventoryBlock()
      * @uses SellableProduct::setDescription()
      * @uses SellableProduct::setUniqueID()
-     * @uses SellableProduct::setSellableProductRPH()
+     * @uses SellableProduct::setRPH()
      * @uses SellableProduct::setInvNotifType()
      * @uses SellableProduct::setInvStatusType()
      * @uses SellableProduct::setInvGroupingCode()
      * @uses SellableProduct::setOrderSequence()
-     * @param mixed $destinationSystemCodes
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DestinationSystemCodes $destinationSystemCodes
      * @param mixed $guestRoom
-     * @param mixed $meetingRoom
-     * @param mixed $inventoryBlock
+     * @param mixed $meetingRooms
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\InventoryBlock $inventoryBlock
      * @param mixed $description
      * @param mixed $uniqueID
-     * @param int $sellableProductRPH
+     * @param string $rPH
      * @param string $invNotifType
      * @param string $invStatusType
      * @param string $invGroupingCode
      * @param string $orderSequence
      */
-    public function __construct($destinationSystemCodes = null, $guestRoom = null, $meetingRoom = null, $inventoryBlock = null, $description = null, $uniqueID = null, $sellableProductRPH = null, $invNotifType = null, $invStatusType = null, $invGroupingCode = null, $orderSequence = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\DestinationSystemCodes $destinationSystemCodes = null, $guestRoom = null, $meetingRooms = null, \Devlabs91\GenericOtaHotelApiService\StructType\InventoryBlock $inventoryBlock = null, $description = null, $uniqueID = null, $rPH = null, $invNotifType = null, $invStatusType = null, $invGroupingCode = null, $orderSequence = null)
     {
         $this
             ->setDestinationSystemCodes($destinationSystemCodes)
             ->setGuestRoom($guestRoom)
-            ->setMeetingRoom($meetingRoom)
+            ->setMeetingRooms($meetingRooms)
             ->setInventoryBlock($inventoryBlock)
             ->setDescription($description)
             ->setUniqueID($uniqueID)
-            ->setSellableProductRPH($sellableProductRPH)
+            ->setRPH($rPH)
             ->setInvNotifType($invNotifType)
             ->setInvStatusType($invStatusType)
             ->setInvGroupingCode($invGroupingCode)
@@ -138,7 +135,7 @@ class SellableProduct extends AbstractStructBase
     }
     /**
      * Get DestinationSystemCodes value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\DestinationSystemCodes|null
      */
     public function getDestinationSystemCodes()
     {
@@ -146,10 +143,10 @@ class SellableProduct extends AbstractStructBase
     }
     /**
      * Set DestinationSystemCodes value
-     * @param mixed $destinationSystemCodes
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DestinationSystemCodes $destinationSystemCodes
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SellableProduct
      */
-    public function setDestinationSystemCodes($destinationSystemCodes = null)
+    public function setDestinationSystemCodes(\Devlabs91\GenericOtaHotelApiService\StructType\DestinationSystemCodes $destinationSystemCodes = null)
     {
         $this->DestinationSystemCodes = $destinationSystemCodes;
         return $this;
@@ -173,26 +170,26 @@ class SellableProduct extends AbstractStructBase
         return $this;
     }
     /**
-     * Get MeetingRoom value
+     * Get MeetingRooms value
      * @return mixed|null
      */
-    public function getMeetingRoom()
+    public function getMeetingRooms()
     {
-        return $this->MeetingRoom;
+        return $this->MeetingRooms;
     }
     /**
-     * Set MeetingRoom value
-     * @param mixed $meetingRoom
+     * Set MeetingRooms value
+     * @param mixed $meetingRooms
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SellableProduct
      */
-    public function setMeetingRoom($meetingRoom = null)
+    public function setMeetingRooms($meetingRooms = null)
     {
-        $this->MeetingRoom = $meetingRoom;
+        $this->MeetingRooms = $meetingRooms;
         return $this;
     }
     /**
      * Get InventoryBlock value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\InventoryBlock|null
      */
     public function getInventoryBlock()
     {
@@ -200,10 +197,10 @@ class SellableProduct extends AbstractStructBase
     }
     /**
      * Set InventoryBlock value
-     * @param mixed $inventoryBlock
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\InventoryBlock $inventoryBlock
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SellableProduct
      */
-    public function setInventoryBlock($inventoryBlock = null)
+    public function setInventoryBlock(\Devlabs91\GenericOtaHotelApiService\StructType\InventoryBlock $inventoryBlock = null)
     {
         $this->InventoryBlock = $inventoryBlock;
         return $this;
@@ -245,25 +242,25 @@ class SellableProduct extends AbstractStructBase
         return $this;
     }
     /**
-     * Get SellableProductRPH value
-     * @return int|null
+     * Get RPH value
+     * @return string|null
      */
-    public function getSellableProductRPH()
+    public function getRPH()
     {
-        return $this->SellableProductRPH;
+        return $this->RPH;
     }
     /**
-     * Set SellableProductRPH value
-     * @param int $sellableProductRPH
+     * Set RPH value
+     * @param string $rPH
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SellableProduct
      */
-    public function setSellableProductRPH($sellableProductRPH = null)
+    public function setRPH($rPH = null)
     {
-        // validation for constraint: int
-        if (!is_null($sellableProductRPH) && !is_numeric($sellableProductRPH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sellableProductRPH)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($rPH) && !is_string($rPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
         }
-        $this->SellableProductRPH = $sellableProductRPH;
+        $this->RPH = $rPH;
         return $this;
     }
     /**

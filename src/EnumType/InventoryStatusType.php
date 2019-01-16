@@ -36,6 +36,16 @@ class InventoryStatusType
      */
     const VALUE_ALL = 'All';
     /**
+     * Constant for value 'Waitlist'
+     * @return string 'Waitlist'
+     */
+    const VALUE_WAITLIST = 'Waitlist';
+    /**
+     * Constant for value 'SupplierBooked'
+     * @return string 'SupplierBooked'
+     */
+    const VALUE_SUPPLIER_BOOKED = 'SupplierBooked';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -52,6 +62,8 @@ class InventoryStatusType
      * @uses self::VALUE_ON_REQUEST
      * @uses self::VALUE_CONFIRMED
      * @uses self::VALUE_ALL
+     * @uses self::VALUE_WAITLIST
+     * @uses self::VALUE_SUPPLIER_BOOKED
      * @return string[]
      */
     public static function getValidValues()
@@ -62,6 +74,8 @@ class InventoryStatusType
             self::VALUE_ON_REQUEST,
             self::VALUE_CONFIRMED,
             self::VALUE_ALL,
+            self::VALUE_WAITLIST,
+            self::VALUE_SUPPLIER_BOOKED,
         );
     }
     /**

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RecreationSrvcPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for type of recreation services in a hotel. | Identifies the customer's level of preference for the hotel recreational service identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for type of recreation services in a hotel. | Identifies the customer's level of preference for the hotel recreational service identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class RecreationSrvcPrefType extends AbstractStructBase
     /**
      * The RecreationSrvcType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the recreational services offered by the hotel. Refer to OTA Code List Recreation Srvc Type (RST).
+     * - documentation: Identifies the recreational services offered by the hotel. Refer to OpenTravel Code List Recreation Srvc Type (RST).
      * @var string
      */
     public $RecreationSrvcType;

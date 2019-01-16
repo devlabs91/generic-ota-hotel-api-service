@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TravelerRPH StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Provides a pointer to a traveler defined elsewhere in this message.
  * @subpackage Structs
  */
 class TravelerRPH extends AbstractStructBase
@@ -13,6 +15,7 @@ class TravelerRPH extends AbstractStructBase
     /**
      * The RPH
      * Meta informations extracted from the WSDL
+     * - documentation: A pointer to identify a traveler defined elsewhere in this message.
      * - use: required
      * @var string
      */

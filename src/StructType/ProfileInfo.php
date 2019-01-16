@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProfileInfo StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: A collection of Profiles or Unique IDs of Profiles.
  * @subpackage Structs
  */
 class ProfileInfo extends AbstractStructBase
@@ -13,12 +15,16 @@ class ProfileInfo extends AbstractStructBase
     /**
      * The UniqueID
      * Meta informations extracted from the WSDL
+     * - documentation: A unique ID for a profile. This element repeats to accommodate multiple unique IDs for a single profile across multiple systems.
+     * - maxOccurs: 9
      * - minOccurs: 0
-     * @var mixed
+     * @var mixed[]
      */
     public $UniqueID;
     /**
      * The Profile
+     * Meta informations extracted from the WSDL
+     * - documentation: Provides detailed information regarding either a company or a customer profile.
      * @var mixed
      */
     public $Profile;
@@ -26,10 +32,10 @@ class ProfileInfo extends AbstractStructBase
      * Constructor method for ProfileInfo
      * @uses ProfileInfo::setUniqueID()
      * @uses ProfileInfo::setProfile()
-     * @param mixed $uniqueID
+     * @param mixed[] $uniqueID
      * @param mixed $profile
      */
-    public function __construct($uniqueID = null, $profile = null)
+    public function __construct(array $uniqueID = array(), $profile = null)
     {
         $this
             ->setUniqueID($uniqueID)
@@ -37,7 +43,7 @@ class ProfileInfo extends AbstractStructBase
     }
     /**
      * Get UniqueID value
-     * @return mixed|null
+     * @return mixed[]|null
      */
     public function getUniqueID()
     {
@@ -45,12 +51,34 @@ class ProfileInfo extends AbstractStructBase
     }
     /**
      * Set UniqueID value
-     * @param mixed $uniqueID
+     * @throws \InvalidArgumentException
+     * @param mixed[] $uniqueID
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ProfileInfo
      */
-    public function setUniqueID($uniqueID = null)
+    public function setUniqueID(array $uniqueID = array())
     {
+        foreach ($uniqueID as $profileInfoUniqueIDItem) {
+            // validation for constraint: itemType
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The UniqueID property can only contain items of anyType, "%s" given', is_object($profileInfoUniqueIDItem) ? get_class($profileInfoUniqueIDItem) : gettype($profileInfoUniqueIDItem)), __LINE__);
+            }
+        }
         $this->UniqueID = $uniqueID;
+        return $this;
+    }
+    /**
+     * Add item to UniqueID value
+     * @throws \InvalidArgumentException
+     * @param mixed $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ProfileInfo
+     */
+    public function addToUniqueID($item)
+    {
+        // validation for constraint: itemType
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The UniqueID property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->UniqueID[] = $item;
         return $this;
     }
     /**

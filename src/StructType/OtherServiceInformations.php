@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for OtherServiceInformations StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of Other Service Information
+ * - documentation: A collection of Other Service Information.
  * @subpackage Structs
  */
 class OtherServiceInformations extends AbstractStructBase
@@ -15,15 +15,14 @@ class OtherServiceInformations extends AbstractStructBase
     /**
      * The OtherServiceInformation
      * Meta informations extracted from the WSDL
-     * - documentation: Other Service Information (OSI) for relevant airlines
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation[]
      */
     public $OtherServiceInformation;
     /**
      * Constructor method for OtherServiceInformations
      * @uses OtherServiceInformations::setOtherServiceInformation()
-     * @param mixed[] $otherServiceInformation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation[] $otherServiceInformation
      */
     public function __construct(array $otherServiceInformation = array())
     {
@@ -32,7 +31,7 @@ class OtherServiceInformations extends AbstractStructBase
     }
     /**
      * Get OtherServiceInformation value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation[]|null
      */
     public function getOtherServiceInformation()
     {
@@ -41,15 +40,15 @@ class OtherServiceInformations extends AbstractStructBase
     /**
      * Set OtherServiceInformation value
      * @throws \InvalidArgumentException
-     * @param mixed[] $otherServiceInformation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation[] $otherServiceInformation
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformations
      */
     public function setOtherServiceInformation(array $otherServiceInformation = array())
     {
         foreach ($otherServiceInformation as $otherServiceInformationsOtherServiceInformationItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The OtherServiceInformation property can only contain items of anyType, "%s" given', is_object($otherServiceInformationsOtherServiceInformationItem) ? get_class($otherServiceInformationsOtherServiceInformationItem) : gettype($otherServiceInformationsOtherServiceInformationItem)), __LINE__);
+            if (!$otherServiceInformationsOtherServiceInformationItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation) {
+                throw new \InvalidArgumentException(sprintf('The OtherServiceInformation property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation, "%s" given', is_object($otherServiceInformationsOtherServiceInformationItem) ? get_class($otherServiceInformationsOtherServiceInformationItem) : gettype($otherServiceInformationsOtherServiceInformationItem)), __LINE__);
             }
         }
         $this->OtherServiceInformation = $otherServiceInformation;
@@ -58,14 +57,14 @@ class OtherServiceInformations extends AbstractStructBase
     /**
      * Add item to OtherServiceInformation value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformations
      */
-    public function addToOtherServiceInformation($item)
+    public function addToOtherServiceInformation(\Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The OtherServiceInformation property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation) {
+            throw new \InvalidArgumentException(sprintf('The OtherServiceInformation property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformation, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->OtherServiceInformation[] = $item;
         return $this;

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for VehicleSpecialReqPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The VehicleSpecialReqPrefType complex type defines a preference for a particular special request. The preference is expressed using the attribute group PreferLevelType. | Used for Character Strings, length 1 to 255
+ * - documentation: The VehicleSpecialReqPrefType complex type defines a preference for a particular special request. The preference is expressed using the attribute group PreferLevelType. | Used for Character Strings, length 1 to 255.
  * - maxLength: 255
  * - minLength: 1
  * @subpackage Structs

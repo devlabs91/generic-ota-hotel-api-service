@@ -23,10 +23,19 @@ class OwnInsuranceChoiceType extends AbstractStructBase
     /**
      * The CustomerCounts
      * Meta informations extracted from the WSDL
+     * - documentation: Counts of the number of passengers in age categories. Used when individual passenger identification is not required.
      * - minOccurs: 0
      * @var mixed
      */
     public $CustomerCounts;
+    /**
+     * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: (Reference Place Holder) - an index code to identify an instance in a collection of like items. For example, used to assign individual passengers or clients to particular itinerary items.
+     * - use: optional
+     * @var string
+     */
+    public $RPH;
     /**
      * The PolicyNmbr
      * Meta informations extracted from the WSDL
@@ -39,16 +48,19 @@ class OwnInsuranceChoiceType extends AbstractStructBase
      * Constructor method for OwnInsuranceChoiceType
      * @uses OwnInsuranceChoiceType::setInsuranceCompany()
      * @uses OwnInsuranceChoiceType::setCustomerCounts()
+     * @uses OwnInsuranceChoiceType::setRPH()
      * @uses OwnInsuranceChoiceType::setPolicyNmbr()
      * @param string $insuranceCompany
      * @param mixed $customerCounts
+     * @param string $rPH
      * @param string $policyNmbr
      */
-    public function __construct($insuranceCompany = null, $customerCounts = null, $policyNmbr = null)
+    public function __construct($insuranceCompany = null, $customerCounts = null, $rPH = null, $policyNmbr = null)
     {
         $this
             ->setInsuranceCompany($insuranceCompany)
             ->setCustomerCounts($customerCounts)
+            ->setRPH($rPH)
             ->setPolicyNmbr($policyNmbr);
     }
     /**
@@ -89,6 +101,28 @@ class OwnInsuranceChoiceType extends AbstractStructBase
     public function setCustomerCounts($customerCounts = null)
     {
         $this->CustomerCounts = $customerCounts;
+        return $this;
+    }
+    /**
+     * Get RPH value
+     * @return string|null
+     */
+    public function getRPH()
+    {
+        return $this->RPH;
+    }
+    /**
+     * Set RPH value
+     * @param string $rPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OwnInsuranceChoiceType
+     */
+    public function setRPH($rPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($rPH) && !is_string($rPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
+        }
+        $this->RPH = $rPH;
         return $this;
     }
     /**

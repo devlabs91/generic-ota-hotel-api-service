@@ -7,69 +7,45 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SeatAvailabilityType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of seat availability by class.
+ * - documentation: Details of seat availability by class with optional charge information. | Specifies a seat class and quantity.
  * @subpackage Structs
  */
 class SeatAvailabilityType extends AbstractStructBase
 {
     /**
-     * The SupplementCharges
+     * The Charges
      * Meta informations extracted from the WSDL
-     * - documentation: A value representing a supplement for this seat class over the cost of the seat class on which package basic price is calculated The element repeats to allow for charges in an alternative currency to be shown. The charge element
-     * repeats to allow differential charging according to, for exaample, age.
-     * - maxOccurs: 2
+     * - documentation: A collection of seat prices. The charge element repeats to allow differential charging according to, for exaample, age.
      * - minOccurs: 0
-     * @var mixed[]
+     * @var mixed
      */
-    public $SupplementCharges;
+    public $Charges;
     /**
      * Constructor method for SeatAvailabilityType
-     * @uses SeatAvailabilityType::setSupplementCharges()
-     * @param mixed[] $supplementCharges
+     * @uses SeatAvailabilityType::setCharges()
+     * @param mixed $charges
      */
-    public function __construct(array $supplementCharges = array())
+    public function __construct($charges = null)
     {
         $this
-            ->setSupplementCharges($supplementCharges);
+            ->setCharges($charges);
     }
     /**
-     * Get SupplementCharges value
-     * @return mixed[]|null
+     * Get Charges value
+     * @return mixed|null
      */
-    public function getSupplementCharges()
+    public function getCharges()
     {
-        return $this->SupplementCharges;
+        return $this->Charges;
     }
     /**
-     * Set SupplementCharges value
-     * @throws \InvalidArgumentException
-     * @param mixed[] $supplementCharges
+     * Set Charges value
+     * @param mixed $charges
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\SeatAvailabilityType
      */
-    public function setSupplementCharges(array $supplementCharges = array())
+    public function setCharges($charges = null)
     {
-        foreach ($supplementCharges as $seatAvailabilityTypeSupplementChargesItem) {
-            // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The SupplementCharges property can only contain items of anyType, "%s" given', is_object($seatAvailabilityTypeSupplementChargesItem) ? get_class($seatAvailabilityTypeSupplementChargesItem) : gettype($seatAvailabilityTypeSupplementChargesItem)), __LINE__);
-            }
-        }
-        $this->SupplementCharges = $supplementCharges;
-        return $this;
-    }
-    /**
-     * Add item to SupplementCharges value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SeatAvailabilityType
-     */
-    public function addToSupplementCharges($item)
-    {
-        // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The SupplementCharges property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->SupplementCharges[] = $item;
+        $this->Charges = $charges;
         return $this;
     }
     /**

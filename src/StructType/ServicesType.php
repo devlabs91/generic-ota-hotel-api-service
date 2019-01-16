@@ -16,14 +16,15 @@ class ServicesType extends AbstractStructBase
     /**
      * The Service
      * Meta informations extracted from the WSDL
+     * - documentation: A Service object represents a non-room product provided to guests. Service products may have associated inventory and charges.
      * - maxOccurs: unbounded
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Service[]
+     * @var mixed[]
      */
     public $Service;
     /**
      * Constructor method for ServicesType
      * @uses ServicesType::setService()
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Service[] $service
+     * @param mixed[] $service
      */
     public function __construct(array $service = array())
     {
@@ -32,7 +33,7 @@ class ServicesType extends AbstractStructBase
     }
     /**
      * Get Service value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Service[]|null
+     * @return mixed[]|null
      */
     public function getService()
     {
@@ -41,15 +42,15 @@ class ServicesType extends AbstractStructBase
     /**
      * Set Service value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Service[] $service
+     * @param mixed[] $service
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ServicesType
      */
     public function setService(array $service = array())
     {
         foreach ($service as $servicesTypeServiceItem) {
             // validation for constraint: itemType
-            if (!$servicesTypeServiceItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Service) {
-                throw new \InvalidArgumentException(sprintf('The Service property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Service, "%s" given', is_object($servicesTypeServiceItem) ? get_class($servicesTypeServiceItem) : gettype($servicesTypeServiceItem)), __LINE__);
+            if (!false) {
+                throw new \InvalidArgumentException(sprintf('The Service property can only contain items of anyType, "%s" given', is_object($servicesTypeServiceItem) ? get_class($servicesTypeServiceItem) : gettype($servicesTypeServiceItem)), __LINE__);
             }
         }
         $this->Service = $service;
@@ -58,14 +59,14 @@ class ServicesType extends AbstractStructBase
     /**
      * Add item to Service value
      * @throws \InvalidArgumentException
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Service $item
+     * @param mixed $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ServicesType
      */
-    public function addToService(\Devlabs91\GenericOtaHotelApiService\StructType\Service $item)
+    public function addToService($item)
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Service) {
-            throw new \InvalidArgumentException(sprintf('The Service property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Service, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!false) {
+            throw new \InvalidArgumentException(sprintf('The Service property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Service[] = $item;
         return $this;

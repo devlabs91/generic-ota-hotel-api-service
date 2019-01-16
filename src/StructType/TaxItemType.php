@@ -15,14 +15,14 @@ class TaxItemType extends AbstractStructBase
     /**
      * The TaxAmount
      * Meta informations extracted from the WSDL
-     * - documentation: An amount of tax payable; may be repeated for multiple currencies e.g. GBP and Euros..
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount[]
      */
     public $TaxAmount;
     /**
      * The Description
      * Meta informations extracted from the WSDL
+     * - documentation: A short description of the tax item.
      * - use: optional
      * @var string
      */
@@ -48,7 +48,7 @@ class TaxItemType extends AbstractStructBase
      * @uses TaxItemType::setDescription()
      * @uses TaxItemType::setCode()
      * @uses TaxItemType::setRate()
-     * @param mixed[] $taxAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount[] $taxAmount
      * @param string $description
      * @param string $code
      * @param string $rate
@@ -63,7 +63,7 @@ class TaxItemType extends AbstractStructBase
     }
     /**
      * Get TaxAmount value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount[]|null
      */
     public function getTaxAmount()
     {
@@ -72,15 +72,15 @@ class TaxItemType extends AbstractStructBase
     /**
      * Set TaxAmount value
      * @throws \InvalidArgumentException
-     * @param mixed[] $taxAmount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount[] $taxAmount
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\TaxItemType
      */
     public function setTaxAmount(array $taxAmount = array())
     {
         foreach ($taxAmount as $taxItemTypeTaxAmountItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The TaxAmount property can only contain items of anyType, "%s" given', is_object($taxItemTypeTaxAmountItem) ? get_class($taxItemTypeTaxAmountItem) : gettype($taxItemTypeTaxAmountItem)), __LINE__);
+            if (!$taxItemTypeTaxAmountItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount) {
+                throw new \InvalidArgumentException(sprintf('The TaxAmount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount, "%s" given', is_object($taxItemTypeTaxAmountItem) ? get_class($taxItemTypeTaxAmountItem) : gettype($taxItemTypeTaxAmountItem)), __LINE__);
             }
         }
         $this->TaxAmount = $taxAmount;
@@ -89,14 +89,14 @@ class TaxItemType extends AbstractStructBase
     /**
      * Add item to TaxAmount value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\TaxItemType
      */
-    public function addToTaxAmount($item)
+    public function addToTaxAmount(\Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The TaxAmount property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount) {
+            throw new \InvalidArgumentException(sprintf('The TaxAmount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmount, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->TaxAmount[] = $item;
         return $this;

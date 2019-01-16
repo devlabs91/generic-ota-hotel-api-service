@@ -23,9 +23,8 @@ class ResCommonDetailType extends AbstractStructBase
     /**
      * The TimeSpan
      * Meta informations extracted from the WSDL
-     * - documentation: The Time Span which covers the Reservation, Room Stay or Service.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TimeSpan
      */
     public $TimeSpan;
     /**
@@ -86,6 +85,14 @@ class ResCommonDetailType extends AbstractStructBase
      */
     public $CancelPenalties;
     /**
+     * The Fees
+     * Meta informations extracted from the WSDL
+     * - documentation: A collection of fees that applies to the reservation.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $Fees;
+    /**
      * The Total
      * Meta informations extracted from the WSDL
      * - documentation: The total amount charged for the accommodation including additional occupant amounts and fees. If TaxInclusive is set to True, then taxes are included in the total amount.
@@ -104,9 +111,10 @@ class ResCommonDetailType extends AbstractStructBase
      * @uses ResCommonDetailType::setGuarantee()
      * @uses ResCommonDetailType::setDepositPayments()
      * @uses ResCommonDetailType::setCancelPenalties()
+     * @uses ResCommonDetailType::setFees()
      * @uses ResCommonDetailType::setTotal()
      * @param mixed $guestCounts
-     * @param mixed $timeSpan
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TimeSpan $timeSpan
      * @param mixed $resGuestRPHs
      * @param mixed $memberships
      * @param mixed $comments
@@ -114,9 +122,10 @@ class ResCommonDetailType extends AbstractStructBase
      * @param mixed $guarantee
      * @param mixed $depositPayments
      * @param mixed $cancelPenalties
+     * @param mixed $fees
      * @param mixed $total
      */
-    public function __construct($guestCounts = null, $timeSpan = null, $resGuestRPHs = null, $memberships = null, $comments = null, $specialRequests = null, $guarantee = null, $depositPayments = null, $cancelPenalties = null, $total = null)
+    public function __construct($guestCounts = null, \Devlabs91\GenericOtaHotelApiService\StructType\TimeSpan $timeSpan = null, $resGuestRPHs = null, $memberships = null, $comments = null, $specialRequests = null, $guarantee = null, $depositPayments = null, $cancelPenalties = null, $fees = null, $total = null)
     {
         $this
             ->setGuestCounts($guestCounts)
@@ -128,6 +137,7 @@ class ResCommonDetailType extends AbstractStructBase
             ->setGuarantee($guarantee)
             ->setDepositPayments($depositPayments)
             ->setCancelPenalties($cancelPenalties)
+            ->setFees($fees)
             ->setTotal($total);
     }
     /**
@@ -150,7 +160,7 @@ class ResCommonDetailType extends AbstractStructBase
     }
     /**
      * Get TimeSpan value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TimeSpan|null
      */
     public function getTimeSpan()
     {
@@ -158,10 +168,10 @@ class ResCommonDetailType extends AbstractStructBase
     }
     /**
      * Set TimeSpan value
-     * @param mixed $timeSpan
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TimeSpan $timeSpan
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResCommonDetailType
      */
-    public function setTimeSpan($timeSpan = null)
+    public function setTimeSpan(\Devlabs91\GenericOtaHotelApiService\StructType\TimeSpan $timeSpan = null)
     {
         $this->TimeSpan = $timeSpan;
         return $this;
@@ -290,6 +300,24 @@ class ResCommonDetailType extends AbstractStructBase
     public function setCancelPenalties($cancelPenalties = null)
     {
         $this->CancelPenalties = $cancelPenalties;
+        return $this;
+    }
+    /**
+     * Get Fees value
+     * @return mixed|null
+     */
+    public function getFees()
+    {
+        return $this->Fees;
+    }
+    /**
+     * Set Fees value
+     * @param mixed $fees
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResCommonDetailType
+     */
+    public function setFees($fees = null)
+    {
+        $this->Fees = $fees;
         return $this;
     }
     /**

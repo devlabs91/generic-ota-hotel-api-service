@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AddtionalRules StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of Additional rules
+ * - documentation: A collection of Additional rules.
  * @subpackage Structs
  */
 class AddtionalRules extends AbstractStructBase

@@ -5,7 +5,8 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for GuaranteeType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: The guarantee information to hold a reservation | GuaranteeType : GuaranteeType An enumerated type defining the guarantee to be applied to this reservation.
+ * - documentation: The guarantee information to hold a reservation | GuaranteeType: GuaranteeType An enumerated type defining the guarantee to be applied to this reservation. | GuaranteeType: GuaranteeType An enumerated type defining the guarantee to
+ * be applied to this reservation. | GuaranteeType: GuaranteeType An enumerated type defining the guarantee to be applied to this reservation.
  * @subpackage Enumerations
  */
 class GuaranteeType
@@ -36,6 +37,11 @@ class GuaranteeType
      */
     const VALUE_DEPOSIT = 'Deposit';
     /**
+     * Constant for value 'PrePay'
+     * @return string 'PrePay'
+     */
+    const VALUE_PRE_PAY = 'PrePay';
+    /**
      * The GuaranteesAccepted
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -45,9 +51,8 @@ class GuaranteeType
     /**
      * The Deadline
      * Meta informations extracted from the WSDL
-     * - documentation: Guarantee deadline, absolute or relative
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Deadline
      */
     public $Deadline;
     /**
@@ -113,6 +118,7 @@ class GuaranteeType
      * @uses self::VALUE_CC_DC_VOUCHER
      * @uses self::VALUE_PROFILE
      * @uses self::VALUE_DEPOSIT
+     * @uses self::VALUE_PRE_PAY
      * @return string[]
      */
     public static function getValidValues()
@@ -123,6 +129,7 @@ class GuaranteeType
             self::VALUE_CC_DC_VOUCHER,
             self::VALUE_PROFILE,
             self::VALUE_DEPOSIT,
+            self::VALUE_PRE_PAY,
         );
     }
     /**

@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TimeDurationType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Used to specify a time period, which may additionally include a minimum and/or maximum duration.
  * @subpackage Structs
  */
 class TimeDurationType extends AbstractStructBase
@@ -18,6 +20,7 @@ class TimeDurationType extends AbstractStructBase
     /**
      * The Minimum
      * Meta informations extracted from the WSDL
+     * - documentation: A minimum duration.
      * - use: optional
      * @var string
      */
@@ -25,6 +28,7 @@ class TimeDurationType extends AbstractStructBase
     /**
      * The Maximum
      * Meta informations extracted from the WSDL
+     * - documentation: A maximum duration.
      * - use: optional
      * @var string
      */

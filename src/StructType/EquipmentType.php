@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for EquipmentType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Specifies the aircraft equipment type. | Used for Character Strings, length 0 to 64
+ * - documentation: Specifies the aircraft equipment type. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs
@@ -18,15 +18,14 @@ class EquipmentType extends AbstractStructBase
      * The AirEquipType
      * Meta informations extracted from the WSDL
      * - documentation: This is the 3 character IATA code.
-     * - use: required
+     * - use: optional
      * @var string
      */
     public $AirEquipType;
     /**
      * The ChangeofGauge
      * Meta informations extracted from the WSDL
-     * - default: false
-     * - documentation: Indicates there is an equipment change.
+     * - documentation: Indicates there is an equipment change. | false
      * - use: optional
      * @var bool
      */
@@ -38,7 +37,7 @@ class EquipmentType extends AbstractStructBase
      * @param string $airEquipType
      * @param bool $changeofGauge
      */
-    public function __construct($airEquipType = null, $changeofGauge = false)
+    public function __construct($airEquipType = null, $changeofGauge = null)
     {
         $this
             ->setAirEquipType($airEquipType)
@@ -46,7 +45,7 @@ class EquipmentType extends AbstractStructBase
     }
     /**
      * Get AirEquipType value
-     * @return string
+     * @return string|null
      */
     public function getAirEquipType()
     {
@@ -79,7 +78,7 @@ class EquipmentType extends AbstractStructBase
      * @param bool $changeofGauge
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\EquipmentType
      */
-    public function setChangeofGauge($changeofGauge = false)
+    public function setChangeofGauge($changeofGauge = null)
     {
         // validation for constraint: boolean
         if (!is_null($changeofGauge) && !is_bool($changeofGauge)) {

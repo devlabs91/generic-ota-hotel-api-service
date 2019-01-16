@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PropertyIdentityType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Full name or description plus codes for a property. | Used for Character Strings, length 0 to 128
+ * - documentation: Full name or description plus codes for a property. | Used for Character Strings, length 0 to 128.
  * - maxLength: 128
  * - minLength: 0
  * @subpackage Structs
@@ -17,13 +17,15 @@ class PropertyIdentityType extends AbstractStructBase
     /**
      * The PropertyClassType
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Property Class Type (PCT).
-     * - use: required
+     * - documentation: Refer to OpenTravel Code List Property Class Type (PCT). e.g. 3 (Apartment); 20 (Hotel).
+     * - use: optional
      * @var string
      */
     public $PropertyClassType;
     /**
      * The ContentURL
+     * Meta informations extracted from the WSDL
+     * - documentation: A reference to s source of information for the property.
      * @var string
      */
     public $ContentURL;
@@ -42,7 +44,7 @@ class PropertyIdentityType extends AbstractStructBase
     }
     /**
      * Get PropertyClassType value
-     * @return string
+     * @return string|null
      */
     public function getPropertyClassType()
     {

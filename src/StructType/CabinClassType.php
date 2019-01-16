@@ -15,7 +15,7 @@ class CabinClassType extends AbstractStructBase
     /**
      * The CabinType
      * Meta informations extracted from the WSDL
-     * - documentation: Cabin class for which the seat map details is being given. Could be first, business or economy
+     * - documentation: Cabin class for which the seat map details is being given. Could be first, business or economy.
      * - use: required
      * @var string
      */

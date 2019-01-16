@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for FoodSrvcPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for type of food service facilities in a hotel. | Identifies the customer's level of preference for the hotel food service identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for type of food service facilities in a hotel. | Identifies the customer's level of preference for the hotel food service identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class FoodSrvcPrefType extends AbstractStructBase
     /**
      * The FoodSrvcType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the types of food services offered by the hotel. Refer to OTA Code List Main Cuisine Code (CUI).
+     * - documentation: Identifies the types of food services offered by the hotel. Refer to OpenTravel Code List Main Cuisine Code (CUI).
      * @var string
      */
     public $FoodSrvcType;

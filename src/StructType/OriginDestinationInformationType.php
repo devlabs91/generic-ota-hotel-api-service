@@ -14,16 +14,12 @@ class OriginDestinationInformationType extends TravelDateTimeType
 {
     /**
      * The OriginLocation
-     * Meta informations extracted from the WSDL
-     * - documentation: Travel Origin Location - for example, air uses the IATA 3 letter code.
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OriginLocation
      */
     public $OriginLocation;
     /**
      * The DestinationLocation
-     * Meta informations extracted from the WSDL
-     * - documentation: Travel Destination Location - for example, air uses the IATA 3 letter code.
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\DestinationLocation
      */
     public $DestinationLocation;
     /**
@@ -39,11 +35,11 @@ class OriginDestinationInformationType extends TravelDateTimeType
      * @uses OriginDestinationInformationType::setOriginLocation()
      * @uses OriginDestinationInformationType::setDestinationLocation()
      * @uses OriginDestinationInformationType::setConnectionLocations()
-     * @param mixed $originLocation
-     * @param mixed $destinationLocation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OriginLocation $originLocation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DestinationLocation $destinationLocation
      * @param mixed $connectionLocations
      */
-    public function __construct($originLocation = null, $destinationLocation = null, $connectionLocations = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\OriginLocation $originLocation = null, \Devlabs91\GenericOtaHotelApiService\StructType\DestinationLocation $destinationLocation = null, $connectionLocations = null)
     {
         $this
             ->setOriginLocation($originLocation)
@@ -52,7 +48,7 @@ class OriginDestinationInformationType extends TravelDateTimeType
     }
     /**
      * Get OriginLocation value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginLocation|null
      */
     public function getOriginLocation()
     {
@@ -60,17 +56,17 @@ class OriginDestinationInformationType extends TravelDateTimeType
     }
     /**
      * Set OriginLocation value
-     * @param mixed $originLocation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OriginLocation $originLocation
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationInformationType
      */
-    public function setOriginLocation($originLocation = null)
+    public function setOriginLocation(\Devlabs91\GenericOtaHotelApiService\StructType\OriginLocation $originLocation = null)
     {
         $this->OriginLocation = $originLocation;
         return $this;
     }
     /**
      * Get DestinationLocation value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\DestinationLocation|null
      */
     public function getDestinationLocation()
     {
@@ -78,10 +74,10 @@ class OriginDestinationInformationType extends TravelDateTimeType
     }
     /**
      * Set DestinationLocation value
-     * @param mixed $destinationLocation
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DestinationLocation $destinationLocation
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationInformationType
      */
-    public function setDestinationLocation($destinationLocation = null)
+    public function setDestinationLocation(\Devlabs91\GenericOtaHotelApiService\StructType\DestinationLocation $destinationLocation = null)
     {
         $this->DestinationLocation = $destinationLocation;
         return $this;

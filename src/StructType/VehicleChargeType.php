@@ -7,18 +7,11 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for VehicleChargeType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Identifies the purpose of the charge, that is, the entity to which the charge applies. Refer to OTA Code List VehicleChargePurposeType/Purpose.
+ * - documentation: Identifies specific charges.
  * @subpackage Structs
  */
 class VehicleChargeType extends AbstractStructBase
 {
-    /**
-     * The TaxInclusive
-     * Meta informations extracted from the WSDL
-     * - use: required
-     * @var bool
-     */
-    public $TaxInclusive;
     /**
      * The TaxAmounts
      * Meta informations extracted from the WSDL
@@ -42,6 +35,13 @@ class VehicleChargeType extends AbstractStructBase
      */
     public $Calculation;
     /**
+     * The TaxInclusive
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var bool
+     */
+    public $TaxInclusive;
+    /**
      * The Description
      * Meta informations extracted from the WSDL
      * - use: optional
@@ -58,61 +58,60 @@ class VehicleChargeType extends AbstractStructBase
     /**
      * The IncludedInRate
      * Meta informations extracted from the WSDL
-     * - default: false
-     * - documentation: An indication if this amount is included in the base vehicle rate, or is an additonal cost.
+     * - documentation: An indication if this amount is included in the base vehicle rate, or is an additonal cost. | false
      * - use: optional
      * @var bool
      */
     public $IncludedInRate;
     /**
+     * The IncludedInEstTotalInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates the item's charges are included in the estimated total amount (in TotalCharge) and when false, the item is not included in the estimated total amount.
+     * - use: optional
+     * @var bool
+     */
+    public $IncludedInEstTotalInd;
+    /**
+     * The RateConvertInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, the rate has been converted to a different currency.
+     * - use: optional
+     * @var bool
+     */
+    public $RateConvertInd;
+    /**
      * Constructor method for VehicleChargeType
-     * @uses VehicleChargeType::setTaxInclusive()
      * @uses VehicleChargeType::setTaxAmounts()
      * @uses VehicleChargeType::setMinMax()
      * @uses VehicleChargeType::setCalculation()
+     * @uses VehicleChargeType::setTaxInclusive()
      * @uses VehicleChargeType::setDescription()
      * @uses VehicleChargeType::setGuaranteedInd()
      * @uses VehicleChargeType::setIncludedInRate()
-     * @param bool $taxInclusive
+     * @uses VehicleChargeType::setIncludedInEstTotalInd()
+     * @uses VehicleChargeType::setRateConvertInd()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmounts $taxAmounts
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\MinMax $minMax
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Calculation[] $calculation
+     * @param bool $taxInclusive
      * @param string $description
      * @param bool $guaranteedInd
      * @param bool $includedInRate
+     * @param bool $includedInEstTotalInd
+     * @param bool $rateConvertInd
      */
-    public function __construct($taxInclusive = null, \Devlabs91\GenericOtaHotelApiService\StructType\TaxAmounts $taxAmounts = null, \Devlabs91\GenericOtaHotelApiService\StructType\MinMax $minMax = null, array $calculation = array(), $description = null, $guaranteedInd = null, $includedInRate = false)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\TaxAmounts $taxAmounts = null, \Devlabs91\GenericOtaHotelApiService\StructType\MinMax $minMax = null, array $calculation = array(), $taxInclusive = null, $description = null, $guaranteedInd = null, $includedInRate = null, $includedInEstTotalInd = null, $rateConvertInd = null)
     {
         $this
-            ->setTaxInclusive($taxInclusive)
             ->setTaxAmounts($taxAmounts)
             ->setMinMax($minMax)
             ->setCalculation($calculation)
+            ->setTaxInclusive($taxInclusive)
             ->setDescription($description)
             ->setGuaranteedInd($guaranteedInd)
-            ->setIncludedInRate($includedInRate);
-    }
-    /**
-     * Get TaxInclusive value
-     * @return bool
-     */
-    public function getTaxInclusive()
-    {
-        return $this->TaxInclusive;
-    }
-    /**
-     * Set TaxInclusive value
-     * @param bool $taxInclusive
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleChargeType
-     */
-    public function setTaxInclusive($taxInclusive = null)
-    {
-        // validation for constraint: boolean
-        if (!is_null($taxInclusive) && !is_bool($taxInclusive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($taxInclusive)), __LINE__);
-        }
-        $this->TaxInclusive = $taxInclusive;
-        return $this;
+            ->setIncludedInRate($includedInRate)
+            ->setIncludedInEstTotalInd($includedInEstTotalInd)
+            ->setRateConvertInd($rateConvertInd);
     }
     /**
      * Get TaxAmounts value
@@ -191,6 +190,28 @@ class VehicleChargeType extends AbstractStructBase
         return $this;
     }
     /**
+     * Get TaxInclusive value
+     * @return bool|null
+     */
+    public function getTaxInclusive()
+    {
+        return $this->TaxInclusive;
+    }
+    /**
+     * Set TaxInclusive value
+     * @param bool $taxInclusive
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleChargeType
+     */
+    public function setTaxInclusive($taxInclusive = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($taxInclusive) && !is_bool($taxInclusive)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($taxInclusive)), __LINE__);
+        }
+        $this->TaxInclusive = $taxInclusive;
+        return $this;
+    }
+    /**
      * Get Description value
      * @return string|null
      */
@@ -247,13 +268,57 @@ class VehicleChargeType extends AbstractStructBase
      * @param bool $includedInRate
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleChargeType
      */
-    public function setIncludedInRate($includedInRate = false)
+    public function setIncludedInRate($includedInRate = null)
     {
         // validation for constraint: boolean
         if (!is_null($includedInRate) && !is_bool($includedInRate)) {
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includedInRate)), __LINE__);
         }
         $this->IncludedInRate = $includedInRate;
+        return $this;
+    }
+    /**
+     * Get IncludedInEstTotalInd value
+     * @return bool|null
+     */
+    public function getIncludedInEstTotalInd()
+    {
+        return $this->IncludedInEstTotalInd;
+    }
+    /**
+     * Set IncludedInEstTotalInd value
+     * @param bool $includedInEstTotalInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleChargeType
+     */
+    public function setIncludedInEstTotalInd($includedInEstTotalInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($includedInEstTotalInd) && !is_bool($includedInEstTotalInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includedInEstTotalInd)), __LINE__);
+        }
+        $this->IncludedInEstTotalInd = $includedInEstTotalInd;
+        return $this;
+    }
+    /**
+     * Get RateConvertInd value
+     * @return bool|null
+     */
+    public function getRateConvertInd()
+    {
+        return $this->RateConvertInd;
+    }
+    /**
+     * Set RateConvertInd value
+     * @param bool $rateConvertInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleChargeType
+     */
+    public function setRateConvertInd($rateConvertInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($rateConvertInd) && !is_bool($rateConvertInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($rateConvertInd)), __LINE__);
+        }
+        $this->RateConvertInd = $rateConvertInd;
         return $this;
     }
     /**

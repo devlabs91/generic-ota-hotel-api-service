@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for WarningsType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Collection of warnings.
  * @subpackage Structs
  */
 class WarningsType extends AbstractStructBase
@@ -13,7 +15,8 @@ class WarningsType extends AbstractStructBase
     /**
      * The Warning
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 99
+     * - documentation: Used in conjunction with the Success element to define a business error.
+     * - maxOccurs: 999
      * @var mixed[]
      */
     public $Warning;

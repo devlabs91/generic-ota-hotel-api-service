@@ -16,7 +16,7 @@ class VehRentLocInfos extends AbstractStructBase
     /**
      * The VehRentLocInfo
      * Meta informations extracted from the WSDL
-     * - documentation: Descriptive information of one spoecific aspect of the rental location.
+     * - documentation: Descriptive information of one specific aspect of the rental location.
      * - maxOccurs: 99
      * @var mixed[]
      */

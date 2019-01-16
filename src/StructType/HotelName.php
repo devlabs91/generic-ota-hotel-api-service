@@ -8,7 +8,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for HotelName StructType
  * Meta informations extracted from the WSDL
  * - documentation: The full name of the hotel.
- * - type: StringLength1to64
+ * - type: StringLength1to128
  * - use: optional
  * @subpackage Structs
  */

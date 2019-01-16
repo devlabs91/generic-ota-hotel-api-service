@@ -7,10 +7,10 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for BookingChannel StructType
  * Meta informations extracted from the WSDL
- * - documentation: Specifies the booking channel type and whether it is the primary means of connectivity of the source.
+ * - documentation: Specifies the booking channel type and whether it is the primary means of connectivity of the source. | Specifies the booking channel type and whether it is the primary means of connectivity of the source.
  * @subpackage Structs
  */
-class BookingChannel extends BookingChannelType
+class BookingChannel extends AbstractStructBase
 {
     /**
      * The CompanyName

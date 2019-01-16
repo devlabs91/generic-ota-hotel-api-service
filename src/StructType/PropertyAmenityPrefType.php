@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PropertyAmenityPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Indicates preferences for hotel property amenities. | Identifies the customer's level of preference for the hotel property amenity identified. | Used for Character Strings, length 1 to 128
+ * - documentation: Indicates preferences for hotel property amenities. | Identifies the customer's level of preference for the hotel property amenity identified. | Used for Character Strings, length 1 to 128.
  * - maxLength: 128
  * - minLength: 1
  * @subpackage Structs
@@ -17,7 +17,7 @@ class PropertyAmenityPrefType extends AbstractStructBase
     /**
      * The PropertyAmenityType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the amenities offered by the hotel. Refer to OTA Code List Hotel Amenity Code (HAC).
+     * - documentation: Identifies the amenities offered by the hotel. Refer to OpenTravel Code List Hotel Amenity Code (HAC).
      * @var string
      */
     public $PropertyAmenityType;

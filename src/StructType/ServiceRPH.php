@@ -10,8 +10,16 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: This is a reference placeholder used as an index for a service to be associated with this stay
  * @subpackage Structs
  */
-class ServiceRPH extends ReferencePlaceHolderType
+class ServiceRPH extends AbstractStructBase
 {
+    /**
+     * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: Provides a unique reference to the service.
+     * - use: optional
+     * @var string
+     */
+    public $RPH;
     /**
      * The IsPerRoom
      * Meta informations extracted from the WSDL
@@ -22,13 +30,38 @@ class ServiceRPH extends ReferencePlaceHolderType
     public $IsPerRoom;
     /**
      * Constructor method for ServiceRPH
+     * @uses ServiceRPH::setRPH()
      * @uses ServiceRPH::setIsPerRoom()
+     * @param string $rPH
      * @param bool $isPerRoom
      */
-    public function __construct($isPerRoom = null)
+    public function __construct($rPH = null, $isPerRoom = null)
     {
         $this
+            ->setRPH($rPH)
             ->setIsPerRoom($isPerRoom);
+    }
+    /**
+     * Get RPH value
+     * @return string|null
+     */
+    public function getRPH()
+    {
+        return $this->RPH;
+    }
+    /**
+     * Set RPH value
+     * @param string $rPH
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ServiceRPH
+     */
+    public function setRPH($rPH = null)
+    {
+        // validation for constraint: string
+        if (!is_null($rPH) && !is_string($rPH)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
+        }
+        $this->RPH = $rPH;
+        return $this;
     }
     /**
      * Get IsPerRoom value

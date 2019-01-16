@@ -15,6 +15,7 @@ class RoomPriceType extends AbstractStructBase
     /**
      * The GuestCounts
      * Meta informations extracted from the WSDL
+     * - documentation: A collection of GuestCount by age group.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -32,14 +33,14 @@ class RoomPriceType extends AbstractStructBase
     /**
      * The ProfilePrice
      * Meta informations extracted from the WSDL
-     * - documentation: Total price for this room.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ProfilePrice
      */
     public $ProfilePrice;
     /**
      * The RoomRPH
      * Meta informations extracted from the WSDL
+     * - documentation: Used to associate a room price with a specific room.
      * - use: optional
      * @var string
      */
@@ -47,6 +48,7 @@ class RoomPriceType extends AbstractStructBase
     /**
      * The Code
      * Meta informations extracted from the WSDL
+     * - documentation: A code to identify a room.
      * - use: optional
      * @var string
      */
@@ -60,11 +62,11 @@ class RoomPriceType extends AbstractStructBase
      * @uses RoomPriceType::setCode()
      * @param mixed[] $guestCounts
      * @param mixed[] $itemPrice
-     * @param mixed $profilePrice
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProfilePrice $profilePrice
      * @param string $roomRPH
      * @param string $code
      */
-    public function __construct(array $guestCounts = array(), array $itemPrice = array(), $profilePrice = null, $roomRPH = null, $code = null)
+    public function __construct(array $guestCounts = array(), array $itemPrice = array(), \Devlabs91\GenericOtaHotelApiService\StructType\ProfilePrice $profilePrice = null, $roomRPH = null, $code = null)
     {
         $this
             ->setGuestCounts($guestCounts)
@@ -155,7 +157,7 @@ class RoomPriceType extends AbstractStructBase
     }
     /**
      * Get ProfilePrice value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ProfilePrice|null
      */
     public function getProfilePrice()
     {
@@ -163,10 +165,10 @@ class RoomPriceType extends AbstractStructBase
     }
     /**
      * Set ProfilePrice value
-     * @param mixed $profilePrice
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ProfilePrice $profilePrice
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\RoomPriceType
      */
-    public function setProfilePrice($profilePrice = null)
+    public function setProfilePrice(\Devlabs91\GenericOtaHotelApiService\StructType\ProfilePrice $profilePrice = null)
     {
         $this->ProfilePrice = $profilePrice;
         return $this;

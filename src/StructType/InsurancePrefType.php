@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for InsurancePrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Identifies travel insurance policies to be used with this collection of preferences. | Used for Character Strings, length 1 to 64
+ * - documentation: Identifies a preference for a travel insurance policy. | Used to specify the preference level for this insurance policy. | Used for Character Strings, length 1 to 64.
  * - maxLength: 64
  * - minLength: 1
  * @subpackage Structs
@@ -18,6 +18,7 @@ class InsurancePrefType extends AbstractStructBase
      * The RPH
      * Meta informations extracted from the WSDL
      * - documentation: Index number to be used for reference the insurance policy to be used in this travel collection.
+     * - use: optional
      * @var string
      */
     public $RPH;

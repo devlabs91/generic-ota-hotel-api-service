@@ -15,15 +15,14 @@ class OriginDestinationOptionType extends AbstractStructBase
     /**
      * The FlightSegment
      * Meta informations extracted from the WSDL
-     * - documentation: A container for necessary data to describe one or more legs of a single flight number.
-     * - maxOccurs: 4
-     * @var mixed[]
+     * - maxOccurs: 8
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment[]
      */
     public $FlightSegment;
     /**
      * Constructor method for OriginDestinationOptionType
      * @uses OriginDestinationOptionType::setFlightSegment()
-     * @param mixed[] $flightSegment
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment[] $flightSegment
      */
     public function __construct(array $flightSegment = array())
     {
@@ -32,7 +31,7 @@ class OriginDestinationOptionType extends AbstractStructBase
     }
     /**
      * Get FlightSegment value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment[]|null
      */
     public function getFlightSegment()
     {
@@ -41,15 +40,15 @@ class OriginDestinationOptionType extends AbstractStructBase
     /**
      * Set FlightSegment value
      * @throws \InvalidArgumentException
-     * @param mixed[] $flightSegment
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment[] $flightSegment
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOptionType
      */
     public function setFlightSegment(array $flightSegment = array())
     {
         foreach ($flightSegment as $originDestinationOptionTypeFlightSegmentItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The FlightSegment property can only contain items of anyType, "%s" given', is_object($originDestinationOptionTypeFlightSegmentItem) ? get_class($originDestinationOptionTypeFlightSegmentItem) : gettype($originDestinationOptionTypeFlightSegmentItem)), __LINE__);
+            if (!$originDestinationOptionTypeFlightSegmentItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment) {
+                throw new \InvalidArgumentException(sprintf('The FlightSegment property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment, "%s" given', is_object($originDestinationOptionTypeFlightSegmentItem) ? get_class($originDestinationOptionTypeFlightSegmentItem) : gettype($originDestinationOptionTypeFlightSegmentItem)), __LINE__);
             }
         }
         $this->FlightSegment = $flightSegment;
@@ -58,14 +57,14 @@ class OriginDestinationOptionType extends AbstractStructBase
     /**
      * Add item to FlightSegment value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOptionType
      */
-    public function addToFlightSegment($item)
+    public function addToFlightSegment(\Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The FlightSegment property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment) {
+            throw new \InvalidArgumentException(sprintf('The FlightSegment property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegment, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->FlightSegment[] = $item;
         return $this;

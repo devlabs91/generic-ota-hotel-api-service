@@ -77,6 +77,22 @@ class MeetingRoomsType extends AbstractStructBase
      */
     public $SmallestSeatingCapacity;
     /**
+     * The TotalRoomSeatingCapacity
+     * Meta informations extracted from the WSDL
+     * - documentation: The total seating capacity available at the hotel facility.
+     * - use: optional
+     * @var int
+     */
+    public $TotalRoomSeatingCapacity;
+    /**
+     * The LargestRoomHeight
+     * Meta informations extracted from the WSDL
+     * - documentation: The ceiling height of the largest meeting room.
+     * - use: optional
+     * @var int
+     */
+    public $LargestRoomHeight;
+    /**
      * Constructor method for MeetingRoomsType
      * @uses MeetingRoomsType::setMeetingRoom()
      * @uses MeetingRoomsType::setMeetingRoomCount()
@@ -86,6 +102,8 @@ class MeetingRoomsType extends AbstractStructBase
      * @uses MeetingRoomsType::setLargestSeatingCapacity()
      * @uses MeetingRoomsType::setSecondLargestSeatingCapacity()
      * @uses MeetingRoomsType::setSmallestSeatingCapacity()
+     * @uses MeetingRoomsType::setTotalRoomSeatingCapacity()
+     * @uses MeetingRoomsType::setLargestRoomHeight()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoom[] $meetingRoom
      * @param int $meetingRoomCount
      * @param int $smallestRoomSpace
@@ -94,8 +112,10 @@ class MeetingRoomsType extends AbstractStructBase
      * @param int $largestSeatingCapacity
      * @param int $secondLargestSeatingCapacity
      * @param int $smallestSeatingCapacity
+     * @param int $totalRoomSeatingCapacity
+     * @param int $largestRoomHeight
      */
-    public function __construct(array $meetingRoom = array(), $meetingRoomCount = null, $smallestRoomSpace = null, $largestRoomSpace = null, $totalRoomSpace = null, $largestSeatingCapacity = null, $secondLargestSeatingCapacity = null, $smallestSeatingCapacity = null)
+    public function __construct(array $meetingRoom = array(), $meetingRoomCount = null, $smallestRoomSpace = null, $largestRoomSpace = null, $totalRoomSpace = null, $largestSeatingCapacity = null, $secondLargestSeatingCapacity = null, $smallestSeatingCapacity = null, $totalRoomSeatingCapacity = null, $largestRoomHeight = null)
     {
         $this
             ->setMeetingRoom($meetingRoom)
@@ -105,7 +125,9 @@ class MeetingRoomsType extends AbstractStructBase
             ->setTotalRoomSpace($totalRoomSpace)
             ->setLargestSeatingCapacity($largestSeatingCapacity)
             ->setSecondLargestSeatingCapacity($secondLargestSeatingCapacity)
-            ->setSmallestSeatingCapacity($smallestSeatingCapacity);
+            ->setSmallestSeatingCapacity($smallestSeatingCapacity)
+            ->setTotalRoomSeatingCapacity($totalRoomSeatingCapacity)
+            ->setLargestRoomHeight($largestRoomHeight);
     }
     /**
      * Get MeetingRoom value
@@ -299,6 +321,50 @@ class MeetingRoomsType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($smallestSeatingCapacity)), __LINE__);
         }
         $this->SmallestSeatingCapacity = $smallestSeatingCapacity;
+        return $this;
+    }
+    /**
+     * Get TotalRoomSeatingCapacity value
+     * @return int|null
+     */
+    public function getTotalRoomSeatingCapacity()
+    {
+        return $this->TotalRoomSeatingCapacity;
+    }
+    /**
+     * Set TotalRoomSeatingCapacity value
+     * @param int $totalRoomSeatingCapacity
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoomsType
+     */
+    public function setTotalRoomSeatingCapacity($totalRoomSeatingCapacity = null)
+    {
+        // validation for constraint: int
+        if (!is_null($totalRoomSeatingCapacity) && !is_numeric($totalRoomSeatingCapacity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalRoomSeatingCapacity)), __LINE__);
+        }
+        $this->TotalRoomSeatingCapacity = $totalRoomSeatingCapacity;
+        return $this;
+    }
+    /**
+     * Get LargestRoomHeight value
+     * @return int|null
+     */
+    public function getLargestRoomHeight()
+    {
+        return $this->LargestRoomHeight;
+    }
+    /**
+     * Set LargestRoomHeight value
+     * @param int $largestRoomHeight
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MeetingRoomsType
+     */
+    public function setLargestRoomHeight($largestRoomHeight = null)
+    {
+        // validation for constraint: int
+        if (!is_null($largestRoomHeight) && !is_numeric($largestRoomHeight)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($largestRoomHeight)), __LINE__);
+        }
+        $this->LargestRoomHeight = $largestRoomHeight;
         return $this;
     }
     /**

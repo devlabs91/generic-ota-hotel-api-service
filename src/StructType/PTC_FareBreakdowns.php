@@ -15,7 +15,8 @@ class PTC_FareBreakdowns extends AbstractStructBase
     /**
      * The PTC_FareBreakdown
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 20
+     * - documentation: Per passenger type code pricing for a travel itinerary.
+     * - maxOccurs: 256
      * @var mixed[]
      */
     public $PTC_FareBreakdown;

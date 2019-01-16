@@ -7,21 +7,23 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for VehicleReservationType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The VehicleReservationType complex type identifies the data that describes a vehicle reservation. This data includes information on the customer(s) associated with the rental and details on the vehicle that is being rented.
+ * - documentation: The VehicleReservationType complex type identifies the data that describes a vehicle reservation. This data includes information on the customer(s) associated with the rental and details on the vehicle that is being rented. | Used to
+ * specify the date a reservation was created and last modified.
  * @subpackage Structs
  */
 class VehicleReservationType extends AbstractStructBase
 {
     /**
      * The Customer
+     * Meta informations extracted from the WSDL
+     * - documentation: Information on the one primary driver and, optionally, several additional drivers. This may be used to provide a frequent renter number.
+     * - minOccurs: 0
      * @var mixed
      */
     public $Customer;
     /**
      * The VehSegmentCore
-     * Meta informations extracted from the WSDL
-     * - documentation: Common, or core, information associated with a reservation period and a reserved vehicle.
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehSegmentCore
      */
     public $VehSegmentCore;
     /**
@@ -33,20 +35,30 @@ class VehicleReservationType extends AbstractStructBase
      */
     public $VehSegmentInfo;
     /**
+     * The ReservationStatus
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $ReservationStatus;
+    /**
      * Constructor method for VehicleReservationType
      * @uses VehicleReservationType::setCustomer()
      * @uses VehicleReservationType::setVehSegmentCore()
      * @uses VehicleReservationType::setVehSegmentInfo()
+     * @uses VehicleReservationType::setReservationStatus()
      * @param mixed $customer
-     * @param mixed $vehSegmentCore
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehSegmentCore $vehSegmentCore
      * @param mixed $vehSegmentInfo
+     * @param string $reservationStatus
      */
-    public function __construct($customer = null, $vehSegmentCore = null, $vehSegmentInfo = null)
+    public function __construct($customer = null, \Devlabs91\GenericOtaHotelApiService\StructType\VehSegmentCore $vehSegmentCore = null, $vehSegmentInfo = null, $reservationStatus = null)
     {
         $this
             ->setCustomer($customer)
             ->setVehSegmentCore($vehSegmentCore)
-            ->setVehSegmentInfo($vehSegmentInfo);
+            ->setVehSegmentInfo($vehSegmentInfo)
+            ->setReservationStatus($reservationStatus);
     }
     /**
      * Get Customer value
@@ -68,7 +80,7 @@ class VehicleReservationType extends AbstractStructBase
     }
     /**
      * Get VehSegmentCore value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehSegmentCore|null
      */
     public function getVehSegmentCore()
     {
@@ -76,10 +88,10 @@ class VehicleReservationType extends AbstractStructBase
     }
     /**
      * Set VehSegmentCore value
-     * @param mixed $vehSegmentCore
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehSegmentCore $vehSegmentCore
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleReservationType
      */
-    public function setVehSegmentCore($vehSegmentCore = null)
+    public function setVehSegmentCore(\Devlabs91\GenericOtaHotelApiService\StructType\VehSegmentCore $vehSegmentCore = null)
     {
         $this->VehSegmentCore = $vehSegmentCore;
         return $this;
@@ -100,6 +112,28 @@ class VehicleReservationType extends AbstractStructBase
     public function setVehSegmentInfo($vehSegmentInfo = null)
     {
         $this->VehSegmentInfo = $vehSegmentInfo;
+        return $this;
+    }
+    /**
+     * Get ReservationStatus value
+     * @return string|null
+     */
+    public function getReservationStatus()
+    {
+        return $this->ReservationStatus;
+    }
+    /**
+     * Set ReservationStatus value
+     * @param string $reservationStatus
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleReservationType
+     */
+    public function setReservationStatus($reservationStatus = null)
+    {
+        // validation for constraint: string
+        if (!is_null($reservationStatus) && !is_string($reservationStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reservationStatus)), __LINE__);
+        }
+        $this->ReservationStatus = $reservationStatus;
         return $this;
     }
     /**

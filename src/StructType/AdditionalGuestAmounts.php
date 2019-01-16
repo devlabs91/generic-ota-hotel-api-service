@@ -7,8 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AdditionalGuestAmounts StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of charges that apply to for additional occupants, guests or service users (over and above the rate's MaxGuest Applicable) | A collection of charges that apply to for additional occupants, guests or service users (over
- * and above the rate's MaxGuest Applicable)
+ * - documentation: A collection of charges that apply to for additional occupants, guests or service users (over and above the rate's MaxGuest Applicable). | A collection of charges that apply to for additional occupants, guests or service users (over
+ * and above the rate's MaxGuest Applicable).
  * @subpackage Structs
  */
 class AdditionalGuestAmounts extends AbstractStructBase
@@ -22,14 +22,34 @@ class AdditionalGuestAmounts extends AbstractStructBase
      */
     public $AdditionalGuestAmount;
     /**
+     * The AmountBeforeTax
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $AmountBeforeTax;
+    /**
+     * The AmountAfterTax
+     * Meta informations extracted from the WSDL
+     * - use: optional
+     * @var string
+     */
+    public $AmountAfterTax;
+    /**
      * Constructor method for AdditionalGuestAmounts
      * @uses AdditionalGuestAmounts::setAdditionalGuestAmount()
+     * @uses AdditionalGuestAmounts::setAmountBeforeTax()
+     * @uses AdditionalGuestAmounts::setAmountAfterTax()
      * @param mixed[] $additionalGuestAmount
+     * @param string $amountBeforeTax
+     * @param string $amountAfterTax
      */
-    public function __construct(array $additionalGuestAmount = array())
+    public function __construct(array $additionalGuestAmount = array(), $amountBeforeTax = null, $amountAfterTax = null)
     {
         $this
-            ->setAdditionalGuestAmount($additionalGuestAmount);
+            ->setAdditionalGuestAmount($additionalGuestAmount)
+            ->setAmountBeforeTax($amountBeforeTax)
+            ->setAmountAfterTax($amountAfterTax);
     }
     /**
      * Get AdditionalGuestAmount value
@@ -69,6 +89,50 @@ class AdditionalGuestAmounts extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The AdditionalGuestAmount property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->AdditionalGuestAmount[] = $item;
+        return $this;
+    }
+    /**
+     * Get AmountBeforeTax value
+     * @return string|null
+     */
+    public function getAmountBeforeTax()
+    {
+        return $this->AmountBeforeTax;
+    }
+    /**
+     * Set AmountBeforeTax value
+     * @param string $amountBeforeTax
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmounts
+     */
+    public function setAmountBeforeTax($amountBeforeTax = null)
+    {
+        // validation for constraint: string
+        if (!is_null($amountBeforeTax) && !is_string($amountBeforeTax)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($amountBeforeTax)), __LINE__);
+        }
+        $this->AmountBeforeTax = $amountBeforeTax;
+        return $this;
+    }
+    /**
+     * Get AmountAfterTax value
+     * @return string|null
+     */
+    public function getAmountAfterTax()
+    {
+        return $this->AmountAfterTax;
+    }
+    /**
+     * Set AmountAfterTax value
+     * @param string $amountAfterTax
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdditionalGuestAmounts
+     */
+    public function setAmountAfterTax($amountAfterTax = null)
+    {
+        // validation for constraint: string
+        if (!is_null($amountAfterTax) && !is_string($amountAfterTax)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($amountAfterTax)), __LINE__);
+        }
+        $this->AmountAfterTax = $amountAfterTax;
         return $this;
     }
     /**

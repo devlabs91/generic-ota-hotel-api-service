@@ -41,13 +41,6 @@ class SpecialReqDetailsType extends AbstractStructBase
      */
     public $Remarks;
     /**
-     * The UniqueRemarks
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\UniqueRemarks
-     */
-    public $UniqueRemarks;
-    /**
      * The SpecialRemarks
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -60,23 +53,20 @@ class SpecialReqDetailsType extends AbstractStructBase
      * @uses SpecialReqDetailsType::setSpecialServiceRequests()
      * @uses SpecialReqDetailsType::setOtherServiceInformations()
      * @uses SpecialReqDetailsType::setRemarks()
-     * @uses SpecialReqDetailsType::setUniqueRemarks()
      * @uses SpecialReqDetailsType::setSpecialRemarks()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\SeatRequests $seatRequests
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialServiceRequests $specialServiceRequests
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformations $otherServiceInformations
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Remarks $remarks
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueRemarks $uniqueRemarks
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarks $specialRemarks
      */
-    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\SeatRequests $seatRequests = null, \Devlabs91\GenericOtaHotelApiService\StructType\SpecialServiceRequests $specialServiceRequests = null, \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformations $otherServiceInformations = null, \Devlabs91\GenericOtaHotelApiService\StructType\Remarks $remarks = null, \Devlabs91\GenericOtaHotelApiService\StructType\UniqueRemarks $uniqueRemarks = null, \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarks $specialRemarks = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\SeatRequests $seatRequests = null, \Devlabs91\GenericOtaHotelApiService\StructType\SpecialServiceRequests $specialServiceRequests = null, \Devlabs91\GenericOtaHotelApiService\StructType\OtherServiceInformations $otherServiceInformations = null, \Devlabs91\GenericOtaHotelApiService\StructType\Remarks $remarks = null, \Devlabs91\GenericOtaHotelApiService\StructType\SpecialRemarks $specialRemarks = null)
     {
         $this
             ->setSeatRequests($seatRequests)
             ->setSpecialServiceRequests($specialServiceRequests)
             ->setOtherServiceInformations($otherServiceInformations)
             ->setRemarks($remarks)
-            ->setUniqueRemarks($uniqueRemarks)
             ->setSpecialRemarks($specialRemarks);
     }
     /**
@@ -149,24 +139,6 @@ class SpecialReqDetailsType extends AbstractStructBase
     public function setRemarks(\Devlabs91\GenericOtaHotelApiService\StructType\Remarks $remarks = null)
     {
         $this->Remarks = $remarks;
-        return $this;
-    }
-    /**
-     * Get UniqueRemarks value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\UniqueRemarks|null
-     */
-    public function getUniqueRemarks()
-    {
-        return $this->UniqueRemarks;
-    }
-    /**
-     * Set UniqueRemarks value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\UniqueRemarks $uniqueRemarks
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\SpecialReqDetailsType
-     */
-    public function setUniqueRemarks(\Devlabs91\GenericOtaHotelApiService\StructType\UniqueRemarks $uniqueRemarks = null)
-    {
-        $this->UniqueRemarks = $uniqueRemarks;
         return $this;
     }
     /**

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SeatingPrefType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Seating preferences to be used with this collection of preferences. | Used for Character Strings, length 0 to 64
+ * - documentation: Identifies a seating preference. | Used to indicate a level of preference for seat information. | Used for Character Strings, length 0 to 64.
  * - maxLength: 64
  * - minLength: 0
  * @subpackage Structs

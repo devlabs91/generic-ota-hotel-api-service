@@ -4,6 +4,8 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 
 /**
  * This class stands for MealType EnumType
+ * Meta informations extracted from the WSDL
+ * - documentation: Airline meal types.
  * @subpackage Enumerations
  */
 class MealType
@@ -124,6 +126,11 @@ class MealType
      */
     const VALUE_VLML = 'VLML';
     /**
+     * Constant for value 'RGML'
+     * @return string 'RGML'
+     */
+    const VALUE_RGML = 'RGML';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -158,6 +165,7 @@ class MealType
      * @uses self::VALUE_SPML
      * @uses self::VALUE_VGML
      * @uses self::VALUE_VLML
+     * @uses self::VALUE_RGML
      * @return string[]
      */
     public static function getValidValues()
@@ -186,6 +194,7 @@ class MealType
             self::VALUE_SPML,
             self::VALUE_VGML,
             self::VALUE_VLML,
+            self::VALUE_RGML,
         );
     }
     /**

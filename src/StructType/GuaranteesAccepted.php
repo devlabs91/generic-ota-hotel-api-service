@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GuaranteesAccepted StructType
- * Meta informations extracted from the WSDL
- * - documentation: A collection of accepted guarantees.
  * @subpackage Structs
  */
 class GuaranteesAccepted extends AbstractStructBase

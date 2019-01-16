@@ -7,9 +7,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for CustomerCountsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: CustomerCounts : Categorization of all Customers in a reservation or request. The total number of Customers will equal the sum of the Count attribute of all CustomerCount objects in this collection and assumes that the
- * AgeQualifyingCode will be used to determine how each Customer should be billed. Each booking segment has its own CustomerCount attribute to help determine billing, headcount, etc. The CustomerCount collection cannot be modified using a delta—it
- * must be resent in its entirety if modified.
+ * - documentation: CustomerCounts- Categorization of all Customers in a reservation or request. The total number of Customers will equal the sum of the Count attribute of all CustomerCount objects in this collection and assumes that the
+ * AgeQualifyingCode will be used to determine how each Customer should be billed. Each booking segment has its own CustomerCount attribute to help determine billing, headcount, etc. The CustomerCount collection cannot be modified using a delta. It must
+ * be resent in its entirety if modified.
  * @subpackage Structs
  */
 class CustomerCountsType extends AbstractStructBase
@@ -17,14 +17,14 @@ class CustomerCountsType extends AbstractStructBase
     /**
      * The CustomerCount
      * Meta informations extracted from the WSDL
-     * - maxOccurs: 9
-     * @var mixed[]
+     * - maxOccurs: 99
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount[]
      */
     public $CustomerCount;
     /**
      * Constructor method for CustomerCountsType
      * @uses CustomerCountsType::setCustomerCount()
-     * @param mixed[] $customerCount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount[] $customerCount
      */
     public function __construct(array $customerCount = array())
     {
@@ -33,7 +33,7 @@ class CustomerCountsType extends AbstractStructBase
     }
     /**
      * Get CustomerCount value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount[]|null
      */
     public function getCustomerCount()
     {
@@ -42,15 +42,15 @@ class CustomerCountsType extends AbstractStructBase
     /**
      * Set CustomerCount value
      * @throws \InvalidArgumentException
-     * @param mixed[] $customerCount
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount[] $customerCount
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCountsType
      */
     public function setCustomerCount(array $customerCount = array())
     {
         foreach ($customerCount as $customerCountsTypeCustomerCountItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The CustomerCount property can only contain items of anyType, "%s" given', is_object($customerCountsTypeCustomerCountItem) ? get_class($customerCountsTypeCustomerCountItem) : gettype($customerCountsTypeCustomerCountItem)), __LINE__);
+            if (!$customerCountsTypeCustomerCountItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount) {
+                throw new \InvalidArgumentException(sprintf('The CustomerCount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount, "%s" given', is_object($customerCountsTypeCustomerCountItem) ? get_class($customerCountsTypeCustomerCountItem) : gettype($customerCountsTypeCustomerCountItem)), __LINE__);
             }
         }
         $this->CustomerCount = $customerCount;
@@ -59,14 +59,14 @@ class CustomerCountsType extends AbstractStructBase
     /**
      * Add item to CustomerCount value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCountsType
      */
-    public function addToCustomerCount($item)
+    public function addToCustomerCount(\Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The CustomerCount property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount) {
+            throw new \InvalidArgumentException(sprintf('The CustomerCount property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\CustomerCount, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->CustomerCount[] = $item;
         return $this;

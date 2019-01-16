@@ -59,6 +59,30 @@ class StatusApplicationControlType extends AbstractStructBase
      */
     public $Override;
     /**
+     * The QuoteID
+     * Meta informations extracted from the WSDL
+     * - documentation: This identifies a specific quote.
+     * - use: optional
+     * @var string
+     */
+    public $QuoteID;
+    /**
+     * The SubBlockCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This is the code defining a subset of the inventory block.
+     * - use: optional
+     * @var string
+     */
+    public $SubBlockCode;
+    /**
+     * The WingIdentifier
+     * Meta informations extracted from the WSDL
+     * - documentation: Used to identify the wing of a hotel.
+     * - use: optional
+     * @var string
+     */
+    public $WingIdentifier;
+    /**
      * Constructor method for StatusApplicationControlType
      * @uses StatusApplicationControlType::setDestinationSystemCodes()
      * @uses StatusApplicationControlType::setRateTier()
@@ -66,14 +90,20 @@ class StatusApplicationControlType extends AbstractStructBase
      * @uses StatusApplicationControlType::setAllInvCode()
      * @uses StatusApplicationControlType::setInvBlockCode()
      * @uses StatusApplicationControlType::setOverride()
+     * @uses StatusApplicationControlType::setQuoteID()
+     * @uses StatusApplicationControlType::setSubBlockCode()
+     * @uses StatusApplicationControlType::setWingIdentifier()
      * @param mixed $destinationSystemCodes
      * @param string $rateTier
      * @param bool $allRateCode
      * @param bool $allInvCode
      * @param string $invBlockCode
      * @param bool $override
+     * @param string $quoteID
+     * @param string $subBlockCode
+     * @param string $wingIdentifier
      */
-    public function __construct($destinationSystemCodes = null, $rateTier = null, $allRateCode = null, $allInvCode = null, $invBlockCode = null, $override = null)
+    public function __construct($destinationSystemCodes = null, $rateTier = null, $allRateCode = null, $allInvCode = null, $invBlockCode = null, $override = null, $quoteID = null, $subBlockCode = null, $wingIdentifier = null)
     {
         $this
             ->setDestinationSystemCodes($destinationSystemCodes)
@@ -81,7 +111,10 @@ class StatusApplicationControlType extends AbstractStructBase
             ->setAllRateCode($allRateCode)
             ->setAllInvCode($allInvCode)
             ->setInvBlockCode($invBlockCode)
-            ->setOverride($override);
+            ->setOverride($override)
+            ->setQuoteID($quoteID)
+            ->setSubBlockCode($subBlockCode)
+            ->setWingIdentifier($wingIdentifier);
     }
     /**
      * Get DestinationSystemCodes value
@@ -209,6 +242,72 @@ class StatusApplicationControlType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($override)), __LINE__);
         }
         $this->Override = $override;
+        return $this;
+    }
+    /**
+     * Get QuoteID value
+     * @return string|null
+     */
+    public function getQuoteID()
+    {
+        return $this->QuoteID;
+    }
+    /**
+     * Set QuoteID value
+     * @param string $quoteID
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatusApplicationControlType
+     */
+    public function setQuoteID($quoteID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($quoteID) && !is_string($quoteID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($quoteID)), __LINE__);
+        }
+        $this->QuoteID = $quoteID;
+        return $this;
+    }
+    /**
+     * Get SubBlockCode value
+     * @return string|null
+     */
+    public function getSubBlockCode()
+    {
+        return $this->SubBlockCode;
+    }
+    /**
+     * Set SubBlockCode value
+     * @param string $subBlockCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatusApplicationControlType
+     */
+    public function setSubBlockCode($subBlockCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($subBlockCode) && !is_string($subBlockCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subBlockCode)), __LINE__);
+        }
+        $this->SubBlockCode = $subBlockCode;
+        return $this;
+    }
+    /**
+     * Get WingIdentifier value
+     * @return string|null
+     */
+    public function getWingIdentifier()
+    {
+        return $this->WingIdentifier;
+    }
+    /**
+     * Set WingIdentifier value
+     * @param string $wingIdentifier
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StatusApplicationControlType
+     */
+    public function setWingIdentifier($wingIdentifier = null)
+    {
+        // validation for constraint: string
+        if (!is_null($wingIdentifier) && !is_string($wingIdentifier)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($wingIdentifier)), __LINE__);
+        }
+        $this->WingIdentifier = $wingIdentifier;
         return $this;
     }
     /**

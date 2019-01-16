@@ -30,6 +30,8 @@ class RequiredPaymentLiteType extends AbstractStructBase
     public $AmountPercent;
     /**
      * The RetributionType
+     * Meta informations extracted from the WSDL
+     * - use: optional
      * @var string
      */
     public $RetributionType;

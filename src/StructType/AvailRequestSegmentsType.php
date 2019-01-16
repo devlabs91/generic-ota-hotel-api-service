@@ -6,6 +6,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AvailRequestSegmentsType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest
+ * rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request.
  * @subpackage Structs
  */
 class AvailRequestSegmentsType extends AbstractStructBase

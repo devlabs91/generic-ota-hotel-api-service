@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SrvcInfoCode StructType
  * Meta informations extracted from the WSDL
- * - documentation: This identifies the type of service. | May be used to give further detail on the code or to remove an obsolete item.
+ * - documentation: This identifies the type of service. | May be used to give further detail on the code or to remove an obsolete item. | This identifies the type of service. | May be used to give further detail on the code or to remove an obsolete
+ * item.
  * @subpackage Structs
  */
 class SrvcInfoCode extends AbstractStructBase
@@ -15,7 +16,7 @@ class SrvcInfoCode extends AbstractStructBase
     /**
      * The Code
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Restaurant Srvc Info (RSI).
+     * - documentation: Refer to OpenTravel Code List Restaurant Srvc Info (RSI). | Refer to OpenTravel Code List Restaurant Srvc Info (RSI).
      * - use: optional
      * @var string
      */

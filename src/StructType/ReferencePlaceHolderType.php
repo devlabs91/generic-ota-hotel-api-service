@@ -14,6 +14,8 @@ class ReferencePlaceHolderType extends AbstractStructBase
 {
     /**
      * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: The unique reference for an object within this message.
      * @var string
      */
     public $RPH;

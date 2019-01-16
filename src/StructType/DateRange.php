@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DateRange StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: The Start date and Duration or End Date of the package. | The Start date and Duration or End Date of the package.
  * @subpackage Structs
  */
 class DateRange extends AbstractStructBase

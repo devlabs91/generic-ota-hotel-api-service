@@ -5,7 +5,7 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for PaymentCardCodeType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: This is intended to be used when the above enumeration list does not meet your needs. | Used for an Alpha String, length 2 (for letter codes)
+ * - documentation: The 2 digit code that identifies the credit card. | This is intended to be used when the above enumeration list does not meet your needs. | Used for an Alpha String, length 1 to 2 (for letter codes).
  * - pattern: [A-Z]{1,2}
  * @subpackage Enumerations
  */
@@ -52,6 +52,11 @@ class PaymentCardCodeType
      */
     const VALUE_JC = 'JC';
     /**
+     * Constant for value 'MA'
+     * @return string 'MA'
+     */
+    const VALUE_MA = 'MA';
+    /**
      * Constant for value 'MC'
      * @return string 'MC'
      */
@@ -86,6 +91,7 @@ class PaymentCardCodeType
      * @uses self::VALUE_DS
      * @uses self::VALUE_EC
      * @uses self::VALUE_JC
+     * @uses self::VALUE_MA
      * @uses self::VALUE_MC
      * @uses self::VALUE_TP
      * @uses self::VALUE_VI
@@ -102,6 +108,7 @@ class PaymentCardCodeType
             self::VALUE_DS,
             self::VALUE_EC,
             self::VALUE_JC,
+            self::VALUE_MA,
             self::VALUE_MC,
             self::VALUE_TP,
             self::VALUE_VI,

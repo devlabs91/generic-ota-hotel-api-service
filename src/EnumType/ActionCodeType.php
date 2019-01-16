@@ -26,6 +26,16 @@ class ActionCodeType
      */
     const VALUE_OTHER = 'Other';
     /**
+     * Constant for value 'Cancel'
+     * @return string 'Cancel'
+     */
+    const VALUE_CANCEL = 'Cancel';
+    /**
+     * Constant for value 'Need'
+     * @return string 'Need'
+     */
+    const VALUE_NEED = 'Need';
+    /**
      * Return true if value is allowed
      * @uses self::getValidValues()
      * @param mixed $value value
@@ -40,6 +50,8 @@ class ActionCodeType
      * @uses self::VALUE_OK
      * @uses self::VALUE_WAITLIST
      * @uses self::VALUE_OTHER
+     * @uses self::VALUE_CANCEL
+     * @uses self::VALUE_NEED
      * @return string[]
      */
     public static function getValidValues()
@@ -48,6 +60,8 @@ class ActionCodeType
             self::VALUE_OK,
             self::VALUE_WAITLIST,
             self::VALUE_OTHER,
+            self::VALUE_CANCEL,
+            self::VALUE_NEED,
         );
     }
     /**

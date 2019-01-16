@@ -5,8 +5,8 @@ namespace Devlabs91\GenericOtaHotelApiService\EnumType;
 /**
  * This class stands for MealServiceType EnumType
  * Meta informations extracted from the WSDL
- * - documentation: Enumerated List (Meal Code in brackets): Breakfast (B) Snack (S) Dinner (D) Hot Meal (H) Lunch (L) Refreshments (R) Complimentary Liquor (C) Meal (M) Liquor for Purchase (P) Food for Purchase (F) Cold Meal (O) No Meal Service (-)
- * Alternately, a String of Length 32 can be used if the above list does not suffice. | Used for Character Strings, length 1 to 32
+ * - documentation: Enumerated List (Meal Code in brackets): Breakfast (B); Snack (S); Dinner (D); Hot Meal (H); Lunch (L); Refreshments (R); Complimentary Liquor (C); Meal (M); Liquor for Purchase (P); Food for Purchase (F); Cold Meal (O); No Meal
+ * Service (-). Alternately, a String of Length 32 can be used if the above list does not suffice. | Used for Character Strings, length 1 to 32.
  * - maxLength: 32
  * - minLength: 1
  * @subpackage Enumerations

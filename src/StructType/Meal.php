@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Meal StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Identifies any meal and/or beverage services that are provided.
  * @subpackage Structs
  */
 class Meal extends AbstractStructBase
@@ -13,6 +15,7 @@ class Meal extends AbstractStructBase
     /**
      * The MealCode
      * Meta informations extracted from the WSDL
+     * - documentation: Used to designate a meal or beverage service.
      * - use: required
      * @var string
      */

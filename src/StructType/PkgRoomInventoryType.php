@@ -21,13 +21,6 @@ class PkgRoomInventoryType extends RoomStayCandidateType
      */
     public $SupplementCharges;
     /**
-     * The RPH
-     * Meta informations extracted from the WSDL
-     * - use: optional
-     * @var string
-     */
-    public $RPH;
-    /**
      * The Description
      * Meta informations extracted from the WSDL
      * - documentation: A full description of the room/apartment etc.
@@ -62,23 +55,20 @@ class PkgRoomInventoryType extends RoomStayCandidateType
     /**
      * Constructor method for PkgRoomInventoryType
      * @uses PkgRoomInventoryType::setSupplementCharges()
-     * @uses PkgRoomInventoryType::setRPH()
      * @uses PkgRoomInventoryType::setDescription()
      * @uses PkgRoomInventoryType::setMaxAdults()
      * @uses PkgRoomInventoryType::setCotQuantity()
      * @uses PkgRoomInventoryType::setFreeChildFlag()
      * @param mixed[] $supplementCharges
-     * @param string $rPH
      * @param string $description
      * @param string $maxAdults
      * @param string $cotQuantity
      * @param bool $freeChildFlag
      */
-    public function __construct(array $supplementCharges = array(), $rPH = null, $description = null, $maxAdults = null, $cotQuantity = null, $freeChildFlag = null)
+    public function __construct(array $supplementCharges = array(), $description = null, $maxAdults = null, $cotQuantity = null, $freeChildFlag = null)
     {
         $this
             ->setSupplementCharges($supplementCharges)
-            ->setRPH($rPH)
             ->setDescription($description)
             ->setMaxAdults($maxAdults)
             ->setCotQuantity($cotQuantity)
@@ -122,28 +112,6 @@ class PkgRoomInventoryType extends RoomStayCandidateType
             throw new \InvalidArgumentException(sprintf('The SupplementCharges property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->SupplementCharges[] = $item;
-        return $this;
-    }
-    /**
-     * Get RPH value
-     * @return string|null
-     */
-    public function getRPH()
-    {
-        return $this->RPH;
-    }
-    /**
-     * Set RPH value
-     * @param string $rPH
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PkgRoomInventoryType
-     */
-    public function setRPH($rPH = null)
-    {
-        // validation for constraint: string
-        if (!is_null($rPH) && !is_string($rPH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rPH)), __LINE__);
-        }
-        $this->RPH = $rPH;
         return $this;
     }
     /**

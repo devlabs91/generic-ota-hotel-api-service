@@ -20,14 +20,36 @@ class VehAvails extends AbstractStructBase
      */
     public $VehAvail;
     /**
+     * The RateCategory
+     * Meta informations extracted from the WSDL
+     * - documentation: The rate category for all the vehicles available. Refer to OpenTravel Code List Rate Category (RTC).
+     * - use: optional
+     * @var string
+     */
+    public $RateCategory;
+    /**
+     * The RatePeriod
+     * Meta informations extracted from the WSDL
+     * - documentation: The rate period for all the vehicles available.
+     * - use: optional
+     * @var string
+     */
+    public $RatePeriod;
+    /**
      * Constructor method for VehAvails
      * @uses VehAvails::setVehAvail()
+     * @uses VehAvails::setRateCategory()
+     * @uses VehAvails::setRatePeriod()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehAvail[] $vehAvail
+     * @param string $rateCategory
+     * @param string $ratePeriod
      */
-    public function __construct(array $vehAvail = array())
+    public function __construct(array $vehAvail = array(), $rateCategory = null, $ratePeriod = null)
     {
         $this
-            ->setVehAvail($vehAvail);
+            ->setVehAvail($vehAvail)
+            ->setRateCategory($rateCategory)
+            ->setRatePeriod($ratePeriod);
     }
     /**
      * Get VehAvail value
@@ -67,6 +89,50 @@ class VehAvails extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The VehAvail property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\VehAvail, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->VehAvail[] = $item;
+        return $this;
+    }
+    /**
+     * Get RateCategory value
+     * @return string|null
+     */
+    public function getRateCategory()
+    {
+        return $this->RateCategory;
+    }
+    /**
+     * Set RateCategory value
+     * @param string $rateCategory
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehAvails
+     */
+    public function setRateCategory($rateCategory = null)
+    {
+        // validation for constraint: string
+        if (!is_null($rateCategory) && !is_string($rateCategory)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rateCategory)), __LINE__);
+        }
+        $this->RateCategory = $rateCategory;
+        return $this;
+    }
+    /**
+     * Get RatePeriod value
+     * @return string|null
+     */
+    public function getRatePeriod()
+    {
+        return $this->RatePeriod;
+    }
+    /**
+     * Set RatePeriod value
+     * @param string $ratePeriod
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehAvails
+     */
+    public function setRatePeriod($ratePeriod = null)
+    {
+        // validation for constraint: string
+        if (!is_null($ratePeriod) && !is_string($ratePeriod)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ratePeriod)), __LINE__);
+        }
+        $this->RatePeriod = $ratePeriod;
         return $this;
     }
     /**

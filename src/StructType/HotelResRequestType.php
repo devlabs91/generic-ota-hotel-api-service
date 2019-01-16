@@ -38,29 +38,40 @@ class HotelResRequestType extends AbstractStructBase
     /**
      * The ResStatus
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates the status of the reservation represented by the message. This is an enumeration with possible values of Initiate, Ignore, Modify, Commit.
+     * - documentation: Indicates the status of the reservation represented by the message.
      * - use: optional
      * @var string
      */
     public $ResStatus;
+    /**
+     * The HoldDuration
+     * Meta informations extracted from the WSDL
+     * - documentation: The period from the date and time the reservation was booked until the hold on the inventory is released.
+     * - use: optional
+     * @var string
+     */
+    public $HoldDuration;
     /**
      * Constructor method for HotelResRequestType
      * @uses HotelResRequestType::setPOS()
      * @uses HotelResRequestType::setUniqueID()
      * @uses HotelResRequestType::setHotelReservations()
      * @uses HotelResRequestType::setResStatus()
+     * @uses HotelResRequestType::setHoldDuration()
      * @param mixed $pOS
      * @param mixed[] $uniqueID
      * @param mixed $hotelReservations
      * @param string $resStatus
+     * @param string $holdDuration
      */
-    public function __construct($pOS = null, array $uniqueID = array(), $hotelReservations = null, $resStatus = null)
+    public function __construct($pOS = null, array $uniqueID = array(), $hotelReservations = null, $resStatus = null, $holdDuration = null)
     {
         $this
             ->setPOS($pOS)
             ->setUniqueID($uniqueID)
             ->setHotelReservations($hotelReservations)
-            ->setResStatus($resStatus);
+            ->setResStatus($resStatus)
+            ->setHoldDuration($holdDuration);
     }
     /**
      * Get POS value
@@ -158,6 +169,28 @@ class HotelResRequestType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($resStatus)), __LINE__);
         }
         $this->ResStatus = $resStatus;
+        return $this;
+    }
+    /**
+     * Get HoldDuration value
+     * @return string|null
+     */
+    public function getHoldDuration()
+    {
+        return $this->HoldDuration;
+    }
+    /**
+     * Set HoldDuration value
+     * @param string $holdDuration
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelResRequestType
+     */
+    public function setHoldDuration($holdDuration = null)
+    {
+        // validation for constraint: string
+        if (!is_null($holdDuration) && !is_string($holdDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($holdDuration)), __LINE__);
+        }
+        $this->HoldDuration = $holdDuration;
         return $this;
     }
     /**

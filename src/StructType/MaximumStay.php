@@ -52,26 +52,37 @@ class MaximumStay extends AbstractStructBase
      */
     public $MaxStayDate;
     /**
+     * The ComplicatedRulesInd
+     * Meta informations extracted from the WSDL
+     * - documentation: If true, there are complicated rules for the maximum stay requirement.
+     * - use: optional
+     * @var bool
+     */
+    public $ComplicatedRulesInd;
+    /**
      * Constructor method for MaximumStay
      * @uses MaximumStay::setReturnType()
      * @uses MaximumStay::setReturnTimeOfDay()
      * @uses MaximumStay::setMaxStay()
      * @uses MaximumStay::setStayUnit()
      * @uses MaximumStay::setMaxStayDate()
+     * @uses MaximumStay::setComplicatedRulesInd()
      * @param string $returnType
      * @param string $returnTimeOfDay
      * @param string $maxStay
      * @param string $stayUnit
      * @param string $maxStayDate
+     * @param bool $complicatedRulesInd
      */
-    public function __construct($returnType = null, $returnTimeOfDay = null, $maxStay = null, $stayUnit = null, $maxStayDate = null)
+    public function __construct($returnType = null, $returnTimeOfDay = null, $maxStay = null, $stayUnit = null, $maxStayDate = null, $complicatedRulesInd = null)
     {
         $this
             ->setReturnType($returnType)
             ->setReturnTimeOfDay($returnTimeOfDay)
             ->setMaxStay($maxStay)
             ->setStayUnit($stayUnit)
-            ->setMaxStayDate($maxStayDate);
+            ->setMaxStayDate($maxStayDate)
+            ->setComplicatedRulesInd($complicatedRulesInd);
     }
     /**
      * Get ReturnType value
@@ -181,6 +192,28 @@ class MaximumStay extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($maxStayDate)), __LINE__);
         }
         $this->MaxStayDate = $maxStayDate;
+        return $this;
+    }
+    /**
+     * Get ComplicatedRulesInd value
+     * @return bool|null
+     */
+    public function getComplicatedRulesInd()
+    {
+        return $this->ComplicatedRulesInd;
+    }
+    /**
+     * Set ComplicatedRulesInd value
+     * @param bool $complicatedRulesInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MaximumStay
+     */
+    public function setComplicatedRulesInd($complicatedRulesInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($complicatedRulesInd) && !is_bool($complicatedRulesInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($complicatedRulesInd)), __LINE__);
+        }
+        $this->ComplicatedRulesInd = $complicatedRulesInd;
         return $this;
     }
     /**

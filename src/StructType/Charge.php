@@ -7,50 +7,16 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Charge StructType
  * Meta informations extracted from the WSDL
- * - documentation: Cost associated with an amenity.
+ * - documentation: Indicates whether this feature is chargeable.
  * @subpackage Structs
  */
-class Charge extends FeeType
+class Charge extends AbstractStructBase
 {
     /**
-     * The ChargeUnit
-     * Meta informations extracted from the WSDL
-     * - documentation: This is the unit for which the charge applies (e.g. hourly, daily, half-day). Refer to OTA Code List Charge Type (CHG).
-     * - use: optional
-     * @var string
-     */
-    public $ChargeUnit;
-    /**
      * Constructor method for Charge
-     * @uses Charge::setChargeUnit()
-     * @param string $chargeUnit
      */
-    public function __construct($chargeUnit = null)
+    public function __construct()
     {
-        $this
-            ->setChargeUnit($chargeUnit);
-    }
-    /**
-     * Get ChargeUnit value
-     * @return string|null
-     */
-    public function getChargeUnit()
-    {
-        return $this->ChargeUnit;
-    }
-    /**
-     * Set ChargeUnit value
-     * @param string $chargeUnit
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Charge
-     */
-    public function setChargeUnit($chargeUnit = null)
-    {
-        // validation for constraint: string
-        if (!is_null($chargeUnit) && !is_string($chargeUnit)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($chargeUnit)), __LINE__);
-        }
-        $this->ChargeUnit = $chargeUnit;
-        return $this;
     }
     /**
      * Method called when an object has been exported with var_export() functions

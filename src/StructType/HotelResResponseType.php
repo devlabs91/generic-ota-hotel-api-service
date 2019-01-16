@@ -46,6 +46,8 @@ class HotelResResponseType extends AbstractStructBase
     public $Errors;
     /**
      * The ResResponseType
+     * Meta informations extracted from the WSDL
+     * - use: optional
      * @var string
      */
     public $ResResponseType;

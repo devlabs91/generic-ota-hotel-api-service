@@ -13,24 +13,17 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class FlightSegmentBaseType extends AbstractStructBase
 {
     /**
-     * The DepartureDateTime
-     * Meta informations extracted from the WSDL
-     * - use: required
-     * @var string
-     */
-    public $DepartureDateTime;
-    /**
      * The DepartureAirport
      * Meta informations extracted from the WSDL
-     * - documentation: Departure point of flight segment.
-     * @var mixed
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\DepartureAirport
      */
     public $DepartureAirport;
     /**
      * The ArrivalAirport
      * Meta informations extracted from the WSDL
-     * - documentation: Arrival point of flight segment.
-     * @var mixed
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalAirport
      */
     public $ArrivalAirport;
     /**
@@ -44,15 +37,24 @@ class FlightSegmentBaseType extends AbstractStructBase
     /**
      * The Equipment
      * Meta informations extracted from the WSDL
-     * - documentation: The type of equipment used for the flight..
+     * - documentation: The type of equipment used for the flight.
      * - maxOccurs: 2
      * - minOccurs: 0
      * @var mixed[]
      */
     public $Equipment;
     /**
+     * The DepartureDateTime
+     * Meta informations extracted from the WSDL
+     * - documentation: The date and time of the flight segment departure.
+     * - use: optional
+     * @var string
+     */
+    public $DepartureDateTime;
+    /**
      * The ArrivalDateTime
      * Meta informations extracted from the WSDL
+     * - documentation: Specifies the arrival date and time of a flight.
      * - use: optional
      * @var string
      */
@@ -60,82 +62,64 @@ class FlightSegmentBaseType extends AbstractStructBase
     /**
      * The StopQuantity
      * Meta informations extracted from the WSDL
-     * - documentation: The number of stops the flight makes
+     * - documentation: The number of stops the flight makes.
      * - use: optional
      * @var int
      */
     public $StopQuantity;
     /**
      * The RPH
+     * Meta informations extracted from the WSDL
+     * - documentation: Reference place holder for this flight segment.
+     * - use: optional
      * @var string
      */
     public $RPH;
     /**
      * The InfoSource
      * Meta informations extracted from the WSDL
+     * - documentation: Used to specify the source of the data being exchanged as determined by trading partners.
      * - use: optional
      * @var string
      */
     public $InfoSource;
     /**
      * Constructor method for FlightSegmentBaseType
-     * @uses FlightSegmentBaseType::setDepartureDateTime()
      * @uses FlightSegmentBaseType::setDepartureAirport()
      * @uses FlightSegmentBaseType::setArrivalAirport()
      * @uses FlightSegmentBaseType::setOperatingAirline()
      * @uses FlightSegmentBaseType::setEquipment()
+     * @uses FlightSegmentBaseType::setDepartureDateTime()
      * @uses FlightSegmentBaseType::setArrivalDateTime()
      * @uses FlightSegmentBaseType::setStopQuantity()
      * @uses FlightSegmentBaseType::setRPH()
      * @uses FlightSegmentBaseType::setInfoSource()
-     * @param string $departureDateTime
-     * @param mixed $departureAirport
-     * @param mixed $arrivalAirport
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DepartureAirport $departureAirport
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalAirport $arrivalAirport
      * @param mixed $operatingAirline
      * @param mixed[] $equipment
+     * @param string $departureDateTime
      * @param string $arrivalDateTime
      * @param int $stopQuantity
      * @param string $rPH
      * @param string $infoSource
      */
-    public function __construct($departureDateTime = null, $departureAirport = null, $arrivalAirport = null, $operatingAirline = null, array $equipment = array(), $arrivalDateTime = null, $stopQuantity = null, $rPH = null, $infoSource = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\DepartureAirport $departureAirport = null, \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalAirport $arrivalAirport = null, $operatingAirline = null, array $equipment = array(), $departureDateTime = null, $arrivalDateTime = null, $stopQuantity = null, $rPH = null, $infoSource = null)
     {
         $this
-            ->setDepartureDateTime($departureDateTime)
             ->setDepartureAirport($departureAirport)
             ->setArrivalAirport($arrivalAirport)
             ->setOperatingAirline($operatingAirline)
             ->setEquipment($equipment)
+            ->setDepartureDateTime($departureDateTime)
             ->setArrivalDateTime($arrivalDateTime)
             ->setStopQuantity($stopQuantity)
             ->setRPH($rPH)
             ->setInfoSource($infoSource);
     }
     /**
-     * Get DepartureDateTime value
-     * @return string
-     */
-    public function getDepartureDateTime()
-    {
-        return $this->DepartureDateTime;
-    }
-    /**
-     * Set DepartureDateTime value
-     * @param string $departureDateTime
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegmentBaseType
-     */
-    public function setDepartureDateTime($departureDateTime = null)
-    {
-        // validation for constraint: string
-        if (!is_null($departureDateTime) && !is_string($departureDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($departureDateTime)), __LINE__);
-        }
-        $this->DepartureDateTime = $departureDateTime;
-        return $this;
-    }
-    /**
      * Get DepartureAirport value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\DepartureAirport|null
      */
     public function getDepartureAirport()
     {
@@ -143,17 +127,17 @@ class FlightSegmentBaseType extends AbstractStructBase
     }
     /**
      * Set DepartureAirport value
-     * @param mixed $departureAirport
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\DepartureAirport $departureAirport
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegmentBaseType
      */
-    public function setDepartureAirport($departureAirport = null)
+    public function setDepartureAirport(\Devlabs91\GenericOtaHotelApiService\StructType\DepartureAirport $departureAirport = null)
     {
         $this->DepartureAirport = $departureAirport;
         return $this;
     }
     /**
      * Get ArrivalAirport value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalAirport|null
      */
     public function getArrivalAirport()
     {
@@ -161,10 +145,10 @@ class FlightSegmentBaseType extends AbstractStructBase
     }
     /**
      * Set ArrivalAirport value
-     * @param mixed $arrivalAirport
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ArrivalAirport $arrivalAirport
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegmentBaseType
      */
-    public function setArrivalAirport($arrivalAirport = null)
+    public function setArrivalAirport(\Devlabs91\GenericOtaHotelApiService\StructType\ArrivalAirport $arrivalAirport = null)
     {
         $this->ArrivalAirport = $arrivalAirport;
         return $this;
@@ -225,6 +209,28 @@ class FlightSegmentBaseType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The Equipment property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Equipment[] = $item;
+        return $this;
+    }
+    /**
+     * Get DepartureDateTime value
+     * @return string|null
+     */
+    public function getDepartureDateTime()
+    {
+        return $this->DepartureDateTime;
+    }
+    /**
+     * Set DepartureDateTime value
+     * @param string $departureDateTime
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegmentBaseType
+     */
+    public function setDepartureDateTime($departureDateTime = null)
+    {
+        // validation for constraint: string
+        if (!is_null($departureDateTime) && !is_string($departureDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($departureDateTime)), __LINE__);
+        }
+        $this->DepartureDateTime = $departureDateTime;
         return $this;
     }
     /**

@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for ItineraryItems StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of elements to allow any item of inventory to be requested for a booking.
+ * - documentation: A collection of elements to allow any item of inventory to be requested for a booking. Normal usage is for the items to be presented in chronological sequence | A collection of elements to allow any item of inventory to be requested
+ * for a booking. Normal usage is for the items to be presented in chronological sequence.
  * @subpackage Structs
  */
 class ItineraryItems extends AbstractStructBase
@@ -15,6 +16,7 @@ class ItineraryItems extends AbstractStructBase
     /**
      * The ItineraryItem
      * Meta informations extracted from the WSDL
+     * - documentation: An item of package itinerary - typically a flight, accommodation or car rental arrangement. | Details of a package component.
      * - maxOccurs: 99
      * @var mixed[]
      */

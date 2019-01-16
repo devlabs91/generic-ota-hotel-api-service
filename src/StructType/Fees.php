@@ -7,7 +7,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Fees StructType
  * Meta informations extracted from the WSDL
- * - documentation: This is a collection of Fees | A collection of fees associated with this vehicle quotation. | A collection of fees associated with this vehicle reservation.
+ * - documentation: This is a collection of Fees | The fee total and the appropriate currency code. | A collection of fees associated with this vehicle quotation. | Information on additional fees that may apply to the rental. | A collection of fees
+ * associated with this rental. | A collection of fees associated with this vehicle reservation. | A collection of fees associated with this vehicle reservation.
  * @subpackage Structs
  */
 class Fees extends AbstractStructBase
@@ -15,20 +16,33 @@ class Fees extends AbstractStructBase
     /**
      * The Fee
      * Meta informations extracted from the WSDL
-     * - documentation: Any additional fee incurred by the passenger but not shown on the ticket. | One specific fee associated with the vehicle reservation.
+     * - documentation: Any additional fee incurred by the passenger but not shown on the ticket. | A fee associated with this rental (e.g., airport concession fee, vehicle license fee, facility usage fee). This is not intended for information regarding
+     * rates, priced equipment or coverages. | One specific fee associated with this vehicle reservation. | One specific fee associated with the vehicle reservation.
      * - maxOccurs: 99
+     * - minOccurs: 0
      * @var mixed[]
      */
     public $Fee;
     /**
+     * The Info
+     * Meta informations extracted from the WSDL
+     * - documentation: General information about the additional fees that may apply.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $Info;
+    /**
      * Constructor method for Fees
      * @uses Fees::setFee()
+     * @uses Fees::setInfo()
      * @param mixed[] $fee
+     * @param mixed $info
      */
-    public function __construct(array $fee = array())
+    public function __construct(array $fee = array(), $info = null)
     {
         $this
-            ->setFee($fee);
+            ->setFee($fee)
+            ->setInfo($info);
     }
     /**
      * Get Fee value
@@ -68,6 +82,24 @@ class Fees extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The Fee property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Fee[] = $item;
+        return $this;
+    }
+    /**
+     * Get Info value
+     * @return mixed|null
+     */
+    public function getInfo()
+    {
+        return $this->Info;
+    }
+    /**
+     * Set Info value
+     * @param mixed $info
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Fees
+     */
+    public function setInfo($info = null)
+    {
+        $this->Info = $info;
         return $this;
     }
     /**

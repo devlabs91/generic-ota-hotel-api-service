@@ -7,7 +7,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for VehicleType StructType
  * Meta informations extracted from the WSDL
- * - documentation: The VehicleType complex type identifie sthe data that fully describes a vehicle. This includes the core information along with supplemental information such as make and model, and a link to a picture.
+ * - documentation: The VehicleType complex type identifie sthe data that fully describes a vehicle. This includes the core information along with supplemental information such as make and model, and a link to a picture. | Code used to identify the
+ * vehicle. May be used in place of VehicleCoreType. Typically a SIPP code would be passed here. Identifies the source authority for the code (e.g., SIPP). | The volume (i.e., unit of measure and quantity) of the boot/trunk. | The effective date range
+ * for the vehicle information.
  * @subpackage Structs
  */
 class VehicleType extends VehicleCoreType
@@ -15,9 +17,8 @@ class VehicleType extends VehicleCoreType
     /**
      * The VehMakeModel
      * Meta informations extracted from the WSDL
-     * - documentation: The make and model of the vehicle, for examp;le, Ford escort
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehMakeModel
      */
     public $VehMakeModel;
     /**
@@ -29,11 +30,18 @@ class VehicleType extends VehicleCoreType
      */
     public $PictureURL;
     /**
+     * The VehIdentity
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\VehIdentity
+     */
+    public $VehIdentity;
+    /**
      * The PassengerQuantity
      * Meta informations extracted from the WSDL
-     * - documentation: Number of passengers that can be accommodated by this vehicle.
+     * - documentation: Number of passengers that can be accommodated by this vehicle. This may be an exact number or may be a range, i.e., 4-5, 5-6.
      * - use: optional
-     * @var int
+     * @var string
      */
     public $PassengerQuantity;
     /**
@@ -45,27 +53,52 @@ class VehicleType extends VehicleCoreType
      */
     public $BaggageQuantity;
     /**
+     * The VendorCarType
+     * Meta informations extracted from the WSDL
+     * - documentation: An internal car type assigned by the vendor. This is not the SIPP code.
+     * - use: optional
+     * @var string
+     */
+    public $VendorCarType;
+    /**
+     * The OdometerUnitOfMeasure
+     * Meta informations extracted from the WSDL
+     * - documentation: Provides the units in which distance is measured, when applied to a vehicle (i.e., miles or kilometers)
+     * - use: optional
+     * @var string
+     */
+    public $OdometerUnitOfMeasure;
+    /**
      * Constructor method for VehicleType
      * @uses VehicleType::setVehMakeModel()
      * @uses VehicleType::setPictureURL()
+     * @uses VehicleType::setVehIdentity()
      * @uses VehicleType::setPassengerQuantity()
      * @uses VehicleType::setBaggageQuantity()
-     * @param mixed $vehMakeModel
+     * @uses VehicleType::setVendorCarType()
+     * @uses VehicleType::setOdometerUnitOfMeasure()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehMakeModel $vehMakeModel
      * @param string $pictureURL
-     * @param int $passengerQuantity
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehIdentity $vehIdentity
+     * @param string $passengerQuantity
      * @param int $baggageQuantity
+     * @param string $vendorCarType
+     * @param string $odometerUnitOfMeasure
      */
-    public function __construct($vehMakeModel = null, $pictureURL = null, $passengerQuantity = null, $baggageQuantity = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\VehMakeModel $vehMakeModel = null, $pictureURL = null, \Devlabs91\GenericOtaHotelApiService\StructType\VehIdentity $vehIdentity = null, $passengerQuantity = null, $baggageQuantity = null, $vendorCarType = null, $odometerUnitOfMeasure = null)
     {
         $this
             ->setVehMakeModel($vehMakeModel)
             ->setPictureURL($pictureURL)
+            ->setVehIdentity($vehIdentity)
             ->setPassengerQuantity($passengerQuantity)
-            ->setBaggageQuantity($baggageQuantity);
+            ->setBaggageQuantity($baggageQuantity)
+            ->setVendorCarType($vendorCarType)
+            ->setOdometerUnitOfMeasure($odometerUnitOfMeasure);
     }
     /**
      * Get VehMakeModel value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehMakeModel|null
      */
     public function getVehMakeModel()
     {
@@ -73,10 +106,10 @@ class VehicleType extends VehicleCoreType
     }
     /**
      * Set VehMakeModel value
-     * @param mixed $vehMakeModel
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehMakeModel $vehMakeModel
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleType
      */
-    public function setVehMakeModel($vehMakeModel = null)
+    public function setVehMakeModel(\Devlabs91\GenericOtaHotelApiService\StructType\VehMakeModel $vehMakeModel = null)
     {
         $this->VehMakeModel = $vehMakeModel;
         return $this;
@@ -104,8 +137,26 @@ class VehicleType extends VehicleCoreType
         return $this;
     }
     /**
+     * Get VehIdentity value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehIdentity|null
+     */
+    public function getVehIdentity()
+    {
+        return $this->VehIdentity;
+    }
+    /**
+     * Set VehIdentity value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\VehIdentity $vehIdentity
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleType
+     */
+    public function setVehIdentity(\Devlabs91\GenericOtaHotelApiService\StructType\VehIdentity $vehIdentity = null)
+    {
+        $this->VehIdentity = $vehIdentity;
+        return $this;
+    }
+    /**
      * Get PassengerQuantity value
-     * @return int|null
+     * @return string|null
      */
     public function getPassengerQuantity()
     {
@@ -113,14 +164,14 @@ class VehicleType extends VehicleCoreType
     }
     /**
      * Set PassengerQuantity value
-     * @param int $passengerQuantity
+     * @param string $passengerQuantity
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleType
      */
     public function setPassengerQuantity($passengerQuantity = null)
     {
-        // validation for constraint: int
-        if (!is_null($passengerQuantity) && !is_numeric($passengerQuantity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($passengerQuantity)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($passengerQuantity) && !is_string($passengerQuantity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($passengerQuantity)), __LINE__);
         }
         $this->PassengerQuantity = $passengerQuantity;
         return $this;
@@ -145,6 +196,50 @@ class VehicleType extends VehicleCoreType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($baggageQuantity)), __LINE__);
         }
         $this->BaggageQuantity = $baggageQuantity;
+        return $this;
+    }
+    /**
+     * Get VendorCarType value
+     * @return string|null
+     */
+    public function getVendorCarType()
+    {
+        return $this->VendorCarType;
+    }
+    /**
+     * Set VendorCarType value
+     * @param string $vendorCarType
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleType
+     */
+    public function setVendorCarType($vendorCarType = null)
+    {
+        // validation for constraint: string
+        if (!is_null($vendorCarType) && !is_string($vendorCarType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($vendorCarType)), __LINE__);
+        }
+        $this->VendorCarType = $vendorCarType;
+        return $this;
+    }
+    /**
+     * Get OdometerUnitOfMeasure value
+     * @return string|null
+     */
+    public function getOdometerUnitOfMeasure()
+    {
+        return $this->OdometerUnitOfMeasure;
+    }
+    /**
+     * Set OdometerUnitOfMeasure value
+     * @param string $odometerUnitOfMeasure
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleType
+     */
+    public function setOdometerUnitOfMeasure($odometerUnitOfMeasure = null)
+    {
+        // validation for constraint: string
+        if (!is_null($odometerUnitOfMeasure) && !is_string($odometerUnitOfMeasure)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($odometerUnitOfMeasure)), __LINE__);
+        }
+        $this->OdometerUnitOfMeasure = $odometerUnitOfMeasure;
         return $this;
     }
     /**

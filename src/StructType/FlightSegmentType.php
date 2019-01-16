@@ -15,9 +15,8 @@ class FlightSegmentType extends FlightSegmentBaseType
     /**
      * The MarketingAirline
      * Meta informations extracted from the WSDL
-     * - documentation: The marketing airline. This is required for use with scheduled airline messages but may be omitted for requests by tour operators.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\MarketingAirline
      */
     public $MarketingAirline;
     /**
@@ -37,24 +36,46 @@ class FlightSegmentType extends FlightSegmentBaseType
      */
     public $TourOperatorFlightID;
     /**
+     * The GovernmentApprovalInd
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, indicates that the flight is subject to government approval.
+     * - use: optional
+     * @var bool
+     */
+    public $GovernmentApprovalInd;
+    /**
+     * The GovernmentApprovalText
+     * Meta informations extracted from the WSDL
+     * - documentation: Provides additional information concerning the flight being subject to government approval.
+     * - use: optional
+     * @var string
+     */
+    public $GovernmentApprovalText;
+    /**
      * Constructor method for FlightSegmentType
      * @uses FlightSegmentType::setMarketingAirline()
      * @uses FlightSegmentType::setFlightNumber()
      * @uses FlightSegmentType::setTourOperatorFlightID()
-     * @param mixed $marketingAirline
+     * @uses FlightSegmentType::setGovernmentApprovalInd()
+     * @uses FlightSegmentType::setGovernmentApprovalText()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MarketingAirline $marketingAirline
      * @param string $flightNumber
      * @param string $tourOperatorFlightID
+     * @param bool $governmentApprovalInd
+     * @param string $governmentApprovalText
      */
-    public function __construct($marketingAirline = null, $flightNumber = null, $tourOperatorFlightID = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\MarketingAirline $marketingAirline = null, $flightNumber = null, $tourOperatorFlightID = null, $governmentApprovalInd = null, $governmentApprovalText = null)
     {
         $this
             ->setMarketingAirline($marketingAirline)
             ->setFlightNumber($flightNumber)
-            ->setTourOperatorFlightID($tourOperatorFlightID);
+            ->setTourOperatorFlightID($tourOperatorFlightID)
+            ->setGovernmentApprovalInd($governmentApprovalInd)
+            ->setGovernmentApprovalText($governmentApprovalText);
     }
     /**
      * Get MarketingAirline value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MarketingAirline|null
      */
     public function getMarketingAirline()
     {
@@ -62,10 +83,10 @@ class FlightSegmentType extends FlightSegmentBaseType
     }
     /**
      * Set MarketingAirline value
-     * @param mixed $marketingAirline
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MarketingAirline $marketingAirline
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegmentType
      */
-    public function setMarketingAirline($marketingAirline = null)
+    public function setMarketingAirline(\Devlabs91\GenericOtaHotelApiService\StructType\MarketingAirline $marketingAirline = null)
     {
         $this->MarketingAirline = $marketingAirline;
         return $this;
@@ -112,6 +133,50 @@ class FlightSegmentType extends FlightSegmentBaseType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tourOperatorFlightID)), __LINE__);
         }
         $this->TourOperatorFlightID = $tourOperatorFlightID;
+        return $this;
+    }
+    /**
+     * Get GovernmentApprovalInd value
+     * @return bool|null
+     */
+    public function getGovernmentApprovalInd()
+    {
+        return $this->GovernmentApprovalInd;
+    }
+    /**
+     * Set GovernmentApprovalInd value
+     * @param bool $governmentApprovalInd
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegmentType
+     */
+    public function setGovernmentApprovalInd($governmentApprovalInd = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($governmentApprovalInd) && !is_bool($governmentApprovalInd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($governmentApprovalInd)), __LINE__);
+        }
+        $this->GovernmentApprovalInd = $governmentApprovalInd;
+        return $this;
+    }
+    /**
+     * Get GovernmentApprovalText value
+     * @return string|null
+     */
+    public function getGovernmentApprovalText()
+    {
+        return $this->GovernmentApprovalText;
+    }
+    /**
+     * Set GovernmentApprovalText value
+     * @param string $governmentApprovalText
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\FlightSegmentType
+     */
+    public function setGovernmentApprovalText($governmentApprovalText = null)
+    {
+        // validation for constraint: string
+        if (!is_null($governmentApprovalText) && !is_string($governmentApprovalText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($governmentApprovalText)), __LINE__);
+        }
+        $this->GovernmentApprovalText = $governmentApprovalText;
         return $this;
     }
     /**

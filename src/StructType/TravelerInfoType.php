@@ -17,7 +17,7 @@ class TravelerInfoType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 99
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler[]
      */
     public $AirTraveler;
     /**
@@ -33,7 +33,7 @@ class TravelerInfoType extends AbstractStructBase
      * Constructor method for TravelerInfoType
      * @uses TravelerInfoType::setAirTraveler()
      * @uses TravelerInfoType::setSpecialReqDetails()
-     * @param mixed[] $airTraveler
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler[] $airTraveler
      * @param mixed[] $specialReqDetails
      */
     public function __construct(array $airTraveler = array(), array $specialReqDetails = array())
@@ -44,7 +44,7 @@ class TravelerInfoType extends AbstractStructBase
     }
     /**
      * Get AirTraveler value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler[]|null
      */
     public function getAirTraveler()
     {
@@ -53,15 +53,15 @@ class TravelerInfoType extends AbstractStructBase
     /**
      * Set AirTraveler value
      * @throws \InvalidArgumentException
-     * @param mixed[] $airTraveler
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler[] $airTraveler
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\TravelerInfoType
      */
     public function setAirTraveler(array $airTraveler = array())
     {
         foreach ($airTraveler as $travelerInfoTypeAirTravelerItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The AirTraveler property can only contain items of anyType, "%s" given', is_object($travelerInfoTypeAirTravelerItem) ? get_class($travelerInfoTypeAirTravelerItem) : gettype($travelerInfoTypeAirTravelerItem)), __LINE__);
+            if (!$travelerInfoTypeAirTravelerItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler) {
+                throw new \InvalidArgumentException(sprintf('The AirTraveler property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler, "%s" given', is_object($travelerInfoTypeAirTravelerItem) ? get_class($travelerInfoTypeAirTravelerItem) : gettype($travelerInfoTypeAirTravelerItem)), __LINE__);
             }
         }
         $this->AirTraveler = $airTraveler;
@@ -70,14 +70,14 @@ class TravelerInfoType extends AbstractStructBase
     /**
      * Add item to AirTraveler value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\TravelerInfoType
      */
-    public function addToAirTraveler($item)
+    public function addToAirTraveler(\Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The AirTraveler property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler) {
+            throw new \InvalidArgumentException(sprintf('The AirTraveler property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AirTraveler, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->AirTraveler[] = $item;
         return $this;

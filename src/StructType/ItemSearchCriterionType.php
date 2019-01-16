@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ItemSearchCriterionType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Identifies the criterion for a search.
  * @subpackage Structs
  */
 class ItemSearchCriterionType extends AbstractStructBase
@@ -13,64 +15,65 @@ class ItemSearchCriterionType extends AbstractStructBase
     /**
      * The Position
      * Meta informations extracted from the WSDL
-     * - documentation: The Position element contains three attributes, Latitude, Longitude, and Altitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709. It is likely that only the
-     * first two attributes, Latitude and Longitude, would be needed to define a geographic area.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Position
      */
     public $Position;
     /**
      * The Address
      * Meta informations extracted from the WSDL
-     * - documentation: Uses any part of address information, such as street name, postal code, or country code.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Address
      */
     public $Address;
     /**
      * The Telephone
      * Meta informations extracted from the WSDL
-     * - documentation: Telephone number(s) used in the search.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Telephone
      */
     public $Telephone;
     /**
      * The RefPoint
      * Meta informations extracted from the WSDL
-     * - documentation: The Reference Point element allows for a search by proximity to a designated reference point by name.
+     * - maxOccurs: 999
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint[]
      */
     public $RefPoint;
     /**
      * The CodeRef
      * Meta informations extracted from the WSDL
-     * - documentation: Indicates the location of points of interest.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\CodeRef
      */
     public $CodeRef;
     /**
      * The HotelRef
      * Meta informations extracted from the WSDL
+     * - maxOccurs: 99
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef[]
      */
     public $HotelRef;
     /**
      * The Radius
      * Meta informations extracted from the WSDL
-     * - documentation: The Radius element contains two attributes, Distance and DistanceMeasure, that indicate the distance from the center of the radius, combined with the unit of measure used to express the Distance. The center of the radius is specified
-     * by which ever location element is also present in this item search criterion type (e.g. position, address, hotel reference, etc.).
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Radius
      */
     public $Radius;
     /**
+     * The MapArea
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\MapArea
+     */
+    public $MapArea;
+    /**
      * The ExactMatch
      * Meta informations extracted from the WSDL
-     * - documentation: values of "true" or "false", indicating whether the string of the search value must be an exact match.
+     * - documentation: Values of "true" or "false", indicating whether the string of the search value must be an exact match.
      * - use: optional
      * @var bool
      */
@@ -83,6 +86,14 @@ class ItemSearchCriterionType extends AbstractStructBase
      */
     public $ImportanceType;
     /**
+     * The Ranking
+     * Meta informations extracted from the WSDL
+     * - documentation: Defines a ranking scale expressed as integers; meaning and scale are based on individual implementations.
+     * - use: optional
+     * @var int
+     */
+    public $Ranking;
+    /**
      * Constructor method for ItemSearchCriterionType
      * @uses ItemSearchCriterionType::setPosition()
      * @uses ItemSearchCriterionType::setAddress()
@@ -91,19 +102,23 @@ class ItemSearchCriterionType extends AbstractStructBase
      * @uses ItemSearchCriterionType::setCodeRef()
      * @uses ItemSearchCriterionType::setHotelRef()
      * @uses ItemSearchCriterionType::setRadius()
+     * @uses ItemSearchCriterionType::setMapArea()
      * @uses ItemSearchCriterionType::setExactMatch()
      * @uses ItemSearchCriterionType::setImportanceType()
-     * @param mixed $position
-     * @param mixed $address
-     * @param mixed $telephone
-     * @param mixed $refPoint
-     * @param mixed $codeRef
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef $hotelRef
-     * @param mixed $radius
+     * @uses ItemSearchCriterionType::setRanking()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Position $position
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Address $address
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint[] $refPoint
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CodeRef $codeRef
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef[] $hotelRef
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Radius $radius
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MapArea $mapArea
      * @param bool $exactMatch
      * @param string $importanceType
+     * @param int $ranking
      */
-    public function __construct($position = null, $address = null, $telephone = null, $refPoint = null, $codeRef = null, \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef $hotelRef = null, $radius = null, $exactMatch = null, $importanceType = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\Position $position = null, \Devlabs91\GenericOtaHotelApiService\StructType\Address $address = null, \Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone = null, array $refPoint = array(), \Devlabs91\GenericOtaHotelApiService\StructType\CodeRef $codeRef = null, array $hotelRef = array(), \Devlabs91\GenericOtaHotelApiService\StructType\Radius $radius = null, \Devlabs91\GenericOtaHotelApiService\StructType\MapArea $mapArea = null, $exactMatch = null, $importanceType = null, $ranking = null)
     {
         $this
             ->setPosition($position)
@@ -113,12 +128,14 @@ class ItemSearchCriterionType extends AbstractStructBase
             ->setCodeRef($codeRef)
             ->setHotelRef($hotelRef)
             ->setRadius($radius)
+            ->setMapArea($mapArea)
             ->setExactMatch($exactMatch)
-            ->setImportanceType($importanceType);
+            ->setImportanceType($importanceType)
+            ->setRanking($ranking);
     }
     /**
      * Get Position value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Position|null
      */
     public function getPosition()
     {
@@ -126,17 +143,17 @@ class ItemSearchCriterionType extends AbstractStructBase
     }
     /**
      * Set Position value
-     * @param mixed $position
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Position $position
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
      */
-    public function setPosition($position = null)
+    public function setPosition(\Devlabs91\GenericOtaHotelApiService\StructType\Position $position = null)
     {
         $this->Position = $position;
         return $this;
     }
     /**
      * Get Address value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Address|null
      */
     public function getAddress()
     {
@@ -144,17 +161,17 @@ class ItemSearchCriterionType extends AbstractStructBase
     }
     /**
      * Set Address value
-     * @param mixed $address
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Address $address
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
      */
-    public function setAddress($address = null)
+    public function setAddress(\Devlabs91\GenericOtaHotelApiService\StructType\Address $address = null)
     {
         $this->Address = $address;
         return $this;
     }
     /**
      * Get Telephone value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Telephone|null
      */
     public function getTelephone()
     {
@@ -162,17 +179,17 @@ class ItemSearchCriterionType extends AbstractStructBase
     }
     /**
      * Set Telephone value
-     * @param mixed $telephone
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
      */
-    public function setTelephone($telephone = null)
+    public function setTelephone(\Devlabs91\GenericOtaHotelApiService\StructType\Telephone $telephone = null)
     {
         $this->Telephone = $telephone;
         return $this;
     }
     /**
      * Get RefPoint value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint[]|null
      */
     public function getRefPoint()
     {
@@ -180,17 +197,39 @@ class ItemSearchCriterionType extends AbstractStructBase
     }
     /**
      * Set RefPoint value
-     * @param mixed $refPoint
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint[] $refPoint
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
      */
-    public function setRefPoint($refPoint = null)
+    public function setRefPoint(array $refPoint = array())
     {
+        foreach ($refPoint as $itemSearchCriterionTypeRefPointItem) {
+            // validation for constraint: itemType
+            if (!$itemSearchCriterionTypeRefPointItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint) {
+                throw new \InvalidArgumentException(sprintf('The RefPoint property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint, "%s" given', is_object($itemSearchCriterionTypeRefPointItem) ? get_class($itemSearchCriterionTypeRefPointItem) : gettype($itemSearchCriterionTypeRefPointItem)), __LINE__);
+            }
+        }
         $this->RefPoint = $refPoint;
         return $this;
     }
     /**
+     * Add item to RefPoint value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
+     */
+    public function addToRefPoint(\Devlabs91\GenericOtaHotelApiService\StructType\RefPoint $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint) {
+            throw new \InvalidArgumentException(sprintf('The RefPoint property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\RefPoint, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->RefPoint[] = $item;
+        return $this;
+    }
+    /**
      * Get CodeRef value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CodeRef|null
      */
     public function getCodeRef()
     {
@@ -198,17 +237,17 @@ class ItemSearchCriterionType extends AbstractStructBase
     }
     /**
      * Set CodeRef value
-     * @param mixed $codeRef
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\CodeRef $codeRef
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
      */
-    public function setCodeRef($codeRef = null)
+    public function setCodeRef(\Devlabs91\GenericOtaHotelApiService\StructType\CodeRef $codeRef = null)
     {
         $this->CodeRef = $codeRef;
         return $this;
     }
     /**
      * Get HotelRef value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef[]|null
      */
     public function getHotelRef()
     {
@@ -216,17 +255,39 @@ class ItemSearchCriterionType extends AbstractStructBase
     }
     /**
      * Set HotelRef value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef $hotelRef
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef[] $hotelRef
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
      */
-    public function setHotelRef(\Devlabs91\GenericOtaHotelApiService\StructType\HotelRef $hotelRef = null)
+    public function setHotelRef(array $hotelRef = array())
     {
+        foreach ($hotelRef as $itemSearchCriterionTypeHotelRefItem) {
+            // validation for constraint: itemType
+            if (!$itemSearchCriterionTypeHotelRefItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef) {
+                throw new \InvalidArgumentException(sprintf('The HotelRef property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef, "%s" given', is_object($itemSearchCriterionTypeHotelRefItem) ? get_class($itemSearchCriterionTypeHotelRefItem) : gettype($itemSearchCriterionTypeHotelRefItem)), __LINE__);
+            }
+        }
         $this->HotelRef = $hotelRef;
         return $this;
     }
     /**
+     * Add item to HotelRef value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
+     */
+    public function addToHotelRef(\Devlabs91\GenericOtaHotelApiService\StructType\HotelRef $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef) {
+            throw new \InvalidArgumentException(sprintf('The HotelRef property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\HotelRef, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->HotelRef[] = $item;
+        return $this;
+    }
+    /**
      * Get Radius value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Radius|null
      */
     public function getRadius()
     {
@@ -234,12 +295,30 @@ class ItemSearchCriterionType extends AbstractStructBase
     }
     /**
      * Set Radius value
-     * @param mixed $radius
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Radius $radius
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
      */
-    public function setRadius($radius = null)
+    public function setRadius(\Devlabs91\GenericOtaHotelApiService\StructType\Radius $radius = null)
     {
         $this->Radius = $radius;
+        return $this;
+    }
+    /**
+     * Get MapArea value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\MapArea|null
+     */
+    public function getMapArea()
+    {
+        return $this->MapArea;
+    }
+    /**
+     * Set MapArea value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\MapArea $mapArea
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
+     */
+    public function setMapArea(\Devlabs91\GenericOtaHotelApiService\StructType\MapArea $mapArea = null)
+    {
+        $this->MapArea = $mapArea;
         return $this;
     }
     /**
@@ -284,6 +363,28 @@ class ItemSearchCriterionType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($importanceType)), __LINE__);
         }
         $this->ImportanceType = $importanceType;
+        return $this;
+    }
+    /**
+     * Get Ranking value
+     * @return int|null
+     */
+    public function getRanking()
+    {
+        return $this->Ranking;
+    }
+    /**
+     * Set Ranking value
+     * @param int $ranking
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ItemSearchCriterionType
+     */
+    public function setRanking($ranking = null)
+    {
+        // validation for constraint: int
+        if (!is_null($ranking) && !is_numeric($ranking)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($ranking)), __LINE__);
+        }
+        $this->Ranking = $ranking;
         return $this;
     }
     /**

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoomShare StructType
  * Meta informations extracted from the WSDL
- * - documentation: Guests to share a room
+ * - documentation: Guests to share a room.
  * @subpackage Structs
  */
 class RoomShare extends AbstractStructBase

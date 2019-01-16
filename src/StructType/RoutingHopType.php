@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for RoutingHopType StructType
  * Meta informations extracted from the WSDL
- * - documentation: A collection of RoutingHop objects. This details the path that the original request or notification traveled.
+ * - documentation: A collection of RoutingHop objects. his details the path that the original request or notification traveled.
  * @subpackage Structs
  */
 class RoutingHopType extends AbstractStructBase

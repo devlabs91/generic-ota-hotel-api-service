@@ -35,20 +35,31 @@ class ResGlobalInfoType extends ResCommonDetailType
      */
     public $Profiles;
     /**
+     * The BookingRules
+     * Meta informations extracted from the WSDL
+     * - documentation: Provides booking rules for the global reservation.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $BookingRules;
+    /**
      * Constructor method for ResGlobalInfoType
      * @uses ResGlobalInfoType::setHotelReservationIDs()
      * @uses ResGlobalInfoType::setRoutingHops()
      * @uses ResGlobalInfoType::setProfiles()
+     * @uses ResGlobalInfoType::setBookingRules()
      * @param mixed $hotelReservationIDs
      * @param mixed $routingHops
      * @param mixed $profiles
+     * @param mixed $bookingRules
      */
-    public function __construct($hotelReservationIDs = null, $routingHops = null, $profiles = null)
+    public function __construct($hotelReservationIDs = null, $routingHops = null, $profiles = null, $bookingRules = null)
     {
         $this
             ->setHotelReservationIDs($hotelReservationIDs)
             ->setRoutingHops($routingHops)
-            ->setProfiles($profiles);
+            ->setProfiles($profiles)
+            ->setBookingRules($bookingRules);
     }
     /**
      * Get HotelReservationIDs value
@@ -102,6 +113,24 @@ class ResGlobalInfoType extends ResCommonDetailType
     public function setProfiles($profiles = null)
     {
         $this->Profiles = $profiles;
+        return $this;
+    }
+    /**
+     * Get BookingRules value
+     * @return mixed|null
+     */
+    public function getBookingRules()
+    {
+        return $this->BookingRules;
+    }
+    /**
+     * Set BookingRules value
+     * @param mixed $bookingRules
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ResGlobalInfoType
+     */
+    public function setBookingRules($bookingRules = null)
+    {
+        $this->BookingRules = $bookingRules;
         return $this;
     }
     /**

@@ -16,18 +16,30 @@ class GuestRooms extends AbstractStructBase
      * The GuestRoom
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
+     * - minOccurs: 0
      * @var \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoom[]
      */
     public $GuestRoom;
     /**
+     * The MaxOccupancy
+     * Meta informations extracted from the WSDL
+     * - documentation: Maximum number of guests the hotel can accommodate at one time.
+     * - use: optional
+     * @var int
+     */
+    public $MaxOccupancy;
+    /**
      * Constructor method for GuestRooms
      * @uses GuestRooms::setGuestRoom()
+     * @uses GuestRooms::setMaxOccupancy()
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoom[] $guestRoom
+     * @param int $maxOccupancy
      */
-    public function __construct(array $guestRoom = array())
+    public function __construct(array $guestRoom = array(), $maxOccupancy = null)
     {
         $this
-            ->setGuestRoom($guestRoom);
+            ->setGuestRoom($guestRoom)
+            ->setMaxOccupancy($maxOccupancy);
     }
     /**
      * Get GuestRoom value
@@ -67,6 +79,28 @@ class GuestRooms extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The GuestRoom property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\GuestRoom, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->GuestRoom[] = $item;
+        return $this;
+    }
+    /**
+     * Get MaxOccupancy value
+     * @return int|null
+     */
+    public function getMaxOccupancy()
+    {
+        return $this->MaxOccupancy;
+    }
+    /**
+     * Set MaxOccupancy value
+     * @param int $maxOccupancy
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\GuestRooms
+     */
+    public function setMaxOccupancy($maxOccupancy = null)
+    {
+        // validation for constraint: int
+        if (!is_null($maxOccupancy) && !is_numeric($maxOccupancy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxOccupancy)), __LINE__);
+        }
+        $this->MaxOccupancy = $maxOccupancy;
         return $this;
     }
     /**

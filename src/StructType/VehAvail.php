@@ -25,17 +25,27 @@ class VehAvail extends AbstractStructBase
      */
     public $VehAvailInfo;
     /**
+     * The AdvanceBooking
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AdvanceBooking
+     */
+    public $AdvanceBooking;
+    /**
      * Constructor method for VehAvail
      * @uses VehAvail::setVehAvailCore()
      * @uses VehAvail::setVehAvailInfo()
+     * @uses VehAvail::setAdvanceBooking()
      * @param mixed $vehAvailCore
      * @param mixed $vehAvailInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdvanceBooking $advanceBooking
      */
-    public function __construct($vehAvailCore = null, $vehAvailInfo = null)
+    public function __construct($vehAvailCore = null, $vehAvailInfo = null, \Devlabs91\GenericOtaHotelApiService\StructType\AdvanceBooking $advanceBooking = null)
     {
         $this
             ->setVehAvailCore($vehAvailCore)
-            ->setVehAvailInfo($vehAvailInfo);
+            ->setVehAvailInfo($vehAvailInfo)
+            ->setAdvanceBooking($advanceBooking);
     }
     /**
      * Get VehAvailCore value
@@ -71,6 +81,24 @@ class VehAvail extends AbstractStructBase
     public function setVehAvailInfo($vehAvailInfo = null)
     {
         $this->VehAvailInfo = $vehAvailInfo;
+        return $this;
+    }
+    /**
+     * Get AdvanceBooking value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AdvanceBooking|null
+     */
+    public function getAdvanceBooking()
+    {
+        return $this->AdvanceBooking;
+    }
+    /**
+     * Set AdvanceBooking value
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AdvanceBooking $advanceBooking
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehAvail
+     */
+    public function setAdvanceBooking(\Devlabs91\GenericOtaHotelApiService\StructType\AdvanceBooking $advanceBooking = null)
+    {
+        $this->AdvanceBooking = $advanceBooking;
         return $this;
     }
     /**

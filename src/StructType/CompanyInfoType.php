@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CompanyInfoType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Detailed information about a company. | The currency used by this company.
  * @subpackage Structs
  */
 class CompanyInfoType extends AbstractStructBase
@@ -13,7 +15,9 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * The CompanyName
      * Meta informations extracted from the WSDL
+     * - documentation: Detailed name information for the company.
      * - maxOccurs: unbounded
+     * - minOccurs: 0
      * @var mixed[]
      */
     public $CompanyName;
@@ -21,14 +25,16 @@ class CompanyInfoType extends AbstractStructBase
      * The AddressInfo
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo[]
      */
     public $AddressInfo;
     /**
      * The TelephoneInfo
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var mixed[]
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo[]
      */
     public $TelephoneInfo;
     /**
@@ -36,12 +42,13 @@ class CompanyInfoType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\Email[]
      */
     public $Email;
     /**
      * The URL
      * Meta informations extracted from the WSDL
+     * - documentation: Information on a URL for the company.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -50,6 +57,7 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * The BusinessLocale
      * Meta informations extracted from the WSDL
+     * - documentation: A jurisdiction in which a company is authorized to do business. Uses the Address entity to indicate the location of business using any of the components of the address (e.g., city, state, zip code, country).
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -60,12 +68,13 @@ class CompanyInfoType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[]
      */
     public $PaymentForm;
     /**
      * The ContactPerson
      * Meta informations extracted from the WSDL
+     * - documentation: Information on a contact person for the company.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -74,6 +83,7 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * The TravelArranger
      * Meta informations extracted from the WSDL
+     * - documentation: Information on the organization responsible for arranging travel for the company.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -82,11 +92,20 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * The LoyaltyProgram
      * Meta informations extracted from the WSDL
+     * - documentation: Company's loyalty program information.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
      */
     public $LoyaltyProgram;
+    /**
+     * The TripPurpose
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: unbounded
+     * - minOccurs: 0
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose[]
+     */
+    public $TripPurpose;
     /**
      * Constructor method for CompanyInfoType
      * @uses CompanyInfoType::setCompanyName()
@@ -99,18 +118,20 @@ class CompanyInfoType extends AbstractStructBase
      * @uses CompanyInfoType::setContactPerson()
      * @uses CompanyInfoType::setTravelArranger()
      * @uses CompanyInfoType::setLoyaltyProgram()
+     * @uses CompanyInfoType::setTripPurpose()
      * @param mixed[] $companyName
-     * @param mixed[] $addressInfo
-     * @param mixed[] $telephoneInfo
-     * @param mixed[] $email
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo[] $addressInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo[] $telephoneInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Email[] $email
      * @param mixed[] $uRL
      * @param mixed[] $businessLocale
-     * @param mixed[] $paymentForm
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[] $paymentForm
      * @param mixed[] $contactPerson
      * @param mixed[] $travelArranger
      * @param mixed[] $loyaltyProgram
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose[] $tripPurpose
      */
-    public function __construct(array $companyName = array(), array $addressInfo = array(), array $telephoneInfo = array(), array $email = array(), array $uRL = array(), array $businessLocale = array(), array $paymentForm = array(), array $contactPerson = array(), array $travelArranger = array(), array $loyaltyProgram = array())
+    public function __construct(array $companyName = array(), array $addressInfo = array(), array $telephoneInfo = array(), array $email = array(), array $uRL = array(), array $businessLocale = array(), array $paymentForm = array(), array $contactPerson = array(), array $travelArranger = array(), array $loyaltyProgram = array(), array $tripPurpose = array())
     {
         $this
             ->setCompanyName($companyName)
@@ -122,7 +143,8 @@ class CompanyInfoType extends AbstractStructBase
             ->setPaymentForm($paymentForm)
             ->setContactPerson($contactPerson)
             ->setTravelArranger($travelArranger)
-            ->setLoyaltyProgram($loyaltyProgram);
+            ->setLoyaltyProgram($loyaltyProgram)
+            ->setTripPurpose($tripPurpose);
     }
     /**
      * Get CompanyName value
@@ -166,7 +188,7 @@ class CompanyInfoType extends AbstractStructBase
     }
     /**
      * Get AddressInfo value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo[]|null
      */
     public function getAddressInfo()
     {
@@ -175,15 +197,15 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Set AddressInfo value
      * @throws \InvalidArgumentException
-     * @param mixed[] $addressInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo[] $addressInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
     public function setAddressInfo(array $addressInfo = array())
     {
         foreach ($addressInfo as $companyInfoTypeAddressInfoItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The AddressInfo property can only contain items of anyType, "%s" given', is_object($companyInfoTypeAddressInfoItem) ? get_class($companyInfoTypeAddressInfoItem) : gettype($companyInfoTypeAddressInfoItem)), __LINE__);
+            if (!$companyInfoTypeAddressInfoItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo) {
+                throw new \InvalidArgumentException(sprintf('The AddressInfo property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo, "%s" given', is_object($companyInfoTypeAddressInfoItem) ? get_class($companyInfoTypeAddressInfoItem) : gettype($companyInfoTypeAddressInfoItem)), __LINE__);
             }
         }
         $this->AddressInfo = $addressInfo;
@@ -192,21 +214,21 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Add item to AddressInfo value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
-    public function addToAddressInfo($item)
+    public function addToAddressInfo(\Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The AddressInfo property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo) {
+            throw new \InvalidArgumentException(sprintf('The AddressInfo property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\AddressInfo, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->AddressInfo[] = $item;
         return $this;
     }
     /**
      * Get TelephoneInfo value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo[]|null
      */
     public function getTelephoneInfo()
     {
@@ -215,15 +237,15 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Set TelephoneInfo value
      * @throws \InvalidArgumentException
-     * @param mixed[] $telephoneInfo
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo[] $telephoneInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
     public function setTelephoneInfo(array $telephoneInfo = array())
     {
         foreach ($telephoneInfo as $companyInfoTypeTelephoneInfoItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The TelephoneInfo property can only contain items of anyType, "%s" given', is_object($companyInfoTypeTelephoneInfoItem) ? get_class($companyInfoTypeTelephoneInfoItem) : gettype($companyInfoTypeTelephoneInfoItem)), __LINE__);
+            if (!$companyInfoTypeTelephoneInfoItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo) {
+                throw new \InvalidArgumentException(sprintf('The TelephoneInfo property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo, "%s" given', is_object($companyInfoTypeTelephoneInfoItem) ? get_class($companyInfoTypeTelephoneInfoItem) : gettype($companyInfoTypeTelephoneInfoItem)), __LINE__);
             }
         }
         $this->TelephoneInfo = $telephoneInfo;
@@ -232,21 +254,21 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Add item to TelephoneInfo value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
-    public function addToTelephoneInfo($item)
+    public function addToTelephoneInfo(\Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The TelephoneInfo property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo) {
+            throw new \InvalidArgumentException(sprintf('The TelephoneInfo property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TelephoneInfo, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->TelephoneInfo[] = $item;
         return $this;
     }
     /**
      * Get Email value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Email[]|null
      */
     public function getEmail()
     {
@@ -255,15 +277,15 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Set Email value
      * @throws \InvalidArgumentException
-     * @param mixed[] $email
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Email[] $email
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
     public function setEmail(array $email = array())
     {
         foreach ($email as $companyInfoTypeEmailItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Email property can only contain items of anyType, "%s" given', is_object($companyInfoTypeEmailItem) ? get_class($companyInfoTypeEmailItem) : gettype($companyInfoTypeEmailItem)), __LINE__);
+            if (!$companyInfoTypeEmailItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Email) {
+                throw new \InvalidArgumentException(sprintf('The Email property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Email, "%s" given', is_object($companyInfoTypeEmailItem) ? get_class($companyInfoTypeEmailItem) : gettype($companyInfoTypeEmailItem)), __LINE__);
             }
         }
         $this->Email = $email;
@@ -272,14 +294,14 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Add item to Email value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\Email $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
-    public function addToEmail($item)
+    public function addToEmail(\Devlabs91\GenericOtaHotelApiService\StructType\Email $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Email property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\Email) {
+            throw new \InvalidArgumentException(sprintf('The Email property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\Email, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->Email[] = $item;
         return $this;
@@ -366,7 +388,7 @@ class CompanyInfoType extends AbstractStructBase
     }
     /**
      * Get PaymentForm value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[]|null
      */
     public function getPaymentForm()
     {
@@ -375,15 +397,15 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Set PaymentForm value
      * @throws \InvalidArgumentException
-     * @param mixed[] $paymentForm
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm[] $paymentForm
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
     public function setPaymentForm(array $paymentForm = array())
     {
         foreach ($paymentForm as $companyInfoTypePaymentFormItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of anyType, "%s" given', is_object($companyInfoTypePaymentFormItem) ? get_class($companyInfoTypePaymentFormItem) : gettype($companyInfoTypePaymentFormItem)), __LINE__);
+            if (!$companyInfoTypePaymentFormItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm) {
+                throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm, "%s" given', is_object($companyInfoTypePaymentFormItem) ? get_class($companyInfoTypePaymentFormItem) : gettype($companyInfoTypePaymentFormItem)), __LINE__);
             }
         }
         $this->PaymentForm = $paymentForm;
@@ -392,14 +414,14 @@ class CompanyInfoType extends AbstractStructBase
     /**
      * Add item to PaymentForm value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
      */
-    public function addToPaymentForm($item)
+    public function addToPaymentForm(\Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm) {
+            throw new \InvalidArgumentException(sprintf('The PaymentForm property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\PaymentForm, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->PaymentForm[] = $item;
         return $this;
@@ -522,6 +544,46 @@ class CompanyInfoType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The LoyaltyProgram property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->LoyaltyProgram[] = $item;
+        return $this;
+    }
+    /**
+     * Get TripPurpose value
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose[]|null
+     */
+    public function getTripPurpose()
+    {
+        return $this->TripPurpose;
+    }
+    /**
+     * Set TripPurpose value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose[] $tripPurpose
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
+     */
+    public function setTripPurpose(array $tripPurpose = array())
+    {
+        foreach ($tripPurpose as $companyInfoTypeTripPurposeItem) {
+            // validation for constraint: itemType
+            if (!$companyInfoTypeTripPurposeItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose) {
+                throw new \InvalidArgumentException(sprintf('The TripPurpose property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose, "%s" given', is_object($companyInfoTypeTripPurposeItem) ? get_class($companyInfoTypeTripPurposeItem) : gettype($companyInfoTypeTripPurposeItem)), __LINE__);
+            }
+        }
+        $this->TripPurpose = $tripPurpose;
+        return $this;
+    }
+    /**
+     * Add item to TripPurpose value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\CompanyInfoType
+     */
+    public function addToTripPurpose(\Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose) {
+            throw new \InvalidArgumentException(sprintf('The TripPurpose property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\TripPurpose, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->TripPurpose[] = $item;
         return $this;
     }
     /**

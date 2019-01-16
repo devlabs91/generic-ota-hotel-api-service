@@ -6,6 +6,8 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddressType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Provides address information. | Specifies if the associated data is formatted or not. When true, then it is formatted; when false, then not formatted. | Allows for control of the sharing of address information between parties.
  * @subpackage Structs
  */
 class AddressType extends AbstractStructBase
@@ -13,22 +15,23 @@ class AddressType extends AbstractStructBase
     /**
      * The StreetNmbr
      * Meta informations extracted from the WSDL
-     * - documentation: Street Name and Number within the address
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\StreetNmbr
      */
     public $StreetNmbr;
     /**
      * The BldgRoom
      * Meta informations extracted from the WSDL
-     * - documentation: Building name, room, apartment, or suite number.
+     * - maxOccurs: 2
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom[]
      */
     public $BldgRoom;
     /**
      * The AddressLine
      * Meta informations extracted from the WSDL
+     * - documentation: When the address is unformatted (FormattedInd="false") these lines will contain free form address details. When the address is formatted and street number and street name must be sent independently, the street number will be sent
+     * using StreetNmbr, and the street name will be sent in the first AddressLine occurrence.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -37,7 +40,7 @@ class AddressType extends AbstractStructBase
     /**
      * The CityName
      * Meta informations extracted from the WSDL
-     * - documentation: City name eg. Dublin
+     * - documentation: City (e.g., Dublin), town, or postal station (i.e., a postal service territory, often used in a military address).
      * - minOccurs: 0
      * @var mixed
      */
@@ -53,7 +56,7 @@ class AddressType extends AbstractStructBase
     /**
      * The County
      * Meta informations extracted from the WSDL
-     * - documentation: County Name eg. Fairfax
+     * - documentation: County or Region Name (e.g., Fairfax).
      * - minOccurs: 0
      * @var mixed
      */
@@ -61,7 +64,7 @@ class AddressType extends AbstractStructBase
     /**
      * The StateProv
      * Meta informations extracted from the WSDL
-     * - documentation: State name eg. Texas
+     * - documentation: State or Province name (e.g., Texas).
      * - minOccurs: 0
      * @var mixed
      */
@@ -69,7 +72,7 @@ class AddressType extends AbstractStructBase
     /**
      * The CountryName
      * Meta informations extracted from the WSDL
-     * - documentation: Country name eg. Ireland
+     * - documentation: Country name (e.g., Ireland).
      * - minOccurs: 0
      * @var mixed
      */
@@ -77,11 +80,19 @@ class AddressType extends AbstractStructBase
     /**
      * The Type
      * Meta informations extracted from the WSDL
-     * - documentation: Defines the type of address (e.g. home, business, other). Refer to OTA Code List Communication Location Type (CLT).
+     * - documentation: Defines the type of address (e.g. home, business, other). Refer to OpenTravel Code List Communication Location Type (CLT).
      * - use: optional
      * @var string
      */
     public $Type;
+    /**
+     * The Remark
+     * Meta informations extracted from the WSDL
+     * - documentation: A remark associated with this address.
+     * - use: optional
+     * @var string
+     */
+    public $Remark;
     /**
      * Constructor method for AddressType
      * @uses AddressType::setStreetNmbr()
@@ -93,8 +104,9 @@ class AddressType extends AbstractStructBase
      * @uses AddressType::setStateProv()
      * @uses AddressType::setCountryName()
      * @uses AddressType::setType()
-     * @param mixed $streetNmbr
-     * @param mixed $bldgRoom
+     * @uses AddressType::setRemark()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StreetNmbr $streetNmbr
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom[] $bldgRoom
      * @param mixed[] $addressLine
      * @param mixed $cityName
      * @param mixed $postalCode
@@ -102,8 +114,9 @@ class AddressType extends AbstractStructBase
      * @param mixed $stateProv
      * @param mixed $countryName
      * @param string $type
+     * @param string $remark
      */
-    public function __construct($streetNmbr = null, $bldgRoom = null, array $addressLine = array(), $cityName = null, $postalCode = null, $county = null, $stateProv = null, $countryName = null, $type = null)
+    public function __construct(\Devlabs91\GenericOtaHotelApiService\StructType\StreetNmbr $streetNmbr = null, array $bldgRoom = array(), array $addressLine = array(), $cityName = null, $postalCode = null, $county = null, $stateProv = null, $countryName = null, $type = null, $remark = null)
     {
         $this
             ->setStreetNmbr($streetNmbr)
@@ -114,11 +127,12 @@ class AddressType extends AbstractStructBase
             ->setCounty($county)
             ->setStateProv($stateProv)
             ->setCountryName($countryName)
-            ->setType($type);
+            ->setType($type)
+            ->setRemark($remark);
     }
     /**
      * Get StreetNmbr value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\StreetNmbr|null
      */
     public function getStreetNmbr()
     {
@@ -126,17 +140,17 @@ class AddressType extends AbstractStructBase
     }
     /**
      * Set StreetNmbr value
-     * @param mixed $streetNmbr
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\StreetNmbr $streetNmbr
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AddressType
      */
-    public function setStreetNmbr($streetNmbr = null)
+    public function setStreetNmbr(\Devlabs91\GenericOtaHotelApiService\StructType\StreetNmbr $streetNmbr = null)
     {
         $this->StreetNmbr = $streetNmbr;
         return $this;
     }
     /**
      * Get BldgRoom value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom[]|null
      */
     public function getBldgRoom()
     {
@@ -144,12 +158,34 @@ class AddressType extends AbstractStructBase
     }
     /**
      * Set BldgRoom value
-     * @param mixed $bldgRoom
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom[] $bldgRoom
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\AddressType
      */
-    public function setBldgRoom($bldgRoom = null)
+    public function setBldgRoom(array $bldgRoom = array())
     {
+        foreach ($bldgRoom as $addressTypeBldgRoomItem) {
+            // validation for constraint: itemType
+            if (!$addressTypeBldgRoomItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom) {
+                throw new \InvalidArgumentException(sprintf('The BldgRoom property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom, "%s" given', is_object($addressTypeBldgRoomItem) ? get_class($addressTypeBldgRoomItem) : gettype($addressTypeBldgRoomItem)), __LINE__);
+            }
+        }
         $this->BldgRoom = $bldgRoom;
+        return $this;
+    }
+    /**
+     * Add item to BldgRoom value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AddressType
+     */
+    public function addToBldgRoom(\Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom) {
+            throw new \InvalidArgumentException(sprintf('The BldgRoom property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\BldgRoom, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->BldgRoom[] = $item;
         return $this;
     }
     /**
@@ -302,6 +338,28 @@ class AddressType extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($type)), __LINE__);
         }
         $this->Type = $type;
+        return $this;
+    }
+    /**
+     * Get Remark value
+     * @return string|null
+     */
+    public function getRemark()
+    {
+        return $this->Remark;
+    }
+    /**
+     * Set Remark value
+     * @param string $remark
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\AddressType
+     */
+    public function setRemark($remark = null)
+    {
+        // validation for constraint: string
+        if (!is_null($remark) && !is_string($remark)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($remark)), __LINE__);
+        }
+        $this->Remark = $remark;
         return $this;
     }
     /**

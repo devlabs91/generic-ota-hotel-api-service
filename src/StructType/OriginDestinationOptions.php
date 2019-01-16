@@ -15,15 +15,14 @@ class OriginDestinationOptions extends AbstractStructBase
     /**
      * The OriginDestinationOption
      * Meta informations extracted from the WSDL
-     * - documentation: A container for OriginDestinationOptionType.
      * - maxOccurs: 99
-     * @var mixed[]
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption[]
      */
     public $OriginDestinationOption;
     /**
      * Constructor method for OriginDestinationOptions
      * @uses OriginDestinationOptions::setOriginDestinationOption()
-     * @param mixed[] $originDestinationOption
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption[] $originDestinationOption
      */
     public function __construct(array $originDestinationOption = array())
     {
@@ -32,7 +31,7 @@ class OriginDestinationOptions extends AbstractStructBase
     }
     /**
      * Get OriginDestinationOption value
-     * @return mixed[]|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption[]|null
      */
     public function getOriginDestinationOption()
     {
@@ -41,15 +40,15 @@ class OriginDestinationOptions extends AbstractStructBase
     /**
      * Set OriginDestinationOption value
      * @throws \InvalidArgumentException
-     * @param mixed[] $originDestinationOption
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption[] $originDestinationOption
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOptions
      */
     public function setOriginDestinationOption(array $originDestinationOption = array())
     {
         foreach ($originDestinationOption as $originDestinationOptionsOriginDestinationOptionItem) {
             // validation for constraint: itemType
-            if (!false) {
-                throw new \InvalidArgumentException(sprintf('The OriginDestinationOption property can only contain items of anyType, "%s" given', is_object($originDestinationOptionsOriginDestinationOptionItem) ? get_class($originDestinationOptionsOriginDestinationOptionItem) : gettype($originDestinationOptionsOriginDestinationOptionItem)), __LINE__);
+            if (!$originDestinationOptionsOriginDestinationOptionItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption) {
+                throw new \InvalidArgumentException(sprintf('The OriginDestinationOption property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption, "%s" given', is_object($originDestinationOptionsOriginDestinationOptionItem) ? get_class($originDestinationOptionsOriginDestinationOptionItem) : gettype($originDestinationOptionsOriginDestinationOptionItem)), __LINE__);
             }
         }
         $this->OriginDestinationOption = $originDestinationOption;
@@ -58,14 +57,14 @@ class OriginDestinationOptions extends AbstractStructBase
     /**
      * Add item to OriginDestinationOption value
      * @throws \InvalidArgumentException
-     * @param mixed $item
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOptions
      */
-    public function addToOriginDestinationOption($item)
+    public function addToOriginDestinationOption(\Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption $item)
     {
         // validation for constraint: itemType
-        if (!false) {
-            throw new \InvalidArgumentException(sprintf('The OriginDestinationOption property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption) {
+            throw new \InvalidArgumentException(sprintf('The OriginDestinationOption property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\OriginDestinationOption, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->OriginDestinationOption[] = $item;
         return $this;

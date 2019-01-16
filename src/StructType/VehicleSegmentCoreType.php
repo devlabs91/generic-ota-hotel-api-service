@@ -15,14 +15,14 @@ class VehicleSegmentCoreType extends AbstractStructBase
     /**
      * The ConfID
      * Meta informations extracted from the WSDL
-     * - documentation: A confirmation number by which this reservation can be uniquely identified
-     * @var mixed
+     * - maxOccurs: 4
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[]
      */
     public $ConfID;
     /**
      * The Vendor
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the vendor associated with this information
+     * - documentation: Identifies the vendor associated with this information.
      * - minOccurs: 0
      * @var mixed
      */
@@ -31,6 +31,7 @@ class VehicleSegmentCoreType extends AbstractStructBase
      * The VehRentalCore
      * Meta informations extracted from the WSDL
      * - documentation: Information that is common, or core, to all requests and responses associated with the reservation of a vehicle.
+     * - minOccurs: 0
      * @var mixed
      */
     public $VehRentalCore;
@@ -38,14 +39,16 @@ class VehicleSegmentCoreType extends AbstractStructBase
      * The Vehicle
      * Meta informations extracted from the WSDL
      * - documentation: Information on one specific vehicle along with detailed information on the charges associated with this vehicle.
+     * - minOccurs: 0
      * @var mixed
      */
     public $Vehicle;
     /**
      * The RentalRate
      * Meta informations extracted from the WSDL
+     * - documentation: Information on the rates associated with this vehicle. Rate information can include the distance and the base rental cost, along with information on the various factors that may infuence this rate.
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate
+     * @var mixed
      */
     public $RentalRate;
     /**
@@ -65,9 +68,8 @@ class VehicleSegmentCoreType extends AbstractStructBase
     /**
      * The TotalCharge
      * Meta informations extracted from the WSDL
-     * - documentation: The total cost of this reservation, the sum of the individual charges, optional charges and associated fees.
      * - minOccurs: 0
-     * @var mixed
+     * @var \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge
      */
     public $TotalCharge;
     /**
@@ -79,6 +81,14 @@ class VehicleSegmentCoreType extends AbstractStructBase
      */
     public $TPA_Extensions;
     /**
+     * The IndexNumber
+     * Meta informations extracted from the WSDL
+     * - documentation: A unique number (e.g., segment number or index number) used to further identify a booked item within a list of booked items in a multi-segment PNR. Typically not used in messages to car suppliers.
+     * - use: optional
+     * @var string
+     */
+    public $IndexNumber;
+    /**
      * Constructor method for VehicleSegmentCoreType
      * @uses VehicleSegmentCoreType::setConfID()
      * @uses VehicleSegmentCoreType::setVendor()
@@ -89,17 +99,19 @@ class VehicleSegmentCoreType extends AbstractStructBase
      * @uses VehicleSegmentCoreType::setFees()
      * @uses VehicleSegmentCoreType::setTotalCharge()
      * @uses VehicleSegmentCoreType::setTPA_Extensions()
-     * @param mixed $confID
+     * @uses VehicleSegmentCoreType::setIndexNumber()
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[] $confID
      * @param mixed $vendor
      * @param mixed $vehRentalCore
      * @param mixed $vehicle
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate $rentalRate
+     * @param mixed $rentalRate
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\PricedEquips $pricedEquips
      * @param \Devlabs91\GenericOtaHotelApiService\StructType\Fees $fees
-     * @param mixed $totalCharge
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge $totalCharge
      * @param mixed $tPA_Extensions
+     * @param string $indexNumber
      */
-    public function __construct($confID = null, $vendor = null, $vehRentalCore = null, $vehicle = null, \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate $rentalRate = null, \Devlabs91\GenericOtaHotelApiService\StructType\PricedEquips $pricedEquips = null, \Devlabs91\GenericOtaHotelApiService\StructType\Fees $fees = null, $totalCharge = null, $tPA_Extensions = null)
+    public function __construct(array $confID = array(), $vendor = null, $vehRentalCore = null, $vehicle = null, $rentalRate = null, \Devlabs91\GenericOtaHotelApiService\StructType\PricedEquips $pricedEquips = null, \Devlabs91\GenericOtaHotelApiService\StructType\Fees $fees = null, \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge $totalCharge = null, $tPA_Extensions = null, $indexNumber = null)
     {
         $this
             ->setConfID($confID)
@@ -110,11 +122,12 @@ class VehicleSegmentCoreType extends AbstractStructBase
             ->setPricedEquips($pricedEquips)
             ->setFees($fees)
             ->setTotalCharge($totalCharge)
-            ->setTPA_Extensions($tPA_Extensions);
+            ->setTPA_Extensions($tPA_Extensions)
+            ->setIndexNumber($indexNumber);
     }
     /**
      * Get ConfID value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[]|null
      */
     public function getConfID()
     {
@@ -122,12 +135,34 @@ class VehicleSegmentCoreType extends AbstractStructBase
     }
     /**
      * Set ConfID value
-     * @param mixed $confID
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ConfID[] $confID
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleSegmentCoreType
      */
-    public function setConfID($confID = null)
+    public function setConfID(array $confID = array())
     {
+        foreach ($confID as $vehicleSegmentCoreTypeConfIDItem) {
+            // validation for constraint: itemType
+            if (!$vehicleSegmentCoreTypeConfIDItem instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ConfID) {
+                throw new \InvalidArgumentException(sprintf('The ConfID property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ConfID, "%s" given', is_object($vehicleSegmentCoreTypeConfIDItem) ? get_class($vehicleSegmentCoreTypeConfIDItem) : gettype($vehicleSegmentCoreTypeConfIDItem)), __LINE__);
+            }
+        }
         $this->ConfID = $confID;
+        return $this;
+    }
+    /**
+     * Add item to ConfID value
+     * @throws \InvalidArgumentException
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\ConfID $item
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleSegmentCoreType
+     */
+    public function addToConfID(\Devlabs91\GenericOtaHotelApiService\StructType\ConfID $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Devlabs91\GenericOtaHotelApiService\StructType\ConfID) {
+            throw new \InvalidArgumentException(sprintf('The ConfID property can only contain items of \Devlabs91\GenericOtaHotelApiService\StructType\ConfID, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ConfID[] = $item;
         return $this;
     }
     /**
@@ -186,7 +221,7 @@ class VehicleSegmentCoreType extends AbstractStructBase
     }
     /**
      * Get RentalRate value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate|null
+     * @return mixed|null
      */
     public function getRentalRate()
     {
@@ -194,10 +229,10 @@ class VehicleSegmentCoreType extends AbstractStructBase
     }
     /**
      * Set RentalRate value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\RentalRate $rentalRate
+     * @param mixed $rentalRate
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleSegmentCoreType
      */
-    public function setRentalRate(\Devlabs91\GenericOtaHotelApiService\StructType\RentalRate $rentalRate = null)
+    public function setRentalRate($rentalRate = null)
     {
         $this->RentalRate = $rentalRate;
         return $this;
@@ -240,7 +275,7 @@ class VehicleSegmentCoreType extends AbstractStructBase
     }
     /**
      * Get TotalCharge value
-     * @return mixed|null
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge|null
      */
     public function getTotalCharge()
     {
@@ -248,10 +283,10 @@ class VehicleSegmentCoreType extends AbstractStructBase
     }
     /**
      * Set TotalCharge value
-     * @param mixed $totalCharge
+     * @param \Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge $totalCharge
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleSegmentCoreType
      */
-    public function setTotalCharge($totalCharge = null)
+    public function setTotalCharge(\Devlabs91\GenericOtaHotelApiService\StructType\TotalCharge $totalCharge = null)
     {
         $this->TotalCharge = $totalCharge;
         return $this;
@@ -272,6 +307,28 @@ class VehicleSegmentCoreType extends AbstractStructBase
     public function setTPA_Extensions($tPA_Extensions = null)
     {
         $this->TPA_Extensions = $tPA_Extensions;
+        return $this;
+    }
+    /**
+     * Get IndexNumber value
+     * @return string|null
+     */
+    public function getIndexNumber()
+    {
+        return $this->IndexNumber;
+    }
+    /**
+     * Set IndexNumber value
+     * @param string $indexNumber
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\VehicleSegmentCoreType
+     */
+    public function setIndexNumber($indexNumber = null)
+    {
+        // validation for constraint: string
+        if (!is_null($indexNumber) && !is_string($indexNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($indexNumber)), __LINE__);
+        }
+        $this->IndexNumber = $indexNumber;
         return $this;
     }
     /**

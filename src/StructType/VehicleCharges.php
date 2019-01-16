@@ -16,7 +16,7 @@ class VehicleCharges extends AbstractStructBase
     /**
      * The VehicleCharge
      * Meta informations extracted from the WSDL
-     * - documentation: Detailed information on one specific charge including an indication of the type of charge. | Detailed information on one specific charge including an indication of the type of charge.
+     * - documentation: Detailed information on one specific charge including an indication of the type of charge.
      * - maxOccurs: 99
      * @var mixed[]
      */

@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Room StructType
  * Meta informations extracted from the WSDL
- * - documentation: Attributes to describe the room from room category to to location to view to bed type.
+ * - documentation: Attributes to describe the room from room category to location to view to bed type.
  * @subpackage Structs
  */
 class Room extends AbstractStructBase

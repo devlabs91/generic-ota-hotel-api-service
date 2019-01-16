@@ -13,6 +13,7 @@ class AvailableMealPlans extends AbstractStructBase
     /**
      * The MealPlan
      * Meta informations extracted from the WSDL
+     * - documentation: Details of meal arrangements, booked or available according to context, with appropriate supplementary charges.
      * - maxOccurs: 9
      * @var mixed[]
      */

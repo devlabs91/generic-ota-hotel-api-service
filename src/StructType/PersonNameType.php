@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for PersonNameType StructType
  * Meta informations extracted from the WSDL
- * - documentation: This is an XML Schema representing the OTA Person Name object.
+ * - documentation: This provides name information for a person. | Allows for control of the sharing of person name data between parties.
  * @subpackage Structs
  */
 class PersonNameType extends AbstractStructBase
@@ -15,7 +15,7 @@ class PersonNameType extends AbstractStructBase
     /**
      * The NamePrefix
      * Meta informations extracted from the WSDL
-     * - documentation: Salutation of honorific. (e.g., Mr. Mrs., Ms., Miss, Dr.)
+     * - documentation: Salutation of honorific (e.g. Mr., Mrs., Ms., Miss, Dr.)
      * - maxOccurs: 3
      * - minOccurs: 0
      * @var mixed[]
@@ -24,7 +24,7 @@ class PersonNameType extends AbstractStructBase
     /**
      * The GivenName
      * Meta informations extracted from the WSDL
-     * - documentation: Given name, first name or names
+     * - documentation: Given name, first name or names.
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
@@ -33,7 +33,7 @@ class PersonNameType extends AbstractStructBase
     /**
      * The MiddleName
      * Meta informations extracted from the WSDL
-     * - documentation: The middle name of the person name
+     * - documentation: The middle name of the person name.
      * - maxOccurs: 3
      * - minOccurs: 0
      * @var mixed[]
@@ -42,7 +42,7 @@ class PersonNameType extends AbstractStructBase
     /**
      * The SurnamePrefix
      * Meta informations extracted from the WSDL
-     * - documentation: e.g "van der", "von", "de"
+     * - documentation: e.g "van der", "von", "de".
      * - minOccurs: 0
      * @var mixed
      */
@@ -50,14 +50,14 @@ class PersonNameType extends AbstractStructBase
     /**
      * The Surname
      * Meta informations extracted from the WSDL
-     * - documentation: Family name, last name.
+     * - documentation: Family name, last name. May also be used for full name if the sending system does not have the ability to separate a full name into its parts, e.g. the surname element may be used to pass the full name.
      * @var mixed
      */
     public $Surname;
     /**
      * The NameSuffix
      * Meta informations extracted from the WSDL
-     * - documentation: Hold various name suffixes and letters (e.g. Jr., Sr., III, Ret., Esq.).
+     * - documentation: Hold various name suffixes and letters (e.g. Jr., Sr., III, Ret., Esq.)
      * - maxOccurs: 3
      * - minOccurs: 0
      * @var mixed[]
@@ -75,7 +75,7 @@ class PersonNameType extends AbstractStructBase
     /**
      * The NameType
      * Meta informations extracted from the WSDL
-     * - documentation: Type of name of the individual, such as former, nickname, alternate or alias name. Refer to OTA Code List Name Type (NAM).
+     * - documentation: Type of name of the individual, such as former, nickname, alternate or alias name. Refer to OpenTravel Code List Name Type (NAM).
      * - use: optional
      * @var string
      */

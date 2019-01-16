@@ -7,7 +7,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AffiliationsType StructType
  * Meta informations extracted from the WSDL
- * - documentation: Defines an entity that provides travel services or benefits to a customer or company.
+ * - documentation: Defines an entity that provides travel services or benefits to a customer or company. | Allows for control of the sharing of affiliation data between parties.
  * @subpackage Structs
  */
 class AffiliationsType extends AbstractStructBase
@@ -15,6 +15,7 @@ class AffiliationsType extends AbstractStructBase
     /**
      * The Organization
      * Meta informations extracted from the WSDL
+     * - documentation: Detailed information for a membership organization that has travel benefits, programs or discounts.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -23,6 +24,7 @@ class AffiliationsType extends AbstractStructBase
     /**
      * The Employer
      * Meta informations extracted from the WSDL
+     * - documentation: Employer information associated to this affiliation.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -31,6 +33,7 @@ class AffiliationsType extends AbstractStructBase
     /**
      * The TravelArranger
      * Meta informations extracted from the WSDL
+     * - documentation: Information on the organization responsible for arranging travel.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -39,6 +42,7 @@ class AffiliationsType extends AbstractStructBase
     /**
      * The TravelClub
      * Meta informations extracted from the WSDL
+     * - documentation: A club that offers special privileges and related services for this affiliation.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]
@@ -47,6 +51,7 @@ class AffiliationsType extends AbstractStructBase
     /**
      * The Insurance
      * Meta informations extracted from the WSDL
+     * - documentation: Travel insurance associated to this affiliation.
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var mixed[]

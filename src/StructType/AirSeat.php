@@ -7,10 +7,10 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for AirSeat StructType
  * Meta informations extracted from the WSDL
- * - documentation: A Seat within a row
+ * - documentation: A Seat within a row | Describes the seat attributes.
  * @subpackage Structs
  */
-class AirSeat extends SeatDetailsType
+class AirSeat extends AbstractStructBase
 {
     /**
      * The RPH

@@ -7,8 +7,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for Amenity StructType
  * Meta informations extracted from the WSDL
- * - documentation: AmenitityCode Attribute is used to hold actual amenity code. | This provides an area to pass amenity information. | Tangible room item(s) available to the guest such as newspaper, | May be used to give further detail on the code
- * (e.g. if bathroom amenities is selected additional information about what amenities are available in the guest room can be passed here) or to remove an obsolete item.
+ * - documentation: Amenity Code Attribute is used to hold actual amenity code. | This provides an area to pass amenity information. | Tangible room item(s) (e.g., newspaper) available to the guest. | May be used to give further detail on the code (e.g.
+ * if bathroom amenities is selected additional information about what amenities are available in the guest room can be passed here) or to remove an obsolete item. | A unique identifying value assigned by the creating system. The ID attribute may be
+ * used to reference a primary-key value within a database or in a particular implementation.
  * @subpackage Structs
  */
 class Amenity extends RoomAmenityPrefType
@@ -16,14 +17,14 @@ class Amenity extends RoomAmenityPrefType
     /**
      * The AmenityCode
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Room Amenity Type (RMA).
+     * - documentation: Refer to OpenTravel Code List Room Amenity Type (RMA).
      * @var string
      */
     public $AmenityCode;
     /**
      * The PropertyAmenityType
      * Meta informations extracted from the WSDL
-     * - documentation: Identifies the amenities offered by the hotel. Refer to OTA Code List Hotel Amenity Code (HAC).
+     * - documentation: Identifies the amenities offered by the hotel. Refer to OpenTravel Code List Hotel Amenity Code (HAC).
      * - use: optional
      * @var string
      */
@@ -31,48 +32,93 @@ class Amenity extends RoomAmenityPrefType
     /**
      * The OperationSchedules
      * Meta informations extracted from the WSDL
+     * - documentation: Collection of days, times, and fees.
      * - minOccurs: 0
-     * @var \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules
+     * @var mixed
      */
     public $OperationSchedules;
     /**
-     * The Description
+     * The ContactInfo
      * Meta informations extracted from the WSDL
-     * - documentation: This will allow for text descriptions to be sent with items such as kitchenette.
+     * - documentation: Used to include additional information regarding the amenity (e.g. the provider of the service).
      * - maxOccurs: 5
      * - minOccurs: 0
      * @var mixed[]
      */
-    public $Description;
+    public $ContactInfo;
+    /**
+     * The MultimediaDescriptions
+     * Meta informations extracted from the WSDL
+     * - documentation: Multimedia information about the amenity.
+     * - minOccurs: 0
+     * @var mixed
+     */
+    public $MultimediaDescriptions;
+    /**
+     * The DescriptiveText
+     * Meta informations extracted from the WSDL
+     * - documentation: Descriptive text that describes the amenity.
+     * - minOccurs: 0
+     * @var string
+     */
+    public $DescriptiveText;
     /**
      * The RoomAmenityCode
      * Meta informations extracted from the WSDL
-     * - documentation: Refer to OTA Code List Room Amenity Type (RMA).
+     * - documentation: Refer to OpenTravel Code List Room Amenity Type (RMA).
      * - use: optional
      * @var string
      */
     public $RoomAmenityCode;
     /**
+     * The IncludedInRateIndicator
+     * Meta informations extracted from the WSDL
+     * - documentation: When true, this indicates that the amenity or service is included in the room rate (i.e., this service or amenity has no additional charge).
+     * - use: optional
+     * @var bool
+     */
+    public $IncludedInRateIndicator;
+    /**
+     * The ExistsCode
+     * Meta informations extracted from the WSDL
+     * - documentation: This attribute is used to explicitly define whether an amenity or service is offered. Refer to the OpenTravel Code List Option Type Code (OTC). This is used in conjunction with RoomAmenityCode.
+     * - use: optional
+     * @var string
+     */
+    public $ExistsCode;
+    /**
      * Constructor method for Amenity
      * @uses Amenity::setAmenityCode()
      * @uses Amenity::setPropertyAmenityType()
      * @uses Amenity::setOperationSchedules()
-     * @uses Amenity::setDescription()
+     * @uses Amenity::setContactInfo()
+     * @uses Amenity::setMultimediaDescriptions()
+     * @uses Amenity::setDescriptiveText()
      * @uses Amenity::setRoomAmenityCode()
+     * @uses Amenity::setIncludedInRateIndicator()
+     * @uses Amenity::setExistsCode()
      * @param string $amenityCode
      * @param string $propertyAmenityType
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules
-     * @param mixed[] $description
+     * @param mixed $operationSchedules
+     * @param mixed[] $contactInfo
+     * @param mixed $multimediaDescriptions
+     * @param string $descriptiveText
      * @param string $roomAmenityCode
+     * @param bool $includedInRateIndicator
+     * @param string $existsCode
      */
-    public function __construct($amenityCode = null, $propertyAmenityType = null, \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules = null, array $description = array(), $roomAmenityCode = null)
+    public function __construct($amenityCode = null, $propertyAmenityType = null, $operationSchedules = null, array $contactInfo = array(), $multimediaDescriptions = null, $descriptiveText = null, $roomAmenityCode = null, $includedInRateIndicator = null, $existsCode = null)
     {
         $this
             ->setAmenityCode($amenityCode)
             ->setPropertyAmenityType($propertyAmenityType)
             ->setOperationSchedules($operationSchedules)
-            ->setDescription($description)
-            ->setRoomAmenityCode($roomAmenityCode);
+            ->setContactInfo($contactInfo)
+            ->setMultimediaDescriptions($multimediaDescriptions)
+            ->setDescriptiveText($descriptiveText)
+            ->setRoomAmenityCode($roomAmenityCode)
+            ->setIncludedInRateIndicator($includedInRateIndicator)
+            ->setExistsCode($existsCode);
     }
     /**
      * Get AmenityCode value
@@ -120,7 +166,7 @@ class Amenity extends RoomAmenityPrefType
     }
     /**
      * Get OperationSchedules value
-     * @return \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules|null
+     * @return mixed|null
      */
     public function getOperationSchedules()
     {
@@ -128,52 +174,92 @@ class Amenity extends RoomAmenityPrefType
     }
     /**
      * Set OperationSchedules value
-     * @param \Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules
+     * @param mixed $operationSchedules
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Amenity
      */
-    public function setOperationSchedules(\Devlabs91\GenericOtaHotelApiService\StructType\OperationSchedules $operationSchedules = null)
+    public function setOperationSchedules($operationSchedules = null)
     {
         $this->OperationSchedules = $operationSchedules;
         return $this;
     }
     /**
-     * Get Description value
+     * Get ContactInfo value
      * @return mixed[]|null
      */
-    public function getDescription()
+    public function getContactInfo()
     {
-        return $this->Description;
+        return $this->ContactInfo;
     }
     /**
-     * Set Description value
+     * Set ContactInfo value
      * @throws \InvalidArgumentException
-     * @param mixed[] $description
+     * @param mixed[] $contactInfo
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Amenity
      */
-    public function setDescription(array $description = array())
+    public function setContactInfo(array $contactInfo = array())
     {
-        foreach ($description as $amenityDescriptionItem) {
+        foreach ($contactInfo as $amenityContactInfoItem) {
             // validation for constraint: itemType
             if (!false) {
-                throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($amenityDescriptionItem) ? get_class($amenityDescriptionItem) : gettype($amenityDescriptionItem)), __LINE__);
+                throw new \InvalidArgumentException(sprintf('The ContactInfo property can only contain items of anyType, "%s" given', is_object($amenityContactInfoItem) ? get_class($amenityContactInfoItem) : gettype($amenityContactInfoItem)), __LINE__);
             }
         }
-        $this->Description = $description;
+        $this->ContactInfo = $contactInfo;
         return $this;
     }
     /**
-     * Add item to Description value
+     * Add item to ContactInfo value
      * @throws \InvalidArgumentException
      * @param mixed $item
      * @return \Devlabs91\GenericOtaHotelApiService\StructType\Amenity
      */
-    public function addToDescription($item)
+    public function addToContactInfo($item)
     {
         // validation for constraint: itemType
         if (!false) {
-            throw new \InvalidArgumentException(sprintf('The Description property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The ContactInfo property can only contain items of anyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
-        $this->Description[] = $item;
+        $this->ContactInfo[] = $item;
+        return $this;
+    }
+    /**
+     * Get MultimediaDescriptions value
+     * @return mixed|null
+     */
+    public function getMultimediaDescriptions()
+    {
+        return $this->MultimediaDescriptions;
+    }
+    /**
+     * Set MultimediaDescriptions value
+     * @param mixed $multimediaDescriptions
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Amenity
+     */
+    public function setMultimediaDescriptions($multimediaDescriptions = null)
+    {
+        $this->MultimediaDescriptions = $multimediaDescriptions;
+        return $this;
+    }
+    /**
+     * Get DescriptiveText value
+     * @return string|null
+     */
+    public function getDescriptiveText()
+    {
+        return $this->DescriptiveText;
+    }
+    /**
+     * Set DescriptiveText value
+     * @param string $descriptiveText
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Amenity
+     */
+    public function setDescriptiveText($descriptiveText = null)
+    {
+        // validation for constraint: string
+        if (!is_null($descriptiveText) && !is_string($descriptiveText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptiveText)), __LINE__);
+        }
+        $this->DescriptiveText = $descriptiveText;
         return $this;
     }
     /**
@@ -196,6 +282,50 @@ class Amenity extends RoomAmenityPrefType
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($roomAmenityCode)), __LINE__);
         }
         $this->RoomAmenityCode = $roomAmenityCode;
+        return $this;
+    }
+    /**
+     * Get IncludedInRateIndicator value
+     * @return bool|null
+     */
+    public function getIncludedInRateIndicator()
+    {
+        return $this->IncludedInRateIndicator;
+    }
+    /**
+     * Set IncludedInRateIndicator value
+     * @param bool $includedInRateIndicator
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Amenity
+     */
+    public function setIncludedInRateIndicator($includedInRateIndicator = null)
+    {
+        // validation for constraint: boolean
+        if (!is_null($includedInRateIndicator) && !is_bool($includedInRateIndicator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includedInRateIndicator)), __LINE__);
+        }
+        $this->IncludedInRateIndicator = $includedInRateIndicator;
+        return $this;
+    }
+    /**
+     * Get ExistsCode value
+     * @return string|null
+     */
+    public function getExistsCode()
+    {
+        return $this->ExistsCode;
+    }
+    /**
+     * Set ExistsCode value
+     * @param string $existsCode
+     * @return \Devlabs91\GenericOtaHotelApiService\StructType\Amenity
+     */
+    public function setExistsCode($existsCode = null)
+    {
+        // validation for constraint: string
+        if (!is_null($existsCode) && !is_string($existsCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($existsCode)), __LINE__);
+        }
+        $this->ExistsCode = $existsCode;
         return $this;
     }
     /**
